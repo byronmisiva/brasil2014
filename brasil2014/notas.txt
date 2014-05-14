@@ -1,0 +1,4 @@
+Orden
+	1 Equipos
+	2 Jugadores
+	3 Partidos

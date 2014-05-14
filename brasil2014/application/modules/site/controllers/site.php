@@ -1,0 +1,331 @@
+<?php
+
+class Site extends MY_Controller
+{
+
+    public $model = FALSE;
+    public $data = array();
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function index()
+    {
+        $this->equipos();
+    }
+
+
+    public function home()
+    {
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('ranking');
+        $this->load->module('jugadores');
+
+        $data['pageTitle'] = "Home - Mundial Movistar";
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleria();
+
+        $data['content'] = $this->videos->viewVideosHeader();
+        $data['content'] .= $this->ranking->viewRankingGrupos();
+        $data['content'] .= $this->contenido->view_historia_home();
+        $data['content'] .= $this->contenido->view_banner_contenido();
+        $data['content'] .= $this->contenido->view_sedes();
+        $data['content'] .= $this->contenido->view_estadios();
+
+        $this->templates->_index($data);
+    }
+
+    public function grupos()
+    {
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('ranking');
+        $this->load->module('jugadores');
+
+        $data['pageTitle'] = "Grupos - Mundial Movistar";
+
+        $data['sidebar'] = $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleria();
+
+        $data['content'] = $this->ranking->viewRankingFases();
+        $this->templates->_index($data);
+    }
+
+    public function calendario()
+    {
+
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('jugadores');
+        $data['pageTitle'] = "Home - Mundial Movistar";
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleria();
+
+        $data['content'] = $this->videos->viewVideosHeader();
+        $data['content'] .= $this->partidos->minutoAminuto();
+        $this->templates->_index($data);
+    }
+
+    public function goleadores()
+    {
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('jugadores');
+        $data['pageTitle'] = "Home - Mundial Movistar";
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleria();
+
+        $data['content'] = $this->videos->viewVideosHeader();
+        $data['content'] .= $this->jugadores->viewRankingGoleadoresFull();
+        $data['content'] .= $this->contenido->view_sedes();
+        $data['content'] .= $this->contenido->view_estadios();
+        $this->templates->_index($data);
+    }
+
+    public function equipo()
+    {
+        $idEquipo = $this->uri->segment(3);
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('jugadores');
+        $this->load->module('equipos_campeonato');
+        $this->load->module('fichas');
+        $this->load->module('ranking');
+        $data['pageTitle'] = "Home - Mundial Movistar";
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleria();
+
+        $data['content'] = $this->equipos_campeonato->viewEquiposBanderas();
+        $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
+        $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
+        $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
+        $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+        $data['content'] .= $this->contenido->view_sedes();
+        $data['content'] .= $this->contenido->view_estadios();
+
+        $this->templates->_index($data);
+    }
+
+    public function minutoAminuto()
+    {
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('templates');
+        $this->load->module('contenido');
+        $data['pageTitle'] = "Minuto a minuto - Mundial Movistar";
+        $data['content'] = $this->partidos->getGruposCalendarioTab();
+
+        $partidoMinutoAMinuto = $this->uri->segment(4);
+        if (isset ($partidoMinutoAMinuto)) {
+            $data['content'] = $this->partidos->minutoAMinuto($partidoMinutoAMinuto);
+        }
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->partidos->getMinutoAminutoMod();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $this->templates->_index($data);
+    }
+
+
+    public function equipos()
+    {
+        $this->load->module('equipos');
+        $this->load->module('templates');
+        $data['pageTitle'] = "Equipos";
+        $data['body'] = $this->equipos->view();
+        $this->templates->demoTemplate($data);
+    }
+
+    public function estadios()
+    {
+        $this->load->module('estadios');
+        $this->load->module('templates');
+        $data['pageTitle'] = "Estadios";
+        $data['body'] = $this->estadios->view();
+        $this->templates->demoTemplate($data);
+    }
+
+    public function historias()
+    {
+        $this->load->module('contenido');
+        $this->load->module('templates');
+        $data['pageTitle'] = "Historias";
+        $data['body'] = $this->contenido->view_historia();
+        $this->templates->demoTemplate($data);
+    }
+
+    function syncXmlDinamicos(){
+        //Syncronización de archivos que tienen informacion dinámica
+        $url= base_url("contenido/sync_noticias");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url = base_url("fases/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url = base_url("grupos/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url = base_url("partidos/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url=  base_url("alineaciones/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url=  base_url("jugadores/syncGoledores");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url=  base_url("tarjetas/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url=  base_url("goles/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url=  base_url("partidos/syncResultados");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        //Ranking ya con correspondencia de datos
+
+
+    }
+
+    function syncXmlContenidoStatico(){
+
+        //Ejecuta este metodo solo una vez para sincronizar contenido estático
+
+        //En el server se quita el bse y se pone url
+        //$url='http://64.150.191.240/contenido/sync_noticias';
+
+        $url= base_url("contenido/sync_historias");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url = base_url("equipos/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url = base_url("equipos_campeonato/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url = base_url("estadios/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+        $url = base_url("jugadores/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+    }
+
+}
