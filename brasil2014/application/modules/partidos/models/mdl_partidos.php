@@ -75,9 +75,9 @@ class Mdl_partidos extends MY_Model
     {
         $this->load->module('equipos');
         $this->load->module('estadios');
-        $partidos = $this->get(array('select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
+        $partidos = $this->get(array('select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante, partidos.local, partidos.visitante",
             'order_by' => 'partidos.fecha ASC',
-            'where' => "(SELECT  DATE_FORMAT(b.fecha, '%Y-%c-%e') from partidos b   WHERE DATE_FORMAT(b.fecha, '%Y-%c-%e')  > '2010-5-10' GROUP BY DATE_FORMAT(b.fecha, '%Y-%c-%e') LIMIT 1) =  DATE_FORMAT(partidos.fecha, '%Y-%c-%e')"
+            'where' => "(SELECT  DATE_FORMAT(b.fecha, '%Y-%c-%e') from partidos b   WHERE DATE_FORMAT(b.fecha, '%Y-%c-%e')  > NOW() GROUP BY DATE_FORMAT(b.fecha, '%Y-%c-%e') LIMIT 1) =  DATE_FORMAT(partidos.fecha, '%Y-%c-%e')"
             ));
 
         $datos = array();
@@ -103,12 +103,12 @@ class Mdl_partidos extends MY_Model
 
         //query recupera el listado de todos los partidos ordenados por fecha
         $partidos = $this->get(array('select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
-            'where' => array("visitante"=>32),
+            'where' => array("visitante"=>$idEquipo),
             'order_by' => 'partidos.fecha ASC'
         ));
 
         $partidosLocal = $this->get(array('select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
-            'where' => array("local"=>32),
+            'where' => array("local"=>$idEquipo),
             'order_by' => 'partidos.fecha ASC'
         ));
 

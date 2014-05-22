@@ -43,6 +43,12 @@ body {
     background: url("../images/backgroun-header.png") repeat-x scroll 0 0;
 }
 
+a {
+    color: #095A7C;
+}
+a:hover,.a:visited  {
+    text-decoration: none;
+}
 .blanco {
     background-color: #FFFFFF;
     padding-top: 15px;
@@ -144,6 +150,9 @@ h2, h3 {
 }
 .margen5 {
     padding: 0 5px;
+}
+.margen15r {
+    padding-right: 15px;
 }
 .margen5r {
     padding-right: 5px;
@@ -985,13 +994,16 @@ a, a:hover, a:focus{
     line-height: 27px;
 }
 
+.gol-cuerpo  a:visited,.gol-cuerpo  a:hover {
+    text-decoration: none
+}
 .gol-cuerpo {
     height: 30px;
     border-top: 1px solid #e8e8e8  ;
     line-height: 27px;
 }
 .gol-cuerpo div {
-     border-right: 1px solid #e4e4eQ4  ;
+     border-right: 1px solid #e4e4e4  ;
  }
 
 .main-goleadores {
@@ -1119,5 +1131,50 @@ a, a:hover, a:focus{
 }
 
 .bandera40 .iconos {
-    margin-right: 8px;
+    margin-bottom: 15px;
+    margin-right: 2px;
+}
+
+.margen-vert  {
+    margin-top: 5px;
+}
+
+.noticia1 {
+    height: 150px;
+    overflow: hidden;
+}
+
+
+.noticia2 {
+    height: 70px;
+    overflow: hidden;
+}
+
+h1.noticia-abierta  {
+    color: #231f20;
+    font-size: 20px;
+    margin: 5px 0 10px;
+}
+h2.noticia-abierta  {
+    margin: 5px 0 25px;
+}
+
+p.noticia-abierta    {
+    font-size: 12px;
+    margin: 5px 0 10px;
+    text-align: justify;
+}
+
+.imagenes-galeria {
+    height: 93px;
+    width: 93px;
+    overflow: hidden;
+}
+.estadio-banner {
+    height: 170px;
+    overflow: hidden;
+}
+
+.altonews {
+    min-height: 140px;
 }

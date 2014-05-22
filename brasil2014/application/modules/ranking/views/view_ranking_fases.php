@@ -23,7 +23,13 @@
                 ?>
                 <div class="col-md-12 movi-headline-regular cuerpo">
                     <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5  margen2 nombre-equipo">
-                        <a href="equipo/<?php echo $equipo->id; ?>"><?php echo $equipo->name; ?></a>
+                        <div class="col-md-2 margen0 margen-vert">
+                            <span
+                                class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($equipo->name)) ?>"></span>
+                        </div>
+                        <div class="col-md-10 margen0">
+                            <a href="equipo/<?php echo $equipo->id; ?>"><?php echo $equipo->name; ?></a>
+                        </div>
                     </div>
                     <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">
                         <?php if (isset($equipo)) echo $equipo->n_partidos; ?>

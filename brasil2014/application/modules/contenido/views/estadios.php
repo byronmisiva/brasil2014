@@ -8,36 +8,44 @@
         <hr class="cabecera">
     </div>
     <div class="clearfix"></div>
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Controls -->
-        <a  href="#carousel-example-generic" data-slide="prev" data-slide-to="1">
-            <div class="col-md-6 gris">
-                <
-            </div>
-        </a>
-        <a  href="#carousel-example-generic" data-slide="next"data-slide-to="1">
-            <div class="col-md-6 text-right gris">
-                >
-            </div>
-        </a>
+    <div id="carousel-estadios" class="carousel slide" data-ride="carousel">
         <div class="clearfix"></div>
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
-                <img src="<?php echo base_url('imagenes/estadios/estadio1.png') ?>" alt="..." class="img-responsive margin-bottom-20">
-                <div class="col-md-12 margen0l conten">
-                    <h3>Estadio Mineirão, Belo Horizonte</h3>
-                    Este recinto, uno de los templos del fútbol brasileño y casa de los multicampeones nacionales Atlético Mineiro y
-                    Cruzeiro, tiene capacidad para 62.547 espectadores.
+            <?php
+            $cont = "active";
+            foreach ($datosEstadio as $row) {
+                ?>
+                <div class="item <?php echo $cont;
+                $cont = ''; ?>">
+                    <?php
+                    foreach ($row['imagenes'] as $imag) {
+                        if (!empty($imag[0])) {
+                            ?><div class="estadio-banner">
+                            <img width="98%" src="<?php echo $imag[0]->thumb250; ?>" alt="<?php echo $row['nombre']; ?>"
+                                 class="img-responsive margin-bottom-20"></div>
+                        <?php
+                        } else {
+                            echo "no imagen";
+                        }
+                    }
+                    ?>
+                    <div class="col-md-6 gris"><a href="#carousel-estadios" data-slide="prev"
+                            ><</a></div>
+                    <div class="col-md-6 text-right gris"><a href="#carousel-estadios" data-slide="next"
+                            >></a></div>
+                    <div class="col-md-12 margen0l conten">
+                        <h3><?php echo $row['nombre']; ?></h3>
+                        Ubicado en la ciudad de <?php echo $row['ciudad']; ?>, cuenta con la capacidad máxima
+                        de <?php echo $row['capacidad']; ?> personas y pertenece al club
+                        deportivo <?php echo $row['club']; ?>
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <img src="<?php echo base_url('imagenes/estadios/estadio1.png') ?>" alt="..." class="img-responsive margin-bottom-20">
-                <div class="col-md-12 margen0l conten">
-                    <h3>Otro estadio</h3>
-                    Otro estadio.
-                </div>
-            </div>
+            <?php
+
+
+            }
+            ?>
         </div>
     </div>
 </div>

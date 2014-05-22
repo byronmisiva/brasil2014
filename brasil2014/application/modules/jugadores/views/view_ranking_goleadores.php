@@ -20,10 +20,11 @@
             for ($i = 0; $i < 5; $i++) {
                 ?>
                 <div class="col-md-12 gol-cuerpo margen0">
+
                     <div class="col-md-2 ">
                         <div class="iconos sprite-escudo-<?php echo strtolower ((string)$goleadores[$i]->short_name);?>"></div>
                     </div>
-                    <div class="col-md-8 "><?php echo (string)$goleadores[$i]->nombre." ".(string)$goleadores[$i]->apellido . " (" . (string)$goleadores[$i]->short_name. ")";?></div>
+                    <div class="col-md-8 "><a href="<?php echo base_url('site/goleadores')?>"  ><?php echo (string)$goleadores[$i]->nombre." ".(string)$goleadores[$i]->apellido . " (" . (string)$goleadores[$i]->short_name. ")";?></a></div>
                     <div class="col-md-2 margen0 text-center gris"><?php echo (string)$goleadores[$i]->n_goles;?></div>
                 </div>
             <?php

@@ -10,19 +10,25 @@
 
 
         <?php
-        for ($i = 0; $i < 9; $i++) {
+
+        foreach ($imagenes as $item) {
+        
             ?>
             <!-- imagen  -->
             <div class="col-lg-4 col-sm-4 col-xs-6 margen5">
-                <a title="Lorem ipsum dolor" href="../imagenes/temp/banner3-high.png" class="minigaleria"><img
-                        src="<?php echo base_url('imagenes/temp/banner3.jpg') ?>" width="100%"></a>
+                <div class = "imagenes-galeria">
+                <a title="<?php echo $item->nombre; ?>" href="<?php echo $item->visu; ?>" class="minigaleria"  data-toggle="lightbox"><img
+                        src="<?php echo $item->thumb250; ?>"  height="98px"></a>
+                </div>
             </div>
             <!-- Fin imagene  -->
-        <?php
+        <?php  	 
         }
         ?>
     </div>
 
-
+    <div class="col-md-12 boton-more-fondo margen0">
+        <a href="<?php echo base_url('site/galerias')?>" class="boton-more">Ver más ></a>
+    </div>
 </div>
 <!-- Fin  Galería imágenes  -->

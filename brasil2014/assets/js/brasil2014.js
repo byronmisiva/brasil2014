@@ -75,33 +75,33 @@ $(function () {
 })
 
 var Brasil2014 = (function( baseUrl ) {
-	
-	var loadView = function( content, method, data ) {		
-		$.ajax({			
+
+	var loadView = function( content, method, data ) {
+		$.ajax({
 			cache :true,
     		type: "POST",
     		url: method,
     		data: { 'data' :  data },
-    		success: function( response ) {    			
-    			$( content ).html( response );    			
+    		success: function( response ) {
+    			$( content ).html( response );
     		}
-		});	
+		});
 	};
-	
+
 	var setEvent = function( content, method ) {
 		if( $('#modul_ranking_goleadores').length ){
-			//$('#modul_ranking_goleadores').click( function() {				
+			//$('#modul_ranking_goleadores').click( function() {
 				setInterval(
 						function() {
-							loadView( '#' + this.id, baseUrl + 'jugadores/viewRankingGoleadores/TRUE', { 'id' : 8, 'name' : 'luis' } );	
-						}, 5000 );				
+							loadView( '#' + this.id, baseUrl + 'jugadores/viewRankingGoleadores/TRUE', { 'id' : 8, 'name' : 'luis' } );
+						}, 5000 );
 			//} );
-		}		
+		}
 	};
-	
-	setEvent();	
-	
-	
+
+	setEvent();
+
+
 	module = {
 		loadView         	: loadView,
 		/*newInstance     : newInstance,

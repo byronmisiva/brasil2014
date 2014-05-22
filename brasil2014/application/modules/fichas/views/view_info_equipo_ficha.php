@@ -7,7 +7,7 @@
             foreach ($imagen as $nodo) {
                 $pos = strpos((string)$nodo->nombre, '1');
                 if ($pos) {
-                    echo "<img width='100%' class='img-responsive' src='". base_url()  . strtolower($this->partidos->_clearStringGion($nodo->thumb250)) . "'>";
+                    echo "<img width='100%' class='img-responsive' src='".      $nodo->thumb250 . "'>";
                 }
             }
         }

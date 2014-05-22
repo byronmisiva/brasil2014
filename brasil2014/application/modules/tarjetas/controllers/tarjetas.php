@@ -37,7 +37,7 @@ class Tarjetas extends MY_Controller{
 		$numXml=count($xmlRankingDir);
 		for($i=0;$i<$numXml;$i++){
 			$mystring = $xmlRankingDir[$i];
-			$findme   = 'FootballMatchDetailBasic';
+			$findme   = 'FootballLiveMatchDetailBasic_Comp8';
 			$pos = strpos($mystring, $findme);
 			// Nótese el uso de ===. Puesto que == simple no funcionará como se espera
 			// porque la posición de 'a' está en el 1° (primer) caracter.
@@ -71,7 +71,11 @@ class Tarjetas extends MY_Controller{
 			
 			if( $partido->afp_id == $partidoID ){
 				foreach( $data->Match->Detail as $tarjetas ){
-					if( ( string ) $tarjetas->n_ActionCode == '2048' || ( string ) $tarjetas->n_ActionCode == '8192' || ( string ) $tarjetas->cn_ActionCode =='4096'){
+					$action=$this->_clearString( str_replace( "ó", "o",$tarjetas->c_Action));
+					if ($action!="Alineacion" && $action!="Comienzo" && $action!="Final de tiempo" && $action!="Gol" && $action!="Cambio de funcion"  && $action!="Gol en propia puerta") {	
+						echo "<pre>";
+						//echo $detail->c_Action;
+						echo "</pre>";
 						
 						$equipo = $this->equipos_campeonato->get( array( 'select' => 'id', 'where' => array( 'afp_id' => ( string ) $tarjetas->n_TeamID ) ), TRUE );
 						$jugador = $this->jugadores->get( array( 'select' => 'id, apodo', 'where' => array( 'afp_id' => ( string ) $tarjetas->n_PersonID ) ), TRUE );

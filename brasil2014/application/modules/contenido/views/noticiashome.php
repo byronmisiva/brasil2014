@@ -1,127 +1,88 @@
 <!--    Noticias Home -->
+<?php
+setlocale(LC_ALL, "es_ES");
+?>
 <div class=" panel-noticias">
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>
-                    <div class="iconos sprite-noticias"></div>
-                    Noticias
-                </h2>
-                <hr class= "cabecera">
-
-            </div>
-            <div class="col-md-12">
-            <div class="col-md-6">
-                <div class="row noticia">
-                    <div class="col-md-12 margen0l">
-                        <img class="img-responsive margin-bottom-20" src="../imagenes/temp/content-notica-1.jpg" alt="">
-                    </div>
-                    <div class="col-md-12 margen0l pie-imagen-noticia">
-                        Junio 12 / 2014 14h00
-                    </div>
-                    <div class="col-md-12 margen0l   ">
-                        <h3>“Quiero jugar siete partidos"</h3>
-
-                        <p>Reinaldo Rueda y la consigna de llegar a semis del Mundial con Ecuador.</p>
-                        <p>Lorem ipsum dolor sit amssxad dffvet, consectetur adipisicing elit, sed diyso eiusmod tempor inciUt enim adhkjhie minim.
-                        </p>
-                        <a href="#" class=" pull-right">
-                            <spam class="boton-more-mini">Ver más ></spam>
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-                <div class="col-md-6">
-                    <div class="row noticia">
-                        <div class="col-md-12 margen0r">
-                            <img class="img-responsive margin-bottom-20" src="../imagenes/temp/content-notica-1.jpg" alt="">
-                        </div>
-                        <div class="col-md-12 margen0l pie-imagen-noticia pull-leftd">
-                            Junio 12 / 2014 14h00
-                        </div>
-
-                        <div class="col-md-12 margen0r">
-                            <h3>“Quiero jugar siete partidos"</h3>
-
-                            <p>Reinaldo Rueda y la consigna de llegar a semis del Mundial con Ecuador.</p>
-                            <p>Lorem ipsum dolor sit amssxad dffvet, consectetur adipisicing elit, sed diyso eiusmod tempor inciUt enim adhkjhie minim.
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            <?php
-            for ($i = 0; $i < 3; $i++) {
-                $cuerpo = "";
-                if ($i > 0 ) $cuerpo = "hrcuerpo";
-                ?>
-                <div class="row">
-
-                <div class="col-md-12">
-                <div class="col-md-6">
-                    <hr class="<?php echo $cuerpo ?>">
-                    <div class="row noticia">
-                        <div class="col-sm-4  margen5r">
-                            <img class="img-responsive " src="../imagenes/temp/content-noticia-2.jpg"
-                                 alt="">
-                        </div>
-                        <div class="col-sm-8   margen5l ">
-                            <div class="col-md-12 margen0l mini-noticia-fecha">
-                                Junio 12 / 2014 14h00
-                            </div>
-                            <h3>Cabecera Noticia. Lorem ipsum dolor</h3>
-
-                            <p>Cras sit amet nibh libero, in gravida nulla.</p>
-                            <a href="#" class=" pull-right">
-                                <spam class="boton-more-mini">Ver más ></spam>
-                            </a>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-6">
-                    <hr class="<?php echo $cuerpo ?>">
-                    <div class="row noticia">
-                        <div class="col-sm-4  margen5r">
-                            <img class="img-responsive " src="../imagenes/temp/content-noticia-2.jpg"
-                                 alt="">
-                        </div>
-                        <div class="col-sm-8   margen5l ">
-                            <div class="col-md-12 margen0l mini-noticia-fecha">
-                                Junio 12 / 2014 14h00
-                            </div>
-                            <h3>Cabecera Noticia. Lorem ipsum dolor</h3>
-                            <p>Cras sit amet nibh libero, in gravida nulla.Cras sit amet nibh libero, in gravida nulla.Cras
-                                sit amet nibh libero, in gravida nulla.</p>
-                            <a href="#" class=" pull-right">
-                                <spam class="boton-more-mini">Ver más ></spam>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-                </div>
-                </div>
-
-            <?php
-            }
-            ?>
-                <div class="col-md-12 boton-more-fondo">
-                    <a href="#" class="boton-more">Más noticias ></a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                <div class="iconos sprite-noticias"></div>
+                Noticias
+            </h2>
+            <hr class="cabecera">
 
         </div>
+        <div class="col-md-12">
+            <?php
+            $this->load->module("partidos");
+            $x = 0;
+            foreach ($noticias as $noticia) {
+                $x++;
+                if ($x <= 2) {
+                    ?>
+                    <div class="col-md-6">
+                        <div class="row noticia">
+                            <a href="<?php echo base_url() . "site/noticia/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>">
+                            <div class="col-md-12 margen0l noticia1">
+                                <img class="img-responsive margin-bottom-20"
+                                     src="<?php echo $noticia->imagenes->ftp_visu ?>"
+                                     alt="<?php echo $noticia->titulo ?>">
+                            </div>
+                            <div class="col-md-12 margen0l pie-imagen-noticia">
+                                <?php echo ucfirst(strftime('%B %d / %Y  %Hh%M', strtotime($noticia->creado))); ?>
+                            </div>
+                            <div class="col-md-12 margen0l   ">
+                                <h3><?php echo $noticia->titulo ?></h3>
 
+                                <p><?php echo substr($noticia->cuerpo, 0, 150) . "..."; ?></p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
 
+                <?php
+                } else {
+                    $cuerpo = "";
+                    if ($x > 4) $cuerpo = "hrcuerpo";
+                    ?>
+                    <div class="col-md-6">
+                        <hr class="<?php echo $cuerpo ?>">
+                        <div class="row noticia">
+                            <a href="<?php echo base_url() . "site/noticia/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>"  >
+                                <div class="col-sm-4  margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="<?php if (isset($noticia->imagenes->ftp_visu)) echo $noticia->imagenes->ftp_visu ?>"
+                                         alt="<?php echo $noticia->titulo ?>">
+                                </div>
+                                <div class="col-sm-8   margen5l altonews">
+                                    <div class="col-md-12 margen0l mini-noticia-fecha">
+                                        <?php echo ucfirst(strftime('%B %d / %Y  %Hh%M', strtotime($noticia->creado))); ?>
+                                    </div>
+                                    <h3><?php echo $noticia->titulo ?></h3>
 
+                                    <p><?php echo substr($noticia->cuerpo, 0, 100) . "..."; ?></p>
 
+                                    <spam class="boton-more-mini">Ver más ></spam>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <?php
+                }
+
+                if ($x == 2){
+                    echo ' <div class="clearfix"></div>';
+                }
+            }
+            ?>
+            <div class="col-md-12 boton-more-fondo">
+                <a href="<?php echo "noticia" ?>" class="boton-more">Más noticias ></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </div>
 <!--    Fin Noticias Home -->

@@ -63,8 +63,8 @@
 		previous: "Anterior",
 		next: "Siguiente",
 		close: "Cerrar",
-		xhrError: "This content failed to load.",
-		imgError: "This image failed to load.",
+		xhrError: "Error al cargar la imagen.",
+		imgError: "Error al cargar la imagen.",
 
 		// accessbility
 		returnFocus: true,

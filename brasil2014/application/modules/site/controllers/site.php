@@ -35,20 +35,111 @@ class Site extends MY_Controller
         $data['sidebar'] .= $this->partidos->partidosFecha();
         $data['sidebar'] .= $this->contenido->view_trivia();
         $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleria();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();
 
         $data['content'] = $this->videos->viewVideosHeader();
-        $data['content'] .= $this->ranking->viewRankingGrupos();
-        $data['content'] .= $this->contenido->view_historia_home();
         $data['content'] .= $this->contenido->view_banner_contenido();
-        $data['content'] .= $this->contenido->view_sedes();
+        $data['content'] .= $this->ranking->viewRankingGrupos();
+        $data['content'] .= $this->contenido->view_noticia_home();
+        $data['content'] .= $this->contenido->view_banner_contenido();
+        $data['content'] .= $this->contenido->view_historias();
         $data['content'] .= $this->contenido->view_estadios();
 
         $this->templates->_index($data);
     }
 
+    public function noticia()
+    {
+        $idNoticia = $this->uri->segment(4);
+
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('ranking');
+        $this->load->module('jugadores');
+
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+
+        $data['content'] = $this->videos->viewVideosHeader();
+
+        $data['content'] .= $this->contenido->view_noticia_open($idNoticia);
+
+
+        $data['content'] .= $this->contenido->view_banner_contenido();
+        $data['content'] .= $this->contenido->view_historias();
+        $data['content'] .= $this->contenido->view_estadios();
+
+        $data['pageTitle'] = "Noticias - Mundial Movistar";
+        $this->templates->_index($data);
+    }
+    public function historias()
+    {
+        $idHistoria = $this->uri->segment(4);
+
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('ranking');
+        $this->load->module('jugadores');
+
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+
+
+
+        $data['content']  = $this->contenido->view_historia_open($idHistoria);
+
+
+        $data['pageTitle'] = "Historias - Mundial Movistar";
+        $this->templates->_index($data);
+    }
+
+    public function galerias()
+    {
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('jugadores');
+        $data['pageTitle'] = "Home - Mundial Movistar";
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->contenido->banner_sidebar();
+        $data['sidebar'] .= $this->partidos->partidosFecha();
+        $data['sidebar'] .= $this->contenido->view_trivia();
+        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();
+
+        $data['content'] = $this->videos->viewVideosHeader();
+        $data['content'] .= $this->galerias->viewGaleriasFull();
+        $data['content'] .= $this->contenido->view_historias();
+        $data['content'] .= $this->contenido->view_estadios();
+        $this->templates->_index($data);
+    }
+
     public function grupos()
     {
+        $idGrupo = $this->uri->segment(3);
+
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -64,9 +155,9 @@ class Site extends MY_Controller
         $data['sidebar'] .= $this->partidos->partidosFecha();
         $data['sidebar'] .= $this->contenido->view_trivia();
         $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleria();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
-        $data['content'] = $this->ranking->viewRankingFases();
+        $data['content'] = $this->ranking->viewRankingFases($idGrupo);
         $this->templates->_index($data);
     }
 
@@ -87,7 +178,7 @@ class Site extends MY_Controller
         $data['sidebar'] .= $this->partidos->partidosFecha();
         $data['sidebar'] .= $this->contenido->view_trivia();
         $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleria();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
         $data['content'] = $this->videos->viewVideosHeader();
         $data['content'] .= $this->partidos->minutoAminuto();
@@ -110,11 +201,11 @@ class Site extends MY_Controller
         $data['sidebar'] .= $this->partidos->partidosFecha();
         $data['sidebar'] .= $this->contenido->view_trivia();
         $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleria();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
         $data['content'] = $this->videos->viewVideosHeader();
         $data['content'] .= $this->jugadores->viewRankingGoleadoresFull();
-        $data['content'] .= $this->contenido->view_sedes();
+        $data['content'] .= $this->contenido->view_historias();
         $data['content'] .= $this->contenido->view_estadios();
         $this->templates->_index($data);
     }
@@ -139,14 +230,14 @@ class Site extends MY_Controller
         $data['sidebar'] .= $this->partidos->partidosFecha();
         $data['sidebar'] .= $this->contenido->view_trivia();
         $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleria();
+        $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
         $data['content'] = $this->equipos_campeonato->viewEquiposBanderas();
         $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
         $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
         $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
         $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
-        $data['content'] .= $this->contenido->view_sedes();
+        $data['content'] .= $this->contenido->view_historias();
         $data['content'] .= $this->contenido->view_estadios();
 
         $this->templates->_index($data);
@@ -191,7 +282,7 @@ class Site extends MY_Controller
         $this->templates->demoTemplate($data);
     }
 
-    public function historias()
+    public function historiasd()
     {
         $this->load->module('contenido');
         $this->load->module('templates');
@@ -200,9 +291,10 @@ class Site extends MY_Controller
         $this->templates->demoTemplate($data);
     }
 
-    function syncXmlDinamicos(){
+    function syncXmlDinamicos()
+    {
         //Syncronización de archivos que tienen informacion dinámica
-        $url= base_url("contenido/sync_noticias");
+        $url = base_url("contenido/sync_noticias");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -234,7 +326,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-        $url=  base_url("alineaciones/sync");
+        $url = base_url("alineaciones/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -242,7 +334,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-        $url=  base_url("jugadores/syncGoledores");
+        $url = base_url("jugadores/syncGoledores");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -250,7 +342,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-        $url=  base_url("tarjetas/sync");
+        $url = base_url("tarjetas/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -258,7 +350,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-        $url=  base_url("goles/sync");
+        $url = base_url("goles/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -266,7 +358,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-        $url=  base_url("partidos/syncResultados");
+        $url = base_url("partidos/syncResultados");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -279,14 +371,15 @@ class Site extends MY_Controller
 
     }
 
-    function syncXmlContenidoStatico(){
+    function syncXmlContenidoStatico()
+    {
 
         //Ejecuta este metodo solo una vez para sincronizar contenido estático
 
         //En el server se quita el bse y se pone url
         //$url='http://64.150.191.240/contenido/sync_noticias';
 
-        $url= base_url("contenido/sync_historias");
+        $url = base_url("contenido/sync_historias");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);

@@ -1,6 +1,6 @@
 <?php
-class Contenido extends MY_Controller{	
-	
+class Contenido extends MY_Controller{
+
 	public $model = 'mdl_contenido';
 
 	public function __construct(){
@@ -21,13 +21,69 @@ class Contenido extends MY_Controller{
         //todo crear banner viewBannerContenido
     }
 
-    public function view_sedes( $data = FALSE ){
-        return $this->load->view( 'sedes', $data, TRUE );
-        //todo crear banner viewSedes
+    public function view_historias( $data = FALSE ){
+        $this->load->module( 'contenido' );
+        $this->load->module( 'galerias' );
+        $this->load->module( 'imagenes' );
+
+        $historias= $this->contenido->get( array('select'=>'contenido.id, contenido.titulo, contenido.creado, contenido.lecturas, contenido.extras, contenido.cuerpo, contenido.galerias_id, contenido.type, contenido.ident_pais',
+            'joins' => array('galerias' => 'contenido.galerias_id = galerias.id'),
+            'where' => array('publico' => 0, 'type' => 'historia')));
+
+        $cont=0;
+        $datosEstadio=array();
+
+        foreach($historias as $historia)
+        {
+            $idGaleria=$this->galerias->get( array('select'=>'*', 'where'=>array('id'=>$historia->galerias_id)),TRUE )->id;
+            $imagenes=$this->imagenes->get( array('select'=>'*', 'where'=>array('galerias_id'=>$idGaleria)));
+
+            $datosHistoria[$cont]=array(
+
+                "id"=>$historia->id,
+                "titulo"=>$historia->titulo,
+                "cuerpo"=>$historia->cuerpo,
+                'imagenes'=>array($imagenes)
+            );
+            $cont++;
+        }
+        $data['datosHistoria'] = $datosHistoria;
+
+        return $this->load->view( 'historias', $data, TRUE );
+
     }
 
     public function view_estadios( $data = FALSE ){
-        return $this->load->view( 'estadios', $data, TRUE );
+
+    	$this->load->module( 'estadios' );
+    	$this->load->module( 'galerias' );
+    	$this->load->module( 'imagenes' );
+
+        $estadios= $this->estadios->get( array('select'=>'estadios.id, estadios.nombre, estadios.ciudad, estadios.capacidad, estadios.club, estadios.programa, estadios.afp_id, estadios.galerias_id',
+            'joins' => array('galerias' => 'estadios.galerias_id = galerias.id'),
+            'where' => array('publico' => 0)));
+
+    	$cont=0;
+    	$datosEstadio=array();
+
+    	foreach($estadios as $estadio)
+    	{
+    		$idGaleria=$this->galerias->get( array('select'=>'*', 'where'=>array('id'=>$estadio->galerias_id)),TRUE )->id;
+    		$imagenes=$this->imagenes->get( array('select'=>'*', 'where'=>array('galerias_id'=>$idGaleria)));
+
+    		$datosEstadio[$cont]=array(
+    				"id_estadio"=>$estadio->id,
+		    		"nombre"=>$estadio->nombre,
+		    		"ciudad"=>$estadio->ciudad,
+		    		"capacidad"=>$estadio->capacidad,
+		    		"club"=>$estadio->club,
+		    		"programa"=>$estadio->programa,
+    				'imagenes'=>array($imagenes)
+    		);
+    		$cont++;
+    	}
+    	$data['datosEstadio'] = $datosEstadio;
+        return $this->load->view( 'estadios', $data, TRUE);
         //todo crear banner viewEstadios
     }
 
@@ -41,21 +97,80 @@ class Contenido extends MY_Controller{
         //todo crear banner viewGoleadores
     }
 
-    public function view_historia_home( $data = FALSE ){
-        return $this->load->view( 'noticiashome', $data, TRUE );
-        //todo crear banner view_historia_home
+
+
+    public function view_noticia_home(){
+        $limite_noticias = 10;
+        $this->load->module('imagenes');
+        $noticias_home = $this->get(array("select"=>"id,titulo,cuerpo,galerias_id, creado","where"=>array("type"=>"noticia"),"order_by"=>"creado desc", "limit"=>$limite_noticias));
+
+        $datos = array();
+        foreach( $noticias_home as $noticia ){
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array( 'galerias_id' => $noticia->galerias_id ), "limit"=>1 ), true);
+            array_push($datos, $noticia);
+        }
+        $data['noticias']=$datos;;
+        return $this->load->view( 'noticiashome',$data,TRUE);
     }
 
-   public function view_noticias_equipo( $idequipo , $nombreEquipo){
+
+    public function view_noticia_open($idNotica ){
+
+        $limite_noticias = 10;
+        $this->load->module('imagenes');
+
+        $datos = array();
+        if ($idNotica != '') {
+            $noticia  = $this->get(array("select"=>"id,titulo,cuerpo,galerias_id, creado","where"=>array("type"=>"noticia", "id"=>$idNotica)), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array( 'galerias_id' => $noticia->galerias_id ), "limit"=>1 ), true);
+
+            array_push($datos, $noticia );
+        }
+        $noticias_home = $this->get(array("select"=>"id,titulo,cuerpo,galerias_id, creado","where"=>array("type"=>"noticia"),"order_by"=>"creado desc", "limit"=>$limite_noticias));
+
+
+        foreach( $noticias_home as $noticia ){
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array( 'galerias_id' => $noticia->galerias_id ), "limit"=>1 ), true);
+            array_push($datos, $noticia);
+        }
+        $data['noticias']=$datos;;
+        return $this->load->view( 'noticiasabierta',$data,TRUE);
+    }
+
+    public function view_historia_open($idNotica ){
+
+
+        $this->load->module('imagenes');
+
+        $datos = array();
+        if ($idNotica != '') {
+            $noticia  = $this->get(array("select"=>"id,titulo,cuerpo,galerias_id, creado","where"=>array("type"=>"historia", "id"=>$idNotica)), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array( 'galerias_id' => $noticia->galerias_id ) ), false);
+
+            array_push($datos, $noticia );
+        }
+        $noticias_home = $this->get(array("select"=>"id,titulo,cuerpo,galerias_id, creado","where"=>array("type"=>"historia"),"order_by"=>"creado asc"));
+
+
+        foreach( $noticias_home as $noticia ){
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array( 'galerias_id' => $noticia->galerias_id ) ), false);
+            array_push($datos, $noticia);
+        }
+        $data['noticias']=$datos;;
+        return $this->load->view( 'historiaabierta',$data,TRUE);
+    }
+
+
+    public function view_noticias_equipo( $idequipo , $nombreEquipo){
        $data  = array("nombre_equipo"=>$nombreEquipo);
         return $this->load->view( 'noticiasequipo', $data, TRUE );
-        //todo crear banner view_historia_home
+
     }
 
 
-	
 
-	
+
+
 	public function view_historia(){
 		$this->load->module('imagenes');
 		$equipoQuery['select'] = '*';
@@ -76,54 +191,54 @@ class Contenido extends MY_Controller{
 		$data['links'] = $this->mdl_contenido->page_links;
 		return $this->load->view( 'view_historia', $data, TRUE );
 	}
-	
-	
+
+
 	function sync_historias(){
 		echo "<pre>";
 		$this->data_model('WC/xml/es/histo/index');
 		echo "</pre>";
 	}
-	
+
 	private function data_model($xml){
 		// Cargo los modulso que necesito
 		$this->load->module('galerias');
-		$this->load->module('imagenes');		
-		$pathXml = implode( "/", explode( "/", $xml, -1 ) ); //Extraigo el path para cuando envien el archivo sin path		
+		$this->load->module('imagenes');
+		$pathXml = implode( "/", explode( "/", $xml, -1 ) ); //Extraigo el path para cuando envien el archivo sin path
 		$xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
 		$data = ( $this->xmlimporter->load($xml) ) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
 		$data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
-		
+
 		foreach( $data->NewsComponent as $node ){
 			$type = (string) $node->DescriptiveMetadata->OfInterestTo->attributes();
 			$titulocontenido = trim( (string) $node->NewsLines->HeadLine );
-			//if( $type ==='Historia' ){							
-				//Creo la galeria para la historia			
+			//if( $type ==='Historia' ){
+				//Creo la galeria para la historia
 				if( !$this->galerias->_check_exist( array( 'nombre' => 'Historia - '.$titulocontenido ) ) ){
-					$galeria = array( 'nombre' => 'Historia - '.$titulocontenido, 'publico' => 0 );				
-					$galeria['id'] = $this->galerias->_insert( $galeria, NULL, FALSE );	 			
+					$galeria = array( 'nombre' => 'Historia - '.$titulocontenido, 'publico' => 0 );
+					$galeria['id'] = $this->galerias->_insert( $galeria, NULL, FALSE );
 				}
 				else{
 					$galeria['id'] = $this->galerias->_check_exist( array( 'nombre' => 'Historia - '.$titulocontenido ), TRUE )->id;
-				}				
+				}
 				//Creo el contenido tipo historia
 				if( !$this->mdl_contenido->get_by( array( 'titulo' => $titulocontenido ) ) ){
-					$contenido = array( 'titulo' => $titulocontenido, 'galerias_id' => $galeria['id'], 'type' => 'historia' );				
+					$contenido = array( 'titulo' => $titulocontenido, 'galerias_id' => $galeria['id'], 'type' => 'historia' );
 					$idContenido = $this->mdl_contenido->save( $contenido, NULL, FALSE );
 					$contenidoData = $this->_check_exist( array( 'titulo' => $titulocontenido ), TRUE );
 				}
 				else{
-					$contenidoData = $this->_check_exist( array( 'titulo' => $titulocontenido ), TRUE );					
-				}								
-				$contenidoDetails = (string) $node->NewsItemRef->attributes();			
-				
-				$xml = AFP_XML.$pathXml.'/'.str_replace('.xml','',$contenidoDetails);			
-				if( $this->xmlimporter->load( $xml ) ){					
-					$data = $this->xmlimporter->parse();					
+					$contenidoData = $this->_check_exist( array( 'titulo' => $titulocontenido ), TRUE );
+				}
+				$contenidoDetails = (string) $node->NewsItemRef->attributes();
+
+				$xml = AFP_XML.$pathXml.'/'.str_replace('.xml','',$contenidoDetails);
+				if( $this->xmlimporter->load( $xml ) ){
+					$data = $this->xmlimporter->parse();
 					$data = $data->NewsItem->NewsComponent;
 					$fotos = 0;
 					foreach ( $data->NewsComponent as $component ){
 						if( isset($component->ContentItem->DataContent) ){
-							$this->mdl_contenido->save( array( 'cuerpo' => implode( " ", (array)$component->ContentItem->DataContent->p ) ), $contenidoData->id, FALSE );												
+							$this->mdl_contenido->save( array( 'cuerpo' => implode( " ", (array)$component->ContentItem->DataContent->p ) ), $contenidoData->id, FALSE );
 						}
 						else{
 							$fotos++;
@@ -133,16 +248,16 @@ class Contenido extends MY_Controller{
 									'galerias_id' => $contenidoData->galerias_id, // id galeria
 									'titulo' => "Historia - ".$titulocontenido." - ".$fotos // nombre de la foto
 								)
-							);							
-						}						
+							);
+						}
 					}
 				}
-			//}			
+			//}
 		}
-	}	
-	
-	
-	
+	}
+
+
+
 	function sync_noticias(){
 		echo "<pre>";
 		$this->data_model_noticias('WC/xml/es/direct/news/FULLP/index');
@@ -151,7 +266,7 @@ class Contenido extends MY_Controller{
 		//$this->data_model_noticias('WC/xml/es/direct/news/XNG/index');
 		echo "</pre>";
 	}
-	
+
 	private function data_model_noticias($xml){
 		// Cargo los modulso que necesito
 		$this->load->module('galerias');
@@ -162,10 +277,10 @@ class Contenido extends MY_Controller{
 		echo "<pre>";
 		//var_dump($data);
 		echo "</pre>";
-		$data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios	
-		foreach( $data->NewsComponent as $node ){			
+		$data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
+		foreach( $data->NewsComponent as $node ){
 			$tituloNoticia = trim( (string) $node->NewsLines->HeadLine );
-			
+
 			//Creo la galeria para la noticia
 			if( !$this->galerias->_check_exist( array( 'nombre' => 'Noticia - '.$tituloNoticia ) ) ){
 				$galeria = array( 'nombre' => 'Noticia - '.$tituloNoticia, 'publico' => 0 );
@@ -176,19 +291,19 @@ class Contenido extends MY_Controller{
 			}
 			//Creo el contenido tipo noticia
 			if( isset( $node->DescriptiveMetadata ) ){
-				$shortName = $node->DescriptiveMetadata->Property;		
-			
+				$shortName = $node->DescriptiveMetadata->Property;
+
 				foreach ( $shortName as  $row  ){
 					if( (string) $row->attributes()->FormalName == "Sport" ){
 						echo "<pre>";
 						//var_dump((string)$row->attributes()->Value);
 						$shortNameTeam=(string)$row->attributes()->Value;
 						echo "</pre>";
-					}	
-				}	
+					}
+				}
 			}
 
-			
+
 			if( !$this->mdl_contenido->get_by( array( 'titulo' => $tituloNoticia ) ) ){
 				$contenido = array( 'titulo' => $tituloNoticia, 'galerias_id' => $galeria['id'], 'type' => 'noticia', 'ident_pais'=>$shortNameTeam );
 				$idContenido = $this->mdl_contenido->save( $contenido, NULL, FALSE );
@@ -198,16 +313,16 @@ class Contenido extends MY_Controller{
 				$contenidoData = $this->_check_exist( array( 'titulo' => $tituloNoticia ), TRUE );
 			}
 			$contenidoDetails = (string) $node->NewsItemRef->attributes();
-			
+
 			$xml = AFP_XML.$pathXml.'/'.str_replace('.xml','',$contenidoDetails);
-			
+
 			if( $this->xmlimporter->load( $xml ) ){
 				$data = $this->xmlimporter->parse();
 				$data = $data->NewsItem->NewsComponent;
-				
+
 				$fotos = 0;
 				foreach ( $data->NewsComponent as $component ){
-					
+
 					if( isset($component->ContentItem->DataContent) ){
 						$this->mdl_contenido->save( array( 'cuerpo' => implode( " ", (array)$component->ContentItem->DataContent->p ) ), $contenidoData->id, FALSE );
 					}
@@ -225,5 +340,5 @@ class Contenido extends MY_Controller{
 			}
 		}
 	}
-	
+
 }

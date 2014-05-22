@@ -71,7 +71,7 @@ class Goles extends MY_Controller{
 			if( $partido->afp_id == $partidoID ){
 				foreach( $data->Match->Detail as $goles ){
 						
-					if( ( string ) $goles->c_Action == 'Gol' ){
+					if( ( string ) $goles->c_Action == 'Gol' || ( string ) $goles->c_Action == 'Gol en propia puerta' ){
 						echo "<pre>";
 						//print_r ($data);
 						//echo $goles->c_ActionReason;

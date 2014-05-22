@@ -120,17 +120,46 @@ class Imagenes extends MY_Controller{
 			echo $new_path.$imagenName;
 		}
 		else{
+			//return $new_path.$config['new_image'];
 			return $new_path.$imagenName;
 		}
 	}
+	
 	
 	function _createFolder( $folderPath ){		
 		$folderPath = $this->_clearString( str_replace( " ", "-", $folderPath ) );				
 		if( !file_exists( SITE_HARD_ROOT_FILE.$folderPath) ){
 			return mkdir( SITE_HARD_ROOT_FILE.$folderPath, 0777 );
-		}		
+		}
+
 	}
-	
+
+	function _deleteFolder( $folderPath ){
+		$folderPath = $this->_clearString( str_replace( " ", "-", $folderPath ) );
+		$dir=SITE_HARD_ROOT_FILE.$folderPath;
+
+		if (is_dir($dir)) {
+			$objects = scandir($dir);
+			foreach ($objects as $object) {
+				if ($object != "." && $object != "..") {
+					if (filetype($dir."/".$object) == "dir") rrmdir($dir."/".$object); else unlink($dir."/".$object);
+				}
+			}
+			reset($objects);
+			return rmdir($dir);
+		}
+
+	}
+
+	function _deleteFile( $folderPath ){
+		$folderPath = $this->_clearString( str_replace( " ", "-", $folderPath ) );
+		if( file_exists( SITE_HARD_ROOT_FILE.$folderPath) ){
+			return unlink( SITE_HARD_ROOT_FILE.$folderPath);
+		}
+
+	}
+
+
 	function _copyFileFromDisk( $sourcePath, $destPath ){		
 		$sourcePath = str_replace( " ", "-", $this->_clearString( $sourcePath ) );
 		$destPath = str_replace( " ", "-", $this->_clearString(  $destPath ) );	
@@ -138,6 +167,20 @@ class Imagenes extends MY_Controller{
 		echo SITE_HARD_ROOT_FILE.$destPath." -> Destino de la Imagen a Copiar<br>";*/
 		if( file_exists( AFP_HARD_ROOT_FILE.$sourcePath) && !file_exists( SITE_HARD_ROOT_FILE.$destPath) ){		
 			return copy( AFP_HARD_ROOT_FILE.$sourcePath, SITE_HARD_ROOT_FILE.$destPath );
+		}
+	}
+	
+	
+	function _copyFileFromDiskGalery( $sourcePath, $destPath ){
+		//$sourcePath = str_replace( " ", "-", $this->_clearString( $sourcePath ) );
+		$destPath = str_replace( " ", "-", $this->_clearString(  $destPath ) );
+		/*echo $sourcePath." -> Imagen a Copiar<br>";
+		echo SITE_HARD_ROOT_FILE.$destPath." -> Destino de la Imagen a Copiar<br>";*/
+		if (file_exists( SITE_HARD_ROOT_FILE.$destPath)){
+				unlink(SITE_HARD_ROOT_FILE.$destPath);
+		}
+		if( file_exists( $sourcePath) && !file_exists( SITE_HARD_ROOT_FILE.$destPath) ){
+			return copy( $sourcePath, SITE_HARD_ROOT_FILE.$destPath );
 		}
 	}
 	
