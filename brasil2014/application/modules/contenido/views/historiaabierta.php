@@ -31,7 +31,7 @@ setlocale(LC_ALL, "es_ES");
                                         foreach ($noticia->imagenes as $imagen) {
                                             ?>
                                             <div class="item <?php echo $active;?>">
-                                            <img width="100%" class="img-responsive margin-bottom-20"
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
                                                  src="<?php echo $imagen->ftp_visu ?>"
                                                  alt="<?php echo $noticia->titulo ?>">
                                             </div>
