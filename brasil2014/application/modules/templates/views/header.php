@@ -37,7 +37,7 @@
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12  margen0">
                 <div class="col-md-4    margen0">
                     <div class="slogan activemenu"><a href="<?php echo base_url('site/home')?>"> <img src="<?php echo base_url('assets/images/botonhome.png'); ?>"></a></div>
-                    <div class="row en-vivo">
+                    <div class="margen0 en-vivo">
                         <div class="col-md-12 en-vivo-content margen0">
                             <spam class="col-md-3 movi-headline-regular en-vivo-prox">Próximo Partido</spam>
                             <spam class="col-md-6 movi-headline-regular text-center">BRA - CRO</spam>

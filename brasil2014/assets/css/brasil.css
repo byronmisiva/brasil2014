@@ -61,7 +61,7 @@ a:hover,.a:visited  {
 .slogan {
     margin: 0;
     float: left;
-    width: 64px;
+    width: 50px;
 }
 
 .jumbotron .container {
@@ -421,9 +421,10 @@ div.iconos {
 
 
 .en-vivo {
-    background: url("../images/pestana-prox-partido.png") no-repeat 1px 1px rgba(0, 0, 0, 0);
+    background: url("../images/pestana-prox-partido.png") no-repeat 1px 0px rgba(0, 0, 0, 0);
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0);
+    background-size: auto 51px;
     float: left;
     height: 50px;
 }
