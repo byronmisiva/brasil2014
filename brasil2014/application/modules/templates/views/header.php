@@ -13,6 +13,7 @@
     <!-- ColorBox -->
     <link rel="stylesheet" href="<?php echo base_url('assets/js/colorbox/colorbox.css') ?>"/>
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -84,7 +85,7 @@
                                 </div>
 
                                 <div class="col-md3  col-md-3 menu margen0 ">
-                                    <a href="calendario" >
+                                    <a href="<?php echo base_url('site/calendario')?>" >
                                     <div class="opcion-menu center-block col-md-12">
                                         <div class="menu-texto">
                                             <div class="iconos sprite-icono-calendario"></div>

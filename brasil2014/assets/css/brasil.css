@@ -1039,6 +1039,14 @@ a, a:hover, a:focus{
     line-height: 60px;
 }
 
+.grupos .btn {
+    font-size: 14px;
+    color: #095A7C;
+    height: 30px;
+    border-radius: 0;
+    line-height: 16px;
+}
+
 .domingo {
     background: url("../images/domingo.png") no-repeat;
 }
@@ -1101,7 +1109,7 @@ a, a:hover, a:focus{
 }
 
 .grupohome {
-    padding: 20px 5px 0;
+    padding: 10px 5px 0;
 }
 .grupohome  .cabecera-grupos2 {
     border-bottom: 1px solid #D9D9D9;
