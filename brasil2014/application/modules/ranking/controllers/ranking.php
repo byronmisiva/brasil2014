@@ -22,17 +22,9 @@ class Ranking extends MY_Controller
         $this->load->module('grupos');
         $fases = $this->fases->get(array('select' => '*', 'where' => array('active' => '1')), TRUE);
 
-        if ($idgrupo) {
 
-            $grupos1 = $this->grupos->get(array('select' => 'id,nombre', 'where' => array('fases_id' => $fases->id, "id  " => $idgrupo)));
-            $grupos = $this->grupos->get(array('select' => 'id,nombre', 'where' => array('fases_id' => $fases->id, "id  != " => $idgrupo)));
-
-            foreach ($grupos as $grupo)
-                array_push($grupos1, $grupo);
-            $grupos = $grupos1;
-        } else {
             $grupos = $this->grupos->get(array('select' => 'id,nombre', 'where' => array('fases_id' => $fases->id)));
-        }
+
 
         $tablas = array();
         foreach ($grupos as $grupo) {
@@ -67,6 +59,30 @@ class Ranking extends MY_Controller
         $data['nombreFase'] = $fases->nombre;
         $data['ranking'] = $tablas;
         return $this->load->view('view_ranking_fases', $data, true);
+    }
+   public function menuranking()
+    {
+        $this->load->module('fases');
+        $this->load->module('grupos');
+        $fases = $this->fases->get(array('select' => '*', 'where' => array('active' => '1')), TRUE);
+
+
+        $grupos = $this->grupos->get(array('select' => 'id,nombre', 'where' => array('fases_id' => $fases->id)));
+
+
+        $tablas = array();
+        foreach ($grupos as $grupo) {
+            $grupo->tabla = $this->get(array(
+                'select' => 'ranking.id,n_puntos,n_puntos_contra,n_partidos,n_partidos_ganados,
+					n_partidos_empatados,n_partidos_perdidos,n_goles,n_goles_contra,name,short_name, equipos_campeonato_id',
+                'joins' => array('equipos_campeonato' => 'ranking.equipos_campeonato_id=equipos_campeonato.id'),
+                'where' => array('grupo_id' => $grupo->id),
+                'order_by' => 'n_puntos desc, name'));
+            array_push($tablas, $grupo);
+        }
+        $data['nombreFase'] = $fases->nombre;
+        $data['ranking'] = $tablas;
+        return $this->load->view('menuranking', $data, true);
     }
 
     public function viewRankingGrupos()

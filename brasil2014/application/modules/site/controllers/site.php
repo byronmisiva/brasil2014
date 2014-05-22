@@ -157,7 +157,8 @@ class Site extends MY_Controller
         $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
         $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
-        $data['content'] = $this->ranking->viewRankingFases($idGrupo);
+        $data['content'] = $this->ranking->menuranking();
+        $data['content'] .= $this->ranking->viewRankingFases($idGrupo);
         $this->templates->_index($data);
     }
 

@@ -22,7 +22,7 @@
                             <?
                             foreach ($ranking as $rank) {
                                 echo ' <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 grupohome">';
-                                echo '<div class="col-md-12 movi-headline-regular cabecera-grupos1 margen5"><a href="grupos#'. strtolower($this->partidos->_clearStringGion($rank->nombre)) .'">' . $rank->nombre . '</a></div>';
+                                echo '<div class="col-md-12 movi-headline-regular cabecera-grupos1 margen5"><a href="'.base_url("site/grupos#") . strtolower($this->partidos->_clearStringGion($rank->nombre)) .'">' . $rank->nombre . '</a></div>';
                                 ?>
                                 <div class="col-md-12 movi-headline-regular cabecera-grupos2 margen5 ">
                                     <div class="row">
@@ -68,6 +68,6 @@
 </div>
 
 <div class="col-md-12 boton-more-fondo">
-    <a href="grupos" class="boton-more">Ver detalles ></a>
+    <a href="<?php echo base_url("site/grupos");  ?>" class="boton-more">Ver detalles ></a>
 </div>
 <div class="clearfix"></div>

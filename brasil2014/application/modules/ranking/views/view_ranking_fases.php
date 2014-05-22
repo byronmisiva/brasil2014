@@ -1,47 +1,4 @@
 <!--Genera la tabla de posiciones-->
-<div class="btn-group btn-group-justified  grupos movi-text-regular" id="inicio">
-    <div class="btn-group ">
-        <a href="#" onclick="$('#grupo-a').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo A</button>
-        </a>
-    </div>
-    <div class="btn-group  ">
-        <a href="#" onclick="$('#grupo-b').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo B</button>
-        </a>
-    </div>
-    <div class="btn-group ">
-        <a href="#" onclick="$('#grupo-c').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo C</button>
-        </a>
-    </div>
-    <div class="btn-group ">
-        <a href="#" onclick="$('#grupo-d').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo D</button>
-        </a>
-    </div>
-    <div class="btn-group ">
-        <a href="#" onclick="$('#grupo-e').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo E</button>
-        </a>
-    </div>
-    <div class="btn-group ">
-        <a href="#" onclick="$('#grupo-f').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo F</button>
-        </a>
-    </div>
-    <div class="btn-group ">
-        <a href="#" onclick="$('#grupo-g').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo G</button>
-        </a>
-    </div>
-    <div class="btn-group ">
-        <a href="#" onclick="$('#grupo-h').animatescroll();">
-            <button type="button" class="btn btn-default">Grupo H</button>
-        </a>
-    </div>
-</div>
-
 <div class="col-md-12 separador"></div>
 <div class="row">
     <?
@@ -71,7 +28,7 @@
                                 class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($equipo->name)) ?>"></span>
                     </div>
                     <div class="col-md-10 margen0">
-                        <a href="equipo/<?php echo $equipo->id; ?>"><?php echo $equipo->name; ?></a>
+                        <a href="<?php echo base_url() . "site/equipo/" .  $equipo->id; ?>"><?php echo $equipo->name; ?></a>
                     </div>
                 </div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">
