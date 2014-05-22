@@ -72,7 +72,11 @@ $(function () {
     //se inicializan el carrousel para solo mostrar el primero
     $('.list_carousel_header').hide();
     $('.list_carousel_header:first').show();
+
 })
+
+
+
 
 var Brasil2014 = (function( baseUrl ) {
 
