@@ -86,6 +86,8 @@
 <script type="text/javascript"
         src="<?php echo base_url('/assets/js/colorbox/jquery.colorbox.js') ?>"></script>
 <script type="text/javascript"
+        src="<?php echo base_url('/assets/js/scrool/animatescroll.js') ?>"></script>
+<script type="text/javascript"
         src="<?php echo base_url('/assets/js/brasil2014.js') ?>"></script>
 
 <!-- fire plugin onDocumentReady -->

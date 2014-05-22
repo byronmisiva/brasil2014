@@ -173,11 +173,11 @@ foreach ($partidos as $key => $partido) {
                     <div class="col-md-3 opciones">
                         <div class="row">
 
-                            <div class="col-md-12 ">
-                                <span class="iconos sprite-icono_video"></span> Ver Video
+                            <div class="col-md-12 text-right">
+                                <span class="iconos sprite-icono_video text-right"></span> Ver Video
                             </div>
-                            <div class="col-md-12 ">
-                                <span class="iconos sprite-icono_minutoaminuto"></span> Minuto a minuto
+                            <div class="col-md-12 text-right">
+                                <span class="iconos sprite-icono_minutoaminuto text-right"></span> Minuto a minuto
                             </div>
                         </div>
                     </div>
