@@ -768,7 +768,22 @@ hr {
 
 .conten-partidos {
     font-size: 11px;
+    padding-top:3px;
 }
+
+.list_partido_dia .carousel-inner{
+ border:1px solid #E8E8E8;
+ margin-top: -3px;
+    }
+
+.conten-partidos b {
+    font-weight: normal;
+}
+
+.list_partido_dia .conten-partidos:nth-last-child(2) hr{
+  display: none;
+}
+
 
 .partido-on-line {
     background-color: #063e54;
