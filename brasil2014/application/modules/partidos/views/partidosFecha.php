@@ -40,7 +40,7 @@ setlocale(LC_ALL, "es_ES");
                                 <span  class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_local)) ?>"></span><?php echo $row->nombre_local ?>
                                     </a>
                                         </div>
-                                    <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen0">
+                                    <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen2">
                                         <span class="right"><?php echo $row->golesLocal ?></span>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@ setlocale(LC_ALL, "es_ES");
                                     class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_visitante)) ?>"></span><?php echo $row->nombre_visitante ?>
                                             </a>
                                     </div>
-                                    <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen0">
+                                    <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen2">
                                         <span class="right"><?php echo $row->golesVisitante ?></span>
                                     </div>
                                 </div>
@@ -64,9 +64,10 @@ setlocale(LC_ALL, "es_ES");
 
                         <div class="col-md-12 conten-partidos">
                             <?php echo '<b>' . $row->hora . '</b> - ' . $row->estadio_nombre ?>
+                             <hr>
                         </div>
                         <div class="clearfix"></div>
-                        <hr>
+                       
 
 
                     <?php
