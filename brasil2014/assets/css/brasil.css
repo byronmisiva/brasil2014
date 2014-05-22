@@ -1186,3 +1186,21 @@ p.noticia-abierta    {
 .altonews {
     min-height: 140px;
 }
+
+.noticia .carousel-inner .img-historia {
+    display: block;
+    height: 375px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.noticia .carousel-control.left {
+    background: none;
+     color:#004F78;
+}
+
+.noticia .carousel-control.right {
+    background: none;
+    color:#004F78;
+}
