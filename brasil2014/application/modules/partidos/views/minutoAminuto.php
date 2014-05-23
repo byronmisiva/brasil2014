@@ -2,6 +2,7 @@
 $this->load->module("partidos");
 setlocale(LC_ALL, "es_ES");
 ?>
+<div class="col-md-12 separador clearfix"></div>
 <div class="btn-group btn-group-justified calendar-dia">
     <div class="btn-group ">
         <a href="#" onclick="$('#06-12').animatescroll();">
@@ -15,76 +16,76 @@ setlocale(LC_ALL, "es_ES");
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-14').animatescroll();">
-            <button type="button" class="btn btn-default sabado">14</button>
+            <button type="button" class="btn btn-default sabado active">14</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-15').animatescroll();">
-            <button type="button" class="btn btn-default domingo">15</button>
+            <button type="button" class="btn btn-default domingo active">15</button>
         </a>
     </div>
 
     <div class="btn-group">
         <a href="#" onclick="$('#06-16').animatescroll();">
-            <button type="button" class="btn btn-default lunes">16</button>
+            <button type="button" class="btn btn-default lunes active">16</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-17').animatescroll();">
-            <button type="button" class="btn btn-default martes">17</button>
+            <button type="button" class="btn btn-default martes active">17</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-18').animatescroll();">
-            <button type="button" class="btn btn-default miercoles">18</button>
+            <button type="button" class="btn btn-default miercoles active">18</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-19').animatescroll();">
-            <button type="button" class="btn btn-default jueves">19</button>
+            <button type="button" class="btn btn-default jueves active">19</button>
         </a>
     </div>
 
     <div class="btn-group">
         <a href="#" onclick="$('#06-20').animatescroll();">
-            <button type="button" class="btn btn-default viernes">20</button>
+            <button type="button" class="btn btn-default viernes active">20</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-21').animatescroll();">
-            <button type="button" class="btn btn-default sabado">21</button>
+            <button type="button" class="btn btn-default sabado active">21</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-22').animatescroll();">
-            <button type="button" class="btn btn-default domingo">22</button>
+            <button type="button" class="btn btn-default domingo active">22</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-23').animatescroll();">
-            <button type="button" class="btn btn-default lunes">23</button>
+            <button type="button" class="btn btn-default lunes active">23</button>
         </a>
     </div>
 
     <div class="btn-group">
         <a href="#" onclick="$('#06-24').animatescroll();">
-            <button type="button" class="btn btn-default martes">24</button>
+            <button type="button" class="btn btn-default martes active">24</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-25').animatescroll();">
-            <button type="button" class="btn btn-default miercoles">25</button>
+            <button type="button" class="btn btn-default miercoles active">25</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-26').animatescroll();">
-            <button type="button" class="btn btn-default jueves">26</button>
+            <button type="button" class="btn btn-default jueves active">26</button>
         </a>
     </div>
     <div class="btn-group">
-        <a href="#" onclick="$('#06-27').animatescroll();">
+
             <button type="button" class="btn btn-default viernes">27</button>
-        </a>
+
     </div>
 
 </div>
@@ -93,85 +94,77 @@ setlocale(LC_ALL, "es_ES");
 <div class="btn-group btn-group-justified calendar-dia">
     <div class="btn-group">
         <a href="#" onclick="$('#06-28').animatescroll();">
-            <button type="button" class="btn btn-default sabado">28</button>
+            <button type="button" class="btn btn-default sabado active">28</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-29').animatescroll();">
-            <button type="button" class="btn btn-default domingo">29</button>
+            <button type="button" class="btn btn-default domingo active">29</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-30').animatescroll();">
-            <button type="button" class="btn btn-default lunes">30</button>
+            <button type="button" class="btn btn-default lunes active">30</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-01').animatescroll();">
-            <button type="button" class="btn btn-default martes">01</button>
+            <button type="button" class="btn btn-default martes active">01</button>
         </a>
     </div>
 
     <div class="btn-group">
-        <a href="#" onclick="$('#07-02').animatescroll();">
             <button type="button" class="btn btn-default miercoles">02</button>
-        </a>
     </div>
     <div class="btn-group">
-        <a href="#" onclick="$('#07-03').animatescroll();">
             <button type="button" class="btn btn-default jueves">03</button>
-        </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-04').animatescroll();">
-            <button type="button" class="btn btn-default viernes">04</button>
+            <button type="button" class="btn btn-default viernes active">04</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-05').animatescroll();">
-            <button type="button" class="btn btn-default sabado">05</button>
+            <button type="button" class="btn btn-default sabado active">05</button>
         </a>
     </div>
 
     <div class="btn-group">
         <a href="#" onclick="$('#07-06').animatescroll();">
-            <button type="button" class="btn btn-default domingo">06</button>
+            <button type="button" class="btn btn-default domingo active">06</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-07').animatescroll();">
-            <button type="button" class="btn btn-default lunes">07</button>
+            <button type="button" class="btn btn-default lunes active">07</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-08').animatescroll();">
-            <button type="button" class="btn btn-default martes">08</button>
+            <button type="button" class="btn btn-default martes active">08</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-09').animatescroll();">
-            <button type="button" class="btn btn-default miercoles">09</button>
+            <button type="button" class="btn btn-default miercoles active">09</button>
         </a>
     </div>
 
     <div class="btn-group">
-        <a href="#" onclick="$('#07-10').animatescroll();">
             <button type="button" class="btn btn-default jueves">10</button>
-        </a>
     </div>
     <div class="btn-group">
-        <a href="#" onclick="$('#07-11').animatescroll();">
             <button type="button" class="btn btn-default viernes">11</button>
-        </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-12').animatescroll();">
-            <button type="button" class="btn btn-default sabado">12</button>
+            <button type="button" class="btn btn-default sabado  active">12</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#07-123').animatescroll();">
-            <button type="button" class="btn btn-default domingo">13</button>
+            <button type="button" class="btn btn-default domingo active">13</button>
         </a>
     </div>
 
@@ -184,7 +177,7 @@ $fechaTemp = "";
 foreach ($partidos as $key => $partido) {
     $fecha = $partido->fecha;
     if ($fecha != $fechaTemp) {
-        echo '<div class="col-md-12 separador"></div><div class="col-md-12 movi-headline-regular minuto-a-minuto-fecha" id="'. ucfirst(strftime('%m-%d', strtotime($partido->fecha))) .'"><a name="'. ucfirst(strftime('%m-%d', strtotime($partido->fecha))) .'">' . ucfirst(strftime('%A %d de %b. %Y', strtotime($partido->fecha))) . '</a></div>';
+        echo '<div class="col-md-12 separador"></div><div class="col-md-12 movi-headline-regular minuto-a-minuto-fecha" id="'. ucfirst(strftime('%m-%d', strtotime($partido->fecha))) .'"><a name="'. ucfirst(strftime('%m-%d', strtotime($partido->fecha))) .'">' . utf8_encode(ucfirst(strftime('%A %d de %b. %Y', strtotime($partido->fecha)))) . '</a></div>';
         $fechaTemp = $fecha;
     }
     ?>
