@@ -5,12 +5,12 @@ setlocale(LC_ALL, "es_ES");
 <div class="btn-group btn-group-justified calendar-dia">
     <div class="btn-group ">
         <a href="#" onclick="$('#06-12').animatescroll();">
-            <button type="button" class="btn btn-default jueves">12</button>
+            <button type="button" class="btn btn-default jueves active">12</button>
         </a>
     </div>
     <div class="btn-group">
         <a href="#" onclick="$('#06-13').animatescroll();">
-            <button type="button" class="btn btn-default viernes">13</button>
+            <button type="button" class="btn btn-default viernes active">13</button>
         </a>
     </div>
     <div class="btn-group">
