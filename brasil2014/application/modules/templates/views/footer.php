@@ -8,16 +8,13 @@
                 <div class="col-md-12  ">
                     <div class="menuabajo">
                         <ul class="nav navbar-nav  ">
-                            <li class="active"><a href="#">Noticias</a></li>
-                            <li><a href="#">Galerías</a></li>
-                            <li><a href="#">Minuto a minuto</a></li>
-                            <li><a href="#">+ Vídeos</a></li>
-                            <li><a href="#">Calendario</a></li>
-                            <li><a href="#">Grupos</a></li>
-                            <li><a href="#">Resultados</a></li>
-                            <li><a href="#">Marcador en Vivo</a></li>
-                            <li><a href="#">Resumen</a></li>
-                            <li><a href="#">Contenido Exclusivo</a></li>
+                                    <li class="active"><a href="<?php echo base_url();?>site/noticias">Noticias</a></li>
+                                    <li class="active"><a href="<?php echo base_url();?>site/historias">Historia de los Mundiales</a></li>
+                                    <li><a href="<?php echo base_url();?>site/galerias">Galerías</a></li>
+                                    <li><a href="#">+ Vídeos</a></li>
+                                    <li><a href="<?php echo base_url();?>site/goleadores">Goleadores</a></li>
+                                    <li><a href="<?php echo base_url();?>site/calendario">Partidos</a></li>
+                                    <li><a href="<?php echo base_url();?>site/grupos">Resultados</a></li>
                         </ul>
                     </div>
                 </div>
@@ -41,16 +38,14 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="#">Noticias</a></li>
-                                    <li><a href="#">Galerías</a></li>
-                                    <li><a href="#">Minuto a minuto</a></li>
+                                    <li class="active"><a href="<?php echo base_url();?>site/noticias">Noticias</a></li>
+                                    <li class="active"><a href="<?php echo base_url();?>site/historias">Historia de los Mundiales</a></li>
+                                    <li><a href="<?php echo base_url();?>site/galerias">Galerías</a></li>
                                     <li><a href="#">+ Vídeos</a></li>
-                                    <li><a href="#">Calendario</a></li>
-                                    <li><a href="#">Grupos</a></li>
-                                    <li><a href="#">Resultados</a></li>
-                                    <li><a href="#">Marcador en Vivo</a></li>
-                                    <li><a href="#">Resumen</a></li>
-                                    <li><a href="#">Contenido Exclusivo</a></li>
+                                    <li><a href="<?php echo base_url();?>site/goleadores">Goleadores</a></li>
+                                    <li><a href="<?php echo base_url();?>site/calendario">Partidos</a></li>
+                                    <li><a href="<?php echo base_url();?>site/grupos">Resultados</a></li>
+                            
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
