@@ -73,18 +73,8 @@ a:hover,.a:visited  {
     background-color: #004262;
 }
 
-.menuabajo  .navbar-nav {
-    margin-left: 18%;
-    margin-right: auto;
-}
-
 .footer .container {
     background-color: transparent;
-    height: 30px;
-}
-
-.footer .container .row{
-    height: 30px;
 }
 
 h2, h3 {
@@ -868,9 +858,8 @@ hr {
 
 .menuabajo{
     color: red;
+
 }
-
-
 
 .cont-menu-vides {
     background-color: #063e54;
@@ -1230,4 +1219,9 @@ p.noticia-abierta    {
 .noticia .carousel-control.right {
     background: none;
     color:#004F78;
+}
+
+.menuabajo  .navbar-nav {
+    margin-left: 18%;
+    margin-right: auto;
 }
