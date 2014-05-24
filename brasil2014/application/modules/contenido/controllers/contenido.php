@@ -119,7 +119,8 @@ class Contenido extends MY_Controller
             $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
         }
-        $data['noticias'] = $datos;;
+        $data['noticias'] = $datos;
+        $data['totCabecera'] = 2;
         return $this->load->view('noticiashome', $data, TRUE);
     }
 
@@ -179,8 +180,8 @@ class Contenido extends MY_Controller
 
         $limite_noticias = 10;
         $this->load->module('imagenes');
-        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia"), "order_by" => "creado desc", "limit" => $limite_noticias));
-        $last = $this->db->last_query();
+        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia" , 'ident_pais'=>$short_name), "order_by" => "creado desc", "limit" => $limite_noticias));
+        //$last = $this->db->last_query();
         $datos = array();
         foreach ($noticias_home as $noticia) {
             $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
@@ -188,9 +189,9 @@ class Contenido extends MY_Controller
         }
 
         $data['noticias'] = $datos;;
+        $data['totCabecera'] = 0;
+        return $this->load->view('noticiashome', $data, TRUE);
 
-
-        return $this->load->view('noticiasequipo', $data, TRUE);
 
     }
 

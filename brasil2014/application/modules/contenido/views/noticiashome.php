@@ -19,7 +19,7 @@ setlocale(LC_ALL, "es_ES");
             $x = 0;
             foreach ($noticias as $noticia) {
                 $x++;
-                if ($x <= 2) {
+                if ($x <= $totCabecera) {
                     ?>
                     <div class="col-md-6 ">
                         <div class="row noticia">
