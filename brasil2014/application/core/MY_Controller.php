@@ -38,7 +38,25 @@ class MY_Controller extends MX_Controller{
 	}
 
     function _clearStringGion($string) {
-        return str_replace(' ','-',$this->_clearString($string) );
+        $tempSting = str_replace(' ','-',$this->_clearString($string) );
+
+        $tempSting = str_replace(
+            array("\\", "¨", "º",  "~",
+                "#", "@", "|", "!", "\"",
+                "·", "$", "%", "&", "/",
+                "(", ")", "?", "'", "¡",
+                "¿", "[", "^", "`", "]",
+                "+", "}", "{", "¨", "´",
+                ">", "< ", ";", ",", ":",
+                "."),
+            '',
+            $tempSting
+        );
+
+        $tempSting = str_replace('---','-',$tempSting );
+        $tempSting = str_replace('--','-',$tempSting );
+
+        return $tempSting;
     }
     function _clearString($string)
     {
@@ -81,18 +99,7 @@ class MY_Controller extends MX_Controller{
         );
 
         //Esta parte se encarga de eliminar cualquier caracter extraño
-        /*$string = str_replace(
-                array("\\", "¨", "º", "-", "~",
-                        "#", "@", "|", "!", "\"",
-                        "·", "$", "%", "&", "/",
-                        "(", ")", "?", "'", "¡",
-                        "¿", "[", "^", "`", "]",
-                        "+", "}", "{", "¨", "´",
-                        ">", "< ", ";", ",", ":",
-                        ".", " "),
-                '',
-                $string
-        );*/
+
         return $string;
     }
 
