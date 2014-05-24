@@ -21,7 +21,7 @@ setlocale(LC_ALL, "es_ES");
                 $x++;
                 if ($x <= 2) {
                     ?>
-                    <div class="col-md-6">
+                    <div class="col-md-6 ">
                         <div class="row noticia">
                             <a href="<?php echo base_url() . "site/noticia/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>">
                             <div class="col-md-12 margen0l noticia1">
@@ -32,10 +32,10 @@ setlocale(LC_ALL, "es_ES");
                             <div class="col-md-12 margen0l pie-imagen-noticia">
                                 <?php echo ucfirst(strftime('%B %d / %Y  %Hh%M', strtotime($noticia->creado))); ?>
                             </div>
-                            <div class="col-md-12 margen0l   ">
+                            <div class="col-md-12 margen0l  altonews ">
                                 <h3><?php echo strip_tags ( $noticia->titulo) ?></h3>
 
-                                <p><?php echo substr(strip_tags ($noticia->cuerpo), 0, 150) . "..."; ?></p>
+                                <p><?php echo substr(strip_tags ($noticia->cuerpo), 0, 250) . "..."; ?></p>
                                     <spam class="boton-more-mini">Ver más ></spam>
                             </div>
                             </a>
@@ -47,7 +47,7 @@ setlocale(LC_ALL, "es_ES");
                     $cuerpo = "";
                     if ($x > 4) $cuerpo = "hrcuerpo";
                     ?>
-                    <div class="col-md-6">
+                    <div class="col-md-6 margen0l">
                         <hr class="<?php echo $cuerpo ?>">
                         <div class="row noticia">
                             <a href="<?php echo base_url() . "site/noticia/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>"  >

@@ -50,7 +50,7 @@ class Fichas extends MY_Controller{
 		$data['idEquipo'] =$idEquipo;
 
 
-        $data['noticias'] = $this->contenido->view_noticias_equipo($idEquipo, $data['fichaEquipo']['nombre_equipo']);
+        $data['noticias'] = $this->contenido->view_noticias_equipo($idEquipo, $data['fichaEquipo']['nombre_equipo'], $data['fichaEquipo']['short_name']);
 		return $this->load->view( 'view_info_equipo_ficha', $data, true );
 	}
 	

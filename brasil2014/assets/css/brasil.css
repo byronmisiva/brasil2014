@@ -354,7 +354,7 @@ div.iconos {
 }
 
 .list_carousel_header li {
-    width: 100px;
+    width: 97px;
     height: 100px;
     padding: 0;
     margin: 1px;
@@ -728,26 +728,15 @@ hr {
 }
 
 .panel-noticias .boton-more-mini {
-    height: 24px;
-    width: 90px;
-    line-height: 23px;
-    -webkit-border-top-left-radius:3px;
-    -moz-border-radius-topleft:3px;
-    border-top-left-radius:3px;
-    -webkit-border-top-right-radius:3px;
-    -moz-border-radius-topright:3px;
-    border-top-right-radius:3px;
-    -webkit-border-bottom-right-radius:3px;
-    -moz-border-radius-bottomright:3px;
-    border-bottom-right-radius:3px;
-    -webkit-border-bottom-left-radius:3px;
-    -moz-border-radius-bottomleft:3px;
-    border-bottom-left-radius:3px;
-    margin-left: 5px;
+    border-radius: 3px;
+    bottom: 0;
     font-size: 11px;
-    bottom: -1px;
+    height: 14px;
+    line-height: 13px;
+    margin-left: 5px;
     position: absolute;
-    right: 2px;
+    right: 10px;
+    width: 60px;
 }
 
 .panel-noticias a.cont-more {
@@ -1211,7 +1200,7 @@ p.noticia-abierta    {
 }
 
 .altonews {
-    min-height: 140px;
+    min-height: 130px;
 }
 
 
