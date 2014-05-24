@@ -25,7 +25,7 @@
                             if (!empty($imag[0])) {
                                 ?>
                                 <div class="estadio-banner">
-                                <img width="98%" src="<?php echo $imag[0]->thumb250; ?>"
+                                <img width="100%" src="<?php echo $imag[0]->thumb250; ?>"
                                      alt="<?php echo $row['titulo']; ?>"
                                      class="img-responsive margin-bottom-20"></div>
                             <?php
@@ -38,7 +38,7 @@
                                 ><</a></div>
                         <div class="col-md-6 text-right gris"><a href="#carousel-historias" data-slide="next"
                                 >></a></div>
-                        <div class="col-md-12 margen0l conten">
+                        <div class="col-md-12 margen0 conten">
                             <h3><?php echo $row['titulo']; ?></h3>
                             <?php echo $row['cuerpo']; ?>
 

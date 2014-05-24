@@ -145,7 +145,9 @@ class Contenido extends MY_Controller
             $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
         }
-        $data['noticias'] = $datos;;
+
+        $data['noticias'] = $datos;
+        $data['totCabecera'] = 1;
         return $this->load->view('noticiasabierta', $data, TRUE);
     }
 
@@ -170,6 +172,8 @@ class Contenido extends MY_Controller
             array_push($datos, $noticia);
         }
         $data['noticias'] = $datos;;
+
+
         return $this->load->view('historiaabierta', $data, TRUE);
     }
 

@@ -1,6 +1,6 @@
 <!-- Galería estadios  -->
 <div class="col-md-6 margen0 estadios">
-    <div class="col-md-12 margen0l">
+    <div class="col-md-12 margen0">
         <h2>
             <div class="iconos sprite-icono_estadios"></div>
             Estadios
@@ -22,7 +22,7 @@
                     foreach ($row['imagenes'] as $imag) {
                         if (!empty($imag[0])) {
                             ?><div class="estadio-banner">
-                            <img width="98%" src="<?php echo $imag[0]->thumb250; ?>" alt="<?php echo $row['nombre']; ?>"
+                            <img width="100%" src="<?php echo $imag[0]->thumb250; ?>" alt="<?php echo $row['nombre']; ?>"
                                  class="img-responsive margin-bottom-20"></div>
                         <?php
                         } else {
