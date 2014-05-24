@@ -33,16 +33,17 @@
         <div class="row fondo-header ">
             <!--Logos y slogan-->
             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 ">
-            menu
+                <div class="slogan"><img class="img-responsive" src="<?php echo base_url('assets/images/slogan-movistar.png'); ?>"></div>
             </div>
             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 text-right">
                 <div class="logo"><a href=""><img class="img-responsive" src="<?php echo base_url('assets/images/logo-movistar.png'); ?>"></a></div>
             </div>
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12  margen0">
-                <div class="slogan"><img class="img-responsive" src="<?php echo base_url('assets/images/slogan-movistar.png'); ?>"></div>
+
+
+                </div>
             </div>
         </div>
     </div>
-
 </div>
 

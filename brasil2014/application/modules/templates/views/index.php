@@ -1,6 +1,16 @@
 <?php
 $this->load->view('header');
 ?>
+<div class="header">
+    <div class="container ">
+        <div class="row fondo-header ">
+<?php
+echo $cabecera;
+?>
+        </div>
+    </div>
+</div>
+
     <div class="container">
         <!-- Cabecera-->
         <div class="row blanco">
@@ -15,9 +25,10 @@ $this->load->view('header');
                 ?>
             </div>
         </div>
-
     </div>
     <!-- /container -->
+
 <?php
+echo $footer;
 $this->load->view('footer');
 ?>
