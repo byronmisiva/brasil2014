@@ -17,6 +17,22 @@ class Partidos extends MY_Controller
         return $this->load->view('partidosFecha', $data, TRUE);
     }
 
+      function viewProximoPartido($isAjax = false)
+    {
+        $data['ajax'] = $isAjax;
+        $data['partidos'] = $this->mdl_partidos->getProximoPartido();
+
+        if( $isAjax ){         
+            //$data['name'] = print_r($_POST['data']['name']);
+             $this->load->view('proximoPartido', $data, FALSE);
+        }
+        else{
+            return $this->load->view( 'proximoPartido', $data, TRUE );
+        }
+
+       
+    }
+
 
     function getPartidosFechaTab($data = FALSE)
     {

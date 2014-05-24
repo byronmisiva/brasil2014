@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/brasil.css') ?>" rel="stylesheet">
+     <link href="<?php echo base_url('assets/css/jquery.countdown.css') ?>" rel="stylesheet">
 
     <!-- ColorBox -->
     <link rel="stylesheet" href="<?php echo base_url('assets/js/colorbox/colorbox.css') ?>"/>
@@ -17,6 +18,11 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+   
+    <script>
+     var baseUrl="<?php echo base_url(); ?>";
+    </script>
     <![endif]-->
 </head>
 
@@ -36,12 +42,10 @@
                 <div class="col-md-4    margen0">
                     <div class="slogan activemenu"><a href="<?php echo base_url('site/home')?>"> <img src="<?php echo base_url('assets/images/botonhome.png'); ?>"></a></div>
                     <div class="margen0 en-vivo">
-                        <div class="col-md-12 en-vivo-content margen0">
-                            <spam class="col-md-3 movi-headline-regular en-vivo-prox">Próximo Partido</spam>
-                            <spam class="col-md-6 movi-headline-regular text-center">BRA - CRO</spam>
-                            <spam class="col-md-3 movi-headline-regular en-vivo-mini text-center margen0">08:24:36
-                            </spam>
-                        </div>
+
+                         <div id="proximo-partido">
+                
+                          </div>
                     </div>
                 </div>
                 <div class="col-md-8 margen0">

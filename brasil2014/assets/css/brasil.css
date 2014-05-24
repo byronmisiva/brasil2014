@@ -427,7 +427,7 @@ div.iconos {
     background-size: auto 51px;
     float: left;
     height: 50px;
-    width: 280px;
+    width: 273px;
 }
 
 .en-vivo-content {
@@ -456,6 +456,16 @@ div.iconos {
 .movi-headline-regular {
     font-family: 'movistarHeadline-Regular' ;
 }
+
+#proximo-partido .movi-headline-regular {
+    padding-top: 15px;
+}
+
+#proximo-partido .cor-partidos {
+    padding-left: 28px;
+    font-size: 13px;
+}
+
 
 
 .sprite-facebook, .sprite-twitter  {
@@ -1271,5 +1281,28 @@ p.noticia-abierta    {
 
 #carousel-historias{
     padding-right: 15px;
+}
+
+.carousel.c-fade .item {
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+.carousel.c-fade .active.left,
+.carousel.c-fade .active.right {
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.carousel.c-fade .next,
+.carousel.c-fade .prev {
+  left: 0;
+  z-index: 1;
+}
+.carousel.c-fade .carousel-control {
+  z-index: 3;
 }
 

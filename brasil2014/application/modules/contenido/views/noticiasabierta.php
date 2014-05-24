@@ -38,15 +38,7 @@ setlocale(LC_ALL, "es_ES");
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 separador mar"></div>
-                <div class="col-md-12 margen0">
-                    <h2>
-                        <div class="iconos sprite-noticias"></div>
-                        Noticias
-                    </h2>
-                    <hr class="cabecera">
-
-                </div>
+            <div class="col-md-12 separador"></div>
             <?php
             } else {
                 $cuerpo = "";

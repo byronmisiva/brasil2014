@@ -165,6 +165,34 @@ class Mdl_partidos extends MY_Model
         return $datos;
     }
 
+
+
+function getProximoPartido()
+    {
+        //query recupera el listado de todos los partidos ordenados por fecha
+        $partidos = $this->get(array('select' => "*",'where' => "DATE_FORMAT(partidos.fecha, '%Y-%c-%e %k:%i')  > NOW()  LIMIT 1"));
+         //echo $this->db->last_query();
+        $datos['idPartido']=$partidos[0]->id;
+        $datos['fecha'] =$partidos[0]->fecha;
+        $datos['estado'] =$partidos[0]->estado;
+        $datos['resultado'] = $partidos[0]->resultado;
+        $datos['resumen'] = $partidos[0]->resumen;
+        $datos['afp_id'] = $partidos[0]->afp_id;
+        $datos['afp_id_estadio'] = $partidos[0]->afp_id_estadio;
+        $datos['nombre_estadio'] = $partidos[0]->nombre_estadio;
+        $datos['grupos_id'] = $partidos[0]->grupos_id;
+        $datos['arbitro'] = $partidos[0]->arbitro;
+        $datos['local'] = $partidos[0]->local;
+        $datos['visitante'] = $partidos[0]->visitante;
+        $datos['nombre_local'] = $partidos[0]->nombre_local;
+        $datos['nombre_visitante'] = $partidos[0]->nombre_visitante;
+        $datos['tactica_local'] =$partidos[0]->tactica_local;
+        $datos['tactica_visitante'] = $partidos[0]->tactica_visitante;
+        return $datos;
+    }
+
+
+
     // partido mas cercano que no este en estado 'No Iniciado'
     function getLastGames($limit)
     {

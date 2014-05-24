@@ -79,10 +79,9 @@ setlocale(LC_ALL, "es_ES");
                                          src="<?php if (isset($noticia->imagenes[0]->ftp_visu)) echo $noticia->imagenes[0]->ftp_visu ?>"
                                          alt="<?php echo $noticia->titulo ?>">
                                 </div>
-                                <div class="col-sm-7   margen5l ">
+                                <div class="col-sm-7   margen5l altonews">
                                     <h3><?php echo $noticia->titulo ?></h3>
-
-                                    <p><?php echo substr($noticia->cuerpo, 0, 100) . "..."; ?></p>
+                                    <p><?php echo substr($noticia->cuerpo, 0, 180) . "..."; ?></p>
                                     <spam class="boton-more-mini">Ver más ></spam>
                                 </div>
                             </a>

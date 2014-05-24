@@ -8,7 +8,7 @@
         <hr class="cabecera">
     </div>
     <div class="clearfix"></div>
-    <div id="carousel-estadios" class="carousel slide" data-ride="carousel">
+    <div id="carousel-estadios" class="carousel slide c-fade" data-ride="carousel">
         <div class="clearfix"></div>
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
