@@ -73,7 +73,8 @@ $(function () {
     $('.list_carousel_header').hide();
     $('.list_carousel_header:first').show();
 
-})
+    Brasil2014(baseUrl); 
+0})
 
 
 
@@ -84,7 +85,7 @@ var Brasil2014 = (function( baseUrl ) {
 		$.ajax({
 			cache :true,
     		type: "POST",
-    		url: method,
+    		url: baseUrl+method,
     		data: { 'data' :  data },
     		success: function( response ) {
     			$( content ).html( response );
@@ -92,15 +93,24 @@ var Brasil2014 = (function( baseUrl ) {
 		});
 	};
 
+    loadView( '#proximo-partido',   'partidos/viewProximoPartido/TRUE', { } ); 
+
 	var setEvent = function( content, method ) {
-		if( $('#modul_ranking_goleadores').length ){
-			//$('#modul_ranking_goleadores').click( function() {
+
+		/*if( $('#modul_ranking_goleadores').length ){
+			$('#modul_ranking_goleadores').click( function() {
 				setInterval(
 						function() {
 							loadView( '#' + this.id, baseUrl + 'jugadores/viewRankingGoleadores/TRUE', { 'id' : 8, 'name' : 'luis' } );
 						}, 5000 );
-			//} );
-		}
+			} );
+		}*/
+        
+   $('#proximo-partido').click( function() {
+                            loadView( '#proximo-partido',   'partidos/viewProximoPartido/TRUE', { } );        
+            } );
+          
+       
 	};
 
 	setEvent();
@@ -114,19 +124,5 @@ var Brasil2014 = (function( baseUrl ) {
 		getSignedRequest: getSignedRequest*/
 	};
 	return module;
-
-//script video
-    var streamId = "2000";
-    var useHLS = false;
-    var embedPath = "http://origin.elcanaldelfutbol.com/embed";
-    var turnOnDVR = true;
-    if(useHLS == true) {
-        turnOnDVR = false;
-    }
-    $.getScript(embedPath+"/embed.js");
-
-
 });
-
-
 

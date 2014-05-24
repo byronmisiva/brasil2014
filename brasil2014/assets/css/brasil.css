@@ -354,7 +354,7 @@ div.iconos {
 }
 
 .list_carousel_header li {
-    width: 100px;
+    width: 97px;
     height: 100px;
     padding: 0;
     margin: 1px;
@@ -1284,11 +1284,11 @@ p.noticia-abierta    {
 }
 
 .carousel.c-fade .item {
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -ms-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 .carousel.c-fade .active.left,
 .carousel.c-fade .active.right {
