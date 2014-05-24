@@ -8,8 +8,7 @@ class Equipos extends MY_Controller{
 	}
 	
 	public function index(){
-	echo "hola";	
-	echo "gdfgsdfg";				
+						
 	}
 	
 	public function view(){			
@@ -108,7 +107,7 @@ class Equipos extends MY_Controller{
 										$fotos++;									
 										$this->imagenes->_syncFotos( $component, array(
 												'origen' => $pathXml.'/', //origen
-												'destino' => strtolower( base_url(). 'imagenes/equipos/'.$equipo['nombre'] ).'/', //destino
+												'destino' => strtolower( 'imagenes/equipos/'.$equipo['nombre'] ).'/', //destino
 												'galerias_id' => $equipo['galerias_id'], // id galeria
 												'titulo' => "Equipo - ".$equipo['nombre'].' - '.$fotos, // nombre de la foto
 												'modulo' => "equipos",

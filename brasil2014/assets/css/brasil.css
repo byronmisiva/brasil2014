@@ -184,9 +184,9 @@ div.iconos {
 .sprite-chile{ background-position: 0 -594px; width: 21px; height: 15px; }
 .sprite-colombia{ background-position: 0 -659px; width: 21px; height: 15px; }
 .sprite-contenido-exclusivo{ background-position: 0 -724px; width: 13px; height: 24px; }
-.sprite-corea-del-sur{ background-position: 0 -798px; width: 21px; height: 15px; }
+.sprite-corea-del-s{ background-position: 0 -798px; width: 21px; height: 15px; }
 .sprite-corea{ background-position: 0 -863px; width: 21px; height: 15px; }
-.sprite-costa-de-marfil{ background-position: 0 -928px; width: 21px; height: 15px; }
+.sprite-c-de-marfil{ background-position: 0 -928px; width: 21px; height: 15px; }
 .sprite-costa-rica{ background-position: 0 -993px; width: 21px; height: 15px; }
 .sprite-croacia{ background-position: 0 -1058px; width: 21px; height: 15px; }
 .sprite-ecuador{ background-position: 0 -1123px; width: 21px; height: 15px; }
@@ -278,8 +278,8 @@ div.iconos {
 .sprite-escudo-camerun{ background: url(../images/equipos/escudos/cmr.png) no-repeat top left; width: 80px; height: 80px; float:left }
 .sprite-escudo-chile{ background: url(../images/equipos/escudos/chi.png) no-repeat top left;width: 80px; height: 80px; float:left }
 .sprite-escudo-colombia{ background: url(../images/equipos/escudos/col.png) no-repeat top left; width: 80px; height: 80px; float:left }
-.sprite-escudo-corea-del-sur{ background: url(../images/equipos/escudos/kor.png) no-repeat top left; width: 80px; height: 80px; float:left }
-.sprite-escudo-costa-de-marfil{ background: url(../images/equipos/escudos/civ.png) no-repeat top left; width: 80px; height: 80px; float:left }
+.sprite-escudo-corea-del-s{ background: url(../images/equipos/escudos/kor.png) no-repeat top left; width: 80px; height: 80px; float:left }
+.sprite-escudo-c-de-marfil{ background: url(../images/equipos/escudos/civ.png) no-repeat top left; width: 80px; height: 80px; float:left }
 .sprite-escudo-costa-rica{ background: url(../images/equipos/escudos/crc.png) no-repeat top left; width: 80px; height: 80px; float:left }
 .sprite-escudo-croacia{ background: url(../images/equipos/escudos/cro.png) no-repeat top left; width: 80px; height: 80px; float:left }
 .sprite-escudo-ecuador{ background: url(../images/equipos/escudos/ecu.png) no-repeat top left; width: 80px; height: 80px; float:left }
@@ -312,8 +312,8 @@ div.iconos {
 .sprite-bandera-camerun{ background: url(../images/equipos/banderas40/cmr.png) no-repeat top left; width: 37px; height: 24px; float:left }
 .sprite-bandera-chile{ background: url(../images/equipos/banderas40/chi.png) no-repeat top left;width: 37px; height: 24px; float:left }
 .sprite-bandera-colombia{ background: url(../images/equipos/banderas40/col.png) no-repeat top left; width: 37px; height: 24px; float:left }
-.sprite-bandera-corea-del-sur{ background: url(../images/equipos/banderas40/kor.png) no-repeat top left; width: 37px; height: 24px; float:left }
-.sprite-bandera-costa-de-marfil{ background: url(../images/equipos/banderas40/civ.png) no-repeat top left; width: 37px; height: 24px; float:left }
+.sprite-bandera-corea-del-s{ background: url(../images/equipos/banderas40/kor.png) no-repeat top left; width: 37px; height: 24px; float:left }
+.sprite-bandera-c-de-marfil{ background: url(../images/equipos/banderas40/civ.png) no-repeat top left; width: 37px; height: 24px; float:left }
 .sprite-bandera-costa-rica{ background: url(../images/equipos/banderas40/crc.png) no-repeat top left; width: 37px; height: 24px; float:left }
 .sprite-bandera-croacia{ background: url(../images/equipos/banderas40/cro.png) no-repeat top left; width: 37px; height: 24px; float:left }
 .sprite-bandera-ecuador{ background: url(../images/equipos/banderas40/ecu.png) no-repeat top left; width: 37px; height: 24px; float:left }
@@ -1047,9 +1047,17 @@ a, a:hover, a:focus{
     padding: 15px;
 }
 
+.calendar-dia .btn:active, .calendar-dia .btn.active {
+    box-shadow: none;
+}
+.calendar-dia .btn-default:active,.calendar-dia .btn-default.active,.calendar-dia .open .dropdown-toggle.btn-default {
+    color: #808080;
+}
+
+
 .calendar-dia .btn {
     font-size: 12px;
-    color: #808080;
+    color: #dfdfdf;
     border-radius: 0;
     height: 50px;
     line-height: 60px;
@@ -1064,27 +1072,27 @@ a, a:hover, a:focus{
 }
 
 .domingo {
-    background: url("../images/domingo.png") no-repeat;
+    background: url("../images/domingo.png") no-repeat !important;
 }
 
 .lunes {
-    background: url("../images/lunes.png") no-repeat;
+    background: url("../images/lunes.png") no-repeat !important;
 }
 
 .martes {
-    background: url("../images/martes.png") no-repeat;
+    background: url("../images/martes.png") no-repeat !important;
 }
 .miercoles {
-    background: url("../images/miercoles.png") no-repeat;
+    background: url("../images/miercoles.png") no-repeat !important;
 }
 .jueves {
-    background: url("../images/jueves.png") no-repeat;
+    background: url("../images/jueves.png") no-repeat !important;
 }
 .viernes {
-    background: url("../images/viernes.png") no-repeat;
+    background: url("../images/viernes.png") no-repeat !important;
 }
 .sabado {
-    background: url("../images/sabado.png") no-repeat;
+    background: url("../images/sabado.png") no-repeat !important;
 }
 
 
@@ -1225,3 +1233,35 @@ p.noticia-abierta    {
     margin-left: 18%;
     margin-right: auto;
 }
+.imagenes-galeria .minigaleria img {
+    display: block;
+    height: 93px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.maxgaleria .img-galeria-full img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.maxgaleria  .bg-galeria{
+    height: 120px;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.maxgaleria .bg-galeria:nth-child(4n) {
+   padding-left: 5px;
+   padding-right: 0px;
+}
+
+.maxgaleria .bg-galeria:nth-child(4n+1) {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+

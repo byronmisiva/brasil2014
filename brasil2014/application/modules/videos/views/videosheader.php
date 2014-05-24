@@ -1,3 +1,5 @@
+<div id="player"></div>
+
 <!--        Contenidos principales-->
 <!-- Tab panes -->
 <div class="tab-content contenedor-videos">

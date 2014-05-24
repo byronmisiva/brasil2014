@@ -40,7 +40,7 @@
                                     <div class="col-md-12 cuerpo">
                                         <div class="row">
                                             <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9  margen5">
-                                                    <a href="<?php echo "site/equipo/".$rankGroup->equipos_campeonato_id; ?>/<?php echo strtolower($this->partidos->_clearStringGion($rankGroup->name)) ?>" alt="<?php echo $rankGroup->name ?>" title="<?php echo $rankGroup->name ?>">
+                                                    <a href="<?php echo base_url('site/equipo') . '/'. $rankGroup->equipos_campeonato_id; ?>/<?php echo strtolower($this->partidos->_clearStringGion($rankGroup->name)) ?>" alt="<?php echo $rankGroup->name ?>" title="<?php echo $rankGroup->name ?>">
                                 <span
                                     class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($rankGroup->name)) ?>"></span>
                                                     <?php echo (string)$rankGroup->short_name; ?>

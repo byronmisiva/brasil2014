@@ -28,7 +28,7 @@
                                 class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($equipo->name)) ?>"></span>
                     </div>
                     <div class="col-md-10 margen0">
-                        <a href="<?php echo base_url() . "site/equipo/" .  $equipo->id; ?>"><?php echo $equipo->name; ?></a>
+                        <a href="<?php echo base_url() . "site/equipo/" . $equipo->equipos_campeonato_id; ?>"><?php echo $equipo->name; ?></a>
                     </div>
                 </div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">
@@ -73,9 +73,17 @@
         }
     }
     ?>
-    <div class="col-md-12 boton-more-fondo">
-        <a class="boton-more" href="#" onclick="$('#inicio').animatescroll();">Arriba</a>
-    </div>
+    <?php
+
+    if (count($ranking) != 1) {
+        ?>
+        <div class="col-md-12 boton-more-fondo">
+            <a class="boton-more" href="#" onclick="$('#inicio').animatescroll();">Arriba</a>
+        </div>
+    <?php
+    }
+    ?>
+
 </div>
 
 

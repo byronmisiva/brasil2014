@@ -114,5 +114,19 @@ var Brasil2014 = (function( baseUrl ) {
 		getSignedRequest: getSignedRequest*/
 	};
 	return module;
+
+//script video
+    var streamId = "2000";
+    var useHLS = false;
+    var embedPath = "http://origin.elcanaldelfutbol.com/embed";
+    var turnOnDVR = true;
+    if(useHLS == true) {
+        turnOnDVR = false;
+    }
+    $.getScript(embedPath+"/embed.js");
+
+
 });
+
+
 

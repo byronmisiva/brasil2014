@@ -26,7 +26,7 @@ setlocale(LC_ALL, "es_ES");
             </h2>
              <hr class="cabecera">
         </div>
-<div class="col-md-12 margen0">        
+<div class="col-md-12 margen0 maxgaleria">        
 
        <?php
        $cont=0;
@@ -34,9 +34,9 @@ setlocale(LC_ALL, "es_ES");
        foreach ($item['imagenes'] as $row) {
             ?>
             <!-- imagen  -->
-            <div class="col-lg-3 margen0">
-                <a title="<?php echo $row->nombre; ?>" href="<?php echo $row->visu; ?>" class="minigaleria"  data-toggle="lightbox">
-                <img src="<?php echo $row->thumb250; ?>" class="img-responsive">
+            <div class="col-lg-3 margen0 bg-galeria">
+                <a title="<?php echo $row->nombre; ?>" href="<?php echo $row->visu; ?>" class="img-galeria-full minigaleria"  data-toggle="lightbox">
+                <img src="<?php echo $row->thumb250; ?>">
                 </a>
             </div>
             <!-- Fin imagene  -->
