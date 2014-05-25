@@ -45,7 +45,7 @@
                                     <li><a href="<?php echo base_url();?>site/goleadores">Goleadores</a></li>
                                     <li><a href="<?php echo base_url();?>site/calendario">Partidos</a></li>
                                     <li><a href="<?php echo base_url();?>site/grupos">Resultados</a></li>
-                            
+
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->

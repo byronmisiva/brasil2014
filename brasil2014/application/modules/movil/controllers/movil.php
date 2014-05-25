@@ -31,21 +31,20 @@ class Movil extends MY_Controller
         $data['pageTitle'] = "Home - Mundial Movistar";
 
         $data['sidebar'] = $this->contenido->view_twitter();
-        $data['sidebar'] .= $this->contenido->banner_sidebar();
-        $data['sidebar'] .= $this->partidos->partidosFecha();
-        $data['sidebar'] .= $this->contenido->view_trivia();
-        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleriaHome();
+    //    $data['sidebar'] .= $this->contenido->banner_sidebar();
+    //    $data['sidebar'] .= $this->partidos->partidosFecha();
+    //    $data['sidebar'] .= $this->contenido->view_trivia();
+    //    $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+    //    $data['sidebar'] .= $this->galerias->viewGaleriaHome();
 
-        $data['content'] = $this->videos->viewVideosHeader();
+        //$data['content'] = $this->videos->viewVideosHeader();
+        $data['content'] = $this->partidos->partidosFecha();
         $data['content'] .= $this->contenido->view_banner_contenido();
-        $data['content'] .= $this->ranking->viewRankingGrupos();
         $data['content'] .= $this->contenido->view_noticia_home();
         $data['content'] .= $this->contenido->view_banner_contenido();
-        $data['content'] .= $this->contenido->view_historias();
-        $data['content'] .= $this->contenido->view_estadios();
 
-        $this->templates->_index($data);
+
+        $this->templates->_movil($data);
     }
 
     public function noticia()
