@@ -48,12 +48,12 @@ setlocale(LC_ALL, "es_ES");
                     <hr class="<?php echo $cuerpo ?>">
                     <div class="row noticia">
                         <a href="<?php echo base_url() . "site/noticia/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>"  >
-                            <div class="col-sm-4  margen5r noticia2">
+                            <div class="col-sm-4  col-xs-5  margen5r noticia2">
                                 <img class="img-responsive "
                                      src="<?php if (isset($noticia->imagenes->ftp_visu)) echo $noticia->imagenes->ftp_visu ?>"
                                      alt="<?php echo strip_tags ( $noticia->titulo) ?>">
                             </div>
-                            <div class="col-sm-8   margen5l altonews">
+                            <div class="col-sm-8 col-xs-7   margen5l altonews">
                                 <div class="col-md-12 margen0l mini-noticia-fecha">
                                     <?php echo ucfirst(strftime('%B %d / %Y  %Hh%M', strtotime($noticia->creado))); ?>
                                 </div>

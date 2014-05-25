@@ -42,11 +42,11 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row noticia">
-                        <div class="col-sm-4  margen5r">
+                        <div class="col-sm-4  col-xs-5 margen5r">
                             <img class="img-responsive " src="<?php echo base_url('imagenes/temp/content-noticia-2.jpg') ?>"
                                  alt="">
                         </div>
-                        <div class="col-sm-8   margen5l ">
+                        <div class="col-sm-8  col-xs-7  margen5l ">
 
                             <h3>Cabecera Noticia. Lorem ipsum dolor</h3>
                             <p>Cras sit amet nibh libero, in gravida nulla.Cras sit amet nibh libero, in gravida nulla.Cras

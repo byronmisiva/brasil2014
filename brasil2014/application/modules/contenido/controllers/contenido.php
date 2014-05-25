@@ -1,5 +1,4 @@
 <?php
-
 class Contenido extends MY_Controller
 {
 
@@ -10,6 +9,27 @@ class Contenido extends MY_Controller
         parent::__construct();
     }
 
+    public function cabecera($data = FALSE)
+    {
+        return $this->load->view('header', $data, TRUE);
+        //todo crear banner slideBar
+    }
+
+    public function menu($data = FALSE)
+    {
+        return $this->load->view('menu', $data, TRUE);
+    }
+
+    public function menum($data = FALSE)
+    {
+        return $this->load->view('menum', $data, TRUE);
+    }
+
+
+    public function footer($data = FALSE)
+    {
+        return $this->load->view('footer', $data, TRUE);
+    }
 
     public function banner_sidebar($data = FALSE)
     {

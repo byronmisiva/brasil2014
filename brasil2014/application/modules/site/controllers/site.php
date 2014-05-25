@@ -13,18 +13,7 @@ class Site extends MY_Controller
 
     public function index()
     {
-       
-
-        $this->load->library('user_agent'); 
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');   
-        if ($this->agent->is_mobile()){
-            echo "movil";
-            $this->home();
-        }else{
-             $this->home();
-           
-        }   
-
+       $this->home();
     }
 
 
@@ -41,25 +30,48 @@ class Site extends MY_Controller
 
         $data['pageTitle'] = "Home - Mundial Movistar";
 
-        $data['cabecera'] = $this->contenido->cabecera();
-        $data['cabecera'] .= $this->contenido->menu();
-        $data['footer'] = $this->contenido->footer();
+
+        $this->load->library('user_agent'); 
+        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');   
+        if ($this->agent->is_mobile()){
+ 
+            $data['cabecera']  = $this->contenido->menum();
+
+            $data['content'] = $this->partidos->partidosFecha();
+            $data['content'] .= $this->contenido->view_banner_contenido();
+            $data['content'] .= $this->contenido->view_noticia_home();           
+            $data['content'] .= $this->contenido->view_banner_contenido();
+            $data['content'] .= $this->contenido->view_twitter();
+
+            $data['footer'] = '';        
+
+            $data['sidebar'] = '';
+
+        }else{
+            $data['cabecera'] = $this->contenido->cabecera();
+            $data['cabecera'] .= $this->contenido->menu();
+            $data['footer'] = $this->contenido->footer();        
+
+            $data['sidebar'] = $this->contenido->view_twitter();
+            $data['sidebar'] .= $this->contenido->banner_sidebar();
+            $data['sidebar'] .= $this->partidos->partidosFecha();
+            $data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();
+
+            $data['content'] = $this->videos->viewVideosHeader();
+            $data['content'] .= $this->contenido->view_banner_contenido();
+            $data['content'] .= $this->ranking->viewRankingGrupos();
+            $data['content'] .= $this->contenido->view_noticia_home();
+            $data['content'] .= $this->contenido->view_banner_contenido();
+            $data['content'] .= $this->contenido->view_historias();
+            $data['content'] .= $this->contenido->view_estadios();
+
+        }   
 
 
-        $data['sidebar'] = $this->contenido->view_twitter();
-        $data['sidebar'] .= $this->contenido->banner_sidebar();
-        $data['sidebar'] .= $this->partidos->partidosFecha();
-        $data['sidebar'] .= $this->contenido->view_trivia();
-        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleriaHome();
 
-        $data['content'] = $this->videos->viewVideosHeader();
-        $data['content'] .= $this->contenido->view_banner_contenido();
-        $data['content'] .= $this->ranking->viewRankingGrupos();
-        $data['content'] .= $this->contenido->view_noticia_home();
-        $data['content'] .= $this->contenido->view_banner_contenido();
-        $data['content'] .= $this->contenido->view_historias();
-        $data['content'] .= $this->contenido->view_estadios();
+
 
         $this->templates->_index($data);
     }
@@ -77,23 +89,42 @@ class Site extends MY_Controller
         $this->load->module('ranking');
         $this->load->module('jugadores');
 
-        $data['cabecera'] = $this->contenido->cabecera();
-        $data['cabecera'] .= $this->contenido->menu();
-        $data['footer'] = $this->contenido->footer();
+        $this->load->library('user_agent'); 
+        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');   
+        if ($this->agent->is_mobile()){
+ 
+            $data['cabecera']  = $this->contenido->menum();
+
+            $data['content'] = $this->contenido->view_noticia_open($idNoticia);
+
+            $data['footer'] = '';        
+
+            $data['sidebar'] = '';
+
+        }else{
+            $data['cabecera'] = $this->contenido->cabecera();
+            $data['cabecera'] .= $this->contenido->menu();
+            $data['footer'] = $this->contenido->footer();
 
 
-        $data['sidebar'] = $this->contenido->view_twitter();
-        $data['sidebar'] .= $this->contenido->banner_sidebar();
-        $data['sidebar'] .= $this->partidos->partidosFecha();
-        $data['sidebar'] .= $this->contenido->view_trivia();
-        $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-        $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            $data['sidebar'] = $this->contenido->view_twitter();
+            $data['sidebar'] .= $this->contenido->banner_sidebar();
+            $data['sidebar'] .= $this->partidos->partidosFecha();
+            $data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
-        $data['content'] = $this->videos->viewVideosHeader();
-        $data['content'] .= $this->contenido->view_noticia_open($idNoticia);
-        $data['content'] .= $this->contenido->view_banner_contenido();
-        $data['content'] .= $this->contenido->view_historias();
-        $data['content'] .= $this->contenido->view_estadios();
+            $data['content'] = $this->videos->viewVideosHeader();
+            $data['content'] .= $this->contenido->view_noticia_open($idNoticia);
+            $data['content'] .= $this->contenido->view_banner_contenido();
+            $data['content'] .= $this->contenido->view_historias();
+            $data['content'] .= $this->contenido->view_estadios();
+
+        }   
+
+
+
+
 
         $data['pageTitle'] = "Noticias - Mundial Movistar";
         $this->templates->_index($data);
