@@ -16,8 +16,7 @@
                                     <a href="#otros-partidos" data-toggle="tab">
                                     <div class="opcion-menu col-md-12">
                                         <div class="menu-texto">
-                                            <div class="iconos sprite-icono_partidos"></div>
-                                            Partidos
+                                            Partidos >
                                         </div>
                                     </div>
                                     </a>
@@ -27,8 +26,7 @@
                                     <a href="#otros-partidos" data-toggle="tab">
                                     <div class="opcion-menu center-block col-md-12">
                                         <div class="menu-texto">
-                                            <div class="iconos sprite-icono_goles"></div>
-                                            Goles
+                                            Goles >
                                         </div>
                                     </div>
                                     </a>
@@ -38,8 +36,7 @@
                                     <a href="#otros-partidos" data-toggle="tab">
                                     <div class="opcion-menu center-block col-md-12">
                                         <div class="menu-texto">
-                                            <div class="iconos sprite-icono_contenido-exclusivo"></div>
-                                            Especiales
+                                            Especiales >
                                         </div>
                                     </div>
                                     </a>
@@ -49,8 +46,7 @@
                                     <a href="<?php echo base_url('site/calendario')?>" >
                                     <div class="opcion-menu center-block col-md-12">
                                         <div class="menu-texto">
-                                            <div class="iconos sprite-icono-calendario"></div>
-                                            Calendario
+                                            Calendario >
                                         </div>
                                     </div>
                                     </a>

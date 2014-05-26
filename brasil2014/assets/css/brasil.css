@@ -105,7 +105,7 @@ h2, h3 {
 
 .menu_top .active a,
 .menu_top .active a:hover {
-    background-color: red;
+    background-color: #ffffff;
 }
 
 .menu_top > li > a:hover, .menu_top > li > a:focus {
@@ -489,11 +489,11 @@ div.iconos {
 
 .tab-videos > .menu{
     height: 50px;
-    border-right: 1px solid #00425e;
+
 }
 
 .tab-videos > .menu:first-child{
-    border-left: 1px solid #00425e;
+
 }
 
 .tab-videos a,.tab-videos a:hover, .tab-videos li.active > a , .tab-videos li.active > a:hover {
@@ -522,7 +522,7 @@ div.iconos {
     margin-bottom: 0px;
 }
 .tab-calendario {
-    background: url(../images/calendario-menu-backgroud.png) no-repeat top left;
+   // background: url(../images/calendario-menu-backgroud.png) no-repeat top left;
     background-color: transparent;
     color: #08506d;
     border-color: transparent;
@@ -1053,7 +1053,7 @@ a, a:hover, a:focus{
 }
 
 .activemenu, .opcion-menu:hover, .opcion-menu:active    {
-    background-color: #4b9cc1;
+     color: #006d98;
 }
 
 
@@ -1306,3 +1306,51 @@ p.noticia-abierta    {
   z-index: 3;
 }
 
+.navbar-fixed-top  {
+    background: url("../images/fondomovil.png") repeat-x scroll 0 0;
+    border-color: transparent;
+}
+.navbar-fixed-top li.active, .navbar-fixed-top li.active a,
+.navbar-fixed-top li, .navbar-fixed-top li a  {
+    color: #ffffff;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: #005b86;
+    color: #dddddd;
+}
+
+.navbar-toggle {
+    background-color: #119cbf;
+    background-image: none;
+    border: 1px solid #119cbf;
+    margin-top: 14px;
+    margin-left: 15px;
+}
+
+.navbar-fixed-top .navbar-toggle {
+    border-color: #119cbf;
+}
+
+.navbar-fixed-top .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+
+.logo-movil {
+    padding: 12px 15px 0  ;
+}
+
+@media (max-width: 768px) {
+    body {
+        background: none;
+        background-color: #ffffff;
+    }
+    .header {
+        background: url("../images/fondomovil.png") repeat-x scroll 0 0;
+    }
+
+    .container .navbar {
+        margin-bottom: 20px;
+    }
+}

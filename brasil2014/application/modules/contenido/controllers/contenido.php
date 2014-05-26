@@ -121,9 +121,9 @@ class Contenido extends MY_Controller
         //todo crear banner viewTrivia
     }
 
-    public function view_goleadores($data = FALSE)
+    public function header_mobile($data = FALSE)
     {
-        return $this->load->view('goleadores', $data, TRUE);
+        return $this->load->view('header_mobile', $data, TRUE);
         //todo crear banner viewGoleadores
     }
 

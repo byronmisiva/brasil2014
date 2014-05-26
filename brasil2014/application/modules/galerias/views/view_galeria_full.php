@@ -34,7 +34,7 @@ setlocale(LC_ALL, "es_ES");
        foreach ($item['imagenes'] as $row) {
             ?>
             <!-- imagen  -->
-            <div class="col-lg-3 margen0 bg-galeria">
+            <div class="col-lg-3 col-xs-6 margen0 bg-galeria">
                 <a title="<?php echo $row->nombre; ?>" href="<?php echo $row->visu; ?>" class="img-galeria-full minigaleria"  data-toggle="lightbox">
                 <img src="<?php echo $row->thumb250; ?>">
                 </a>
