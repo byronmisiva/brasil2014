@@ -27,7 +27,7 @@
         ?>
     </div>
 
-    <div class="col-md-12 boton-more-fondo margen0">
+    <div class="row boton-more-fondo margen0">
         <a href="<?php echo base_url('site/galerias')?>" class="boton-more">Ver más ></a>
     </div>
 </div>

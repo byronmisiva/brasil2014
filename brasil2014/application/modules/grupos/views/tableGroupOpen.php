@@ -26,7 +26,7 @@
                 ?>
                 <div class="col-md-12 cuerpo">
                     <div class="row">
-                        <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5  margen2">
+                        <div class="col-md-5 col-lg-5 col-sm-5 col-xs-3 margen2">
                             <?php if (isset($row->tabla[$i])) {
                                 ?>
                                 <span

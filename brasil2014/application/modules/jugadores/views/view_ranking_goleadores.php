@@ -18,6 +18,7 @@
             </div>
             <?php
             for ($i = 0; $i < 5; $i++) {
+                if((string)$goleadores[$i]->nombre!=""){ 
                 ?>
                 <div class="col-md-12 gol-cuerpo margen0">
 
@@ -28,6 +29,7 @@
                     <div class="col-md-2 margen0 text-center gris"><?php echo (string)$goleadores[$i]->n_goles;?></div>
                 </div>
             <?php
+               } 
             } ?>
         </div>
 

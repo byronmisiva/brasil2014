@@ -37,8 +37,17 @@
         </div>
         <div class="col-md-12 separador"></div>
         <div class="col-md-12 margen0">
-            <?php
-            echo "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p> ";
+             <?php
+            foreach ($fichaEquipo['ficha'] as $ficha) {
+                    foreach ($ficha as $nodo) {
+
+                        if ((string)$nodo->titulo == 'Federación') {
+                           echo "<p>".$nodo->detalles."</p>";
+                           
+                        }
+                    }
+                }
+            
             ?>
         </div>
         <div class="col-md-12 separador"></div>

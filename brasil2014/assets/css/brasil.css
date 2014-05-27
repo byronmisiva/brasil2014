@@ -59,9 +59,8 @@ a:hover,.a:visited  {
 }
 
 .slogan {
-    margin: 0;
-    float: left;
-    width: 50px;
+     margin: 0;
+    padding: 0;
 }
 
 .jumbotron .container {
@@ -242,12 +241,12 @@ div.iconos {
 .sprite-icono_goles{ background-position: -152px -681px; width: 16px; height: 15px; }
 .sprite-icono_grupos{ background-position: -152px -746px; width: 22px; height: 21px; }
 .sprite-icono_jugador{ background-position: -152px -817px; width: 16px; height: 17px; }
-.sprite-icono_minutoaminuto{ background-position: -152px -884px; width: 15px; height: 14px; }
+.sprite-icono_minutoaminuto{ background-position: -152px -884px; width: 15px; height: 14px; float:left;}
 .sprite-icono_partidos{ background-position: -152px -948px; width: 17px; height: 21px; }
 .sprite-icono_partidos_blue{ background-position: -152px -1019px; width: 17px; height: 21px; }
 .sprite-icono_sedes{ background-position: -152px -1090px; width: 30px; height: 21px; }
 .sprite-icono_trivia{ background-position: -152px -1161px; width: 18px; height: 17px; }
-.sprite-icono_video{ background-position: -152px -1228px; width: 17px; height: 16px; }
+.sprite-icono_video{ background-position: -152px -1228px; width: 17px; height: 16px; float:left; }
 .sprite-inglaterra{ background-position: -152px -1294px; width: 21px; height: 15px; }
 .sprite-iran{ background-position: -152px -1359px; width: 21px; height: 15px; }
 .sprite-italia{ background-position: -152px -1424px; width: 21px; height: 15px; }
@@ -425,9 +424,11 @@ div.iconos {
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0);
     background-size: auto 51px;
-    float: left;
+    /*float: left;
+     width: 273px;*/
     height: 50px;
-    width: 273px;
+    margin-left: -17px;
+   
 }
 
 .en-vivo-content {
@@ -730,7 +731,7 @@ hr {
 .boton-more-fondo {
     background: url("../images/barra_cuadros_ver_mas.jpg") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
     margin-top: 10px;
-
+    padding-right: 15px;
 }
 
 .panel-noticias .boton-more:active,.panel-noticias .boton-more-mini:active {
@@ -1340,6 +1341,10 @@ p.noticia-abierta    {
 .logo-movil {
     padding: 12px 15px 0  ;
 }
+.cuerpo, .boton-more-fondo {
+    float: left;
+    width: 100%;
+}
 
 @media (max-width: 768px) {
     body {
@@ -1353,4 +1358,91 @@ p.noticia-abierta    {
     .container .navbar {
         margin-bottom: 20px;
     }
+    .maxgaleria .bg-galeria {
+        height: 140px;
+    }
+
+
+    .grupo .nombre-equipo, .grupo .nombre-equipo a, .grupo .nombre-equipo a:visited {
+        font-size: 14px;
+        color: #005c84;
+    }
+
+    .cuerpo .boton-more-fondo {
+        float: left;
+        width: 100%;
+    }
+
+    .cabecera-grupos2 {
+
+        font-size: 13px;
+
+    }
+
+    .grupos {
+        display: none;
+    }
+
+    .navbar-nav li {
+        font-family: movistarHeadline-Regular, Arial;
+        border-bottom: 1px solid #8cbbcb;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .main-goleadores-movi {
+        display: none;
+    }
 }
+
+
+#trivia, #trivia.row{
+    height: 275px;
+}
+
+#result .trivia-respuesta{
+    font-family:inherit;
+    font-size: 46px;
+    color: #2A6A92;
+}
+
+#result .boton-more-fondo{
+    padding-right: 15px;
+    cursor:pointer;
+}
+
+#trivia, ul>li{
+    list-style: none;
+}
+
+.panel-minute .deshabilitado{
+    color: #666;
+}
+
+.opcion-menu .iconos-menu{
+    padding-left: 38px;
+    padding-top: 10px;
+}
+
+#iconoFacebook{
+    background: url("../images/facebook1.png") no-repeat;
+    width: 29px;
+    height: 29px;
+    float: left;
+}
+
+#iconoFacebook:hover{
+    background: url("../images/facebook2.png") no-repeat;
+}
+
+#iconoTwitter{
+    background: url("../images/twitter1.png") no-repeat;
+     width: 29px;
+    height: 29px;
+    float: left;
+}
+
+#iconoTwitter:hover{
+    background: url("../images/twitter2.png") no-repeat;
+}
+

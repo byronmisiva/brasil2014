@@ -1,7 +1,8 @@
 /* jQuery Countdown styles 2.0.0. */
 .is-countdown {
 	color: #FFFFFF;
-	font-size: 7px;
+	font-size: 12px;
+	margin-top: -10px;
 }
 .countdown-rtl {
 	direction: rtl;

@@ -226,7 +226,7 @@ foreach ($partidos as $key => $partido) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 opciones">
+                    <div class="col-md-3 opciones deshabilitado">
                         <div class="row">
 
                             <div class="col-md-12 text-right">

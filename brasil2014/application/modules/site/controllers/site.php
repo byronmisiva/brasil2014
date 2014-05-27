@@ -247,7 +247,8 @@ class Site extends MY_Controller
         if ($this->agent->is_mobile()){
 
             $data['cabecera']  = $this->contenido->menum();
-            $data['content'] = $this->ranking->menuranking();
+            $data['content'] = $this->contenido->header_mobile();
+            $data['content'] .= $this->ranking->menuranking();
             $data['content'] .= $this->ranking->viewRankingFases($idGrupo);
             $data['footer'] = '';
             $data['sidebar'] = '';
@@ -337,7 +338,9 @@ class Site extends MY_Controller
         $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');
         if ($this->agent->is_mobile()){
             $data['cabecera']  = $this->contenido->menum();
-            $data['content'] = $this->jugadores->viewRankingGoleadoresFull();
+            $data['content'] = $this->contenido->header_mobile();
+            $data['content'] .= $this->contenido->header_mobile();//doble espacio
+            $data['content'] .= $this->jugadores->viewRankingGoleadoresFull();
             $data['footer'] = '';
             $data['sidebar'] = '';
         }else{
@@ -594,6 +597,37 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
+    }
+
+     public function resultado_trivia(){
+        $cont=0;
+
+        if($_POST['resp1']==3){
+            $cont=$cont+1;
+        }
+         if($_POST['resp2']==2){
+            $cont=$cont+1;
+        }
+         if($_POST['resp3']==1){
+            $cont=$cont+1;
+        }
+         if($_POST['resp4']==2){
+            $cont=$cont+1;
+        }
+         if($_POST['resp5']==1){
+           $cont=$cont+1;
+        }
+         if($_POST['resp6']==2){
+            $cont=$cont+1;
+        }
+         if($_POST['resp7']==1){
+           $cont=$cont+1;
+        }
+        if($_POST['resp8']==3){
+            $cont=$cont+1;
+        }
+
+        echo $cont;
     }
 
 }

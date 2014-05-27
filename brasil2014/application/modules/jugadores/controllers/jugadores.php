@@ -10,7 +10,7 @@ class Jugadores extends MY_Controller{
 	public function viewRankingGoleadores( $isAjax = false ){
 	//	$this->output->cache( 1000 );
 		$data['ajax'] = $isAjax;
-		$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles != ' => 0 ), 'order_by'=>'n_goles DESC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
+		$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles' => 0 ), 'order_by'=>'apellido ASC, nombre ASC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
 	    if( $isAjax ){	    	
 	    	//$data['name'] = print_r($_POST['data']['name']);
 	    	$this->load->view( 'view_ranking_goleadores', $data );
@@ -22,7 +22,7 @@ class Jugadores extends MY_Controller{
 	
 	public function viewRankingGoleadoresFull( $isAjax = false ){
 		$data['ajax'] = $isAjax;
-		$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles != ' => 0 ), 'order_by'=>'n_goles DESC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
+		$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles' => 0 ), 'order_by'=>' apellido ASC, nombre ASC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
 		if( $isAjax ){
 			//$data['name'] = print_r($_POST['data']['name']);
 			$this->load->view( 'view_ranking_goleadores', $data );
