@@ -1492,3 +1492,9 @@ p.noticia-abierta    {
     color:#004262;
 }
 
+@media screen and(max-device-width: 1024px) {
+   #iconoFacebook{
+    margin-right: 0px;
+       }
+}
+
