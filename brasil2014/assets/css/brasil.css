@@ -171,6 +171,7 @@ h2, h3 {
 div.iconos {
     float: left;
 }
+
 .sprite-alemania{ background-position: 0 0; width: 21px; height: 15px; }
 .sprite-argelia{ background-position: 0 -65px; width: 21px; height: 15px; }
 .sprite-argentina{ background-position: 0 -130px; width: 21px; height: 15px; }
@@ -178,14 +179,14 @@ div.iconos {
 .sprite-belgica{ background-position: 0 -260px; width: 21px; height: 15px; }
 .sprite-bosnia{ background-position: 0 -325px; width: 21px; height: 15px; }
 .sprite-brasil{ background-position: 0 -390px; width: 21px; height: 15px; }
-.sprite-calendario{ background-position: 0 -455px; width: 24px; height: 24px; }
-.sprite-camerun{ background-position: 0 -529px; width: 21px; height: 15px; }
-.sprite-chile{ background-position: 0 -594px; width: 21px; height: 15px; }
-.sprite-colombia{ background-position: 0 -659px; width: 21px; height: 15px; }
-.sprite-contenido-exclusivo{ background-position: 0 -724px; width: 13px; height: 24px; }
-.sprite-corea-sur{ background-position: 0 -798px; width: 21px; height: 15px; }
-.sprite-corea{ background-position: 0 -863px; width: 21px; height: 15px; }
-.sprite-c-de-marfil{ background-position: 0 -928px; width: 21px; height: 15px; }
+.sprite-c-de-marfil{ background-position: 0 -455px; width: 21px; height: 15px; }
+.sprite-calendario{ background-position: 0 -520px; width: 24px; height: 24px; }
+.sprite-camerun{ background-position: 0 -594px; width: 21px; height: 15px; }
+.sprite-chile{ background-position: 0 -659px; width: 21px; height: 15px; }
+.sprite-colombia{ background-position: 0 -724px; width: 21px; height: 15px; }
+.sprite-contenido-exclusivo{ background-position: 0 -789px; width: 13px; height: 24px; }
+.sprite-corea-sur{ background-position: 0 -863px; width: 21px; height: 15px; }
+.sprite-corea{ background-position: 0 -928px; width: 21px; height: 15px; }
 .sprite-costa-rica{ background-position: 0 -993px; width: 21px; height: 15px; }
 .sprite-croacia{ background-position: 0 -1058px; width: 21px; height: 15px; }
 .sprite-ecuador{ background-position: 0 -1123px; width: 21px; height: 15px; }
@@ -222,49 +223,56 @@ div.iconos {
 .sprite-escudo-rus{ background-position: -74px -1349px; width: 21px; height: 21px; }
 .sprite-escudo-sui{ background-position: -74px -1420px; width: 21px; height: 21px; }
 .sprite-escudo-uru{ background-position: -74px -1491px; width: 21px; height: 21px; }
-.sprite-escudo-usa { background-position: -232px -408px; width: 21px; height: 21px; }
-.sprite-espana{ background-position: -74px -1562px; width: 21px; height: 15px; }
-.sprite-estados-unidos{ background-position: -74px -1627px; width: 21px; height: 15px; }
-.sprite-facebook{ background-position: -74px -1692px; width: 24px; height: 24px; }
-.sprite-francia{ background-position: -74px -1766px; width: 21px; height: 15px; }
-.sprite-galeria{ background-position: -74px -1831px; width: 28px; height: 24px; }
-.sprite-ghana{ background-position: -74px -1905px; width: 21px; height: 15px; }
-.sprite-grecia{ background-position: -152px 0; width: 21px; height: 15px; }
-.sprite-grupos{ background-position: -152px -65px; width: 28px; height: 24px; }
-.sprite-holanda{ background-position: -152px -139px; width: 21px; height: 15px; }
-.sprite-honduras{ background-position: -152px -204px; width: 21px; height: 15px; }
-.sprite-icono-calendario{ background-position: -152px -269px; width: 18px; height: 20px; }
-.sprite-icono-grupos{ background-position: -152px -339px; width: 22px; height: 21px; }
-.sprite-icono-informacion{ background-position: -152px -410px; width: 18px; height: 17px; }
-.sprite-icono_contenido-exclusivo{ background-position: -152px -477px; width: 18px; height: 16px; }
-.sprite-icono_estadios{ background-position: -152px -543px; width: 30px; height: 15px; }
-.sprite-icono_goleadores{ background-position: -152px -608px; width: 13px; height: 23px; }
-.sprite-icono_goles{ background-position: -152px -681px; width: 16px; height: 15px; }
-.sprite-icono_grupos{ background-position: -152px -746px; width: 22px; height: 21px; }
-.sprite-icono_jugador{ background-position: -152px -817px; width: 16px; height: 17px; }
-.sprite-icono_minutoaminuto{ background-position: -152px -884px; width: 15px; height: 20px; float:left;}
-.sprite-icono_partidos{ background-position: -152px -948px; width: 17px; height: 21px; }
-.sprite-icono_partidos_blue{ background-position: -152px -1019px; width: 17px; height: 21px; }
-.sprite-icono_sedes{ background-position: -152px -1090px; width: 30px; height: 21px; }
-.sprite-icono_trivia{ background-position: -152px -1161px; width: 18px; height: 17px; }
-.sprite-icono_video{ background-position: -152px -1228px; width: 17px; height: 16px; float:left; }
-.sprite-inglaterra{ background-position: -152px -1294px; width: 21px; height: 15px; }
-.sprite-iran{ background-position: -152px -1359px; width: 21px; height: 15px; }
-.sprite-italia{ background-position: -152px -1424px; width: 21px; height: 15px; }
-.sprite-japon{ background-position: -152px -1489px; width: 21px; height: 15px; }
-.sprite-mexico{ background-position: -152px -1554px; width: 21px; height: 15px; }
-.sprite-nigeria{ background-position: -152px -1619px; width: 21px; height: 15px; }
-.sprite-noticia-rotativa{ background-position: -152px -1684px; width: 24px; height: 24px; }
-.sprite-noticias{ background-position: -152px -1758px; width: 28px; height: 24px; }
-.sprite-otros-partidos{ background-position: -152px -1832px; width: 17px; height: 24px; }
-.sprite-partidodeldia{ background-position: -152px -1906px; width: 28px; height: 24px; }
-.sprite-portugal{ background-position: -232px 0; width: 21px; height: 15px; }
-.sprite-resumenes{ background-position: -232px -65px; width: 13px; height: 24px; }
-.sprite-rusia{ background-position: -232px -139px; width: 21px; height: 15px; }
-.sprite-suiza{ background-position: -232px -204px; width: 21px; height: 15px; }
-.sprite-twitter{ background-position: -232px -269px; width: 24px; height: 24px; }
-.sprite-uruguay{ background-position: -232px -343px; width: 21px; height: 15px; }
-.sprite-usa{ background-position: -232px -408px; width: 21px; height: 21px; }
+.sprite-escudo-usa{ background-position: -74px -1562px; width: 21px; height: 21px; }
+.sprite-espana{ background-position: -74px -1633px; width: 21px; height: 15px; }
+.sprite-estados-unidos{ background-position: -74px -1698px; width: 21px; height: 15px; }
+.sprite-facebook{ background-position: -74px -1763px; width: 24px; height: 24px; }
+.sprite-francia{ background-position: -74px -1837px; width: 21px; height: 15px; }
+.sprite-galeria-azul{ background-position: -74px -1902px; width: 28px; height: 24px; }
+.sprite-galeria{ background-position: -152px 0; width: 28px; height: 24px; }
+.sprite-ghana{ background-position: -152px -74px; width: 21px; height: 15px; }
+.sprite-grecia{ background-position: -152px -139px; width: 21px; height: 15px; }
+.sprite-grupos{ background-position: -152px -204px; width: 28px; height: 24px; }
+.sprite-holanda{ background-position: -152px -278px; width: 21px; height: 15px; }
+.sprite-honduras{ background-position: -152px -343px; width: 21px; height: 15px; }
+.sprite-icono-calendario{ background-position: -152px -408px; width: 18px; height: 20px; }
+.sprite-icono-grupos{ background-position: -152px -478px; width: 22px; height: 21px; }
+.sprite-icono-informacion{ background-position: -152px -549px; width: 18px; height: 17px; }
+.sprite-icono_contenido-exclusivo{ background-position: -152px -616px; width: 18px; height: 16px; }
+.sprite-icono_estadios{ background-position: -152px -682px; width: 30px; height: 15px; }
+.sprite-icono_goleadores{ background-position: -152px -747px; width: 13px; height: 23px; }
+.sprite-icono_goles{ background-position: -152px -820px; width: 16px; height: 15px; }
+.sprite-icono_grupos{ background-position: -152px -885px; width: 22px; height: 21px; }
+.sprite-icono_jugador{ background-position: -152px -956px; width: 16px; height: 17px; }
+.sprite-icono_minutoaminuto{ background-position: -152px -1023px; width: 17px; height: 16px; }
+.sprite-icono_partidos{ background-position: -152px -1089px; width: 17px; height: 21px; }
+.sprite-icono_partidos_blue{ background-position: -152px -1160px; width: 17px; height: 21px; }
+.sprite-icono_sedes{ background-position: -152px -1231px; width: 30px; height: 21px; }
+.sprite-icono_trivia{ background-position: -152px -1302px; width: 18px; height: 17px; }
+.sprite-icono_video{ background-position: -152px -1369px; width: 17px; height: 16px; }
+.sprite-inglaterra{ background-position: -152px -1435px; width: 21px; height: 15px; }
+.sprite-iran{ background-position: -152px -1500px; width: 21px; height: 15px; }
+.sprite-italia{ background-position: -152px -1565px; width: 21px; height: 15px; }
+.sprite-japon{ background-position: -152px -1630px; width: 21px; height: 15px; }
+.sprite-mexico{ background-position: -152px -1695px; width: 21px; height: 15px; }
+.sprite-nigeria{ background-position: -152px -1760px; width: 21px; height: 15px; }
+.sprite-noticia-rotativa{ background-position: -152px -1825px; width: 24px; height: 24px; }
+.sprite-noticias{ background-position: -152px -1899px; width: 28px; height: 24px; }
+.sprite-otros-partidos{ background-position: -232px 0; width: 17px; height: 24px; }
+.sprite-partidodeldia{ background-position: -232px -74px; width: 28px; height: 24px; }
+.sprite-portugal{ background-position: -232px -148px; width: 21px; height: 15px; }
+.sprite-resumenes{ background-position: -232px -213px; width: 13px; height: 24px; }
+.sprite-rusia{ background-position: -232px -287px; width: 21px; height: 15px; }
+.sprite-suiza{ background-position: -232px -352px; width: 21px; height: 15px; }
+.sprite-twitter{ background-position: -232px -417px; width: 24px; height: 24px; }
+.sprite-uruguay{ background-position: -232px -491px; width: 21px; height: 15px; }
+.sprite-usa{ background-position: -232px -556px; width: 21px; height: 21px; }
+
+
+
+.sprite-icono_minutoaminuto{  float:left;}
+.sprite-icono_video{  float:left; }
+
 
 
 /*todo crear iconos escudos*/
@@ -644,7 +652,7 @@ li.active, li.active:hover, li.active:visited
     height: 29px;
     padding-top: 4px;
     margin-top: 12px;
-    width: 48%;
+    width: 95%;
     margin-right: 2%;
     margin-bottom: 4px;
     font-size: 12px;

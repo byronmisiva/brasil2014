@@ -21,19 +21,19 @@ setlocale(LC_ALL, "es_ES");
         <div class="panel panel-default clearfix">
             <div class="panel-heading movi-headline-regular panel-minute margen2">
                 <div class="row minuto-header  azul">
-                    <div class="col-md-9 col-xs-9">
+                    <div class="col-md-9 col-xs-12">
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <div class="row">
-                                    <div class="col-md-1 margen0"></div>
+                                    <div class="col-md-1 col-xs-0 margen0"></div>
 
-                                    <div class="col-md-9 text-right  ">
+                                    <div class="col-md-9 col-xs-9 text-right  ">
                                                     <span
                                                         class="sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_local)) ?>"></span>
                                                         <span
                                                             class="margen5l"><? echo $partido->nombre_local ?></span>
                                     </div>
-                                    <div class="col-md-2 text-right marcador">
+                                    <div class="col-md-2 col-xs-3 text-right marcador">
                                         <? echo $partido->golesLocal ?>
                                     </div>
                                 </div>
@@ -41,23 +41,23 @@ setlocale(LC_ALL, "es_ES");
                             <div class="col-md-6 col-xs-6">
                                 <div class="row">
 
-                                    <div class="col-md-2 text-right marcador">
+                                    <div class="col-md-2 col-xs-2 text-right marcador">
                                         <? echo $partido->golesVisitante ?>
                                     </div>
-                                    <div class="col-md-9 text-left margen0">
+                                    <div class="col-md-9 col-xs-9 text-left margen0">
                                             <span
                                                 class="left"><? echo $partido->nombre_visitante ?></span>
                                             <span
                                                 class="right sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_visitante)) ?>"></span>
                                     </div>
-                                    <div class="col-md-1 margen0  "></div>
+                                    <div class="col-md-1 col-xs-1 margen0  "></div>
 
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-xs-3 opciones">
+                    <div class="col-md-3 col-xs-12 opciones">
                         <div class="row">
                             <div class="col-md-2 col-xs-2 margen0">
                                 <div class="iconos sprite-icono-informacion"></div>

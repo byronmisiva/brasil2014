@@ -18,7 +18,7 @@ setlocale(LC_ALL, "es_ES");
         <div class="col-md-12 margen0">
           
             <h2>
-             <div class="iconos sprite-galeria"></div>
+             <div class="iconos sprite-galeria-azul"></div>
                 <?php 
                 $rest = substr($item['nombre'], 9, 17);
                 echo ucfirst(strftime('%B %d / %Y', strtotime($rest)));

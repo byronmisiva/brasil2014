@@ -34,19 +34,22 @@ class Contenido extends MY_Controller
     public function banner_sidebar($data = FALSE)
     {
         return $this->load->view('bannersidebar', $data, TRUE);
-        //todo crear banner slideBar
+
     }
 
     public function view_banner_contenido($data = FALSE)
     {
         return $this->load->view('bannercontenido', $data, TRUE);
-        //todo crear banner viewBannerContenido
+
+    }
+    public function view_banner_contenidotop($data = FALSE)
+    {
+        return $this->load->view('bannercontenidotop', $data, TRUE);
     }
 
     public function view_twitter($data = FALSE)
     {
         return $this->load->view('twitter', $data, TRUE);
-        //todo crear banner viewBannerContenido
     }
 
     public function view_historias($data = FALSE)
