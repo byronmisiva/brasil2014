@@ -20,7 +20,8 @@ class Galerias extends MY_Controller{
     	$time = time();
     	$fechaActual=mdate($datestring, $time);
     	
-    	$foldername="home";
+    	//$foldername="home";
+        $foldername=$fechaActual;
     	
     	$this->load->module( 'galerias' );
     	$this->load->module( 'imagenes' );

@@ -1223,7 +1223,7 @@ p.noticia-abierta    {
 
 .imagenes-galeria {
     height: 93px;
-    width: 93px;
+    width: 99px;
     overflow: hidden;
 }
 .estadio-banner {
@@ -1444,15 +1444,16 @@ p.noticia-abierta    {
 }
 
 .opcion-menu .iconos-menu{
-    padding-left: 38px;
+    padding-left: 30px;
     padding-top: 10px;
 }
 
 #iconoFacebook{
     background: url("../images/facebook1.png") no-repeat;
-    width: 29px;
-    height: 29px;
+    width: 32px;
+    height: 32px;
     float: left;
+    margin-right: 5px;
 }
 
 #iconoFacebook:hover{
@@ -1461,8 +1462,8 @@ p.noticia-abierta    {
 
 #iconoTwitter{
     background: url("../images/twitter1.png") no-repeat;
-     width: 29px;
-    height: 29px;
+     width: 32px;
+    height: 32px;
     float: left;
 }
 
@@ -1472,5 +1473,18 @@ p.noticia-abierta    {
 
 .gris2 {
     color: #939598;
+}
+
+#galeria-dia .col-lg-4{
+    padding-top:1px;
+    padding-bottom: 1px;
+}
+
+#galeria-dia .col-lg-4:nth-child(3n+3) {
+    padding-right: 0px;
+}
+
+#galeria-dia .col-lg-4:nth-child(3n+1) {
+    padding-right: 0px;
 }
 

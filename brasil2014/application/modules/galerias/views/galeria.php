@@ -1,5 +1,5 @@
 <!-- Galería imágenes  -->
-<div class="col-md-12 margen0  separador" id="partidos-del-dia">
+<div class="col-md-12 margen0  separador" id="galeria-dia">
     <div class="row partido-dia">
         <!-- Listado de partidos del Día-->
         <div class="col-md-12 list_partido_dia">
@@ -16,7 +16,7 @@
 
                 ?>
                 <!-- imagen  -->
-                <div class="col-lg-4 col-sm-4 col-xs-6 margen5">
+                <div class="col-lg-4 col-sm-4 col-xs-6 margen0">
                     <div class = "imagenes-galeria">
                         <a title="<?php echo $item->nombre; ?>" href="<?php echo $item->visu; ?>" class="minigaleria"  data-toggle="lightbox"><img
                                 src="<?php echo $item->thumb250; ?>"  height="98px"></a>
