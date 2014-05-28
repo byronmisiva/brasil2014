@@ -40,14 +40,14 @@
             </h2>
         </div>
 
-<div class="col-md-12 titulo movi-headline-regular">Demuestra cuanto sabes de la historia de los mundiales, comparte tu resultado y desafía a tus amigos.</div>
+<div class="col-md-12 titulo movistar-text">Demuestra cuanto sabes de la historia de los mundiales, comparte tu resultado y desafía a tus amigos.</div>
 <div id="carousel-trivia" class="carousel slide col-md-12">
             <!-- Carousel items -->
- <div class="carousel-inner">
+ <div class="carousel-inner texto-azul">
 
    <div class="active item" data-slide-number="0">
-        <div class="movi-headline-regular titulo">Pregunta 1 de 8</div>
-        <div class="movi-headline-regular">¿En qué país se jugó el primer mundial organizado por FIFA?</div>
+        <div class="conten-partidos titulo">Pregunta 1 de 8</div>
+        <div class="conten-partidos">¿En qué país se jugó el primer mundial organizado por FIFA?</div>
         <div class="margen0">
             <ul>
                 <li><input type="radio" name="pregunta1" onclick="respuestas('1-1')"> Alemania</input></li>
@@ -65,8 +65,8 @@
     </div>
 
     <div class="item" data-slide-number="1">
-        <div class="movi-headline-regular titulo">Pregunta 2 de 8</div>
-        <div class="movi-headline-regular">¿Contra qué selección Maradona anotó el famoso gol de la Mano de Dios?</div>
+        <div class="conten-partidos titulo">Pregunta 2 de 8</div>
+        <div class="conten-partidos">¿Contra qué selección Maradona anotó el famoso gol de la Mano de Dios?</div>
         <div class="margen0">
             <ul>
                 <li><input type="radio" name="pregunta2" onclick="respuestas('2-1')"> Uruguay</input></li>
@@ -85,8 +85,8 @@
     </div>
 
     <div class="item" data-slide-number="2">
-        <div class="movi-headline-regular titulo">Pregunta 3 de 8</div>
-        <div class="movi-headline-regular">¿Cuál es el único futbolista en toda la historia en ganar 3 copas mundiales?</div>
+        <div class="conten-partidos titulo">Pregunta 3 de 8</div>
+        <div class="conten-partidos">¿Cuál es el único futbolista en toda la historia en ganar 3 copas mundiales?</div>
         <div class="margen0">
             <ul>
                 <li><input type="radio" name="pregunta3" onclick="respuestas('3-1')"> Pelé</input></li>
@@ -105,8 +105,8 @@
     </div>
 
     <div class="item" data-slide-number="3">
-        <div class="movi-headline-regular titulo">Pregunta 4 de 8</div>
-        <div class="movi-headline-regular">¿Cuál es el máximo goleador de los mundiales?</div>
+        <div class="conten-partidos titulo">Pregunta 4 de 8</div>
+        <div class="conten-partidos">¿Cuál es el máximo goleador de los mundiales?</div>
         <div class="margen0">
             <ul>
                 <li><input type="radio" name="pregunta4" onclick="respuestas('4-1')"> Klose</input></li>
@@ -126,8 +126,8 @@
     
 
     <div class="item" data-slide-number="4">
-        <div class="movi-headline-regular titulo">Pregunta 5 de 8</div>
-        <div class="movi-headline-regular">¿Qué selección quedó campeona en el mundial de Korea-Japón 2002?</div>
+        <div class="conten-partidos titulo">Pregunta 5 de 8</div>
+        <div class="conten-partidos">¿Qué selección quedó campeona en el mundial de Korea-Japón 2002?</div>
         <div class="margen0">
             <ul>
                 <li><input type="radio" name="pregunta5" onclick="respuestas('5-1')"> Brasil</input></li>
@@ -146,8 +146,8 @@
     </div>
 
    <div class="item" data-slide-number="5">
-        <div class="movi-headline-regular titulo">Pregunta 6 de 8</div>
-        <div class="movi-headline-regular">¿Qué jugador marcó el primer gol de Ecuador en mundiales?</div>
+        <div class="conten-partidos titulo">Pregunta 6 de 8</div>
+        <div class="conten-partidos">¿Qué jugador marcó el primer gol de Ecuador en mundiales?</div>
         <div class="margen0">
             <ul>
                 <li><input type="radio" name="pregunta6" onclick="respuestas('6-1')"> Edison Méndez</input></li>
@@ -166,8 +166,8 @@
     </div>
    
    <div class="item" data-slide-number="6">
-        <div class="movi-headline-regular titulo">Pregunta 7 de 8</div>
-        <div class="movi-headline-regular">¿Quién marcó el gol en la final del mundial de Sudáfrica 2010?</div>
+        <div class="conten-partidos titulo">Pregunta 7 de 8</div>
+        <div class="conten-partidos">¿Quién marcó el gol en la final del mundial de Sudáfrica 2010?</div>
         <div class="margen0">
             <ul class="movi-headline-regular">
                 <li><input type="radio" name="pregunta7" onclick="respuestas('7-1')"> Andrés Iniesta</input></li>
@@ -187,8 +187,8 @@
     </div>
 
     <div class="item" data-slide-number="7">
-        <div class="movi-headline-regular titulo">Pregunta 8 de 8</div>
-        <div class="movi-headline-regular">¿Cuál fue el último año en que Alemania quedó campeón del mundo?</div>
+        <div class="conten-partidos titulo">Pregunta 8 de 8</div>
+        <div class="conten-partidos">¿Cuál fue el último año en que Alemania quedó campeón del mundo?</div>
         <div class="margen0">
             <ul>
                 <li><input type="radio" name="pregunta8" onclick="respuestas('8-1')"> 1974</input></li>
@@ -219,7 +219,7 @@
     <input type="hidden" id="resp8" name="resp8" value="0">
   </form>
 </div>
-<div class="col-md-12 titulo movi-headline-regular " id="result" ></div>
+<div class="col-md-12 titulo conten-partidos " id="result" ></div>
 </div>
 </div>
 <script>
