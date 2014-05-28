@@ -10,8 +10,8 @@
                                     <li class="active"><a href="<?php echo base_url();?>site/noticias">Noticias</a></li>
                                     <li><a href="<?php echo base_url();?>site/historias">Historia de los Mundiales</a></li>
                                     <li><a href="<?php echo base_url();?>site/galerias">Galerías</a></li>
-                                    <li><a href="#">+ Vídeos</a></li>
-                                    <li><a href="<?php echo base_url();?>site/goleadores">Goleadores</a></li>
+                                    <!--<li><a href="#">+ Vídeos</a></li>
+                                    <li><a href="<?php echo base_url();?>site/goleadores">Goleadores</a></li>-->
                                     <li><a href="<?php echo base_url();?>site/calendario">Partidos</a></li>
                                     <li><a href="<?php echo base_url();?>site/grupos">Resultados</a></li>
                         </ul>
