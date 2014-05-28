@@ -13,16 +13,7 @@ class Site extends MY_Controller
 
     public function index()
     {
-        if('http://'.$_SERVER['SERVER_NAME'].'/'!=base_url())
-        Header('Location: '.base_url());        
-        if('http://'.$_SERVER['HTTP_HOST'].'/'!=base_url())
-            Header('Location: '.base_url());
-        if('http://'.$_SERVER['SERVER_NAME'].'/'!=base_url())
-        Header('Location: '.base_url());        
-        if('http://'.$_SERVER['HTTP_HOST'].'/'!=base_url())
-            Header('Location: '.base_url());
-
-         $this->home();
+       $this->home();
     }
 
 

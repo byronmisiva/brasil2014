@@ -107,7 +107,7 @@ var Brasil2014 = (function( baseUrl ) {
 		}*/
         
    $('#proximo-partido').click( function() {
-                            loadView( '#proximo-partido',   'partidos/viewProximoPartido/TRUE', { } );        
+                            loadView( '#proximo-partido',   'http://misiva.com.ec/FIFAWorldCup/partidos/viewProximoPartido/TRUE', { } );        
             } );
           
        
