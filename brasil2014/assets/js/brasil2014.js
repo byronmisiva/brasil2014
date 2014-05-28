@@ -85,7 +85,8 @@ var Brasil2014 = (function( baseUrl ) {
 		$.ajax({
 			cache :true,
     		type: "POST",
-    		url: baseUrl+method,
+    		//url: baseUrl+method,
+            url: method,
     		data: { 'data' :  data },
     		success: function( response ) {
     			$( content ).html( response );
@@ -107,7 +108,8 @@ var Brasil2014 = (function( baseUrl ) {
 		}*/
         
    $('#proximo-partido').click( function() {
-                            loadView( '#proximo-partido',   'http://misiva.com.ec/FIFAWorldCup/partidos/viewProximoPartido/TRUE', { } );        
+                            loadView( '#proximo-partido',   'http://misiva.com.ec/FIFAWorldCup/partidos/viewProximoPartido/TRUE', { } );  
+                            loadView( '#proximo-partido',   'http://www.misiva.com.ec/FIFAWorldCup/partidos/viewProximoPartido/TRUE', { } );       
             } );
           
        
