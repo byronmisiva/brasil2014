@@ -28,7 +28,7 @@ class Site extends MY_Controller
         $this->load->module('ranking');
         $this->load->module('jugadores');
 
-        $data['pageTitle'] = "Movistar FIFAWorldCup";
+        $data['pageTitle'] = "Movistar Mundialista";
 
 
 
