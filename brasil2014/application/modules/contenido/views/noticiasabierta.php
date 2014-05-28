@@ -39,6 +39,10 @@ setlocale(LC_ALL, "es_ES");
                 </div>
             </div>
             <div class="col-md-12 separador"></div>
+                <div class="fb-like" data-href="<?php echo $url?>" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <div class="fb-share-button" data-href="<?php echo $url?>" data-type="button_count" style="margin-top: 5px;margin-bottom: 5px;"></div>
+                <div class="fb-comments" data-href="<?php echo $url?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+
             <?php
             } else {
                 $cuerpo = "";

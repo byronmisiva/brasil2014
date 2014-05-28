@@ -23,7 +23,7 @@ class Ranking extends MY_Controller
         $fases = $this->fases->get(array('select' => '*', 'where' => array('active' => '1')), TRUE);
 
 
-            $grupos = $this->grupos->get(array('select' => 'id,nombre', 'where' => array('fases_id' => $fases->id)));
+        $grupos = $this->grupos->get(array('select' => 'id,nombre', 'where' => array('fases_id' => $fases->id)));
 
 
         $tablas = array();
@@ -36,6 +36,8 @@ class Ranking extends MY_Controller
                 'order_by' => 'n_puntos desc, name'));
             array_push($tablas, $grupo);
         }
+
+
         $data['nombreFase'] = $fases->nombre;
         $data['ranking'] = $tablas;
         return $this->load->view('view_ranking_fases', $data, true);
@@ -54,13 +56,18 @@ class Ranking extends MY_Controller
             'select' => 'ranking.id,n_puntos,n_puntos_contra,n_partidos,n_partidos_ganados,
 					n_partidos_empatados,n_partidos_perdidos,n_goles,n_goles_contra,name,short_name, equipos_campeonato_id',
             'joins' => array('equipos_campeonato' => 'ranking.equipos_campeonato_id=equipos_campeonato.id'),
-            'where' => array('grupo_id' => $grupo->id)));
+            'where' => array('grupo_id' => $grupo->id),
+
+            'order_by' => 'n_puntos desc, name'));
         array_push($tablas, $grupo);
+
+
         $data['nombreFase'] = $fases->nombre;
         $data['ranking'] = $tablas;
         return $this->load->view('view_ranking_fases', $data, true);
     }
-   public function menuranking()
+
+    public function menuranking()
     {
         $this->load->module('fases');
         $this->load->module('grupos');

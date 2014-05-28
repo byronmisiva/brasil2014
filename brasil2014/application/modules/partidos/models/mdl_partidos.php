@@ -103,12 +103,7 @@ class Mdl_partidos extends MY_Model
 
         //query recupera el listado de todos los partidos ordenados por fecha
         $partidos = $this->get(array('select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
-            'where' => array("visitante"=>$idEquipo),
-            'order_by' => 'partidos.fecha ASC'
-        ));
-
-        $partidosLocal = $this->get(array('select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
-            'where' => array("local"=>$idEquipo),
+            'where' => array("local = ". $idEquipo." or visitante ="=>$idEquipo),
             'order_by' => 'partidos.fecha ASC'
         ));
 
@@ -125,17 +120,7 @@ class Mdl_partidos extends MY_Model
             }
             array_push($datos, $partido);
         }
-        foreach ($partidosLocal as $partido) {
-            if (isset($partido->resultado)) {
-                $goles = explode('-', $partido->resultado);
-                $partido->golesLocal = $goles[0];
-                $partido->golesVisitante = $goles[1];
-            } else {
-                $partido->golesLocal = 0;
-                $partido->golesVisitante = 0;
-            }
-            array_push($datos, $partido);
-        }
+
         return $datos;
     }
 
@@ -146,7 +131,7 @@ class Mdl_partidos extends MY_Model
         $this->load->module('estadios');
 
         //query recupera el listado de todos los partidos ordenados por fecha
-        $partidos = $this->get(array('select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
+        $partidos = $this->get(array('select' => "partidos.local, partidos.visitante, partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
             'order_by' => 'partidos.fecha ASC'
             ));
 

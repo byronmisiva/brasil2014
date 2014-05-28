@@ -21,34 +21,34 @@
                                     </div>
                                 </a>
                             </div>
-                                <div class="col-md3  col-md-3 menu margen0  ">
-
+                                <div class="col-md3  col-md-3 menu margen0 ">
+                                    <a href="#otros-partidos" data-toggle="tab">
                                     <div class="opcion-menu col-md-12">
-                                        <div class="menu-texto gris2">
+                                        <div class="menu-texto">
                                             Partidos >
                                         </div>
                                     </div>
-
+                                    </a>
                                 </div>
 
                                 <div class="col-md2  col-md-2 menu margen0 ">
-
+                                    <a href="#otros-partidos" data-toggle="tab">
                                     <div class="opcion-menu center-block col-md-12">
-                                        <div class="menu-texto gris2">
+                                        <div class="menu-texto">
                                             Goles >
                                         </div>
                                     </div>
-
+                                    </a>
                                 </div>
 
                                 <div class="col-md2  col-md-2 menu margen0 ">
-
+                                    <a href="#otros-partidos" data-toggle="tab ">
                                     <div class="opcion-menu center-block col-md-12">
-                                        <div class="menu-texto gris2">
+                                        <div class="menu-texto">
                                             Especiales >
                                         </div>
                                     </div>
-
+                                    </a>
                                 </div>
 
 

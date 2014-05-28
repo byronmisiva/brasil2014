@@ -31,27 +31,38 @@ class Site extends MY_Controller
         $data['pageTitle'] = "Home - Mundial Movistar";
 
 
-        $this->load->library('user_agent'); 
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');   
+
+
+        $this->load->library('user_agent');
+
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
         if ($this->agent->is_mobile()){
- 
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+            $isMobile = true ;
+
+        }
+
+        if ($isMobile){
+
             $data['cabecera']  = $this->contenido->menum();
 
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->partidos->partidosFecha();
             $data['content'] .= $this->contenido->view_banner_contenido();
-            $data['content'] .= $this->contenido->view_noticia_home();           
+            $data['content'] .= $this->contenido->view_noticia_home();
             $data['content'] .= $this->contenido->view_banner_contenido();
             $data['content'] .= $this->contenido->view_twitter();
 
-            $data['footer'] = '';        
+            $data['footer'] = '';
 
             $data['sidebar'] = '';
 
         }else{
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
-            $data['footer'] = $this->contenido->footer();        
+            $data['footer'] = $this->contenido->footer();
 
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
@@ -68,7 +79,7 @@ class Site extends MY_Controller
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 
-        }   
+        }
 
 
 
@@ -90,9 +101,18 @@ class Site extends MY_Controller
         $this->load->module('ranking');
         $this->load->module('jugadores');
 
-        $this->load->library('user_agent'); 
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');   
+        $this->load->library('user_agent');
+
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
         if ($this->agent->is_mobile()){
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+                $isMobile = true ;
+
+        }
+
+        if ($isMobile){
 
             $data['cabecera']  = $this->contenido->menum();
 
@@ -120,7 +140,7 @@ class Site extends MY_Controller
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 
-        }   
+        }
 
 
 
@@ -148,8 +168,17 @@ class Site extends MY_Controller
 
 
         $this->load->library('user_agent');
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');
+
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
         if ($this->agent->is_mobile()){
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+                $isMobile = true ;
+
+        }
+
+        if ($isMobile){
 
             $data['cabecera']  = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
@@ -189,8 +218,17 @@ class Site extends MY_Controller
 
 
         $this->load->library('user_agent');
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');
+
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
         if ($this->agent->is_mobile()){
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+                $isMobile = true ;
+
+        }
+
+        if ($isMobile){
 
             $data['cabecera']  = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
@@ -243,8 +281,17 @@ class Site extends MY_Controller
 
 
         $this->load->library('user_agent');
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');
+
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
         if ($this->agent->is_mobile()){
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+                $isMobile = true ;
+
+        }
+
+        if ($isMobile){
 
             $data['cabecera']  = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
@@ -289,8 +336,17 @@ class Site extends MY_Controller
         $data['pageTitle'] = "Calendario - Mundial Movistar";
 
         $this->load->library('user_agent');
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');
+
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
         if ($this->agent->is_mobile()){
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+                $isMobile = true ;
+
+        }
+
+        if ($isMobile){
 
             $data['cabecera']  = $this->contenido->menum();
 
@@ -335,8 +391,17 @@ class Site extends MY_Controller
         $data['pageTitle'] = "Goleadores - Mundial Movistar";
 
         $this->load->library('user_agent');
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');
+
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
         if ($this->agent->is_mobile()){
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+                $isMobile = true ;
+
+        }
+
+        if ($isMobile){
             $data['cabecera']  = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->contenido->header_mobile();//doble espacio
@@ -381,15 +446,24 @@ class Site extends MY_Controller
         $data['pageTitle'] = "Equipos - Mundial Movistar";
 
         $this->load->library('user_agent');
-        $mobiles=array('Apple iPhone','Apple iPod Touch','Android','Apple iPad');
-        if ($this->agent->is_mobile()){
 
+        $mobiles=array('Apple iPhone','Generic Mobile');
+        $isMobile = false   ;
+        if ($this->agent->is_mobile()){
+            $m=$this->agent->mobile();
+            if ( in_array($m,$mobiles))
+                $isMobile = true ;
+
+        }
+
+        if ($isMobile){
             $data['cabecera']  = $this->contenido->menum();
 
-            $data['content'] = $this->fichas->viewFichaEquipo($idEquipo);
+            $data['content'] = $this->contenido->header_mobile();
+            $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
-            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+            //$data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
             $data['content'] .= $this->equipos_campeonato->viewEquiposBanderas();
             $data['footer'] = '';
 
@@ -411,7 +485,7 @@ class Site extends MY_Controller
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
-            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+            //$data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 

@@ -168,6 +168,9 @@ class Contenido extends MY_Controller
 
         $data['noticias'] = $datos;
         $data['totCabecera'] = 1;
+        //$data['url'] = base_url()."site/noticia/contenido". $datos[0]->titulo. "/". $idNotica;
+        $data['url'] = base_url()."site/noticia/contenido/". $idNotica;
+
         return $this->load->view('noticiasabierta', $data, TRUE);
     }
 
@@ -214,7 +217,7 @@ class Contenido extends MY_Controller
 
         $data['noticias'] = $datos;;
         $data['totCabecera'] = 0;
-        return $this->load->view('noticiashome', $data, TRUE);
+        return $this->load->view('noticiasequipo', $data, TRUE);
 
 
     }

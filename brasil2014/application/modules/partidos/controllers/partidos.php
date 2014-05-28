@@ -130,7 +130,6 @@ class Partidos extends MY_Controller
 
         $partidos = $this->mdl_partidos->getAllByEquipo($idEquipo);
 
-
         return $this->load->view('partidosequipo', array('partidos' => $partidos), TRUE);
     }
 

@@ -19,8 +19,8 @@ setlocale(LC_ALL, "es_ES");
     foreach ($partidos as $key => $partido) {
         ?>
         <div class="panel panel-default clearfix">
-            <div class="panel-heading movi-headline-regular panel-minute">
-                <div class="row minuto-header azul">
+            <div class="panel-heading movi-headline-regular panel-minute margen2">
+                <div class="row minuto-header  azul">
                     <div class="col-md-9 col-xs-9">
                         <div class="row">
                             <div class="col-md-6 col-xs-6">

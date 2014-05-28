@@ -29,13 +29,14 @@ setlocale(LC_ALL, "es_ES");
                         }
                         ?>
                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <a href="<?php echo base_url();?>site/calendario/<?php echo $fechas[0]->id; ?>#<?php echo ucfirst(strftime('%m-%d', strtotime($row->fecha))) ?>"
+                               alt="<?php echo $row->nombre_local ?>" title="<?php echo $row->nombre_local ?>">
                             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 cuerpo">
                                 <div class="row">
                                     <div class="col-md-11 col-lg-11 col-sm-11 col-xs-11 margen2">
-                                       <a href="<?php echo base_url();?>site/calendario/<?php echo $fechas[0]->id; ?>#<?php echo ucfirst(strftime('%m-%d', strtotime($row->fecha))) ?>"
-                                           alt="<?php echo $row->nombre_local ?>" title="<?php echo $row->nombre_local ?>">
+
                                 <span  class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_local)) ?>"></span><?php echo $row->nombre_local ?>
-                                    </a>
+
                                         </div>
                                     <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen2">
                                         <span class="right"><?php echo $row->golesLocal ?></span>
@@ -46,17 +47,17 @@ setlocale(LC_ALL, "es_ES");
                             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 cuerpo">
                                 <div class="row">
                                     <div class="col-md-11 col-lg-11 col-sm-11 col-xs-11 margen2">
-                                        <a href="<?php echo base_url();?>site/calendario/<?php echo $fechas[0]->id; ?>/<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_local)) ?>"
-                                           alt="<?php echo $row->nombre_visitante ?>" title="<?php echo $row->nombre_visitante ?>">
+
                                 <span
                                     class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_visitante)) ?>"></span><?php echo $row->nombre_visitante ?>
-                                            </a>
+
                                     </div>
                                     <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen2">
                                         <span class="right"><?php echo $row->golesVisitante ?></span>
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
 
                         <div class="col-md-12 conten-partidos">
