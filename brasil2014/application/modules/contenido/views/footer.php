@@ -7,7 +7,7 @@
                 <div class="col-md-12  ">
                     <div class="menuabajo">
                         <ul class="nav navbar-nav  ">
-                                    <li class="active"><a href="<?php echo base_url();?>site/noticias">Noticias</a></li>
+                                    <li class="active"><a href="<?php echo base_url();?>site/noticia">Noticias</a></li>
                                     <li><a href="<?php echo base_url();?>site/historias">Historia de los Mundiales</a></li>
                                     <li><a href="<?php echo base_url();?>site/galerias">Galerías</a></li>
                                     <!--<li><a href="#">+ Vídeos</a></li>

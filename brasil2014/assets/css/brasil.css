@@ -239,7 +239,7 @@ div.iconos {
 .sprite-icono-grupos{ background-position: -152px -478px; width: 22px; height: 21px; }
 .sprite-icono-informacion{ background-position: -152px -549px; width: 18px; height: 17px; }
 .sprite-icono_contenido-exclusivo{ background-position: -152px -616px; width: 18px; height: 16px; }
-.sprite-icono_estadios{ background-position: -152px -682px; width: 30px; height: 15px; }
+.sprite-icono_estadios{ background-position: -152px -682px; width: 30px; height: 15px; margin-right:8px;}
 .sprite-icono_goleadores{ background-position: -152px -747px; width: 13px; height: 23px; }
 .sprite-icono_goles{ background-position: -152px -820px; width: 16px; height: 15px; }
 .sprite-icono_grupos{ background-position: -152px -885px; width: 22px; height: 21px; }
@@ -247,7 +247,7 @@ div.iconos {
 .sprite-icono_minutoaminuto{ background-position: -152px -1023px; width: 17px; height: 16px; }
 .sprite-icono_partidos{ background-position: -152px -1089px; width: 17px; height: 21px; }
 .sprite-icono_partidos_blue{ background-position: -152px -1160px; width: 17px; height: 21px; }
-.sprite-icono_sedes{ background-position: -152px -1231px; width: 30px; height: 21px; }
+.sprite-icono_sedes{ background-position: -152px -1231px; width: 30px; height: 21px; margin-right:8px;}
 .sprite-icono_trivia{ background-position: -152px -1302px; width: 18px; height: 17px; }
 .sprite-icono_video{ background-position: -152px -1369px; width: 17px; height: 16px; }
 .sprite-inglaterra{ background-position: -152px -1435px; width: 21px; height: 15px; }
