@@ -13,7 +13,7 @@
 
     <!-- ColorBox -->
     <link rel="stylesheet" href="<?php echo base_url('assets/js/colorbox/colorbox.css') ?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.ico') ?>">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,9 +41,9 @@
 
     <script type='text/javascript'>
         googletag.cmd.push(function() {
-            googletag.defineSlot('/1022247/300X250_MOVISTAR_MUNDIAL', [300, 250], 'div-gpt-ad-1401289674699-0').addService(googletag.pubads());
-            googletag.defineSlot('/1022247/650X90_MOVISTAR_MUNDIAL', [<MISSING WIDTH>, <MISSING HEIGHT>], 'div-gpt-ad-1401289674699-1').addService(googletag.pubads());
-            googletag.defineSlot('/1022247/650x90_MOVISTAR_MUDIAL2', [650, 90], 'div-gpt-ad-1401292072007-0').addService(googletag.pubads());
+            googletag.defineSlot('/1022247/300X250_MOVISTAR_MUNDIAL', [300, 250], 'div-gpt-ad-1401308050240-0').addService(googletag.pubads());
+            googletag.defineSlot('/1022247/650x90_MOVISTAR_MUDIAL2', [650, 90], 'div-gpt-ad-1401308050240-1').addService(googletag.pubads());
+            googletag.defineSlot('/1022247/650X90_MOVISTAR_MUNDIAL', [650, 90], 'div-gpt-ad-1401308050240-2').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();
         });
