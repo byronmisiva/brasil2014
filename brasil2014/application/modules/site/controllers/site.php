@@ -485,7 +485,7 @@ class Site extends MY_Controller
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
-            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+           // $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 
