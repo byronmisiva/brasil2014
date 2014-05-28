@@ -1255,7 +1255,8 @@ p.noticia-abierta    {
 }
 
 .menuabajo  .navbar-nav {
-    margin-left: 18%;
+   /* margin-left: 18%;   Mas items del menu inferior*/
+    margin-left: 27%;
     margin-right: auto;
 }
 .imagenes-galeria .minigaleria img {
