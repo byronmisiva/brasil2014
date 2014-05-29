@@ -14,12 +14,12 @@ echo $cabecera;
     <div class="container">
         <!-- Cabecera-->
         <div class="row blanco">
-            <div class="col-md-8" id="content">
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8z" id="content">
                <?php
                 echo $content;
                 ?>
             </div>
-            <div class="col-md-4 " id="sidebar">
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4z" id="sidebar">
                 <?php
                 echo $sidebar;
                 ?>

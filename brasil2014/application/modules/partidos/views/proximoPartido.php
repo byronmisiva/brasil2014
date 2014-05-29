@@ -4,8 +4,8 @@ setlocale(LC_ALL, "es_ES");
 if( 	$ajax ){
 ?>
   <div class="col-md-12">
-                            <spam class="col-md-2 movi-headline-regular en-vivo-prox">Próximo Partido</spam>
-                            <spam class="col-md-4 movi-headline-regular text-center cor-partidos margen0">
+                            <spam class="col-md-2 col-md-2 col-lg-2 col-sm-2 col-xs-2 movi-headline-regular en-vivo-prox">Próximo Partido</spam>
+                            <spam class="col-md-4 col-md-4 col-lg-4 col-sm-4 col-xs-4  movi-headline-regular text-center cor-partidos margen0">
                             	<?php 
                             	echo strtoupper(substr($partidos['nombre_local'],0, 3)) . " - " . strtoupper(substr($partidos['nombre_visitante'],0, 3));
                             	//$mes = 13 - (int) strftime("%m", strtotime($partidos['fecha']));
@@ -16,13 +16,12 @@ if( 	$ajax ){
                               </spam>
 							<script>
 								$(function () {
-									
 									var austDay = new Date(<?php echo strtotime($partidos['fecha'])*1000;?>);
 									$('#defaultCountdown').countdown({until: austDay, format: 'dHM'});
 								});
 								</script>
 						
-							 <div id="defaultCountdown" class="col-md-6 movi-headline-regular en-vivo-mini text-center margen0"></div> 
+							 <div id="defaultCountdown" class="col-md-6 col-md-6 col-lg-6 col-sm-6 col-xs-6  movi-headline-regular en-vivo-mini text-center margen0"></div>
                            
  </div>
   <? } ?>
