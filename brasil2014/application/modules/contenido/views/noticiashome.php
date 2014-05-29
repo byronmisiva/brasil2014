@@ -79,7 +79,7 @@ setlocale(LC_ALL, "es_ES");
             }
             ?>
             <div class="col-md-12 boton-more-fondo">
-                <a href="<?php echo "noticia" ?>" class="boton-more">Más noticias ></a>
+                <a href="<?php echo base_url("site/noticia") ?>" class="boton-more">Más noticias ></a>
             </div>
             <div class="clearfix"></div>
         </div>
