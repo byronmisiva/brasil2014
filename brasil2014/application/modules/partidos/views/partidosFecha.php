@@ -24,7 +24,7 @@ setlocale(LC_ALL, "es_ES");
                         $fecha = $row->fecha;
                         if ($fecha != $fechaTemp) {
                             $numero++;
-                            echo '<div class="col-md-12 conten-partidos"><b>Día ' . $numero . ' - ' . ucfirst(strftime('%A %d de %B', strtotime($row->fecha))) . '</b></div>';
+                            echo '<div class="col-md-12 conten-partidos"><b>Día ' . $numero . ' - ' .  $row->fechatexto  . '</b></div>';
                             $fechaTemp = $fecha;
                         }
                         ?>
