@@ -157,6 +157,9 @@ class Mdl_partidos extends MY_Model
 
 function getProximoPartido()
     {
+        date_default_timezone_set('America/Bogota');
+        
+        
         //query recupera el listado de todos los partidos ordenados por fecha
         $partidos = $this->get(array('select' => "*",'where' => "DATE_FORMAT(partidos.fecha, '%Y-%c-%e %k:%i')  > NOW()  LIMIT 1"));
          //echo $this->db->last_query();
