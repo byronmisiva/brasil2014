@@ -139,7 +139,7 @@ class Contenido extends MY_Controller
 
         $datos = array();
         foreach ($noticias_home as $noticia) {
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id, ftp_thumbnail', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
         }
         $data['noticias'] = $datos;
@@ -267,6 +267,7 @@ class Contenido extends MY_Controller
         $data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
 
         foreach ($data->NewsComponent as $node) {
+       
             $type = (string)$node->DescriptiveMetadata->OfInterestTo->attributes();
             $titulocontenido = trim((string)$node->NewsLines->HeadLine);
             //if( $type ==='Historia' ){
@@ -285,8 +286,8 @@ class Contenido extends MY_Controller
             } else {
                 $contenidoData = $this->_check_exist(array('titulo' => $titulocontenido), TRUE);
             }
-            $contenidoDetails = (string)$node->NewsItemRef->attributes();
 
+            $contenidoDetails = (string)$node->NewsItemRef->attributes();
             $xml = AFP_XML . $pathXml . '/' . str_replace('.xml', '', $contenidoDetails);
             if ($this->xmlimporter->load($xml)) {
                 $data = $this->xmlimporter->parse();
@@ -330,9 +331,7 @@ class Contenido extends MY_Controller
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
         $data = ($this->xmlimporter->load($xml)) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
-        echo "<pre>";
-        //var_dump($data);
-        echo "</pre>";
+       
         $data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
         foreach ($data->NewsComponent as $node) {
             $tituloNoticia = trim((string)$node->NewsLines->HeadLine);
@@ -392,6 +391,66 @@ class Contenido extends MY_Controller
                 }
             }
         }
+    }
+
+
+
+    function sync_anecdotas()
+    {
+        $historias = $this->get(array('select' => 'id, titulo', "where" => array("type" => "historia")));
+        foreach ($historias as $histo ) {
+            if ($histo->id!=1){
+                $idenHisto=explode("-", $histo->titulo);
+                $trimmed = rtrim($idenHisto[0]);
+                $idenHisto=explode("-", $histo->titulo);
+                $this->data_model_anecdotas('WC/xml/es/histo/wc2014-histo-'.$trimmed.'-reperes-es.xml', $histo->id,  $trimmed);
+            }
+        }
+      
+    }
+
+    private function data_model_anecdotas($xml, $idHistoria, $anioMundial)
+    {
+        $this->load->module('galerias');
+        $this->load->module('imagenes');
+
+        $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
+        $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
+        $data = ($this->xmlimporter->load($xml)) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
+        $nodoAnecdotas=$data->NewsItem->NewsComponent->NewsComponent->ContentItem->DataContent;
+        $info="";
+        foreach ($nodoAnecdotas->dl as $anec) {
+            $tituloAnecdota=(string)$anec->dt;
+            $detalleAnecdotas=(string)$anec->dd->block->p;
+            $infoAnecdota= "<h1>$tituloAnecdota</h1><p>$detalleAnecdotas<p>"; 
+            $info=$info.$infoAnecdota;
+         }
+         $this->_update ( array('anecdotas'=>$info,), $idHistoria);
+        //Creo la galeria para la historia
+            if (!$this->galerias->_check_exist(array('nombre' => 'Anecdotas - Mundial - ' . $anioMundial))) {
+                $galeria = array('nombre' => 'Anecdotas - Mundial - ' . $anioMundial, 'publico' => 0);
+                $galeria['id'] = $this->galerias->_insert($galeria, NULL, FALSE);
+            } else {
+                $galeria['id'] = $this->galerias->_check_exist(array('nombre' => 'Anecdotas - Mundial - ' . $anioMundial), TRUE)->id;
+            }
+ 
+      //Ingreso las imagenes a la base de datos
+           if ($this->xmlimporter->load($xml)) {
+                $data = $this->xmlimporter->parse();
+                $data = $data->NewsItem->NewsComponent;
+                $fotos = 0;
+                foreach ($data->NewsComponent as $component) {
+                        $fotos++;
+                       $this->imagenes->_syncFotos($component, array(
+                                'origen' => $pathXml . '/', //origen
+                                'destino' => strtolower('imagenes/contenido/'), //destino
+                                'galerias_id' =>  $galeria['id'], // id galeria
+                                'titulo' => "Anecdotas - Mundial - " . $anioMundial . " - " . $fotos // nombre de la foto
+                            )
+                        );
+                
+                }
+            }  
     }
 
 }
