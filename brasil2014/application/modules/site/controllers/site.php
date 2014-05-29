@@ -69,7 +69,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->contenido->view_banner_contenidotop();
@@ -132,7 +132,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->contenido->view_noticia_open($idNoticia);
@@ -198,7 +198,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content']  = $this->contenido->view_historia_open($idHistoria);
         }
@@ -249,7 +249,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->galerias->viewGaleriasFull();
@@ -310,7 +310,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->ranking->menuranking();
             $data['content'] .= $this->ranking->viewRankingFases($idGrupo);
@@ -367,7 +367,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->partidos->minutoAminuto();
@@ -418,7 +418,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->jugadores->viewRankingGoleadoresFull();
@@ -479,7 +479,7 @@ class Site extends MY_Controller
             $data['sidebar'] .= $this->partidos->partidosFecha();
             $data['sidebar'] .= $this->contenido->view_trivia();
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->equipos_campeonato->viewEquiposBanderas();
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);

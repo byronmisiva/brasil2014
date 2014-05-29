@@ -139,7 +139,7 @@ class Contenido extends MY_Controller
 
         $datos = array();
         foreach ($noticias_home as $noticia) {
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id, ftp_thumbnail', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
         }
         $data['noticias'] = $datos;
