@@ -3,7 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">ç
+    <!--Facebook TAGS-->
+    <meta property="og:title" content="Movistar Mundialista"/>
+    <meta property="og:url" content="http://www4.movistar.com.ec/FIFAWorldCup/"/>
+    <meta property="og:site_name" content="JefeQuieroVerElFútbol"/>
+    <meta property="og:type" content="site"/>
+    <meta property="og:image" content="http://www4.movistar.com.ec/FIFAWorldCup/assets/images/logo-movistar.png"/>
+
+    <!--SEO TAGS-->
+    <meta name="Title" content="Movistar Mundialista">
+    <meta name="description" content="Movistar, Compartida, la vida es más, y ahora puedes disfrutar del Mundial Brasil 2014 con partidos en vivo, noticias, goles, resultados. Vive la experiencia Mundialista">
+    <meta name="keywords" content="Movistar,Movistar Ecuador,Mundial, Brasil, Mundial Brasil, Partidos, Partidos Ecuador, Football Ecuador, Partidos en Vivo">
+    <meta name="keywords" content="Futbol, Mundialista, Movistar Mundialista, Jefe, Ver futbol">
+    
     <title><?php echo $pageTitle ?></title>
 
     <!-- Bootstrap -->
