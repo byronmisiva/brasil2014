@@ -14,8 +14,7 @@
     <!--SEO TAGS-->
     <meta name="Title" content="Movistar Mundialista">
     <meta name="description" content="Movistar, Compartida, la vida es más, y ahora puedes disfrutar del Mundial Brasil 2014 con partidos en vivo, noticias, goles, resultados. Vive la experiencia Mundialista">
-    <meta name="keywords" content="Movistar,Movistar Ecuador,Mundial, Brasil, Mundial Brasil, Partidos, Partidos Ecuador, Football Ecuador, Partidos en Vivo">
-    <meta name="keywords" content="Futbol, Mundialista, Movistar Mundialista, Jefe, Ver futbol">
+    <meta name="keywords" content="Movistar, Movistar Ecuador,Mundial, Brasil, Mundial Brasil, Partidos, Partidos Ecuador, Football Ecuador, Partidos en Vivo, Futbol, Mundialista, Movistar Mundialista, Jefe, Ver futbol, futbol online">
 
     <title><?php echo $pageTitle ?></title>
 

@@ -13,7 +13,7 @@ class Partidos extends MY_Controller
     // Lista todos los Partidos por fecha
     function partidosFecha()
     {
-        $this->output->cache( 10 );
+        $this->output->cache( 5 );
         $data['fechas'] = $this->mdl_partidos->getAllByFecha();
         return $this->load->view('partidosFecha', $data, TRUE);
     }
