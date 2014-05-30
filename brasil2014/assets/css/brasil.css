@@ -120,6 +120,16 @@ h2, h3 {
     padding: 11px;
 }
 
+.normal-brand {
+    display: block;
+}
+
+.smart-brand {
+    display: none;
+    width: 320px;
+    overflow: hidden;
+}
+
 .noticia-rotativa li {
     font-size: 12px;
     font-weight: normal;
@@ -1419,6 +1429,43 @@ p.noticia-abierta    {
         padding: 5px;
     }
 
+    .normal-brand {
+        display: none;
+    }
+
+    .smart-brand {
+        display: block;
+    }
+
+    .margen0l {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .margen15r {
+        padding-right: 0;
+    }
+
+    .main-goleadores h1 {
+        font-size: 16px;
+    }
+
+    .noticia .carousel-inner .img-historia {
+        height: 237px;
+    }
+
+
+    .altonews {
+        min-height: 155px;
+    }
+
+    .margen5r {
+        padding-left: 0 ;
+
+    }
+    .noticia2 {
+        height: 90px;
+    }
+
 }
 
 
@@ -1494,9 +1541,12 @@ p.noticia-abierta    {
     color:#004262;
 }
 
+
+
 @media screen and(max-device-width: 1024px) {
    #iconoFacebook{
     margin-right: 0px;
        }
 }
+
 

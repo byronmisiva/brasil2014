@@ -71,15 +71,15 @@ setlocale(LC_ALL, "es_ES");
                 <?php
                 } else {
                     ?>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-12">
                         <div class="row noticia">
                             <a href="<?php echo base_url() . "site/historias/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>">
-                                <div class="col-sm-5  margen5r noticia2">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
                                     <img class="img-responsive "
                                          src="<?php if (isset($noticia->imagenes[0]->ftp_visu)) echo $noticia->imagenes[0]->ftp_visu ?>"
                                          alt="<?php echo $noticia->titulo ?>">
                                 </div>
-                                <div class="col-sm-7   margen5l altonews">
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
                                     <h3><?php echo $noticia->titulo ?></h3>
                                     <p><?php echo substr($noticia->cuerpo, 0, 180) . "..."; ?></p>
                                     <spam class="boton-more-mini">Ver más ></spam>

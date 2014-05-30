@@ -53,12 +53,15 @@
 
     <script type='text/javascript'>
         googletag.cmd.push(function() {
-            googletag.defineSlot('/1022247/300X250_MOVISTAR_MUNDIAL', [300, 250], 'div-gpt-ad-1401308050240-0').addService(googletag.pubads());
+
             googletag.defineSlot('/1022247/650x90_MOVISTAR_MUDIAL2', [650, 90], 'div-gpt-ad-1401308050240-1').addService(googletag.pubads());
             googletag.defineSlot('/1022247/650X90_MOVISTAR_MUNDIAL', [650, 90], 'div-gpt-ad-1401308050240-2').addService(googletag.pubads());
 
-            googletag.defineSlot('/1022247/633x90_MOVISTAR_MUNDIAL_abajo', [633, 90], 'div-gpt-ad-1401318746430-0').addService(googletag.pubads());
-            googletag.defineSlot('/1022247/633x90_MOVISTAR_MUNDIAL_arriba', [633, 90], 'div-gpt-ad-1401318746430-1').addService(googletag.pubads());
+
+
+            googletag.defineSlot('/1022247/320X50_MOVISTAR_MUNDIAL_BOTTOM', [320, 50], 'div-gpt-ad-1401400694784-0').addService(googletag.pubads());
+            googletag.defineSlot('/1022247/320x50_MOVISTAR_MUNDIAL_TOP', [320, 50], 'div-gpt-ad-1401400694784-1').addService(googletag.pubads());
+
 
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();

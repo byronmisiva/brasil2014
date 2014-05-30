@@ -13,7 +13,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand  logo-movil " href="#" ><img src="<?php  echo base_url().'assets/images/logo-movistar-movil.png'; ?>"></a>
+                <a class="navbar-brand  logo-movil " href="<?php  echo base_url()?>" ><img src="<?php  echo base_url().'assets/images/logo-movistar-movil.png'; ?>"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,7 +27,7 @@
                     <li><a href="<?php echo base_url(); ?>site/galerias">Galería</a></li>
                     <li><a href="<?php echo base_url(); ?>site/estadios">Estadios</a></li>
                     <li><a href="<?php echo base_url(); ?>site/historias">Historia de los mundiales</a></li>
-                    <li><a href="<?php echo base_url(); ?>site/videos">Vídeos</a></li>
+<!--                    <li><a href="--><?php //echo base_url(); ?><!--site/videos">Vídeos</a></li>-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

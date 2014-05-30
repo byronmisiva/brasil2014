@@ -139,7 +139,7 @@ class Contenido extends MY_Controller
 
         $datos = array();
         foreach ($noticias_home as $noticia) {
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => '*', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
         }
         $data['noticias'] = $datos;
@@ -157,7 +157,7 @@ class Contenido extends MY_Controller
         $datos = array();
         if ($idNotica != '') {
             $noticia = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", "id" => $idNotica)), true);
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => '*', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
 
             array_push($datos, $noticia);
         }
