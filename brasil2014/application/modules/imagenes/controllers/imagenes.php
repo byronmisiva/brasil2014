@@ -33,7 +33,9 @@ class Imagenes extends MY_Controller{
 						if( $this->_copyFileFromUrl( $imageDetails['origen'].$imageUrl, $imageDetails['destino'].$imagenName ) ){ //Extraigo la imagen del ftp y la copio en el server
 							$imagen['main'] = base_url($this->_clearString( str_replace( " ", "-",$imageDetails['destino'].$imagenName ) ));
 							$imagen['ftp_main'] = AFP_XML.$imageDetails['origen'].(string) $aux->ContentItem->attributes();
-							$imagen['thumb250'] = base_url($this->_resize_image( $imagenName, $imageDetails['destino'].$imagenName, $imageDetails['destino']."thumb250/", '250' ));							
+							$imagen['thumb250'] = base_url($this->_resize_image( $imagenName, $imageDetails['destino'].$imagenName, $imageDetails['destino']."thumb250/", '300' ));		
+							$imagen['thumb85'] = base_url($this->_resize_image( $imagenName, $imageDetails['destino'].$imagenName, $imageDetails['destino']."thumb85/", '85' ));		
+							$imagen['thumb660'] = base_url($this->_resize_image( $imagenName, $imageDetails['destino'].$imagenName, $imageDetails['destino']."thumb660/", '660' ));							
 							/*$imagen['thumb2'] = $this->_crop( $imagenName, $imagen['thumb1'], $imageDetails['destino']."thumb2/", '150', '150', '50', '15' );*/							
 						}
 					break;
@@ -113,7 +115,7 @@ class Imagenes extends MY_Controller{
 		$config['master_dim'] = 'width';
 		$config['width'] = $width;
 		$config['height'] = $width;
-		$config['quality'] = '90%';
+		$config['quality'] = '65%';
 		$this->image_lib->initialize($config);
 		if ( ! $this->image_lib->resize()){
 			echo $this->image_lib->display_errors();

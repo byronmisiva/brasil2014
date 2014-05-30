@@ -448,7 +448,8 @@ class Contenido extends MY_Controller
             $info=$info.$infoAnecdota;
          }
          $this->_update ( array('anecdotas'=>$info,), $idHistoria);
-        //Creo la galeria para la historia
+
+        /*//Creo la galeria para la historia
             if (!$this->galerias->_check_exist(array('nombre' => 'Anecdotas - Mundial - ' . $anioMundial))) {
                 $galeria = array('nombre' => 'Anecdotas - Mundial - ' . $anioMundial, 'publico' => 0);
                 $galeria['id'] = $this->galerias->_insert($galeria, NULL, FALSE);
@@ -472,7 +473,7 @@ class Contenido extends MY_Controller
                         );
                 
                 }
-            }  
+            } */ 
     }
 
 }
