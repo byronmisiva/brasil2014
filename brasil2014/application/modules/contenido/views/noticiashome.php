@@ -26,7 +26,7 @@ setlocale(LC_ALL, "es_ES");
                             <a href="<?php echo base_url() . "site/noticia/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>">
                             <div class="col-md-12 margen0l noticia1">
                                 <img class="img-responsive margin-bottom-20"
-                                     src="<?php echo $noticia->imagenes->ftp_visu ?>"
+                                     src="<?php echo $noticia->imagenes->thumb250 ?>"
                                      alt="<?php echo $noticia->titulo ?>">
                             </div>
                             <div class="col-md-12 margen0l pie-imagen-noticia">
