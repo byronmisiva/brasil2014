@@ -84,6 +84,28 @@ class Contenido extends MY_Controller
 
     }
 
+    public function view_anecdotas()
+    {
+        $this->load->module('contenido');
+        $this->load->module('galerias');
+        $this->load->module('imagenes');
+        $idHistoria=2;
+
+       $historias = $this->get(array('select' => '*', "where" => array("id" => $idHistoria)));
+       $idenHisto=explode("-", $historias->titulo);
+       $anioMundial = rtrim($idenHisto[0]);
+       $galeria = $this->galerias->get(array('select' => 'id', 'where' => array('nombre' => 'Anecdotas - Mundial - ' . $anioMundial)));
+       $imagenes= $this->imagenes->get(array('select' => '*', "where" =>array('galerias_id'=>$galeria[0]->id)));
+    
+
+      $data['anecdotas']=$historias->anecdotas;
+      $data['ima_anecdotas']=$imagenes;
+    
+       return $this->load->view('anecdotas_mundiales', $data,   TRUE);
+
+    }
+
+
     public function view_estadios($data = FALSE)
     {
 

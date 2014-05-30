@@ -639,6 +639,14 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
+        $url = base_url("contenido/sync_anecdotas");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
         $url = base_url("equipos/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
