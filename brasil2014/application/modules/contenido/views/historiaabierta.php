@@ -2,7 +2,7 @@
 <?php
 setlocale(LC_ALL, "es_ES");
 ?>
-<div class=" panel-noticias">
+<div class=" panel-noticias historias">
 
     <div class="row">
         <div class="separador"></div>

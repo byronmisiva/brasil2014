@@ -448,7 +448,7 @@ div.iconos {
      width: 273px;*/
     height: 50px;
     margin-left: -17px;
-   
+
 }
 
 .en-vivo-content {
@@ -1367,6 +1367,87 @@ p.noticia-abierta    {
     width: 100%;
 }
 
+#trivia, #trivia.row{
+    height: 275px;
+}
+
+#result .trivia-respuesta{
+    font-family:inherit;
+    font-size: 46px;
+    color: #2A6A92;
+}
+
+#result .boton-more-fondo{
+    padding-right: 15px;
+    cursor:pointer;
+}
+
+#trivia, ul>li{
+    list-style: none;
+}
+
+.panel-minute .deshabilitado{
+    color: #666;
+}
+
+.opcion-menu .iconos-menu{
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+#iconoFacebook{
+    background: url("../images/facebook1.png") no-repeat;
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin-right: 5px;
+}
+
+#iconoFacebook:hover{
+    background: url("../images/facebook2.png") no-repeat;
+}
+
+#iconoTwitter{
+    background: url("../images/twitter1.png") no-repeat;
+     width: 32px;
+    height: 32px;
+    float: left;
+}
+
+#iconoTwitter:hover{
+    background: url("../images/twitter2.png") no-repeat;
+}
+
+.gris2 {
+    color: #939598;
+}
+
+#galeria-dia .col-lg-4{
+    padding-top:1px;
+    padding-bottom: 1px;
+}
+
+#galeria-dia .col-lg-4:nth-child(3n+3) {
+    padding-right: 0px;
+}
+
+#galeria-dia .col-lg-4:nth-child(3n+1) {
+    padding-right: 0px;
+}
+
+.texto-azul{
+    color:#004262;
+}
+
+
+
+@media screen and(max-device-width: 1024px) {
+   #iconoFacebook{
+    margin-right: 0px;
+       }
+}
+
+
 @media (max-width: 768px) {
     body {
         background: none;
@@ -1458,7 +1539,7 @@ p.noticia-abierta    {
         min-height: 155px;
     }
 
-    .algo .margen5r {
+    .historias .margen5r {
         padding-left: 0 ;
 
     }
@@ -1466,87 +1547,28 @@ p.noticia-abierta    {
         height: 90px;
     }
 
-}
+    .pie-imagen-noticia {
+        width: 100%;
+    }
 
+    .banner-centrar {
+        margin: 0 auto;
+    }
 
-#trivia, #trivia.row{
-    height: 275px;
-}
-
-#result .trivia-respuesta{
-    font-family:inherit;
-    font-size: 46px;
-    color: #2A6A92;
-}
-
-#result .boton-more-fondo{
-    padding-right: 15px;
-    cursor:pointer;
-}
-
-#trivia, ul>li{
-    list-style: none;
-}
-
-.panel-minute .deshabilitado{
-    color: #666;
-}
-
-.opcion-menu .iconos-menu{
-    padding-left: 30px;
-    padding-top: 10px;
-}
-
-#iconoFacebook{
-    background: url("../images/facebook1.png") no-repeat;
-    width: 32px;
-    height: 32px;
-    float: left;
-    margin-right: 5px;
-}
-
-#iconoFacebook:hover{
-    background: url("../images/facebook2.png") no-repeat;
-}
-
-#iconoTwitter{
-    background: url("../images/twitter1.png") no-repeat;
-     width: 32px;
-    height: 32px;
-    float: left;
-}
-
-#iconoTwitter:hover{
-    background: url("../images/twitter2.png") no-repeat;
-}
-
-.gris2 {
-    color: #939598;
-}
-
-#galeria-dia .col-lg-4{
-    padding-top:1px;
-    padding-bottom: 1px;
-}
-
-#galeria-dia .col-lg-4:nth-child(3n+3) {
-    padding-right: 0px;
-}
-
-#galeria-dia .col-lg-4:nth-child(3n+1) {
-    padding-right: 0px;
-}
-
-.texto-azul{
-    color:#004262;
 }
 
 
 
-@media screen and(max-device-width: 1024px) {
-   #iconoFacebook{
-    margin-right: 0px;
-       }
+@media (max-width: 320px) {
+
+    .banner-centrar {
+        margin-left: -15px;
+        margin-right: -15px;
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
+
+
 
 

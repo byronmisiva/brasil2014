@@ -11,7 +11,8 @@
 </div>
 
 <!-- 320X50_MOVISTAR_MUNDIAL_BOTTOM -->
-<div class="col-md-12 row margen0 separador smart-brand">
+<div class="separador"></div>
+<div class="col-md-12 banner-centrar center-block separador  smart-brand">
     <div id='div-gpt-ad-1401400694784-0' style='width:320px; height:50px;' >
         <script type='text/javascript'>
             googletag.cmd.push(function () {

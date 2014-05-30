@@ -10,8 +10,10 @@
     </div>
 </div>
 
-<!-- 320x50_MOVISTAR_MUNDIAL_TOP -->
-<div class="col-md-12 row margen0 separador smart-brand">
+
+
+<div class="col-md-12 banner-centrar center-block separador   smart-brand">
+    <div class="separador"></div>
     <div id='div-gpt-ad-1401400694784-1' style='width:320px; height:50px;' >
         <script type='text/javascript'>
             googletag.cmd.push(function () {
@@ -20,5 +22,4 @@
         </script>
     </div>
 </div>
-<div class="clearfix separador"></div>
 <!-- Fin Banner   -->
