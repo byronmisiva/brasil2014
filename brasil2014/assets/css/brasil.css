@@ -1439,7 +1439,10 @@ p.noticia-abierta    {
     color:#004262;
 }
 
-
+.panel-group .panel {
+    float: left;
+    width: 100%;
+}
 
 @media screen and(max-device-width: 1024px) {
    #iconoFacebook{
@@ -1555,6 +1558,11 @@ p.noticia-abierta    {
         margin: 0 auto;
     }
 
+    .panel-minute .margen2 {
+        padding: 0 14px;
+    }
+
+
 }
 
 
@@ -1570,5 +1578,12 @@ p.noticia-abierta    {
 }
 
 
+#video_wrapper {
+    width: 683px !important;
+    height: 390px !important;
+}
 
-
+.contenedor-videos {
+    height: 390px;
+    width: 633px;
+}

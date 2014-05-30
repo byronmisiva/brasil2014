@@ -14,7 +14,7 @@ echo $cabecera;
     <div class="container">
         <!-- Cabecera-->
         <div class="row blanco">
-            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8z" id="content">
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-12" id="content">
                <?php
                 echo $content;
                 ?>

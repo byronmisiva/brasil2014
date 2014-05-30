@@ -1,5 +1,5 @@
 $(function () {
-   /* $('#foo2').carouFredSel({
+    $('#foo2').carouFredSel({
         auto: false,
         prev: '#prev2',
         next: '#next2',
@@ -38,7 +38,7 @@ $(function () {
             onMouse: true,
             onTouch: true
         }, items: 6
-    });*/
+    });
 
     $('#foo-noticai-rotativa').carouFredSel({
         auto: false,
