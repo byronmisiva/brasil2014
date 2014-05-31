@@ -187,7 +187,7 @@ class Contenido extends MY_Controller
 
 
         foreach ($noticias_home as $noticia) {
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
         }
 
@@ -201,14 +201,12 @@ class Contenido extends MY_Controller
 
     public function view_historia_open($idNotica)
     {
-
-
         $this->load->module('imagenes');
 
         $datos = array();
         if ($idNotica != '') {
             $noticia = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "historia", "id" => $idNotica)), true);
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id)), false);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id)), false);
 
             array_push($datos, $noticia);
         }
@@ -216,7 +214,7 @@ class Contenido extends MY_Controller
 
 
         foreach ($noticias_home as $noticia) {
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id)), false);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id)), false);
             array_push($datos, $noticia);
         }
         $data['noticias'] = $datos;;
@@ -229,22 +227,18 @@ class Contenido extends MY_Controller
     public function view_noticias_equipo($idequipo, $nombreEquipo, $short_name)
     {
         $data = array("nombre_equipo" => $nombreEquipo);
-
         $limite_noticias = 10;
         $this->load->module('imagenes');
         $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia" , 'ident_pais'=>$short_name), "order_by" => "creado desc", "limit" => $limite_noticias));
         //$last = $this->db->last_query();
         $datos = array();
         foreach ($noticias_home as $noticia) {
-            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
+            $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail, galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
         }
-
         $data['noticias'] = $datos;;
         $data['totCabecera'] = 0;
         return $this->load->view('noticiasequipo', $data, TRUE);
-
-
     }
 
 

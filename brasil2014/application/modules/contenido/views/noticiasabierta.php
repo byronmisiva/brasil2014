@@ -41,7 +41,7 @@ setlocale(LC_ALL, "es_ES");
             <div class="col-md-12 separador"></div>
                 <div class="fb-like" data-href="<?php echo $url?>" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
                 <div class="fb-share-button" data-href="<?php echo $url?>" data-type="button_count" style="margin-top: 5px;margin-bottom: 5px;"></div>
-                <div class="margen0 col-xs-12 col-md-12 fb-comments" data-href="<?php echo $url?>" data-width="80%" data-numposts="5" data-colorscheme="light"></div>
+                <div class="margen0 col-xs-12 col-md-12 fb-comments" data-href="<?php echo $url?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 
             <?php
             } else {
@@ -54,7 +54,7 @@ setlocale(LC_ALL, "es_ES");
                         <a href="<?php echo base_url() . "site/noticia/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>"  >
                             <div class="col-sm-4  col-xs-5  margen5r noticia2">
                                 <img class="img-responsive "
-                                     src="<?php if (isset($noticia->imagenes->ftp_visu)) echo $noticia->imagenes->ftp_visu ?>"
+                                     src="<?php if (isset($noticia->imagenes->ftp_thumbnail)) echo $noticia->imagenes->ftp_thumbnail ?>"
                                      alt="<?php echo strip_tags ( $noticia->titulo) ?>">
                             </div>
                             <div class="col-sm-8 col-xs-7   margen5l altonews">

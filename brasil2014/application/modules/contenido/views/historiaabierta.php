@@ -76,7 +76,7 @@ setlocale(LC_ALL, "es_ES");
                             <a href="<?php echo base_url() . "site/historias/" . strtolower($this->partidos->_clearStringGion($noticia->titulo)) . '/' . $noticia->id; ?>">
                                 <div class="col-sm-5 col-xs-5 margen5r noticia2">
                                     <img class="img-responsive "
-                                         src="<?php if (isset($noticia->imagenes[0]->ftp_visu)) echo $noticia->imagenes[0]->ftp_visu ?>"
+                                         src="<?php if (isset($noticia->imagenes[0]->ftp_thumbnail)) echo $noticia->imagenes[0]->ftp_thumbnail ?>"
                                          alt="<?php echo $noticia->titulo ?>">
                                 </div>
                                 <div class="col-sm-7  col-xs-7 margen5l altonews">
