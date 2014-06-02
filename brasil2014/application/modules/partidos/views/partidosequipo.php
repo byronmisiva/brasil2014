@@ -57,12 +57,12 @@ setlocale(LC_ALL, "es_ES");
                     </div>
                     <div class="col-md-3 col-xs-2 opciones">
                         <div class="row">
-                            <div class="col-md-2 col-xs-0 margen0 hidden">
+                            <div class="col-md-2 col-xs-0 margen0 ocultar">
                                 <div class="iconos sprite-icono-informacion"></div>
                             </div>
                             <div class="col-md-10 col-xs-12 text-left minuto-horario-equipo margen0">
-                                <?php echo '<span class="hidden ">' . ucfirst(strftime('%d / %b - ', strtotime($partido->fecha))).  '</span><span>' . $partido->hora . '</span>';
-                                echo '<span class="hidden ">'.$partido->estadio_nombre. '</span>'  ?>
+                                <?php echo '<span class="ocultar ">' . ucfirst(strftime('%d / %b - ', strtotime($partido->fecha))).  '</span><span>' . $partido->hora . '</span>';
+                                echo '<span class="ocultar ">'.$partido->estadio_nombre. '</span>'  ?>
                             </div>
                         </div>
                     </div>

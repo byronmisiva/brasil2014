@@ -1243,7 +1243,7 @@ p.noticia-abierta    {
 }
 
 .altonews {
-    min-height: 140px;
+    min-height: 110px;
 }
 
 
@@ -1572,6 +1572,11 @@ p.noticia-abierta    {
 
     .minuto-header {
         font-size: 13px !important;
+    }
+
+    .ocultar {
+        display: none;
+        visibility: none;
     }
 }
 
