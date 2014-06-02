@@ -21,13 +21,13 @@ setlocale(LC_ALL, "es_ES");
         <div class="panel panel-default clearfix">
             <div class="panel-heading movi-headline-regular panel-minute margen2">
                 <div class="row minuto-header  azul">
-                    <div class="col-md-9 col-xs-12">
+                    <div class="col-md-9 col-xs-10">
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <div class="row">
                                     <div class="col-md-1 col-xs-0 margen0"></div>
 
-                                    <div class="col-md-9 col-xs-9 text-right  ">
+                                    <div class="col-md-9 col-xs-9 text-right  margen0">
                                                     <span
                                                         class="sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_local)) ?>"></span>
                                                         <span
@@ -51,20 +51,18 @@ setlocale(LC_ALL, "es_ES");
                                                 class="right sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_visitante)) ?>"></span>
                                     </div>
                                     <div class="col-md-1 col-xs-1 margen0  "></div>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-xs-12 opciones">
+                    <div class="col-md-3 col-xs-2 opciones">
                         <div class="row">
-                            <div class="col-md-2 col-xs-2 margen0">
+                            <div class="col-md-2 col-xs-0 margen0 hidden">
                                 <div class="iconos sprite-icono-informacion"></div>
                             </div>
-                            <div class="col-md-10 col-xs-10 text-left minuto-horario-equipo margen0">
-                                <?php echo '<div class="">' . ucfirst(strftime('%d / %b - ', strtotime($partido->fecha))) . $partido->hora . '</div>';
-                                echo $partido->estadio_nombre ?>
+                            <div class="col-md-10 col-xs-12 text-left minuto-horario-equipo margen0">
+                                <?php echo '<span class="hidden ">' . ucfirst(strftime('%d / %b - ', strtotime($partido->fecha))).  '</span><span>' . $partido->hora . '</span>';
+                                echo '<span class="hidden ">'.$partido->estadio_nombre. '</span>'  ?>
                             </div>
                         </div>
                     </div>

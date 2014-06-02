@@ -51,11 +51,13 @@ setlocale(LC_ALL, "es_ES");
                         </div>
                     </div>
 
-                    <div class="col-md-12    margen0l   ">
+                    <div class="col-md-12    margen0l  noticias-detalles ">
 
                         <h1 class="noticia-abierta"><?php echo $noticia->titulo ?></h1>
 
                         <p class="noticia-abierta"><?php echo $noticia->cuerpo; ?></p>
+
+                        <?php echo $noticia->anecdotas; ?>
                     </div>
                 </div>
             </div>

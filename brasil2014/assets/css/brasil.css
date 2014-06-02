@@ -1562,18 +1562,37 @@ p.noticia-abierta    {
         padding: 0 14px;
     }
 
+    .minuto-header  {
+        padding: 0 14px;
+    }
 
+    .sprite-informacion {
+        display:none
+    }
+
+    .minuto-header {
+        font-size: 13px !important;
+    }
 }
 
 
 
 @media (max-width: 320px) {
+    .sprite-informacion {
+        display:none
+    }
 
     .banner-centrar {
         margin-left: -15px;
         margin-right: -15px;
         padding-right: 0;
         padding-left: 0;
+    }
+
+    .cuerpo  {
+        min-height: 40px;
+        border: none;
+        padding-top: 12px;
     }
 }
 
@@ -1586,4 +1605,17 @@ p.noticia-abierta    {
 .contenedor-videos {
     height: 390px;
     width: 633px;
+}
+
+.minitexto {
+    font-size: 11px;
+}
+
+.noticias-detalles h1, .noticias-detalles h2 {
+    font-size: 14px;
+    color: #636466;
+    font-family: movistarHeadline-Regular, Arial;
+    margin: 3px 0;
+    padding-top: 10px   ;
+
 }

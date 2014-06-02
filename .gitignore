@@ -35,3 +35,12 @@ brasil2014/application/cache/a8aace96f53c35e8bab6f51688831804
 *.jpg
 
 *.jpg
+.idea/.name
+.idea/brasil2014.iml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/encodings.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+brasil2014/.htaccess

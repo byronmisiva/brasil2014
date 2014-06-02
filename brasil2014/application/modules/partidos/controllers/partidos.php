@@ -17,6 +17,12 @@ class Partidos extends MY_Controller
         $data['fechas'] = $this->mdl_partidos->getAllByFecha();
         return $this->load->view('partidosFecha', $data, TRUE);
     }
+    function partidosFechaMovil()
+    {
+        //$this->output->cache( 5 );
+        $data['fechas'] = $this->mdl_partidos->getAllByFecha();
+        return $this->load->view('partidosFechaMovil', $data, TRUE);
+    }
 
       function viewProximoPartido($isAjax = false)
     {

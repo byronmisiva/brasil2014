@@ -205,7 +205,7 @@ class Contenido extends MY_Controller
 
         $datos = array();
         if ($idNotica != '') {
-            $noticia = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "historia", "id" => $idNotica)), true);
+            $noticia = $this->get(array("select" => "id,titulo,cuerpo, anecdotas, galerias_id, creado", "where" => array("type" => "historia", "id" => $idNotica)), true);
             $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id)), false);
 
             array_push($datos, $noticia);

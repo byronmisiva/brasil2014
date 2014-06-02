@@ -49,7 +49,7 @@ class Site extends MY_Controller
             $data['cabecera']  = $this->contenido->menum();
 
             $data['content'] = $this->contenido->header_mobile();
-            $data['content'] .= $this->partidos->partidosFecha();
+            $data['content'] .= $this->partidos->partidosFechaMovil();
             $data['content'] .= $this->contenido->view_banner_contenidotop();
             $data['content'] .= $this->contenido->view_noticia_home();
             $data['content'] .= $this->contenido->view_banner_contenido();
@@ -349,11 +349,10 @@ class Site extends MY_Controller
         if ($isMobile){
 
             $data['cabecera']  = $this->contenido->menum();
-
-            $data['content'] = $this->partidos->minutoAminuto();
+            $data['content'] = $this->contenido->header_mobile();
+            $data['content'] .= $this->partidos->minutoAminuto();
 
             $data['footer'] = '';
-
             $data['sidebar'] = '';
 
         }else{
@@ -460,6 +459,7 @@ class Site extends MY_Controller
             $data['cabecera']  = $this->contenido->menum();
 
             $data['content'] = $this->contenido->header_mobile();
+            $data['content'] .= $this->contenido->header_mobile();
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
