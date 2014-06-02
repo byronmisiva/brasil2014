@@ -438,7 +438,7 @@ class Contenido extends MY_Controller
         foreach ($nodoAnecdotas->dl as $anec) {
             $tituloAnecdota=(string)$anec->dt;
             $detalleAnecdotas=(string)$anec->dd->block->p;
-            $infoAnecdota= "<h1>$tituloAnecdota</h1><p>$detalleAnecdotas<p>"; 
+            $infoAnecdota= "<h2>$tituloAnecdota</h2><p class='noticia-abierta'>$detalleAnecdotas</p>"; 
             $info=$info.$infoAnecdota;
          }
          $this->_update ( array('anecdotas'=>$info,), $idHistoria);

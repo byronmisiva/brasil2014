@@ -1232,6 +1232,8 @@ p.noticia-abierta    {
     text-align: justify;
 }
 
+
+
 .imagenes-galeria {
     height: 93px;
     width: 99px;
@@ -1258,11 +1260,13 @@ p.noticia-abierta    {
 .noticia .carousel-control.left {
     background: none;
      color:#004F78;
+     margin-left: -30px;
 }
 
 .noticia .carousel-control.right {
     background: none;
     color:#004F78;
+    margin-right: -40px;
 }
 
 .menuabajo  .navbar-nav {
