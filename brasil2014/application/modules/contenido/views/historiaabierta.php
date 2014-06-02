@@ -51,10 +51,10 @@ setlocale(LC_ALL, "es_ES");
                         </div>
                     </div>
 
-                    <div class="col-md-12    margen0l  noticias-detalles ">
+                    <div class="col-md-12    margen0l  noticias-detalles separador">
 
-                        <h1 class="noticia-abierta"><?php echo $noticia->titulo ?></h1>
-
+                        <h1 class="noticia-abierta noticia-grande"><?php echo $noticia->titulo ?></h1>
+                        <hr class="cabecera">
                         <p class="noticia-abierta"><?php echo $noticia->cuerpo; ?></p>
 
                         <?php echo $noticia->anecdotas; ?>
@@ -83,7 +83,7 @@ setlocale(LC_ALL, "es_ES");
                                 </div>
                                 <div class="col-sm-7  col-xs-7 margen5l altonews">
                                     <h3><?php echo $noticia->titulo ?></h3>
-                                    <p><?php echo substr($noticia->cuerpo, 0, 180) . "..."; ?></p>
+                                    <p><?php echo substr($noticia->cuerpo, 0, 120) . "..."; ?></p>
                                     <spam class="boton-more-mini">Ver más ></spam>
                                 </div>
                             </a>

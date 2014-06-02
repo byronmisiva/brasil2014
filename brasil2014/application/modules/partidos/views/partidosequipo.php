@@ -53,7 +53,7 @@ setlocale(LC_ALL, "es_ES");
                     </div>
                     <div class="col-md-3 col-xs-2 opciones">
                         <div class="row">
-                            <div class="col-md-2 col-xs-0 margen0 ocultar">
+                            <div class="col-md-2 col-xs-0 margen0r ocultar">
                                 <div class="iconos sprite-icono-informacion"></div>
                             </div>
                             <div class="col-md-10 col-xs-12 text-center minuto-horario-equipo margen0 ">

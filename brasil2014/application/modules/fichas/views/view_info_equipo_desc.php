@@ -7,11 +7,7 @@
                     Información del equipo
                 </h2>
                 <hr class= "cabecera">
-
             </div>
-
-
             <div class="col-md-12  "><?php echo (string)$fichaEquipo['detalles'] ?></div>
         </div>
-
 </div>

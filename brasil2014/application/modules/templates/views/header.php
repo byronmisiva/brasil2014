@@ -27,13 +27,10 @@
 
     <!-- ColorBox -->
     <link rel="stylesheet" href="<?php echo base_url('assets/js/colorbox/colorbox.css') ?>"/>
-
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.ico') ?>">
     <script>
         var baseUrl = "<?php echo base_url(); ?>";
     </script>
-
-
 
     <script type='text/javascript'>
         var googletag = googletag || {};
