@@ -268,7 +268,7 @@ class Contenido extends MY_Controller
     function sync_historias()
     {
         echo "<pre>";
-        $this->data_model('WC/xml/es/histo/index');
+        $this->data_model('httpdocs/WC/xml/es/histo/index');
         echo "</pre>";
     }
 
@@ -332,7 +332,10 @@ class Contenido extends MY_Controller
     function sync_noticias()
     {
         echo "<pre>";
-        $this->data_model_noticias('WC/xml/es/direct/news/FULLP/index');
+        //$this->data_model_noticias('httpdocs/WC/xml/es/direct/news/FULLP/index');
+
+        $this->data_model_noticias('httpdocs/WC/xml/es/direct/news/FULLP/index');
+
         //$this->data_model_noticias('WC/xml/es/direct/news/BRA/index');
         //$this->data_model_noticias('WC/xml/es/direct/news/DEU/index');
         //$this->data_model_noticias('WC/xml/es/direct/news/XNG/index');
@@ -381,7 +384,10 @@ class Contenido extends MY_Controller
             } else {
                 $contenidoData = $this->_check_exist(array('titulo' => $tituloNoticia), TRUE);
             }
+
             $contenidoDetails = (string)$node->NewsItemRef->attributes();
+
+
 
             $xml = AFP_XML . $pathXml . '/' . str_replace('.xml', '', $contenidoDetails);
 
@@ -389,11 +395,24 @@ class Contenido extends MY_Controller
                 $data = $this->xmlimporter->parse();
                 $data = $data->NewsItem->NewsComponent;
 
+
                 $fotos = 0;
                 foreach ($data->NewsComponent as $component) {
 
                     if (isset($component->ContentItem->DataContent)) {
-                        $this->mdl_contenido->save(array('cuerpo' => implode(" ", (array)$component->ContentItem->DataContent->p)), $contenidoData->id, FALSE);
+                        $text="";
+
+                        foreach ($component->ContentItem->DataContent->p as $texto){
+                           $text=$text.$texto." ";
+                        }
+                        
+                        if((string)$text==""){
+                            $this->mdl_contenido->save(array('cuerpo' => $text, 'activo'=>"1"), $contenidoData->id, FALSE);
+                        }else{
+                             $this->mdl_contenido->save(array('cuerpo' => '<p>'.$text.'</p>'), $contenidoData->id, FALSE);
+                        }
+                        
+
                     } else {
                         $fotos++;
                         $this->imagenes->_syncFotos($component, array(
@@ -419,7 +438,7 @@ class Contenido extends MY_Controller
                 $idenHisto=explode("-", $histo->titulo);
                 $trimmed = rtrim($idenHisto[0]);
                 $idenHisto=explode("-", $histo->titulo);
-                $this->data_model_anecdotas('WC/xml/es/histo/wc2014-histo-'.$trimmed.'-reperes-es.xml', $histo->id,  $trimmed);
+                $this->data_model_anecdotas('httpdocs/WC/xml/es/histo/wc2014-histo-'.$trimmed.'-reperes-es.xml', $histo->id,  $trimmed);
             }
         }
       
