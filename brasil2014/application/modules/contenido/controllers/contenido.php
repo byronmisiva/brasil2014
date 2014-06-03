@@ -350,7 +350,9 @@ class Contenido extends MY_Controller
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
         $data = ($this->xmlimporter->load($xml)) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
-       
+        echo "<pre>";
+        //var_dump($data);
+        echo "</pre>";
         $data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
         foreach ($data->NewsComponent as $node) {
             $tituloNoticia = trim((string)$node->NewsLines->HeadLine);
@@ -384,10 +386,7 @@ class Contenido extends MY_Controller
             } else {
                 $contenidoData = $this->_check_exist(array('titulo' => $tituloNoticia), TRUE);
             }
-
             $contenidoDetails = (string)$node->NewsItemRef->attributes();
-
-
 
             $xml = AFP_XML . $pathXml . '/' . str_replace('.xml', '', $contenidoDetails);
 
@@ -395,24 +394,16 @@ class Contenido extends MY_Controller
                 $data = $this->xmlimporter->parse();
                 $data = $data->NewsItem->NewsComponent;
 
-
                 $fotos = 0;
                 foreach ($data->NewsComponent as $component) {
 
                     if (isset($component->ContentItem->DataContent)) {
                         $text="";
-
                         foreach ($component->ContentItem->DataContent->p as $texto){
                            $text=$text.$texto." ";
                         }
                         
-                        if((string)$text==""){
-                            $this->mdl_contenido->save(array('cuerpo' => $text, 'activo'=>"1"), $contenidoData->id, FALSE);
-                        }else{
-                             $this->mdl_contenido->save(array('cuerpo' => '<p>'.$text.'</p>'), $contenidoData->id, FALSE);
-                        }
-                        
-
+                        $this->mdl_contenido->save(array('cuerpo' => $text), $contenidoData->id, FALSE);
                     } else {
                         $fotos++;
                         $this->imagenes->_syncFotos($component, array(
@@ -426,8 +417,26 @@ class Contenido extends MY_Controller
                 }
             }
         }
-    }
 
+        $this->filtrar_noticias();
+}
+
+
+function filtrar_noticias()
+    {
+        $this->load->module('imagenes');
+        $noticias = $this->get(array('select' => '*', "where" => array("type" => "noticia")));
+        foreach ($noticias  as $noti ) {
+            if ($noti->cuerpo==" "){
+               $this->mdl_contenido->save(array('activo' => '1'), $noti->id, FALSE);
+            }
+
+            $imagenes = $this->imagenes->get(array('select' => '*', "where" => array("galerias_id" => $noti->galerias_id)));
+             if (empty($imagenes)){
+               $this->mdl_contenido->save(array('activo' => '1'), $noti->id, FALSE);
+            }
+        }
+    }
 
 
     function sync_anecdotas()

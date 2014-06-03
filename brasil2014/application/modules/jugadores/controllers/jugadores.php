@@ -43,7 +43,7 @@ class Jugadores extends MY_Controller{
 	}
 	
 	function sync(){
-	    $xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."WP2010");
+	    $xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs");
 		$numXml=count($xmlRankingDir);
 		for($i=0;$i<$numXml;$i++){
 		    $mystring = $xmlRankingDir[$i];
@@ -55,7 +55,7 @@ class Jugadores extends MY_Controller{
 			    //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
 			} else {
 				$xmlRanking[$i]=$xmlRankingDir[$i];
-				$this->data_model('WP2010/'.$xmlRanking[$i]);
+				$this->data_model('httpdocs/'.$xmlRanking[$i]);
 			   // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
 			    //echo " y existe en la posición $pos";
 			}	

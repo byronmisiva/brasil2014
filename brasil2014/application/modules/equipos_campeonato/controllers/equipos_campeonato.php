@@ -17,9 +17,29 @@ class Equipos_campeonato extends MY_Controller{
     }
 	
 	function sync(){
-		echo "<pre>";
-		$this->importData('WP2010/FootballTeams_Comp8_ID56666059_es.xml');
-		echo "</pre>";
+
+		 $xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "httpdocs");
+        $numXml = count($xmlRankingDir);
+        for ($i = 0; $i < $numXml; $i++) {
+            $mystring = $xmlRankingDir[$i];
+            $findme = 'FootballTeams_Comp';
+            $pos = strpos($mystring, $findme);
+            // Nótese el uso de ===. Puesto que == simple no funcionará como se espera
+            // porque la posición de 'a' está en el 1° (primer) caracter.
+            if ($pos === false) {
+                //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
+            } else {
+                $xmlRanking[$i] = $xmlRankingDir[$i];
+                $this->importData('httpdocs/' . $xmlRanking[$i]);
+                // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
+                //echo " y existe en la posición $pos";
+            }
+        }
+
+
+		//echo "<pre>";
+		//$this->importData('httpdocs/FootballTeams_Comp8_ID56666059_es.xml');
+		//echo "</pre>";
 	}
 	
 	function importData( $xml ){

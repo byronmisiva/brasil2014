@@ -578,7 +578,15 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-        $url = base_url("alineaciones/sync");
+       $url = base_url("ranking/sync");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        echo curl_exec($ch);
+        curl_close($ch);
+
+       /*$url = base_url("alineaciones/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -616,9 +624,9 @@ class Site extends MY_Controller
         curl_setopt($ch, CURLOPT_POST, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         echo curl_exec($ch);
-        curl_close($ch);
+        curl_close($ch);*/
 
-        //Ranking ya con correspondencia de datos
+        
 
 
     }
