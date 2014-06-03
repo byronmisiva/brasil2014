@@ -1580,7 +1580,7 @@ h1.noticia-grande {
 
 
     .altonews {
-        min-height: 155px;
+        min-height: 130px;
     }
 
     .historias .margen5r {
@@ -1619,6 +1619,10 @@ h1.noticia-grande {
         display: none;
         visibility: none;
     }
+    .margen-vert {
+        margin-top: 1px;
+    }
+
 }
 
 
