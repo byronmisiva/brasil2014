@@ -1,5 +1,6 @@
 <?php
 
+
 class Site extends MY_Controller
 {
 
@@ -463,7 +464,13 @@ class Site extends MY_Controller
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
+<<<<<<< HEAD
             $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+=======
+            $data['content'] .= $this->fichas->viewFichaEquipodesc($idEquipo);
+            $data['content'] .=  $this->contenido->view_noticias_equipo($idEquipo);
+//            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+>>>>>>> FETCH_HEAD
             $data['content'] .= $this->equipos_campeonato->viewEquiposBanderas();
             $data['footer'] = '';
 
@@ -485,7 +492,13 @@ class Site extends MY_Controller
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
+<<<<<<< HEAD
             $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+=======
+            $data['content'] .= $this->fichas->viewFichaEquipodesc($idEquipo);
+            $data['content'] .=  $this->contenido->view_noticias_equipo($idEquipo);
+           // $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+>>>>>>> FETCH_HEAD
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 

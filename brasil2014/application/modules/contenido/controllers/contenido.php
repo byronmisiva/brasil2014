@@ -223,12 +223,19 @@ class Contenido extends MY_Controller
     }
 
 
-    public function view_noticias_equipo($idequipo, $nombreEquipo, $short_name)
+    public function view_noticias_equipo($idequipo )
     {
-        $data = array("nombre_equipo" => $nombreEquipo);
+
         $limite_noticias = 10;
+        $this->load->module('equipos_campeonato');
+        $datosEquipo = $this->equipos_campeonato->get(array("select" => "*",   "from"=>"equipos_campeonato", "where" => array("id" => $idequipo)), false);
+        $data = array("nombre_equipo" => $datosEquipo->name);
         $this->load->module('imagenes');
+<<<<<<< HEAD
         $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia" , "ident_pais"=>$short_name, "activo"=>"0"), "order_by" => "creado desc", "limit" => $limite_noticias));
+=======
+        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia" , 'ident_pais'=>$datosEquipo->short_name), "order_by" => "creado desc", "limit" => $limite_noticias));
+>>>>>>> FETCH_HEAD
         //$last = $this->db->last_query();
         $datos = array();
         foreach ($noticias_home as $noticia) {

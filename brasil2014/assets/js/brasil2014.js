@@ -1,44 +1,55 @@
 $(function () {
-    $('#foo2').carouFredSel({
-        auto: false,
-        prev: '#prev2',
-        next: '#next2',
-        mousewheel: true,
-        swipe: {
-            onMouse: true,
-            onTouch: true
-        }, items: 6
-    });
-    $('#foo4').carouFredSel({
-        auto: false,
-        prev: '#prev4',
-        next: '#next4',
-        mousewheel: true,
-        swipe: {
-            onMouse: true,
-            onTouch: true
-        }, items: 6
-    });
-    $('#foo6').carouFredSel({
-        auto: false,
-        prev: '#prev6',
-        next: '#next6',
-        mousewheel: true,
-        swipe: {
-            onMouse: true,
-            onTouch: true
-        }, items: 6
-    });
-    $('#foo5').carouFredSel({
-        auto: false,
-        prev: '#prev5',
-        next: '#next5',
-        mousewheel: true,
-        swipe: {
-            onMouse: true,
-            onTouch: true
-        }, items: 6
-    });
+    if ($('#foo2').length>0){
+        $('#foo2').carouFredSel({
+            auto: false,
+            prev: '#prev2',
+            next: '#next2',
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }, items: 6
+        });
+    }
+
+    if ($('#foo4').length>0){
+        $('#foo4').carouFredSel({
+            auto: false,
+            prev: '#prev4',
+            next: '#next4',
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }, items: 6
+        });
+    }
+
+    if ($('#foo5').length>0){
+        $('#foo5').carouFredSel({
+            auto: false,
+            prev: '#prev5',
+            next: '#next5',
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }, items: 6
+        });
+    }
+    if ($('#foo6').length>0){
+        $('#foo6').carouFredSel({
+            auto: false,
+            prev: '#prev6',
+            next: '#next6',
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }, items: 6
+        });
+    }
+
 
     $('#foo-noticai-rotativa').carouFredSel({
         auto: false,
@@ -73,56 +84,55 @@ $(function () {
     $('.list_carousel_header').hide();
     $('.list_carousel_header:first').show();
 
-    Brasil2014(baseUrl); 
-0})
+    Brasil2014(baseUrl);
+    0
+})
 
 
+var Brasil2014 = (function (baseUrl) {
+
+    var loadView = function (content, method, data) {
+        $.ajax({
+            cache: true,
+            type: "POST",
+            url: baseUrl + method,
+            data: { 'data': data },
+            success: function (response) {
+                $(content).html(response);
+            }
+        });
+    };
+
+    loadView('#proximo-partido', 'partidos/viewProximoPartido/TRUE', { });
+
+    var setEvent = function (content, method) {
+
+        /*if( $('#modul_ranking_goleadores').length ){
+         $('#modul_ranking_goleadores').click( function() {
+         setInterval(
+         function() {
+         loadView( '#' + this.id, baseUrl + 'jugadores/viewRankingGoleadores/TRUE', { 'id' : 8, 'name' : 'luis' } );
+         }, 5000 );
+         } );
+         }*/
+
+        $('#proximo-partido').click(function () {
+            loadView('#proximo-partido', 'partidos/viewProximoPartido/TRUE', { });
+        });
 
 
-var Brasil2014 = (function( baseUrl ) {
+    };
 
-	var loadView = function( content, method, data ) {
-		$.ajax({
-			cache :true,
-    		type: "POST",
-    		url: baseUrl+method,
-    		data: { 'data' :  data },
-    		success: function( response ) {
-    			$( content ).html( response );
-    		}
-		});
-	};
-
-    loadView( '#proximo-partido',   'partidos/viewProximoPartido/TRUE', { } ); 
-
-	var setEvent = function( content, method ) {
-
-		/*if( $('#modul_ranking_goleadores').length ){
-			$('#modul_ranking_goleadores').click( function() {
-				setInterval(
-						function() {
-							loadView( '#' + this.id, baseUrl + 'jugadores/viewRankingGoleadores/TRUE', { 'id' : 8, 'name' : 'luis' } );
-						}, 5000 );
-			} );
-		}*/
-        
-   $('#proximo-partido').click( function() {
-                            loadView( '#proximo-partido',   'partidos/viewProximoPartido/TRUE', { } );        
-            } );
-          
-       
-	};
-
-	setEvent();
+    setEvent();
 
 
-	module = {
-		loadView         	: loadView,
-		/*newInstance     : newInstance,
-		setSignedRequest: setSignedRequest,
-		getUserFbData   : getUserFbData,
-		getSignedRequest: getSignedRequest*/
-	};
-	return module;
+    module = {
+        loadView: loadView,
+        /*newInstance     : newInstance,
+         setSignedRequest: setSignedRequest,
+         getUserFbData   : getUserFbData,
+         getSignedRequest: getSignedRequest*/
+    };
+    return module;
 });
 
