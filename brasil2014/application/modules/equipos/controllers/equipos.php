@@ -33,7 +33,7 @@ class Equipos extends MY_Controller{
 	
 	function sync(){
 		echo "<pre>";		
-		$this->data_model('httpdocs/WC/xml/es/team/index');
+		$this->data_model('httpdocs/afp/WC/xml/es/team/index');
 		echo "</pre>";
 	}
 	

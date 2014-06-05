@@ -34,8 +34,17 @@ setlocale(LC_ALL, "es_ES");
                             </div>
                             <div class="col-md-12 margen0l  altonews ">
                                 <h3><?php echo strip_tags ( $noticia->titulo) ?></h3>
+                                 <?php 
+                                         $palabras=explode(" ",$noticia->cuerpo);
+                                                $numPalabras=count($palabras);
+                                                $nuevoText="";
+                                                for ($i=0;$i<=44;$i++){
+                                                   $nuevoText=$nuevoText. $palabras[$i]." ";
+                                                }
+                                    ?>
 
-                                <p><?php echo substr(strip_tags ($noticia->cuerpo), 0, 250) . "..."; ?></p>
+                                <!--<p><?php //echo substr(strip_tags ($noticia->cuerpo), 0, 250) . "..."; ?></p>-->
+                                  <p><?php echo $nuevoText. "..."; ?></p>
                                     <spam class="boton-more-mini">Ver más ></spam>
                             </div>
                             </a>
@@ -61,8 +70,17 @@ setlocale(LC_ALL, "es_ES");
                                         <?php echo ucfirst(strftime('%B %d / %Y  %Hh%M', strtotime($noticia->creado))); ?>
                                     </div>
                                     <h3><?php echo $noticia->titulo ?></h3>
+                                    <?php 
+                                         $palabras=explode(" ",$noticia->cuerpo);
+                                                $numPalabras=count($palabras);
+                                                $nuevoText="";
+                                                for ($i=0;$i<=16;$i++){
+                                                   $nuevoText=$nuevoText. $palabras[$i]." ";
+                                                }
+                                    ?>
 
-                                    <p><?php echo substr(strip_tags ( $noticia->cuerpo), 0, 100) . "..."; ?></p>
+                                    <!-- <p><?php //echo substr(strip_tags ( $noticia->cuerpo), 0, 100) . "..."; ?></p>-->
+                                     <p><?php echo $nuevoText."..."; ?></p>
 
                                     <spam class="boton-more-mini">Ver más ></spam>
 

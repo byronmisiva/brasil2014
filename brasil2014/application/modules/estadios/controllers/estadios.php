@@ -21,7 +21,7 @@ class Estadios extends MY_Controller{
 	
 	function sync(){
 		echo "<pre>";
-		$this->data_model('httpdocs/WC/xml/es/sites/index');
+		$this->data_model('httpdocs/afp/WC/xml/es/sites/index');
 		echo "</pre>";
 	}
 	

@@ -43,7 +43,7 @@ class Jugadores extends MY_Controller{
 	}
 	
 	function sync(){
-	    $xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs");
+	    $xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs/afp");
 		$numXml=count($xmlRankingDir);
 		for($i=0;$i<$numXml;$i++){
 		    $mystring = $xmlRankingDir[$i];
@@ -55,7 +55,7 @@ class Jugadores extends MY_Controller{
 			    //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
 			} else {
 				$xmlRanking[$i]=$xmlRankingDir[$i];
-				$this->data_model('httpdocs/'.$xmlRanking[$i]);
+				$this->data_model('httpdocs/afp/'.$xmlRanking[$i]);
 			   // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
 			    //echo " y existe en la posición $pos";
 			}	
@@ -138,7 +138,27 @@ class Jugadores extends MY_Controller{
 	
 	
 	function syncGoledores(){
-		$this->data_model_goleadores('WP2010/FootballTopscorers_Comp8_Season478_ID56661147_es.xml');
+
+        $xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs/afp");
+		$numXml=count($xmlRankingDir);
+		for($i=0;$i<$numXml;$i++){
+		    $mystring = $xmlRankingDir[$i];
+			$findme   = 'FootballTopscorers_Comp';
+			$pos = strpos($mystring, $findme);
+			// Nótese el uso de ===. Puesto que == simple no funcionará como se espera
+			// porque la posición de 'a' está en el 1° (primer) caracter.
+			if ($pos === false) {
+			    //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
+			} else {
+				$xmlRanking[$i]=$xmlRankingDir[$i];
+				$this->data_model('httpdocs/afp/'.$xmlRanking[$i]);
+			   // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
+			    //echo " y existe en la posición $pos";
+			}	
+		}	
+
+
+		//$this->data_model_goleadores('WP2010/FootballTopscorers_Comp8_Season478_ID56661147_es.xml');
 	}
 	
 	

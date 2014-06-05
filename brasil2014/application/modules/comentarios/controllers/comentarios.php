@@ -12,8 +12,29 @@ class Comentarios extends MY_Controller{
 	}
 	
    function sync(){
+
+   		$xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "httpdocs/afp/WC/xml/es/comments");
+        $numXml = count($xmlRankingDir);
+        for ($i = 0; $i < $numXml; $i++) {
+            $mystring = $xmlRankingDir[$i];
+            $findme = 'commentslive';
+            $pos = strpos($mystring, $findme);
+            // Nótese el uso de ===. Puesto que == simple no funcionará como se espera
+            // porque la posición de 'a' está en el 1° (primer) caracter.
+            if ($pos === false) {
+                //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
+            } else {
+                $xmlRanking[$i] = $xmlRankingDir[$i];
+                $this->data_model('httpdocs/afp/WC/xml/es/comments/' . $xmlRanking[$i]);
+                // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
+                //echo " y existe en la posición $pos";
+            }
+        }
+
+
+
 		echo "<pre>";
-		$this->importData('WC/xml/es/comments/commentslive-fr-91322.xml');
+		//$this->importData('WC/xml/es/comments/commentslive-fr-91322.xml');
 		echo "</pre>";
 	}
 	
