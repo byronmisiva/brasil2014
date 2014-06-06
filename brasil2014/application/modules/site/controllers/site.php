@@ -464,13 +464,10 @@ class Site extends MY_Controller
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
-<<<<<<< HEAD
-            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
-=======
+
             $data['content'] .= $this->fichas->viewFichaEquipodesc($idEquipo);
             $data['content'] .=  $this->contenido->view_noticias_equipo($idEquipo);
 //            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
->>>>>>> FETCH_HEAD
             $data['content'] .= $this->equipos_campeonato->viewEquiposBanderas();
             $data['footer'] = '';
 
@@ -492,13 +489,10 @@ class Site extends MY_Controller
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
             $data['content'] .= $this->partidos->partidosEquipo($idEquipo);
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
-<<<<<<< HEAD
-            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
-=======
+
             $data['content'] .= $this->fichas->viewFichaEquipodesc($idEquipo);
             $data['content'] .=  $this->contenido->view_noticias_equipo($idEquipo);
            // $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
->>>>>>> FETCH_HEAD
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 
@@ -669,13 +663,13 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-       $url = base_url("alineaciones/sync");
+        /*$url = base_url("alineaciones/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         echo curl_exec($ch);
-        curl_close($ch);
+        curl_close($ch);*/
 
     }
 
