@@ -78,6 +78,12 @@
         <div class="clearfix"></div>
   <!-- Controls -->
     <div class="carousel-controls text-right">
+       <?php
+/*        $dominio = $_SERVER['HTTP_HOST'];
+        $session = $_SERVER['REQUEST_URI'];
+        $url = "http://" . $dominio . $seccion;
+        echo $url;
+        */?>
                   <a href="#carousel-trivia" data-slide="prev">Anterior</a>
                   <span>|</span>
                   <a href="#carousel-trivia" data-slide="next">Siguiente</a>

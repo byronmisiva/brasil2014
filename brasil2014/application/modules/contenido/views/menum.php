@@ -23,6 +23,7 @@
                     <li><a href="<?php echo base_url(); ?>site/noticia">Noticias</a></li>
                     <li><a href="<?php echo base_url(); ?>site/grupos">Grupos</a></li>
                     <li><a href="<?php echo base_url(); ?>site/calendario">Calendarios</a></li>
+                    <li><a href="<?php echo base_url(); ?>site/equipo">Equipos</a></li>
 <!--                    <li><a href="--><?php //echo base_url(); ?><!--site/goleadores">Goleadores</a></li>-->
 <!--                    <li><a href="--><?php //echo base_url(); ?><!--site/galerias">Galería</a></li>-->
 <!--                    <li><a href="--><?php //echo base_url(); ?><!--site/estadios">Estadios</a></li>-->

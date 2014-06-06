@@ -41,8 +41,11 @@
                     <div class="col-md-6 text-right gris"><a href="#carousel-historias" data-slide="next"
                             >></a></div>
                     <div class="col-md-12 margen0 conten">
+
+                        <h3>
+                            <a href="<?php echo base_url() . "site/historias/" . strtolower($this->partidos->_clearStringGion($row['titulo'])) . "/" . $row['id']; ?>"><?php echo $row['titulo']; ?></a>
+                        </h3>
                         <a href="<?php echo base_url() . "site/historias/" . strtolower($this->partidos->_clearStringGion($row['titulo'])) . "/" . $row['id']; ?>">
-                            <h3><?php echo $row['titulo']; ?></h3>
                             <?php echo substr($row['cuerpo'], 0, 180) . "..."; ?>
                         </a>
                     </div>

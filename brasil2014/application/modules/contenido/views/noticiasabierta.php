@@ -43,6 +43,8 @@ setlocale(LC_ALL, "es_ES");
                 <div class="fb-share-button" data-href="<?php echo $url?>" data-type="button_count" style="margin-top: 5px;margin-bottom: 5px;"></div>
                 <div class="margen0 col-xs-12 col-md-12 fb-comments" data-href="<?php echo $url?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 
+
+
             <?php
             } else {
                 $cuerpo = "";

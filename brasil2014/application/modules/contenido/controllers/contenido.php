@@ -9,8 +9,8 @@ class Contenido extends MY_Controller
         parent::__construct();
     }
 
-    public function cabecera($data = FALSE)    {
-
+    public function cabecera($data = FALSE)
+    {
         return $this->load->view('header', $data, TRUE);
         //todo crear banner slideBar
     }
@@ -157,7 +157,6 @@ class Contenido extends MY_Controller
         $limite_noticias = 10;
         $this->load->module('imagenes');
         $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", 'activo'=>'0'), "order_by" => "creado desc", "limit" => $limite_noticias));
-
         $datos = array();
         foreach ($noticias_home as $noticia) {
             $noticia->imagenes = $this->imagenes->get(array('select' => '*', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
@@ -184,7 +183,6 @@ class Contenido extends MY_Controller
         }
         $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", "activo"=>"0"), "order_by" => "creado desc", "limit" => $limite_noticias));
 
-
         foreach ($noticias_home as $noticia) {
             $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
             array_push($datos, $noticia);
@@ -204,7 +202,7 @@ class Contenido extends MY_Controller
 
         $datos = array();
         if ($idNotica != '') {
-            $noticia = $this->get(array("select" => "id,titulo,cuerpo, anecdotas, galerias_id, creado", "where" => array("type" => "historia", "id" => $idNotica)), true);
+            $noticia = $this->get(array("select" => "id,titulo,cuerpo, anecdotas, galerias_id, creado", "where" => array("type" => "historia" , "id" => $idNotica)), true);
             $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id)), false);
 
             array_push($datos, $noticia);
@@ -228,7 +226,7 @@ class Contenido extends MY_Controller
 
         $limite_noticias = 10;
         $this->load->module('equipos_campeonato');
-        $datosEquipo = $this->equipos_campeonato->get(array("select" => "*",   "from"=>"equipos_campeonato", "where" => array("id" => $idequipo)), false);
+        $datosEquipo = $this->equipos_campeonato->get(array("select" => "*",   "from"=>"equipos_campeonato", "where" => array("id" => $idequipo )), false);
         $data = array("nombre_equipo" => $datosEquipo->name);
         $this->load->module('imagenes');
 
@@ -277,13 +275,9 @@ class Contenido extends MY_Controller
 
     private function data_model($xml){
         // Cargo los modulso que necesito
-	
        $this->load->module('galerias');
         $this->load->module('imagenes');
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
-
-
-
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
         $data = ($this->xmlimporter->load($xml)) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
         $data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
@@ -338,10 +332,7 @@ class Contenido extends MY_Controller
     function sync_noticias()
     {
         echo "<pre>";
-        //$this->data_model_noticias('httpdocs/WC/xml/es/direct/news/FULLP/index');
-
-        $this->data_model_noticias('httpdocs/afp/WC/xml/es/direct/news/FULLP/index');
-
+        $this->data_model_noticias('WC/xml/es/direct/news/FULLP/index');
         //$this->data_model_noticias('WC/xml/es/direct/news/BRA/index');
         //$this->data_model_noticias('WC/xml/es/direct/news/DEU/index');
         //$this->data_model_noticias('WC/xml/es/direct/news/XNG/index');
@@ -356,9 +347,7 @@ class Contenido extends MY_Controller
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
         $data = ($this->xmlimporter->load($xml)) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
-        echo "<pre>";
-        //var_dump($data);
-        echo "</pre>";
+
         $data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
         foreach ($data->NewsComponent as $node) {
             $tituloNoticia = trim((string)$node->NewsLines->HeadLine);

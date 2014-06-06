@@ -1,7 +1,9 @@
 brasil2014/application/config/*.*
+brasil2014/application/cache/*.*
 brasil2014/application/config/config.php
 
 brasil2014/application/config/database.php
+brasil2014/application/cache/*.*
 
 brasil2014/application/config/database.php
 
@@ -44,3 +46,5 @@ brasil2014/application/cache/a8aace96f53c35e8bab6f51688831804
 .idea/modules.xml
 .idea/scopes/scope_settings.xml
 brasil2014/.htaccess
+
+brasil2014/application/cache/0fee97cabcc02b866758d83f87f20d5a

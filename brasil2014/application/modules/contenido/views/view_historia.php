@@ -27,7 +27,7 @@
 			<?php $i++?>
 			<?php }?>
 		</div>
-	
+
 		<!-- Controls -->
 		<a class="left carousel-control" href="#carousel-example-generic"
 			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span>

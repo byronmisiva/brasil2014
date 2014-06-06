@@ -14,12 +14,13 @@ class Site extends MY_Controller
 
     public function index()
     {
-       $this->home();
+        $this->home();
     }
 
 
     public function home()
     {
+        $this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -31,23 +32,20 @@ class Site extends MY_Controller
 
         $data['pageTitle'] = "Movistar Mundialista";
 
-
-
-
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-            $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
+        if ($isMobile) {
 
-            $data['cabecera']  = $this->contenido->menum();
+            $data['cabecera'] = $this->contenido->menum();
 
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->partidos->partidosFechaMovil();
@@ -60,7 +58,7 @@ class Site extends MY_Controller
 
             $data['sidebar'] = '';
 
-        }else{
+        } else {
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
@@ -83,9 +81,6 @@ class Site extends MY_Controller
         }
 
 
-
-
-
         $this->templates->_index($data);
     }
 
@@ -104,25 +99,25 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-                $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
+        if ($isMobile) {
 
-            $data['cabecera']  = $this->contenido->menum();
+            $data['cabecera'] = $this->contenido->menum();
 
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->contenido->view_noticia_open($idNoticia);
             $data['footer'] = '';
             $data['sidebar'] = '';
 
-        }else{
+        } else {
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
@@ -144,14 +139,13 @@ class Site extends MY_Controller
         }
 
 
-
-
-
         $data['pageTitle'] = "Noticias - Movistar FIFAWorldCup";
         $this->templates->_index($data);
     }
+
     public function historias()
     {
+        $this->output->cache(300);
         $idHistoria = $this->uri->segment(4);
 
         $this->load->module('grupos');
@@ -164,31 +158,30 @@ class Site extends MY_Controller
         $this->load->module('jugadores');
 
 
-
         $data['pageTitle'] = "Historias - Movistar FIFAWorldCup";
 
 
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-                $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
+        if ($isMobile) {
 
-            $data['cabecera']  = $this->contenido->menum();
+            $data['cabecera'] = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->ranking->menuranking();
-            $data['content']  .= $this->contenido->view_historia_open($idHistoria);
+            $data['content'] .= $this->contenido->view_historia_open($idHistoria);
             $data['footer'] = '';
             $data['sidebar'] = '';
 
-        }else{
+        } else {
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
@@ -201,13 +194,14 @@ class Site extends MY_Controller
             //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
             //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
-            $data['content']  = $this->contenido->view_historia_open($idHistoria);
+            $data['content'] = $this->contenido->view_historia_open($idHistoria);
         }
         $this->templates->_index($data);
     }
 
     public function galerias()
     {
+        $this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -220,25 +214,25 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-                $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
+        if ($isMobile) {
 
-            $data['cabecera']  = $this->contenido->menum();
+            $data['cabecera'] = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->galerias->viewGaleriasFull();
             $data['footer'] = '';
 
             $data['sidebar'] = '';
 
-        }else{
+        } else {
 
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
@@ -279,29 +273,27 @@ class Site extends MY_Controller
         $data['pageTitle'] = "Grupos - Movistar FIFAWorldCup";
 
 
-
-
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-                $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
+        if ($isMobile) {
 
-            $data['cabecera']  = $this->contenido->menum();
+            $data['cabecera'] = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->ranking->menuranking();
             $data['content'] .= $this->ranking->viewRankingFases($idGrupo);
             $data['footer'] = '';
             $data['sidebar'] = '';
 
-        }else{
+        } else {
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
@@ -318,7 +310,6 @@ class Site extends MY_Controller
         }
 
         $this->templates->_index($data);
-
 
 
     }
@@ -338,25 +329,25 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-                $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
+        if ($isMobile) {
 
-            $data['cabecera']  = $this->contenido->menum();
+            $data['cabecera'] = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->partidos->minutoAminuto();
 
             $data['footer'] = '';
             $data['sidebar'] = '';
 
-        }else{
+        } else {
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
@@ -375,12 +366,12 @@ class Site extends MY_Controller
         }
 
 
-
         $this->templates->_index($data);
     }
 
     public function goleadores()
     {
+        $this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -392,23 +383,23 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-                $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
-            $data['cabecera']  = $this->contenido->menum();
+        if ($isMobile) {
+            $data['cabecera'] = $this->contenido->menum();
             $data['content'] = $this->contenido->header_mobile();
-            $data['content'] .= $this->contenido->header_mobile();//doble espacio
+            $data['content'] .= $this->contenido->header_mobile(); //doble espacio
             $data['content'] .= $this->jugadores->viewRankingGoleadoresFull();
             $data['footer'] = '';
             $data['sidebar'] = '';
-        }else{
+        } else {
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
@@ -431,7 +422,16 @@ class Site extends MY_Controller
 
     public function equipo()
     {
+        //validamos en caso de no eistir el parametro
         $idEquipo = $this->uri->segment(3);
+        if ($idEquipo) {
+            if (is_null($idEquipo)) {
+                $idEquipo = 33; // por default asigna el primero alemania
+            }
+        } else {
+            $idEquipo = 33;
+        }
+
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -447,17 +447,17 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-                $isMobile = true ;
+        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
 
         }
 
-        if ($isMobile){
-            $data['cabecera']  = $this->contenido->menum();
+        if ($isMobile) {
+            $data['cabecera'] = $this->contenido->menum();
 
             $data['content'] = $this->contenido->header_mobile();
             $data['content'] .= $this->contenido->header_mobile();
@@ -466,14 +466,14 @@ class Site extends MY_Controller
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
 
             $data['content'] .= $this->fichas->viewFichaEquipodesc($idEquipo);
-            $data['content'] .=  $this->contenido->view_noticias_equipo($idEquipo);
+            $data['content'] .= $this->contenido->view_noticias_equipo($idEquipo);
 //            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
             $data['content'] .= $this->equipos_campeonato->viewEquiposBanderas();
             $data['footer'] = '';
 
             $data['sidebar'] = '';
 
-        }else{
+        } else {
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
@@ -491,8 +491,9 @@ class Site extends MY_Controller
             $data['content'] .= $this->ranking->viewRankingFasesEquipo($idEquipo);
 
             $data['content'] .= $this->fichas->viewFichaEquipodesc($idEquipo);
-            $data['content'] .=  $this->contenido->view_noticias_equipo($idEquipo);
-           // $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+            $data['content'] .= $this->contenido->view_noticias_equipo($idEquipo);
+            // $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 
@@ -524,6 +525,7 @@ class Site extends MY_Controller
 
     public function equipos()
     {
+        $this->output->cache(60);
         $this->load->module('equipos');
         $this->load->module('templates');
         $data['pageTitle'] = "Equipos";
@@ -533,6 +535,7 @@ class Site extends MY_Controller
 
     public function estadios()
     {
+        $this->output->cache(300);
         $this->load->module('estadios');
         $this->load->module('templates');
         $data['pageTitle'] = "Estadios";
@@ -542,6 +545,7 @@ class Site extends MY_Controller
 
     public function historiasd()
     {
+
         $this->load->module('contenido');
         $this->load->module('templates');
         $data['pageTitle'] = "Historias";
@@ -595,7 +599,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-       $url = base_url("partidos/syncResultados");
+        $url = base_url("partidos/syncResultados");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -604,15 +608,12 @@ class Site extends MY_Controller
         curl_close($ch);
 
 
-
-        
-
     }
 
 
     function syncXmlCadaHora()
     {
-        
+
         $url = base_url("jugadores/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -655,7 +656,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-       $url = base_url("ranking/sync");
+        $url = base_url("ranking/sync");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -663,7 +664,11 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
+<<<<<<< HEAD
         /*$url = base_url("alineaciones/sync");
+=======
+        $url = base_url("alineaciones/sync");
+>>>>>>> FETCH_HEAD
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
@@ -724,32 +729,33 @@ class Site extends MY_Controller
 
     }
 
-     public function resultado_trivia(){
-        $cont=0;
+    public function resultado_trivia()
+    {
+        $cont = 0;
 
-        if($_POST['resp1']==3){
-            $cont=$cont+1;
+        if ($_POST['resp1'] == 3) {
+            $cont = $cont + 1;
         }
-         if($_POST['resp2']==2){
-            $cont=$cont+1;
+        if ($_POST['resp2'] == 2) {
+            $cont = $cont + 1;
         }
-         if($_POST['resp3']==1){
-            $cont=$cont+1;
+        if ($_POST['resp3'] == 1) {
+            $cont = $cont + 1;
         }
-         if($_POST['resp4']==2){
-            $cont=$cont+1;
+        if ($_POST['resp4'] == 2) {
+            $cont = $cont + 1;
         }
-         if($_POST['resp5']==1){
-           $cont=$cont+1;
+        if ($_POST['resp5'] == 1) {
+            $cont = $cont + 1;
         }
-         if($_POST['resp6']==2){
-            $cont=$cont+1;
+        if ($_POST['resp6'] == 2) {
+            $cont = $cont + 1;
         }
-         if($_POST['resp7']==1){
-           $cont=$cont+1;
+        if ($_POST['resp7'] == 1) {
+            $cont = $cont + 1;
         }
-        if($_POST['resp8']==3){
-            $cont=$cont+1;
+        if ($_POST['resp8'] == 3) {
+            $cont = $cont + 1;
         }
 
         echo $cont;
