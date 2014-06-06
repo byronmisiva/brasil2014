@@ -148,12 +148,12 @@ class Partidos extends MY_Controller
         $this->load->module('goles');
         $this->load->module('cambios');
         $this->load->module('tarjetas');
-        $this->load->module('equipos');
+        $this->load->module('equipos_campeonato');
         $this->load->module('cambios');
         $partidos = $this->mdl_partidos->getAllByToday();
-//        $partidos = ($partidos) ? $partidos : $this->mdl_partidos->getLastGames(5);
+        $partidos = ($partidos) ? $partidos : $this->mdl_partidos->getLastGames(5);
         $data = array();
-        /*
+   
         foreach ($partidos as $partido) {
             $alineacion_local = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->local->id);
             $alineacion_visitante = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->visitante->id);
@@ -212,9 +212,8 @@ class Partidos extends MY_Controller
             $gameDetails = array('alineacion_local' => $alineacion_local, 'alineacion_visitante' => $alineacion_visitante, 'partidoResumen' => $partido, 'eventos' => $eventos);
             array_push($data, $gameDetails);
         }
-        */
         //return $this->load->view('minutoAminuto', array('partidos' => $data, 'partidoOpen' => ($id) ? $id : FALSE), TRUE);
-        return $this->load->view('minutoAminuto', array('partidos' => $partidos, 'partidoOpen' => ($id) ? $id : FALSE), TRUE);
+        $this->load->view('minutoAminuto', array('partidos' => $partidos, 'partidoOpen' => ($id) ? $id : FALSE), FALSE);
     }
 
    /* function sync()

@@ -21,7 +21,7 @@ class Mdl_alineaciones extends MY_Model{
 	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){		
 		$query = array(
 				'select' => '*',
-				'where' => array( 'partidos_id' => $partido, 'equipos_id' => $equipo, 'posicion > ' => 0  ),
+				'where' => array( 'partidos_id' => $partido, 'equipos_campeonato_id' => $equipo, 'posicion > ' => 0  ),
 				'where_in' => array( 'posicion' => array( 0, 1, 2, 3, 4, 5) ),
 				'order_by' => 'posicion asc' );
 		$alineacion = $this->get( $query );	

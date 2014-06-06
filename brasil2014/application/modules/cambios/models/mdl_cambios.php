@@ -21,7 +21,7 @@ class Mdl_cambios extends MY_Model{
 	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){				
 		$query = array(
 				'select' => '*',
-				'where' => array( 'partidos_id' => $partido, 'equipos_id' => $equipo ),
+				'where' => array( 'partidos_id' => $partido, 'equipos_campeonato_id' => $equipo ),
 				'order_by' => 'minuto asc'
 				);			
 		return $this->get( $query );		

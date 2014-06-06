@@ -19,11 +19,11 @@ class Alineaciones extends MY_Controller{
 		else{
 			$this->mdl_alineaciones->save( $data, $aux->id );
 		}
-	}
+	}*/
 	
 	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){		
 		return $this->mdl_alineaciones->getAlineacionByPartidoAndEquipo( $partido, $equipo );	
-	}*/
+	}
 	
 	function sync(){
 		//echo "<pre>";
