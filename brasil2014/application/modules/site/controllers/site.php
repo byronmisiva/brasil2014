@@ -424,12 +424,17 @@ class Site extends MY_Controller
     {
         //validamos en caso de no eistir el parametro
         $idEquipo = $this->uri->segment(3);
+
+        if (!is_numeric ( $idEquipo )) {
+            $idEquipo = 33;
+        } else {
         if ($idEquipo) {
             if (is_null($idEquipo)) {
                 $idEquipo = 33; // por default asigna el primero alemania
             }
         } else {
             $idEquipo = 33;
+        }
         }
 
         $this->load->module('grupos');
