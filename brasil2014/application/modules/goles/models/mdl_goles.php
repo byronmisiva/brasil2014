@@ -21,7 +21,7 @@ class Mdl_goles extends MY_Model{
 	function getGolesByPartidoAndEquipo( $partido, $equipo ){		
 		$query = array(
 				'select' => '*',
-				'where' => array( 'partidos_id' => $partido, 'equipos_id' => $equipo ),
+				'where' => array( 'partidos_id' => $partido, 'equipos_campeonato_id' => $equipo ),
 				'order_by' => 'tipo asc, minuto asc'
 				);	
 		return $this->get( $query );	
