@@ -664,11 +664,7 @@ class Site extends MY_Controller
         echo curl_exec($ch);
         curl_close($ch);
 
-<<<<<<< HEAD
         /*$url = base_url("alineaciones/sync");
-=======
-        $url = base_url("alineaciones/sync");
->>>>>>> FETCH_HEAD
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_POST, 0);
