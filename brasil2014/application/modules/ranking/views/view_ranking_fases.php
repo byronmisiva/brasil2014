@@ -6,14 +6,14 @@
     echo ' <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 grupo">';
     echo '<div class="col-md-12 movi-headline-regular cabecera-grupos1"  id="' . strtolower($this->partidos->_clearStringGion($row->nombre)) . '"><span class="iconos sprite-icono-grupos"></span><a name="' . strtolower($this->partidos->_clearStringGion($row->nombre)) . '">' . $row->nombre . '</a></div>';
     ?>
-    <hr class="lineaazul">
+    <hr class="cabecera">
     <div class="col-md-12 movi-headline-regular cabecera-grupos2 margen2">
         <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 margen2 margen0">Equipo</div>
         <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">PJ</div>
         <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">PG</div>
         <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">PE</div>
         <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center  margen0">PP</div>
-        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">PGF</div>
+        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">GF</div>
         <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">GC</div>
         <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">P</div>
     </div>

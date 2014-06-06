@@ -19,6 +19,7 @@ class Site extends MY_Controller
 
     public function home()
     {
+        $this->output->cache( 30 );
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -30,21 +31,18 @@ class Site extends MY_Controller
 
         $data['pageTitle'] = "Movistar Mundialista";
 
+            $this->load->library('user_agent');
 
+            $mobiles=array('Apple iPhone','Generic Mobile');
+            $isMobile = false   ;
+            if ($this->agent->is_mobile()){
+                $m=$this->agent->mobile();
+                if ( in_array($m,$mobiles))
+                $isMobile = true ;
 
+            }
 
-        $this->load->library('user_agent');
-
-        $mobiles=array('Apple iPhone','Generic Mobile');
-        $isMobile = false   ;
-        if ($this->agent->is_mobile()){
-            $m=$this->agent->mobile();
-            if ( in_array($m,$mobiles))
-            $isMobile = true ;
-
-        }
-
-        if ($isMobile){
+            if ($isMobile){
 
             $data['cabecera']  = $this->contenido->menum();
 
@@ -151,6 +149,7 @@ class Site extends MY_Controller
     }
     public function historias()
     {
+        $this->output->cache( 300 );
         $idHistoria = $this->uri->segment(4);
 
         $this->load->module('grupos');
@@ -207,6 +206,7 @@ class Site extends MY_Controller
 
     public function galerias()
     {
+        $this->output->cache( 30 );
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -380,6 +380,7 @@ class Site extends MY_Controller
 
     public function goleadores()
     {
+        $this->output->cache( 30 );
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -430,7 +431,17 @@ class Site extends MY_Controller
 
     public function equipo()
     {
+        //validamos en caso de no eistir el parametro
         $idEquipo = $this->uri->segment(3);
+        if ($idEquipo) {
+            if (is_null($idEquipo)){
+                $idEquipo = 33; // por default asigna el primero alemania
+            }
+        } else
+        {
+            $idEquipo = 33;
+        }
+
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -521,6 +532,7 @@ class Site extends MY_Controller
 
     public function equipos()
     {
+        $this->output->cache( 60 );
         $this->load->module('equipos');
         $this->load->module('templates');
         $data['pageTitle'] = "Equipos";
@@ -530,6 +542,7 @@ class Site extends MY_Controller
 
     public function estadios()
     {
+        $this->output->cache( 300 );
         $this->load->module('estadios');
         $this->load->module('templates');
         $data['pageTitle'] = "Estadios";
@@ -539,6 +552,7 @@ class Site extends MY_Controller
 
     public function historiasd()
     {
+
         $this->load->module('contenido');
         $this->load->module('templates');
         $data['pageTitle'] = "Historias";

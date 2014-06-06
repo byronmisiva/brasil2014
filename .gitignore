@@ -1,7 +1,9 @@
 brasil2014/application/config/*.*
+brasil2014/application/cache/*.*
 brasil2014/application/config/config.php
 
 brasil2014/application/config/database.php
+brasil2014/application/cache/*.*
 
 brasil2014/application/config/database.php
 

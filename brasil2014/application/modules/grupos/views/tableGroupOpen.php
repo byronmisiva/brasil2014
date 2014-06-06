@@ -12,7 +12,7 @@
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">PG</div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">PE</div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">PP</div>
-                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">PGF</div>
+                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">GF</div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">GC</div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">P</div>
             </div>

@@ -1,3 +1,13 @@
+//declaracion variables video
+var streamId = "2000";
+var useHLS = false;
+var embedPath = "http://origin.elcanaldelfutbol.com/embed";
+var turnOnDVR = true;
+if(useHLS == true) {
+    turnOnDVR = false;
+}
+
+
 $(function () {
     if ($('#foo2').length>0){
         $('#foo2').carouFredSel({
@@ -50,6 +60,12 @@ $(function () {
         });
     }
 
+    //muestra el player en el caso que se tenga vieo
+    if ($("#player").length>0){
+        $.getScript(embedPath +"/embed.js");
+        $("video_wrapper").width('633');
+        $("video_wrapper").height('390');
+    }
 
     $('#foo-noticai-rotativa').carouFredSel({
         auto: false,
@@ -85,7 +101,7 @@ $(function () {
     $('.list_carousel_header:first').show();
 
     Brasil2014(baseUrl);
-    0
+
 })
 
 
@@ -127,7 +143,7 @@ var Brasil2014 = (function (baseUrl) {
 
 
     module = {
-        loadView: loadView,
+        loadView: loadView
         /*newInstance     : newInstance,
          setSignedRequest: setSignedRequest,
          getUserFbData   : getUserFbData,

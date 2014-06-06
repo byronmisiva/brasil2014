@@ -22,12 +22,41 @@
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/brasil.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/brasil.css') ?>?rand=<?php echo time(); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/jquery.countdown.css') ?>" rel="stylesheet">
 
     <!-- ColorBox -->
     <link rel="stylesheet" href="<?php echo base_url('assets/js/colorbox/colorbox.css') ?>"/>
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.ico') ?>">
+
+    <?php
+    $this->load->library('user_agent');
+
+    $mobiles=array('Apple iPhone','Generic Mobile');
+    $isMobile = false   ;
+    if ($this->agent->is_mobile()){
+        $m=$this->agent->mobile();
+        if ( in_array($m,$mobiles))
+            $isMobile = true ;
+
+    }
+    if ($isMobile){
+        ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <?php
+    }else {
+        ?>
+        <meta name="viewport" content="width=995, initial-scale=1, maximum-scale=1">
+        <style>
+            .container{
+                max-width: none !important;
+                width: 995px;
+            }
+        </style>
+    <?php
+    }
+    ?>
+
     <script>
         var baseUrl = "<?php echo base_url(); ?>";
     </script>
@@ -57,6 +86,7 @@
             googletag.enableServices();
         });
     </script>
+
 </head>
 <?php base_url('site/historias/'); ?>
 <body>
