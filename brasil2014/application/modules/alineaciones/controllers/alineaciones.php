@@ -30,7 +30,7 @@ class Alineaciones extends MY_Controller{
 		//$this->importData('WP2010/FootballMatchDetailBasic_Comp8_MatchID1496762_ID56662461_es.xml');
 		//echo "</pre>";
 		
-		$xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."WP2010");
+		$xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs/afp");
 		$numXml=count($xmlRankingDir);
 		for($i=0;$i<$numXml;$i++){
 			$mystring = $xmlRankingDir[$i];
@@ -42,7 +42,7 @@ class Alineaciones extends MY_Controller{
 				//echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
 			} else {
 				$xmlRanking[$i]=$xmlRankingDir[$i];
-				$this->importData('WP2010/'.$xmlRanking[$i]);
+				$this->importData('httpdocs/afp/'.$xmlRanking[$i]);
 				// echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
 				//echo " y existe en la posición $pos";
 			}

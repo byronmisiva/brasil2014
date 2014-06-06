@@ -33,11 +33,11 @@ class Tarjetas extends MY_Controller{
 		//$this->importData('WP2010/FootballMatchDetailBasic_Comp8_MatchID1496771_ID56662506_es.xml');
 		//echo "</pre>";
 		
-		$xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."WP2010");
+		$xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs/afp");
 		$numXml=count($xmlRankingDir);
 		for($i=0;$i<$numXml;$i++){
 			$mystring = $xmlRankingDir[$i];
-			$findme   = 'FootballLiveMatchDetailBasic_Comp8';
+			$findme   = 'FootballLiveMatchDetailBasic_Comp';
 			$pos = strpos($mystring, $findme);
 			// Nótese el uso de ===. Puesto que == simple no funcionará como se espera
 			// porque la posición de 'a' está en el 1° (primer) caracter.
@@ -45,7 +45,7 @@ class Tarjetas extends MY_Controller{
 				//echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
 			} else {
 				$xmlRanking[$i]=$xmlRankingDir[$i];
-				$this->importData('WP2010/'.$xmlRanking[$i]);
+				$this->importData('httpdocs/afp/'.$xmlRanking[$i]);
 				// echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
 				//echo " y existe en la posición $pos";
 			}

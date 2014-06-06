@@ -115,7 +115,7 @@ class Ranking extends MY_Controller
 
     function sync()
     {
-        $xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "WP2010");
+        $xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "httpdocs/afp");
         $numXml = count($xmlRankingDir);
         for ($i = 0; $i < $numXml; $i++) {
             $mystring = $xmlRankingDir[$i];
@@ -127,7 +127,7 @@ class Ranking extends MY_Controller
                 //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
             } else {
                 $xmlRanking[$i] = $xmlRankingDir[$i];
-                $this->data_model('WP2010/' . $xmlRanking[$i]);
+                $this->data_model('httpdocs/afp/' . $xmlRanking[$i]);
                 // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
                 //echo " y existe en la posición $pos";
             }
@@ -138,6 +138,7 @@ class Ranking extends MY_Controller
     {
         $this->load->module('equipos_campeonato');
         $this->load->module('fases');
+         $this->load->module('grupos');
         // Cargo los modulso que necesito
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
@@ -183,6 +184,7 @@ class Ranking extends MY_Controller
                 'afp_id' => $node->c_Rank,
                 'grupo_id' => $this->grupos->get(array('select' => 'id', 'where' => array('afp_id' => (string)$id_grupo)), TRUE)->id
             );
+
             //Verifica si existe en la base o no
             if (!$this->mdl_ranking->get_by(array('fases_id' => $ranking['fases_id'], 'nombre_grupo' => $ranking['nombre_grupo'], 'equipos_campeonato_id' => $ranking['equipos_campeonato_id']))) {
                 $ranking['id'] = $this->mdl_ranking->save($ranking, NULL, FALSE);

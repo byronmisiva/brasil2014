@@ -571,14 +571,33 @@ class Partidos extends MY_Controller
     }
     
     function sync(){
+         $xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "httpdocs/afp");
+        $numXml = count($xmlRankingDir);
+        for ($i = 0; $i < $numXml; $i++) {
+            $mystring = $xmlRankingDir[$i];
+            $findme = 'FootballMatches_Comp8_ID';
+            $pos = strpos($mystring, $findme);
+            // Nótese el uso de ===. Puesto que == simple no funcionará como se espera
+            // porque la posición de 'a' está en el 1° (primer) caracter.
+            if ($pos === false) {
+                //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
+            } else {
+                $xmlRanking[$i] = $xmlRankingDir[$i];
+                $this->importData('httpdocs/afp/' . $xmlRanking[$i], 'matches');
+                // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
+                //echo " y existe en la posición $pos";
+            }
+        }
+
     	echo "<pre>";
     	//$this->importData('WP2014/FootballFixtures_Comp8_ID56661031_es.xml'); //Football Fixtures 2014 hasta que se correspondan los equipos
-    	$this->importData('WP2010/FootballMatches_Comp8_ID56666052_es.xml' , 'matches');
-    	$this->importData('WP2014/FootballFixtures_Comp8_ID56661031_es.xml', 'fixture'); //Football Fixtures 2014 hasta que se correspondan los equipos
+    	//$this->importData('WP2010/FootballMatches_Comp8_ID56666052_es.xml' , 'matches');
+    	//$this->importData('WP2014/FootballFixtures_Comp8_ID56661031_es.xml', 'fixture'); //Football Fixtures 2014 hasta que se correspondan los equipos
     	echo "</pre>";
     }
     
     function importData( $xml, $type ){
+        date_default_timezone_set('UTC');
     	$this->load->module( 'equipos_campeonato' );
     	$this->load->module( 'grupos' );
     	$xml = AFP_XML . $xml; // formo los nombres de los archivos en base a los afp_id de los equipos
@@ -589,8 +608,24 @@ class Partidos extends MY_Controller
     		$local = $this->equipos_campeonato->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_HomeTeamID ) ), TRUE );
     		$visitante = $this->equipos_campeonato->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_AwayTeamID ) ), TRUE );
     		if ( $local && $visitante  ){
+
+              $fechaPartidoAfp = date(str_replace( 'T', ' ', (string)$partido->d_Date));
+              $fechaPartido= date("Y-m-d H:m:s", strtotime('-7 hours',  strtotime($fechaPartidoAfp)));
+              //$fecha=date("Y-m-d H:m:s",str_replace('06','00', $fechaPartido));
+
+
+
+
+                            //$fechaP= date("Y-m-d H:m:s", strtotime('+6 minutes',  strtotime($fechaPartido)));
+
+
+              //$result = date($format, strtotime("-6 hour -54 minutes", strtotime($fechaPartido)));
+
+
+    
+              
     			$partido_insert  = array(
-    					'fecha' => str_replace( 'T', ' ', (string)$partido->d_Date ),
+    					'fecha' => $fechaPartido,
     					'afp_id' => (string)$partido->n_MatchID,
     					'local' => $local->id,
     					'visitante' => $visitante->id,
@@ -598,7 +633,7 @@ class Partidos extends MY_Controller
     					'nombre_visitante' => (string) $partido->c_AwayTeam,
     					'afp_id_estadio' => (isset($partido->n_StadiumGeoID))?(string) $partido->n_StadiumGeoID: '',
     					'nombre_estadio' => (isset($partido->c_Stadium))?(string) $partido->c_Stadium: '',
-    					//'grupos_id' => $this->grupos->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_PhaseID ) ), TRUE )->id,
+    					'grupos_id' => $this->grupos->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_PhaseID ) ), TRUE )->id,
     			);
     			if( !$this->_check_exist( array( 'afp_id' => $partido_insert['afp_id'] ) , TRUE ) ){
     				$this->_insert($partido_insert);
@@ -609,7 +644,7 @@ class Partidos extends MY_Controller
     					$this->_update($partido_insert, $dataPartido->id );
     				}
     				 
-    			}    			
+    			}  			
     		}    		
     	}
     }
@@ -653,4 +688,5 @@ class Partidos extends MY_Controller
 	    
 		}
 	}
+
 }

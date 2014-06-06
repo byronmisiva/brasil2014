@@ -1458,6 +1458,55 @@ p.noticia-abierta    {
        }
 }
 
+
+#video_wrapper {
+    width: 633px !important;
+    height: 390px !important;
+    margin: 0 auto;
+}
+
+.contenedor-videos {
+    height: 390px;
+    width: 633px;
+}
+
+.minitexto {
+    font-size: 11px;
+}
+
+.noticias-detalles h1, .noticias-detalles h2 {
+    font-size: 14px;
+    font-family: movistarHeadline-Regular, Arial;
+    margin: 3px 0;
+    padding-top: 10px   ;
+    color:#08506d !important;
+}
+
+
+h1.noticia-grande {
+    font-size: 20px !important;
+    color:#08506d !important;
+}
+
+
+.fb_iframe_widget iframe {
+    position: absolute;
+}
+.fb_iframe_widget iframe button {
+   color: red;
+}
+
+.minuto-header  {
+    padding: 0 14px;
+}
+
+
+@media (min-width: 992px) {
+    .container {
+        width: 1170px;
+    }
+}
+
 #video_wrapper {
     width: 633px !important;
     height: 390px !important;
@@ -1594,7 +1643,9 @@ h1.noticia-grande {
 
 
     .altonews {
-        min-height: 150px;
+
+        min-height: 130px;
+
     }
 
     .historias .margen5r {
@@ -1627,6 +1678,7 @@ h1.noticia-grande {
 
     .minuto-header {
         font-size: 12px !important;
+
     }
 
     .ocultar {
@@ -1635,7 +1687,11 @@ h1.noticia-grande {
     }
     .margen-vert {
         margin-top: 1px;
+
     }
+
+
+
 
 }
 
