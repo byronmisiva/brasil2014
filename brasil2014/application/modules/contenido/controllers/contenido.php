@@ -171,7 +171,7 @@ class Contenido extends MY_Controller
     public function view_noticia_open($idNotica)
     {
 
-        $limite_noticias = 10;
+        $limite_noticias = 25;
         $this->load->module('imagenes');
 
         $datos = array();

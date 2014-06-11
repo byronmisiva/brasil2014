@@ -1549,6 +1549,13 @@ h1.noticia-grande {
 }
 
 
+.twitter-content {
+    min-height: 390px;
+}
+
+
+iframe .ic-twitter-badge
+
 @media (min-width: 992px) {
     .container {
         width: 1170px;

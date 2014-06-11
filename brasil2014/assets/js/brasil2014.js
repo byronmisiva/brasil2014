@@ -1,3 +1,18 @@
+//carga de twiter
+
+    !function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + "://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, "script", "twitter-wjs");
+
+
+
+
 //declaracion variables video
 var streamId = "2000";
 var useHLS = false;
@@ -66,7 +81,7 @@ $(function () {
         $("video_wrapper").width('633');
         $("video_wrapper").height('390');
     }
-
+    if ($('#foo-noticai-rotativa').length>0){
     $('#foo-noticai-rotativa').carouFredSel({
         auto: false,
         prev: '#prev3',
@@ -85,6 +100,7 @@ $(function () {
             event: "click"
         }
     });
+    }
 
     $(".minigaleria").colorbox({rel: '.minigaleria' });
     $(".thgaleria").colorbox({rel: '.thgaleria' });
@@ -159,13 +175,13 @@ var Brasil2014 = (function (baseUrl) {
     return module;
 });
 
-//carga de twiter
-!function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-    if (!d.getElementById(id)) {
-        js = d.createElement(s);
-        js.id = id;
-        js.src = p + "://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }
-}(document, "script", "twitter-wjs");
+
+//quitar pajarito
+
+jQuery(function($) {
+//Colocamos el contenido de nuestro iframe en el div content
+    $('#iframe').load(function() {
+        $('#content').text($('#iframe').contents().find('html').html());
+        $(this).contents().find('.ic-twitter-badge').css({'display': 'none'});
+    });
+});

@@ -1,0 +1,1059 @@
+1402433522TS---><!DOCTYPE html>
+<html lang="en-us" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Facebook TAGS-->
+    <meta property="og:title" content="Movistar Mundialista"/>
+    <meta property="og:url" content="http://www4.movistar.com.ec/FIFAWorldCup/"/>
+    <meta property="og:site_name" content="JefeQuieroVerElFútbol"/>
+    <meta property="og:type" content="site"/>
+    <meta property="og:image" content="http://www4.movistar.com.ec/FIFAWorldCup/assets/images/logo-movistar.png"/>
+
+    <!--SEO TAGS-->
+    <meta name="Title" content="Movistar Mundialista">
+    <meta name="description"
+          content="Movistar, Compartida, la vida es más, y ahora puedes disfrutar del Mundial Brasil 2014 con partidos en vivo, noticias, goles, resultados. Vive la experiencia Mundialista">
+    <meta name="keywords"
+          content="Movistar, Movistar Ecuador,Mundial, Brasil, Mundial Brasil, Partidos, Partidos Ecuador, Football Ecuador, Partidos en Vivo, Futbol, Mundialista, Movistar Mundialista, Jefe, Ver futbol, futbol online">
+
+    <title>Historias - Movistar FIFAWorldCup</title>
+
+    <!-- Bootstrap -->
+    <link href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/css/brasil.css?rand=1402415522" rel="stylesheet">
+    <link href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/css/jquery.countdown.css" rel="stylesheet">
+
+    <!-- ColorBox -->
+    <link rel="stylesheet" href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/colorbox/colorbox.css"/>
+    <link rel="shortcut icon" href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/images/favicon.ico">
+
+            <meta name="viewport" content="width=995, initial-scale=1, maximum-scale=1">
+        <style>
+            .container{
+                max-width: none !important;
+                width: 995px;
+            }
+        </style>
+    
+    <script>
+        var baseUrl = "http://localhost:10088/brasil2014/brasil2014Git/brasil2014/";
+    </script>
+
+    <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+                '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+    </script>
+
+    <script type='text/javascript'>
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/1022247/650x90_MOVISTAR_MUDIAL2', [650, 90], 'div-gpt-ad-1401308050240-1').addService(googletag.pubads());
+            googletag.defineSlot('/1022247/650X90_MOVISTAR_MUNDIAL', [650, 90], 'div-gpt-ad-1401308050240-2').addService(googletag.pubads());
+            googletag.defineSlot('/1022247/320X50_MOVISTAR_MUNDIAL_BOTTOM', [320, 50], 'div-gpt-ad-1401400694784-0').addService(googletag.pubads());
+            googletag.defineSlot('/1022247/320x50_MOVISTAR_MUNDIAL_TOP', [320, 50], 'div-gpt-ad-1401400694784-1').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-ND3RBS"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-ND3RBS');</script>
+<!-- End Google Tag Manager --><div class="header">
+    <div class="container ">
+        <div class="row fondo-header ">
+<!-- deshabilita responsive caso tablets Logos y slogan-->
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6    ">
+       <div class="logo"><a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/"><img src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/images/logo-movistar.png"></a></div>
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 text-right margen0">
+    <img src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/images/slogan-movistar.png?rand=1402415521">
+</div><div class="col-md-12 col-lg-12 col-sm-12 col-xs-12  margen0">
+                <div class=" col-md-5 col-lg-5 col-sm-5 col-xs-5 margen0">
+                     <div class="col-md-12 margen0">
+                            <div class="slogan activemenu col-md-2 col-md-2 col-lg-2 col-sm-2 col-xs-2"><a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/home"> <img src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/images/botonhome.png"></a></div>
+                            <div class="margen0 en-vivo col-md-10 col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                                 <div id="proximo-partido">
+
+                                  </div>
+                            </div>
+                     </div>
+                </div>
+                <div class="col-md-7 col-md-7 col-lg-7 col-sm-7 col-xs-7 margen0">
+                    <div class="row">
+                        <div id="header-tabs" class="col-md-12 nav nav-tabs movi-headline-regular tab-videos ">
+                            <div class="col-md-3 col-md-3 col-lg-3 col-sm-3 col-xs-3 menu margen0 ">
+                                <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/calendario" >
+                                    <div class="opcion-menu center-block col-md-12">
+                                        <div class="menu-texto">
+                                            Calendario >
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                                <div class="col-md-2  col-lg-2 col-sm-2 col-xs-2 menu margen0  ">
+
+                                    <div class="opcion-menu col-md-12">
+                                        <div class="menu-texto gris2">
+                                            Partidos >
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-2  col-lg-2 col-sm-2 col-xs-2 menu margen0 ">
+
+                                    <div class="opcion-menu center-block col-md-12">
+                                        <div class="menu-texto gris2">
+                                            Goles >
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-2   col-lg-2 col-sm-2 col-xs-2 menu margen0 ">
+
+                                    <div class="opcion-menu center-block col-md-12">
+                                        <div class="menu-texto gris2">
+                                            Especiales >
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-3  col-lg-3 col-sm-3 col-xs-3  menu margen0 ">
+                                     <div class="opcion-menu center-block col-md-12 margen0">
+                                        <div class="iconos-menu">
+                                                <a href="https://www.facebook.com/MovistarECU" target="_blank"><div id="iconoFacebook"></div></a>
+                                                <a href="https://twitter.com/MovistarEC" target="_blank"><div id="iconoTwitter"></div></a>
+                                             </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <!-- Cabecera-->
+        <div class="row blanco">
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-12" id="content">
+               <!--    Noticias Home -->
+<div class=" panel-noticias historias">
+
+    <div class="row">
+        <div class="separador"></div>
+        <div class="col-md-12">
+                        <div class="col-md-12">
+                <div class="row noticia">
+
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+
+                                                                                    <div class="item active">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/rimet.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                                    <div class="item ">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/1950-bra-uru-schiaffino.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                                    <div class="item ">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/maracana-christ13.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                                    <div class="item ">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/1954-allemagne-joie.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                                    <div class="item ">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/1986-arg-maradona-3eng.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                                    <div class="item ">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/1970-bre-ita-pele-joie.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                                    <div class="item ">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/zidane-carlos98.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                                    <div class="item ">
+                                            <img width="100%" class="img-responsive margin-bottom-20 img-historia"
+                                                 src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/visu/spain-winners-wcup10.jpg"
+                                                 alt="La evolución">
+                                            </div>
+                                                                        </div>
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12    margen0l  noticias-detalles separador">
+
+                        <h1 class="noticia-abierta noticia-grande">La evolución</h1>
+                        <hr class="cabecera">
+                        <p class="noticia-abierta">La Copa del Mundo, 'Vieja Dama' de 84 años, hará escala en Brasil por segunda vez en su historia en 2014.</p>
+
+                                            </div>
+                </div>
+            </div>
+            <div class="col-md-12 separador"></div>
+            <div class="col-md-12 margen0">
+                <div class="col-md-12 margen0">
+                    <h2 class="noticia-abierta">
+                        <div class="iconos sprite-noticias"></div>
+                        Historia de los mundiales
+                    </h2>
+
+                </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/la-evolucion/182">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/rimet.jpg"
+                                         alt="La evolución">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>La evolución</h3>
+                                    <p>La Copa del Mundo, 'Vieja Dama' de 84 años, hará escala en Brasil por segunda vez en su historia en 2014....</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1930-uruguay/183">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1930-rimet-cup-uruguay.jpg"
+                                         alt="1930 - Uruguay">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1930 - Uruguay</h3>
+                                    <p>Julio de 1930. Uruguay organiza la primera Copa del Mundo de fútbol de la historia en detrimento de Inglaterra, que rei...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1934-italia/184">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1934-mussolini.jpg"
+                                         alt="1934 - Italia">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1934 - Italia</h3>
+                                    <p>"Que Dios les ayude si fracasan", dicen que le espetó el dictador Benito Mussolini al seleccionador italiano Vittorio P...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1938-francia/185">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1938-rimet-tirage.jpg"
+                                         alt="1938 - Francia">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1938 - Francia</h3>
+                                    <p>Olía a guerra en Europa cuando Francia acogió el Mundial de 1938. Austria, que disponía de una gran selección, no ac...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1950-brasil/186">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1950-ita-rimet-coffret.jpg"
+                                         alt="1950 - Brasil">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1950 - Brasil</h3>
+                                    <p>El mundo comenzaba a reponerse de los estragos de la Segunda Guerra Mundial cuando la FIFA decidió en 1946, durante un ...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1954-suiza/187">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1954-all-team.jpg"
+                                         alt="1954 - Suiza">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1954 - Suiza</h3>
+                                    <p>Si Uruguay fue la sorpresa de 1950, Alemania (entonces República Federal de Alemania) dejó al mundo boquiabierto al im...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1958-suecia/188">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1958-opening.jpg"
+                                         alt="1958 - Suecia">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1958 - Suecia</h3>
+                                    <p>La principal característica del Mundial de Suecia de 1958 fue la consagración de extraordinarios jugadores que luego s...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1962-chile/189">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1962-bre-pele.jpg"
+                                         alt="1962 - Chile">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1962 - Chile</h3>
+                                    <p>"Lo haremos porque nada tenemos", ese fue el espíritu con que Chile afrontó el desafío de organizar la séptima Copa ...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1966-inglaterra/190">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1966-eng-moore-cup.jpg"
+                                         alt="1966 - Inglaterra">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1966 - Inglaterra</h3>
+                                    <p>Los Beatles y la minifalda arrasaban cuando los ingleses albergaron por primera vez el Mundial de fútbol, deporte que e...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1970-mexico/191">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1970-mex-urss.jpg"
+                                         alt="1970 - México">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1970 - México</h3>
+                                    <p>Espectáculo, estadios a rebosar, ambiente festivo y muy buen fútbol. Todo eso y mucho más se pudo ver en el Mundial d...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1974-alemania/192">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1974-francfort-opening.jpg"
+                                         alt="1974 - Alemania">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1974 - Alemania</h3>
+                                    <p>La FIFA, que estrenaba presidente (el brasileño Joao Havelange), decidió aprovechar la infraestructura de los Juegos O...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1978-argentina/193">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1978-finale-stade.jpg"
+                                         alt="1978 - Argentina">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1978 - Argentina</h3>
+                                    <p>Política y fútbol volvieron a encontrarse en el Mundial de 1978. Argentina estaba en plena dictadura y muchos países ...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1982-espana/194">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1982-arg-bel.jpg"
+                                         alt="1982 - España">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1982 - España</h3>
+                                    <p>La gran novedad del Mundial de España fue la ampliación del número de participantes en la fase final. De los habitual...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1986-mexico/195">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1986-arg-maradona-cup.jpg"
+                                         alt="1986 - México">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1986 - México</h3>
+                                    <p>Diego Armando Maradona, un nombre que define el Mundial de México-1986. El "Pibe de Oro", héroe en el Nápoles, supo c...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1990-italia/196">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1990-cam-maradona-pain.jpg"
+                                         alt="1990 - Italia">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1990 - Italia</h3>
+                                    <p>"Evitar a toda costa la derrota", este podría haber sido el lema del Mundial de Italia-1990, donde el buen fútbol y la...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1994-estados-unidos/197">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1994-inauguration.jpg"
+                                         alt="1994 - Estados Unidos">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1994 - Estados Unidos</h3>
+                                    <p>En julio de 1988 la todopoderosa Federación Internacional de Fútbol (FIFA) tomó la polémica decisión de celebrar la...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/1998-francia/198">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/1998-fra-bre-ronaldo.jpg"
+                                         alt="1998 - Francia">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>1998 - Francia</h3>
+                                    <p>"Allez les Bleus!" gritaba el pueblo francés a su selección. Aupados por todo un país, el equipo liderado por el maes...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/2002-coreajapon/199">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/kor-esp-merci02.jpg"
+                                         alt="2002 - Corea/Japón">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>2002 - Corea/Japón</h3>
+                                    <p>La primera Copa del Mundo sobre suelo asiático finalizó de la mejor manera posible: con una final inédita entre dos g...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/2006-alemania/200">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/2006-ita-fra-zidane-materazzi.jpg"
+                                         alt="2006 - Alemania">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>2006 - Alemania</h3>
+                                    <p>El decimoctavo Mundial de la historia tuvo como claro protagonista al genio francés Zinedine Zidane. Llegaba a la cita ...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                        <div class="row noticia">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias/2010-sudafrica/201">
+                                <div class="col-sm-5 col-xs-5 margen5r noticia2">
+                                    <img class="img-responsive "
+                                         src="http://64.150.191.240/afp/httpdocs/afp/WC/xml/es/histo/images/thumbnail/dv799307.jpg"
+                                         alt="2010 - Sudáfrica">
+                                </div>
+                                <div class="col-sm-7  col-xs-7 margen5l altonews">
+                                    <h3>2010 - Sudáfrica</h3>
+                                    <p>Era el momento de España, la máxima coronación futbolística no podía escaparse. Una generación de oro puro ofrecí...</p>
+                                    <spam class="boton-more-mini">Ver más ></spam>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12  separador"></div>
+                    </div>
+                            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--    Fin Noticias Home -->
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4z" id="sidebar">
+                <div class="row twitter-content">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 ">
+
+
+        <a class="twitter-timeline" href="https://twitter.com/search?q=%23PartidosMundialistasParaTodos"
+           data-widget-id="471321248983568385">Tweets sobre "#PartidosMundialistasParaTodos"</a>
+        <!--        resto del codigo esta enviado al archivo de js general-->
+
+    </div>
+</div>
+<div class="separador"></div><div class="col-md-12 margen0 ">
+    <!-- 300X250_MOVISTAR_MUNDIAL -->
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="mySWF" width="300" height="250">
+        <param name="movie" value="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/imagenes/golmovistar.swf">
+        <object type="application/x-shockwave-flash" data="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/imagenes/golmovistar.swf"
+                width="300" height="250">
+
+            <img src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/imagenes/golmovistar.gif"  width="300" height="250"
+                 alt="Image version of the SWF"/>
+
+        </object>
+    </object>
+</div>
+<!-- Fin Banner 300x250  -->
+<!-- Listado de partidos del Día-->
+<div class="col-md-12 margen0  separador" id="partidos-del-dia">
+    <div class="row partido-dia">
+        <!-- Listado de partidos del Día-->
+        <div class="col-md-12 list_partido_dia">
+            <div class="col-md-12 cabecera-partidos">
+                <h2>
+                    <div class="iconos sprite-partidodeldia"></div>
+                    Partidos del día
+                </h2>
+            </div>
+            <!-- Partido del Día-->
+            <div class="list_partido_dia carousel slide">
+
+                <div class="carousel-inner">
+                    <div class="col-md-12 conten-partidos"><b>Día 1 - Jueves, 12 de junio</b></div>                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/calendario/1#06-12"
+                               alt="Brasil" title="Brasil vsCroacia">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 cuerpo">
+
+
+                                    <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 margen2">
+
+                                <span  class="iconos sprite-brasil"></span>Brasil
+                                        </div>
+                                    <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen2 text-center ">
+                                        <span class="right">vs</span>
+                                    </div>
+                                    <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 margen2 text-right pull-right">
+
+                                <span
+                                    class="iconos sprite-croacia"></span>Croacia
+                                    </div>
+
+
+
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-12 conten-partidos">
+                            <b>15:00</b> - Arena de São Paulo                             <hr>
+                        </div>
+                        <div class="clearfix"></div>
+                                    </div>
+            </div>
+        </div>
+        <!-- Fin partido del Día-->
+    </div>
+    <div class="col-md-12 boton-more-fondo">
+        <a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/calendario" class="boton-more">Calendario completo ></a>
+    </div>
+</div>
+<!-- Listado de partidos del Día--><!-- Galería imágenes  -->
+<!--<div class="col-md-12 trivia separador">
+    <div class="row">
+        <div class="col-md-12 cabecera-partidos">
+            <h2>
+                <div class="iconos sprite-icono_trivia"></div>
+                Trivia
+            </h2>
+        </div>
+        <div class="col-md-12 movi-headline-regular titulo">Demuestra cuanto sabes de la historia de los mundiales, comparte tu resultado y desafía
+            a tus amigos.
+        </div>
+
+        <div class="col-md-12 movi-headline-regular titulo">Pregunta 1 de 10</div>
+        <div class="col-md-12 ">En el primer gol de Maradona contra Inglaterra en el Mundial de México 86..</div>
+        <div class="col-md-12 ">
+            <ul>
+                <li>La asistencia fue de Jorge Valdano.</li>
+                <li>Diego fue a festejarlo detrás del arco</li>
+                <li>Argentina jugó con la camiseta suplente.</li>
+                <li>Diego convirtió el tanto con la mano derecha</li>
+
+            </ul>
+        </div>
+        <div class="col-md-12 text-right">
+            Siguiente >
+        </div>
+    </div>
+
+
+</div>-->
+<!-- Fin  Galería imágenes  -->
+<div id="trivia" class="col-md-12 trivia separador">
+ 
+<div class="row">
+        <div class="col-md-12 cabecera-partidos">
+            <h2>
+                <div class="iconos sprite-icono_trivia"></div>
+                Trivia
+            </h2>
+        </div>
+
+<div class="col-md-12 titulo movistar-text">Demuestra cuanto sabes de la historia de los mundiales, comparte tu resultado y desafía a tus amigos.</div>
+<div id="carousel-trivia" class="carousel slide col-md-12">
+            <!-- Carousel items -->
+ <div class="carousel-inner texto-azul">
+
+   <div class="active item" data-slide-number="0">
+        <div class="conten-partidos titulo">Pregunta 1 de 8</div>
+        <div class="conten-partidos">¿En qué país se jugó el primer mundial organizado por FIFA?</div>
+        <div class="margen0">
+            <ul>
+                <li><input type="radio" name="pregunta1" onclick="respuestas('1-1')"> Alemania</input></li>
+                <li><input type="radio" name="pregunta1" onclick="respuestas('1-2')"> Italia</input></li>
+                <li><input type="radio" name="pregunta1" onclick="respuestas('1-3')"> Uruguay</input></li>
+
+            </ul>
+        </div>
+
+        <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                  <a href="#carousel-trivia" data-slide="next" id="siguientePregunta">Siguiente</a>
+    </div>
+    </div>
+
+    <div class="item" data-slide-number="1">
+        <div class="conten-partidos titulo">Pregunta 2 de 8</div>
+        <div class="conten-partidos">¿Contra qué selección Maradona anotó el famoso gol de la Mano de Dios?</div>
+        <div class="margen0">
+            <ul>
+                <li><input type="radio" name="pregunta2" onclick="respuestas('2-1')"> Uruguay</input></li>
+                <li><input type="radio" name="pregunta2" onclick="respuestas('2-2')"> Inglaterra</input></li>
+                <li><input type="radio" name="pregunta2" onclick="respuestas('2-3')"> Francia</input></li>
+
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                         <a href="#carousel-trivia" data-slide="prev">Anterior</a>
+                  <span>|</span>
+                  <a href="#carousel-trivia" data-slide="next">Siguiente</a>
+    </div>
+    </div>
+
+    <div class="item" data-slide-number="2">
+        <div class="conten-partidos titulo">Pregunta 3 de 8</div>
+        <div class="conten-partidos">¿Cuál es el único futbolista en toda la historia en ganar 3 copas mundiales?</div>
+        <div class="margen0">
+            <ul>
+                <li><input type="radio" name="pregunta3" onclick="respuestas('3-1')"> Pelé</input></li>
+                <li><input type="radio" name="pregunta3" onclick="respuestas('3-2')"> Maradona</input></li>
+                <li><input type="radio" name="pregunta3" onclick="respuestas('3-3')"> Ronaldo</input></li>
+
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                  <a href="#carousel-trivia" data-slide="prev">Anterior</a>
+                  <span>|</span>
+                  <a href="#carousel-trivia" data-slide="next">Siguiente</a>
+    </div>
+    </div>
+
+    <div class="item" data-slide-number="3">
+        <div class="conten-partidos titulo">Pregunta 4 de 8</div>
+        <div class="conten-partidos">¿Cuál es el máximo goleador de los mundiales?</div>
+        <div class="margen0">
+            <ul>
+                <li><input type="radio" name="pregunta4" onclick="respuestas('4-1')"> Klose</input></li>
+                <li><input type="radio" name="pregunta4" onclick="respuestas('4-2')"> Ronaldo</input></li>
+                <li><input type="radio" name="pregunta4" onclick="respuestas('4-3')"> Muller</input></li>
+
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                  <a href="#carousel-trivia" data-slide="prev">Anterior</a>
+                  <span>|</span>
+                  <a href="#carousel-trivia" data-slide="next">Siguiente</a>
+    </div>
+    </div>
+    
+
+    <div class="item" data-slide-number="4">
+        <div class="conten-partidos titulo">Pregunta 5 de 8</div>
+        <div class="conten-partidos">¿Qué selección quedó campeona en el mundial de Korea-Japón 2002?</div>
+        <div class="margen0">
+            <ul>
+                <li><input type="radio" name="pregunta5" onclick="respuestas('5-1')"> Brasil</input></li>
+                <li><input type="radio" name="pregunta5" onclick="respuestas('5-2')"> Alemania</input></li>
+                <li><input type="radio" name="pregunta5" onclick="respuestas('5-3')"> Italia</input></li>
+
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                  <a href="#carousel-trivia" data-slide="prev">Anterior</a>
+                  <span>|</span>
+                  <a href="#carousel-trivia" data-slide="next">Siguiente</a>
+    </div>
+    </div>
+
+   <div class="item" data-slide-number="5">
+        <div class="conten-partidos titulo">Pregunta 6 de 8</div>
+        <div class="conten-partidos">¿Qué jugador marcó el primer gol de Ecuador en mundiales?</div>
+        <div class="margen0">
+            <ul>
+                <li><input type="radio" name="pregunta6" onclick="respuestas('6-1')"> Edison Méndez</input></li>
+                <li><input type="radio" name="pregunta6" onclick="respuestas('6-2')"> Agustín Delgado</input></li>
+                <li><input type="radio" name="pregunta6" onclick="respuestas('6-3')"> Ivan Kaviedes</input></li>
+
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                  <a href="#carousel-trivia" data-slide="prev">Anterior</a>
+                  <span>|</span>
+                  <a href="#carousel-trivia" data-slide="next">Siguiente</a>
+    </div>
+    </div>
+   
+   <div class="item" data-slide-number="6">
+        <div class="conten-partidos titulo">Pregunta 7 de 8</div>
+        <div class="conten-partidos">¿Quién marcó el gol en la final del mundial de Sudáfrica 2010?</div>
+        <div class="margen0">
+            <ul class="movi-headline-regular">
+                <li><input type="radio" name="pregunta7" onclick="respuestas('7-1')"> Andrés Iniesta</input></li>
+                <li><input type="radio" name="pregunta7" onclick="respuestas('7-2')"> David Villa</input></li>
+                <li><input type="radio" name="pregunta7" onclick="respuestas('7-3')"> Fernando Torres</input></li>
+
+            </ul>
+        </div>
+
+        <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                  <a href="#carousel-trivia" data-slide="prev" >Anterior</a>
+                  <span>|</span>
+                  <a href="#carousel-trivia" data-slide="next">Siguiente</a>
+    </div>
+    </div>
+
+    <div class="item" data-slide-number="7">
+        <div class="conten-partidos titulo">Pregunta 8 de 8</div>
+        <div class="conten-partidos">¿Cuál fue el último año en que Alemania quedó campeón del mundo?</div>
+        <div class="margen0">
+            <ul>
+                <li><input type="radio" name="pregunta8" onclick="respuestas('8-1')"> 1974</input></li>
+                <li><input type="radio" name="pregunta8" onclick="respuestas('8-2')"> 1954</input></li>
+                <li><input type="radio" name="pregunta8" onclick="respuestas('8-3')"> 1990</input></li>
+
+            </ul>
+        </div>
+     <div class="clearfix"></div>
+  <!-- Controls -->
+    <div class="carousel-controls text-right">
+                  <a href="#carousel-trivia" data-slide="prev">Anterior</a>
+                  <span>|</span>
+                  <a href="#carousel-trivia" id="calcular" onclick="calcular()">Calcular</a>
+    </div>
+
+
+    </div>
+   </div>
+   <form action="trivia.php" method="post" id="form_trivia">
+    <input type="hidden" id="resp1" name="resp1" value="0">
+    <input type="hidden" id="resp2" name="resp2" value="0">
+    <input type="hidden" id="resp3" name="resp3" value="0">
+    <input type="hidden" id="resp4" name="resp4" value="0">
+    <input type="hidden" id="resp5" name="resp5" value="0">
+    <input type="hidden" id="resp6" name="resp6" value="0">
+    <input type="hidden" id="resp7" name="resp7" value="0">
+    <input type="hidden" id="resp8" name="resp8" value="0">
+  </form>
+</div>
+<div class="col-md-12 titulo conten-partidos " id="result" ></div>
+</div>
+</div>
+<script>
+
+function respuestas($val){
+      var $res = $val.split("-");
+      $('#resp'+$res[0]).val($res[1]);
+      if($res[0]!=8){
+       $('#siguientePregunta').click();
+      }else{
+        calcular();
+      }
+}
+
+
+function muestraTrivia(){
+       clearForm();
+      $('#carousel-trivia').css('display', 'block');
+      $('#result').html('');
+      $('#result').css('display', 'none');
+}
+
+function clearForm(){
+    for(var i=1;i<=8; i++){
+        $('input:radio[name=pregunta'+i+']:checked').prop('checked', false);
+         $('#resp'+i).val("");
+    }
+     $("#carousel-trivia").carousel(0);
+}
+
+
+
+function calcular(){    
+
+     var myArray = [ $('#resp1').val(), $('#resp2').val(), $('#resp3').val(), $('#resp4').val(), $('#resp5').val(), $('#resp6').val(), $('#resp7').val(),$('#resp8').val() ];
+     if(myArray[0]==0){
+        alert('Ingrese la Respuesta de la pregunta 1');
+        $("#carousel-trivia").carousel(0);
+     }else if(myArray[1]==0){
+        alert('Ingrese la Respuesta de la pregunta 2');
+         $("#carousel-trivia").carousel(1);
+     }else if(myArray[2]==0){
+        alert('Ingrese la Respuesta de la pregunta 3');
+         $("#carousel-trivia").carousel(2);
+     }else if(myArray[3]==0){
+        alert('Ingrese la Respuesta de la pregunta 4');
+        $("#carousel-trivia").carousel(3);
+     }else if(myArray[4]==0){
+        alert('Ingrese la Respuesta de la pregunta 5');
+         $("#carousel-trivia").carousel(4);
+     }else if(myArray[5]==0){
+        alert('Ingrese la Respuesta de la pregunta 6');
+        $("#carousel-trivia").carousel(5);
+     }else if(myArray[6]==0){
+        alert('Ingrese la Respuesta de la pregunta 7');
+        $("#carousel-trivia").carousel(6);
+     }else if(myArray[7]==0){
+        alert('Ingrese la Respuesta de la pregunta 8');
+        $("#carousel-trivia").carousel(7);
+     }else {
+
+          $.ajax({  
+              type: "POST",  
+              url: baseUrl+"site/resultado_trivia",  
+              data: $('#form_trivia').serialize(),
+              success: function( response ) {
+                    $('#carousel-trivia').css('display', 'none');
+                    $('#result').append("<div class='movi-headline-regular text-center'><h3>Felicitaciones has obtenido</br> <span class='trivia-respuesta'>"+response+" / 8"+"</span> </br>puntos</h3></div>");
+                     $('#result').append('<div class="clearfix"></div>');
+                    $('#result').append('<div class="row boton-more-fondo"><a class="boton-more" onclick="muestraTrivia()">Mostrar Trivia</a></div>');
+                } 
+            });
+  }
+}
+</script>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+
+<!-- /container -->
+<div id="footer" class="footer">
+    <div class="container fondo-footer">
+        <footer>
+            <div class="row  ">
+
+                <div class="col-md-12  ">
+                    <div class="menuabajo">
+                        <ul class="nav navbar-nav  ">
+                                    <li class="active"><a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/noticia">Noticias</a></li>
+                                    <li><a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/historias">Historia de los Mundiales</a></li>
+                                    <li><a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/galerias">Galerías</a></li>
+                                    <!--<li><a href="#">+ Vídeos</a></li>
+                                    <li><a href="site/goleadores">Goleadores</a></li>-->
+                                    <li><a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/calendario">Partidos</a></li>
+                                    <li><a href="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/site/grupos">Resultados</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </footer>
+    </div>
+</div><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-44225428-2', 'movistar.com.ec');
+    ga('send', 'pageview');
+</script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<!-- echo.js -->
+<script src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/echo.min.js"></script>
+<script>
+    echo.init({
+        offset: 100,
+        throttle: 250,
+        unload: false,
+        callback: function (element, op) {
+            //console.log(element, 'has been', op + 'ed')
+        }
+    });
+
+</script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/jquery.plugin.js"></script>
+<script src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/jquery.countdown.js"></script>
+<script src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/jquery.countdown-es.js"></script>
+<script src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/carouFredSel/jquery.carouFredSel-6.2.1-packed.js"></script>
+<!-- optionally include helper plugins -->
+
+<script type="text/javascript"
+        src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/colorbox/jquery.colorbox.min.js"></script>
+<script type="text/javascript"
+        src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/scrool/animatescroll.min.js"></script>
+<script type="text/javascript"
+        src="http://localhost:10088/brasil2014/brasil2014Git/brasil2014/assets/js/brasil2014.js"></script>
+<!-- fire plugin onDocumentReady -->
+</body>
+</html><div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=595644553876654&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>

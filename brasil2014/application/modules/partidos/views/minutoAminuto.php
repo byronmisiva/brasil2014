@@ -237,10 +237,7 @@ setlocale(LC_ALL, "es_ES");
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                 </a>
             </div>
 

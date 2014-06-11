@@ -122,7 +122,6 @@ class Site extends MY_Controller
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
 
-
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
             $data['sidebar'] .= $this->partidos->partidosFecha();
@@ -147,6 +146,19 @@ class Site extends MY_Controller
     {
         $this->output->cache(300);
         $idHistoria = $this->uri->segment(4);
+
+        if (!is_numeric ( $idHistoria )) {
+            $idHistoria = 182;
+        } else {
+            if ($idHistoria) {
+                if (is_null($idHistoria)) {
+                    $idHistoria = 182; // por default asigna el primero alemania
+                }
+            } else {
+                $idHistoria = 182;
+            }
+        }
+
 
         $this->load->module('grupos');
         $this->load->module('partidos');
@@ -426,14 +438,14 @@ class Site extends MY_Controller
         $idEquipo = $this->uri->segment(3);
 
         if (!is_numeric ( $idEquipo )) {
-            $idEquipo = 33;
+            $idEquipo = 193;
         } else {
         if ($idEquipo) {
             if (is_null($idEquipo)) {
-                $idEquipo = 33; // por default asigna el primero alemania
+                $idEquipo = 193; // por default asigna el primero alemania
             }
         } else {
-            $idEquipo = 33;
+            $idEquipo = 193;
         }
         }
 
