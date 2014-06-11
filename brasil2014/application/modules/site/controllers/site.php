@@ -20,7 +20,7 @@ class Site extends MY_Controller
 
     public function home()
     {
-        $this->output->cache(30);
+        //$this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -34,13 +34,12 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();
             if (in_array($m, $mobiles))
                 $isMobile = true;
-
         }
 
         if ($isMobile) {
@@ -99,7 +98,7 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();
@@ -175,7 +174,7 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();
@@ -226,7 +225,7 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();
@@ -287,7 +286,7 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();
@@ -341,7 +340,7 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();
@@ -395,7 +394,7 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();
@@ -464,7 +463,7 @@ class Site extends MY_Controller
 
         $this->load->library('user_agent');
 
-        $mobiles = array('Apple iPhone', 'Generic Mobile');
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
         $isMobile = false;
         if ($this->agent->is_mobile()) {
             $m = $this->agent->mobile();

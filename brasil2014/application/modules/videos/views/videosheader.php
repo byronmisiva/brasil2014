@@ -1,5 +1,3 @@
-<div id="player"></div>
-
 <!--        Contenidos principales-->
 <!-- Tab panes -->
 <div class="tab-content contenedor-videos">
@@ -9,27 +7,32 @@
                 <div class="video ">
                     <script type="text/javascript">
                         var eventsPath = "http://static.elcanaldelfutbol.com";
+                        $( document ).ready(function() {
+                            var eventsPath = "http://static.elcanaldelfutbol.com";
 
 
-                        $.getScript(eventsPath+"/events.js", function(data, textStatus, jqxhr) {
-                            jQuery.support.cors = true;
-                            jQuery.ajaxSetup({ cache: true });
+                            $.getScript(eventsPath+"/events.js", function(data, textStatus, jqxhr) {
+                                jQuery.support.cors = true;
+                                jQuery.ajaxSetup({ cache: true });
 
-                            streamId = '249';
-                            isLiveEmbed = getURLParameter('vod') == null;
+                                streamId = 248;
+                                isLiveEmbed = getURLParameter('vod') == null;
 
-                            $( "#container" ).html("<a href='/events.html'>BACK</a><div id='player'></div>");
-                            $( "#container" ).show();
+                                $( "#container" ).html("<div id='player'></div>");
+                                $( "#container" ).show();
 
-                            loadPlayer();
+                                loadPlayer();
+                            });
                         });
                     </script>
+
+
+
                     <div id="container"></div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <!-- Nav tabs -->

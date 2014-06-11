@@ -155,23 +155,24 @@ class Partidos extends MY_Controller
         $data = array();
    
         foreach ($partidos as $partido) {
-            $alineacion_local = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->local->id);
-            $alineacion_visitante = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->visitante->id);
+
+            $alineacion_local = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->local);
+            $alineacion_visitante = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->visitante);
             $eventos = array();
-            $cambios_local = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->local->id);
+            $cambios_local = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->local);
             foreach ($cambios_local as $row) { // Agrego los eventos (Cambios) a la alineacion al equipo Local
                 $ayuda = 1000 - $row->minuto;
                 $alineacion_local[$row->entra_id]->eventos[$ayuda . 'a'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_sale, 'tipo' => 1);
                 $alineacion_local[$row->sale_id]->eventos[$ayuda . 'a'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_entra, 'tipo' => 2);
             }
             $eventos = array_merge($eventos, $cambios_local);
-            $cambios_visitante = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->visitante->id);
+            $cambios_visitante = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->visitante);
             foreach ($cambios_visitante as $row) { // Agrego los eventos (Cambios) a la alineacion al equipo Visitante
                 $alineacion_visitante[$row->entra_id]->eventos[$row->minuto . 'c'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_sale, 'tipo' => 1);
                 $alineacion_visitante[$row->sale_id]->eventos[$row->minuto . 'c'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_entra, 'tipo' => 2);
             }
             $eventos = array_merge($eventos, $cambios_visitante);
-            $goles_local = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->local->id);
+            $goles_local = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->local);
             foreach ($goles_local as $row) {
                 if ($row->tipo == 0) {
                     $ayuda = 1000 - $row->minuto;
@@ -182,7 +183,7 @@ class Partidos extends MY_Controller
                 }
             }
             $eventos = array_merge($eventos, $goles_local);
-            $goles_visitante = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->visitante->id);
+            $goles_visitante = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->visitante);
             foreach ($goles_visitante as $row) {
                 if ($row->tipo == 0) {
                     $alineacion_visitante[$row->jugadores_id]->eventos[$row->minuto . 'a'] = array('accion' => 2, 'minuto' => $row->minuto, 'tipo' => $row->tipo, 'fallado' => $row->fallado);
@@ -193,13 +194,13 @@ class Partidos extends MY_Controller
                 }
             }
             $eventos = array_merge($eventos, $goles_visitante);
-            $tarjetas_local = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->local->id);
+            $tarjetas_local = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->local);
             foreach ($tarjetas_local as $row) {
                 $ayuda = 1000 - $row->minuto;
                 $alineacion_local[$row->jugadores_id]->eventos[$ayuda . 'b'] = array('accion' => 3, 'minuto' => $row->minuto, 'tipo' => $row->tipo);
             }
             $eventos = array_merge($eventos, $tarjetas_local);
-            $tarjetas_visitante = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->visitante->id);
+            $tarjetas_visitante = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->visitante);
             foreach ($tarjetas_visitante as $row) {
                 $alineacion_visitante[$row->jugadores_id]->eventos[$row->minuto . 'b'] = array('accion' => 3, 'minuto' => $row->minuto, 'tipo' => $row->tipo);
             }

@@ -19,11 +19,18 @@
           content="Movistar, Movistar Ecuador,Mundial, Brasil, Mundial Brasil, Partidos, Partidos Ecuador, Football Ecuador, Partidos en Vivo, Futbol, Mundialista, Movistar Mundialista, Jefe, Ver futbol, futbol online">
 
     <title><?php echo $pageTitle ?></title>
+    <link rel="apple-touch-icon" href="<?=base_url('assets/images/touch-icon-iphone.png')?>" /><!--imaegn de 57 x 57  -->
+    <link rel="apple-touch-icon" sizes="72x72" href="<?=base_url('assets/images/touch-icon-ipad.png')?>" />
+    <link rel="apple-touch-icon" sizes="114x114" href="<?=base_url('assets/images/touch-icon-iphone4.png')?>" />
+    <link rel="apple-touch-icon" sizes="144x144" href="<?=base_url('assets/images/touch-icon-ipad2.png')?>" />
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/brasil.css') ?>?rand=<?php echo time(); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/jquery.countdown.css') ?>" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <!-- ColorBox -->
     <link rel="stylesheet" href="<?php echo base_url('assets/js/colorbox/colorbox.css') ?>"/>

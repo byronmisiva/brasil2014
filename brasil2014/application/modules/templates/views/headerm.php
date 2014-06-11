@@ -11,8 +11,14 @@
     <meta property="og:type" content="site"/>
     <meta property="og:image" content="http://www4.movistar.com.ec/FIFAWorldCup/assets/images/logo-movistar.png"/>
 
+
     <!--SEO TAGS-->
     <meta name="Title" content="Movistar Mundialista">
+    <link rel="apple-touch-icon" href="<?=base_url('assets/images/touch-icon-iphone.png')?>" /><!--imaegn de 57 x 57  -->
+    <link rel="apple-touch-icon" sizes="72x72" href="<?=base_url('assets/images/touch-icon-ipad.png')?>" />
+    <link rel="apple-touch-icon" sizes="114x114" href="<?=base_url('assets/images/touch-icon-iphone4.png')?>" />
+    <link rel="apple-touch-icon" sizes="144x144" href="<?=base_url('assets/images/touch-icon-ipad2.png')?>" />
+
     <meta name="description" content="Movistar, Compartida, la vida es más, y ahora puedes disfrutar del Mundial Brasil 2014 con partidos en vivo, noticias, goles, resultados. Vive la experiencia Mundialista">
     <meta name="keywords" content="Movistar,Movistar Ecuador,Mundial, Brasil, Mundial Brasil, Partidos, Partidos Ecuador, Football Ecuador, Partidos en Vivo">
     <meta name="keywords" content="Futbol, Mundialista, Movistar Mundialista, Jefe, Ver futbol">
