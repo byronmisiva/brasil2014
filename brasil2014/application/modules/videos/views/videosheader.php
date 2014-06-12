@@ -9,6 +9,7 @@
                         var eventsPath = "http://static.elcanaldelfutbol.com";
                         var embedWidth = "100%";
                         var embedHeight = "390";
+                        var allowfullscreen="false";
                         var option = 0;
                         $( document ).ready(function() {
                             var eventsPath = "http://static.elcanaldelfutbol.com";

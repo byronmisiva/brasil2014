@@ -270,7 +270,8 @@ setlocale(LC_ALL, "es_ES");
                             <td class="col-md-6">
                                 <table class="table table-striped">
                                     <?php $title = 0;
-                                    if (isset($partido['alineacion_local'])) {
+                                    $test = ($partido['alineacion_local']);
+                                    if (is_null($partido['alineacion_local'])) {
                                     foreach ($partido['alineacion_local'] as $row) { ?>
                                         <?php if ($title == 11) { ?>
                                             <tr>
