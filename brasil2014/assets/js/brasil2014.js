@@ -184,4 +184,39 @@ jQuery(function($) {
         $('#content').text($('#iframe').contents().find('html').html());
         $(this).contents().find('.ic-twitter-badge').css({'display': 'none'});
     });
+
+
+    $(".botonpantalla").click(function(){
+
+        //openWindow("Abrir", "http://www4.movistar.com.ec/FIFAWorldCup/fs/")
+
+
+    })
 });
+
+
+function openWindow(name, url) {
+
+    var height = screen.availHeight-30;
+
+    var width = 1024;
+//    if (width > 1024)  {width = 1024}
+    var left =(screen.availWidth - width) /2;
+    var top = 0;
+
+    settings = 'fullscreen=no,resizable=no,location=no,toolbar=no,menubar=no';
+    settings = settings + ',status=no,directories=no,scrollbars=yes';
+    settings = settings + ',width=' + width +',height=' + height;
+    settings = settings + ',top=' + top +',left=' + left;
+    settings = settings + ',charset=iso-8859-1';
+    var win = window.open(url, '', settings);
+
+    win.outerHeight = height;
+    win.outerWidth = width;
+
+    win.resizeTo(outerWidth, outerHeight);
+
+    if (!win.focus)
+        win.focus();
+    return win;
+}

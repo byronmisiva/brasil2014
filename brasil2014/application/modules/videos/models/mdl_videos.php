@@ -27,19 +27,11 @@ class Mdl_videos extends MY_Model
 
     public function getAllVideos()
     {
-        $this->load->module('videos');
-
-        $videos = $this->get(array( "where" => array("inicia >" => "NOW()"), "order_by" => "inicia ", "limit" => 1));
-
-
-        $last = $this->db->last_query();
-        return $videos;
+        $videos = $this->db->query('(SELECT * FROM videos WHERE inicia > NOW() ORDER BY inicia DESC LIMIT 0,1 )
+                                        UNION
+                                        ( SELECT * FROM videos WHERE inicia <= NOW() ORDER BY inicia DESC )
+                                        ORDER BY inicia DESC ');
+        $result = $videos->result();
+        return $result;
     }
-
-/*                             UNION
-                            ( SELECT * FROM videos WHERE inicia <= NOW) ORDER BY inicia DESC )
-                            ORDER BY inicia DESC "
-            ));
-    */
-
 }

@@ -21,9 +21,11 @@ class Mdl_alineaciones extends MY_Model{
 	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){		
 		$query = array(
 				'select' => '*',
-				'where' => array( 'partidos_id' => $partido, 'equipos_campeonato_id' => $equipo, 'posicion > ' => 0  ),
-				'where_in' => array( 'posicion' => array( 0, 1, 2, 3, 4, 5) ),
-				'order_by' => 'posicion asc' );
+				'where' => array( 'partidos_id' => $partido, 'equipos_campeonato_id' => $equipo, 'orden > ' => 0  ),
+
+				'order_by' => 'orden asc' );
+        $last = $this->db->last_query();
+
 		$alineacion = $this->get( $query );	
 		$datos = array();
 		foreach( $alineacion as $row ){
@@ -34,7 +36,7 @@ class Mdl_alineaciones extends MY_Model{
 			$datos[$row->jugadores_id]->numero = $row->numero;
 			$datos[$row->jugadores_id]->partido_id = $row->partidos_id;
 			$datos[$row->jugadores_id]->jugador_id = $row->jugadores_id;
-			$datos[$row->jugadores_id]->equipo_id = $row->equipos_id;
+			$datos[$row->jugadores_id]->equipo_id = $row->equipos_campeonato_id;
 			$datos[$row->jugadores_id]->eventos = array();
 		}
 		return $datos;		

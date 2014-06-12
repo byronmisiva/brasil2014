@@ -1,18 +1,48 @@
 <head>
 <title>Streaming Servisky</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
 <script type="text/javascript">
-	var streamId = "2000";
-	var useHLS = false;
-	var embedPath = "http://origin.elcanaldelfutbol.com/embed";
-	var turnOnDVR = true;
-	if(useHLS == true) {
-		turnOnDVR = false;
-	}
-	$.getScript(embedPath+"/embed.js");
+	var eventsPath = "http://static.elcanaldelfutbol.com";
+                        var embedWidth = "100%";
+                        var embedHeight = "80%";
+                        $( document ).ready(function() {
+                            var eventsPath = "http://static.elcanaldelfutbol.com";
+                            $.getScript(eventsPath+"/events.js", function(data, textStatus, jqxhr) {
+
+                                jQuery.support.cors = true;
+                                jQuery.ajaxSetup({ cache: true });
+                                streamId = <?php echo 241; ?>;
+                                isLiveEmbed = getURLParameter('vod') == null;
+                                $( "#container" ).html("<div id='player'></div>");
+                                $( "#container" ).show();
+                                loadPlayer();
+                            });
+                        });
 </script>
 </head>
 <body>
-Prueba
+ 
 <div id="player"></div>
+<div id="brand"><div id="logo"></div></div>
 </body>
+<style TYPE="text/css">
+	body {
+		margin:0 ; padding :0
+	}
+	#brand {
+		width: 100%;
+		height: 97px;
+		float: left;
+		background: url("video-fullscreen.jpg") repeat-x scroll 0 0;
+	}
+
+	#logo {
+		width: 178px;
+		height: 39px;
+		 
+		margin: 30px auto;
+		background: url("logo-movistar.png") ;
+		 
+
+	}
+</style>

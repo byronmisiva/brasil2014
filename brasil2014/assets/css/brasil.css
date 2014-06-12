@@ -110,7 +110,6 @@ h2, h3 {
     background-color: transparent;
 }
 
-
 .noticia-rotativa {
     background: url(../images/rotativa-fondo.png) no-repeat top right;
     background-color: #0a597c;
@@ -126,6 +125,10 @@ h2, h3 {
     display: none;
     width: 320px;
     overflow: hidden;
+}
+
+.botonpantalla:hover {
+    cursor: pointer;
 }
 
 .noticia-rotativa li {

@@ -177,7 +177,7 @@ setlocale(LC_ALL, "es_ES");
     foreach ($partidos as $key => $partido) {
         $fecha = $partido->fecha;
         if ($fecha != $fechaTemp) {
-            echo '<div class="col-md-12 separador"></div><div class="col-md-12 movi-headline-regular minuto-a-minuto-fecha" id="' . ucfirst(strftime('%m-%d', strtotime($partido->fecha))) . '"><a name="' . ucfirst(strftime('%m-%d', strtotime($partido->fecha))) . '">' . $this->partidos->_clearfecha(utf8_encode(ucfirst(strftime('%A %d de %b. %Y', strtotime($partido->fecha))))) . '</a></div>';
+            echo '<div class="col-md-12 separador"></div><div class="col-md-12 movi-headline-regular minuto-a-minuto-fecha" id="' . ucfirst(strftime('%m-%d', strtotime($partido->fecha))) . '"><a name="' . ucfirst(strftime('%m-%d', strtotime($partido->fecha))) . '">' .$this->partidos->_clearfecha(utf8_encode(ucfirst(strftime('%A %d de %b. %Y', strtotime($partido->fecha))))) . '</a></div>';
             $fechaTemp = $fecha;
         }
         ?>
@@ -237,7 +237,10 @@ setlocale(LC_ALL, "es_ES");
                                 </div>
                             </div>
                         </div>
+
                     </div>
+
+
                 </a>
             </div>
 
@@ -253,11 +256,9 @@ setlocale(LC_ALL, "es_ES");
                 <?php } ?>
             <?php
             }
-
-             ///inicio minuto a minuto
-              ?>
-            <div id="<?php //echo 'partido' . $partido['partidoResumen']->id ?>"
-                 class="panel-collapse collapse <?php //echo $in; ?>">
+            /* ?>
+            <div id="<?php echo 'partido' . $partido['partidoResumen']->id ?>"
+                 class="panel-collapse collapse <?php echo $in; ?>">
                 <div class="panel-body">
                     <table class="table">
                         <tr>
@@ -269,9 +270,8 @@ setlocale(LC_ALL, "es_ES");
                         <tr>
                             <td class="col-md-6">
                                 <table class="table table-striped">
-                                    <?php $title = 0;
-                                    if (isset($partido['alineacion_local'])) {
-                                    foreach ($partido['alineacion_local'] as $row) { ?>
+                                    <?php $title = 0; ?>
+                                    <? foreach ($partido['alineacion_local'] as $row) { ?>
                                         <?php if ($title == 11) { ?>
                                             <tr>
                                                 <td colspan="3">
@@ -312,9 +312,7 @@ setlocale(LC_ALL, "es_ES");
                                             </td>
                                         </tr>
                                         <?php $title = $title + 1; ?>
-                                    <?php }
-                                    }
-                                    ?>
+                                    <?php } ?>
                                 </table>
                             </td>
                             <td class="col-md-6">
@@ -368,8 +366,12 @@ setlocale(LC_ALL, "es_ES");
                     </table>
                 </div>
             </div>
+          */
+            ?>
 
 
         </div>
     <?php } ?>
 </div>
+
+

@@ -37,6 +37,18 @@ class MY_Controller extends MX_Controller{
 		}
 	}
 
+
+    function _clearfecha ($string) {
+        $string = str_replace(
+            array("jun", "jul", "Saturday",  "Sunday",
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ),
+            array("Junio", "Julio", "Sábado",  "Domingo",
+                "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" ),
+            $string
+        );
+        return $string;
+    }
+
     function _clearStringGion($string) {
         $tempSting = str_replace(' ','-',$this->_clearString($string) );
 

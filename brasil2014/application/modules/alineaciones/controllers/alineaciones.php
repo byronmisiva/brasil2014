@@ -21,10 +21,11 @@ class Alineaciones extends MY_Controller{
 		}
 	}*/
 	
-	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){		
-		return $this->mdl_alineaciones->getAlineacionByPartidoAndEquipo( $partido, $equipo );	
+	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){
+        $result = $this->mdl_alineaciones->getAlineacionByPartidoAndEquipo( $partido, $equipo );
+        return $result;
 	}
-	
+
 	function sync(){
 		//echo "<pre>";
 		//$this->importData('WP2010/FootballMatchDetailBasic_Comp8_MatchID1496762_ID56662461_es.xml');

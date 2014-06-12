@@ -54,7 +54,7 @@ class Galerias extends MY_Controller{
         $cont=0;
         $datosGalerias=array();
         foreach($galeria as $gal){
-            $imagenes= $this->imagenes->get( array('select'=>'*', 'where'=>array('galerias_id'=>$gal->id), 'limit'=>"16"));
+            $imagenes= $this->imagenes->get( array('select'=>'*', 'where'=>array('galerias_id'=>$gal->id), 'limit'=>"25"));
             $datosGalerias[$cont]=array(
                     "id_Galeria"=>$gal->id,
                     "nombre"=>$gal->nombre,

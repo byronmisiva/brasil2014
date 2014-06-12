@@ -1,9 +1,6 @@
 <?php
 class Videos extends MY_Controller{
-
     public $model = 'mdl_videos';
-
-
     public function __construct(){
         parent::__construct();
     }
@@ -14,9 +11,7 @@ class Videos extends MY_Controller{
     }
 
     function viewVideosHeader(){
-
-        $listavideos = $this->mdl_videos->getAllVideos();
-
+        $data['listavideos']  = $this->mdl_videos->getAllVideos();
         return $this->load->view ("videosheader", FALSE, TRUE );
     }
 }
