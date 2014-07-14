@@ -1,9 +1,7 @@
 <?php
 
-
 class Site extends MY_Controller
 {
-
     public $model = FALSE;
     public $data = array();
 
@@ -20,6 +18,9 @@ class Site extends MY_Controller
 
     public function home()
     {
+
+        // para la final se comentan la llamada a las secciones.
+        
         //$this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
@@ -47,7 +48,8 @@ class Site extends MY_Controller
             $data['cabecera'] = $this->contenido->menum();
 
             $data['content'] = $this->contenido->header_mobile();
-            $data['content'] .= $this->partidos->partidosFechaMovil();
+            //$data['content'] .= $this->partidos->partidosFechaMovil();
+            $data['content'] .= $this->partidos->partidosFinal();
             $data['content'] .= $this->contenido->view_banner_contenidotop();
             $data['content'] .= $this->contenido->view_noticia_home();
             $data['content'] .= $this->contenido->view_banner_contenido();
@@ -64,13 +66,14 @@ class Site extends MY_Controller
 
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->contenido->view_banner_contenidotop();
+            $data['content'] .= $this->ranking->viewRankingLlaves();
             $data['content'] .= $this->ranking->viewRankingGrupos();
             $data['content'] .= $this->contenido->view_noticia_home();
             $data['content'] .= $this->contenido->view_banner_contenido();
@@ -123,10 +126,10 @@ class Site extends MY_Controller
 
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->contenido->view_noticia_open($idNoticia);
@@ -143,15 +146,15 @@ class Site extends MY_Controller
 
     public function historias()
     {
-        $this->output->cache(300);
+        //$this->output->cache(300);
         $idHistoria = $this->uri->segment(4);
 
         if (!is_numeric ( $idHistoria )) {
-            $idHistoria = 182;
+            $idHistoria = 1;
         } else {
             if ($idHistoria) {
                 if (is_null($idHistoria)) {
-                    $idHistoria = 182; // por default asigna el primero alemania
+                    $idHistoria = 1; // por default asigna el primero alemania
                 }
             } else {
                 $idHistoria = 182;
@@ -196,14 +199,12 @@ class Site extends MY_Controller
             $data['cabecera'] = $this->contenido->cabecera();
             $data['cabecera'] .= $this->contenido->menu();
             $data['footer'] = $this->contenido->footer();
-
-
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->contenido->view_historia_open($idHistoria);
         }
@@ -212,7 +213,7 @@ class Site extends MY_Controller
 
     public function galerias()
     {
-        $this->output->cache(30);
+        //$this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -252,13 +253,71 @@ class Site extends MY_Controller
 
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->galerias->viewGaleriasFull();
+            $data['content'] .= $this->contenido->view_historias();
+            $data['content'] .= $this->contenido->view_estadios();
+
+        }
+
+
+        $this->templates->_index($data);
+    }
+
+    public function videos()
+    {
+
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('videos');
+        $this->load->module('templates');
+        $this->load->module('galerias');
+        $this->load->module('contenido');
+        $this->load->module('jugadores');
+        $data['pageTitle'] = "Galerias - Movistar FIFAWorldCup";
+
+
+        $this->load->library('user_agent');
+
+        $mobiles = array('Apple iPhone', 'Generic Mobile', 'SymbianOS');
+        $isMobile = false;
+        if ($this->agent->is_mobile()) {
+            $m = $this->agent->mobile();
+            if (in_array($m, $mobiles))
+                $isMobile = true;
+
+        }
+
+        if ($isMobile) {
+
+            $data['cabecera'] = $this->contenido->menum();
+            $data['content'] = $this->contenido->header_mobile();
+            $data['content'] .= $this->videos->viewVideosFull();
+            $data['footer'] = '';
+
+            $data['sidebar'] = '';
+
+        } else {
+
+            $data['cabecera'] = $this->contenido->cabecera();
+            $data['cabecera'] .= $this->contenido->menu();
+            $data['footer'] = $this->contenido->footer();
+
+
+            $data['sidebar'] = $this->contenido->view_twitter();
+            $data['sidebar'] .= $this->contenido->banner_sidebar();
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();
+
+            $data['content'] = $this->videos->viewVideosHeader();
+            $data['content'] .= $this->videos->viewVideosFull();
             $data['content'] .= $this->contenido->view_historias();
             $data['content'] .= $this->contenido->view_estadios();
 
@@ -311,12 +370,14 @@ class Site extends MY_Controller
 
 
             $data['sidebar'] = $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->ranking->menuranking();
+
+            $data['content'] .= $this->partidos->segundafase();
             $data['content'] .= $this->ranking->viewRankingFases($idGrupo);
         }
 
@@ -337,6 +398,7 @@ class Site extends MY_Controller
         $this->load->module('jugadores');
 
         $data['pageTitle'] = "Calendario - Movistar FIFAWorldCup";
+
 
         $this->load->library('user_agent');
 
@@ -366,10 +428,10 @@ class Site extends MY_Controller
 
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+             $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->partidos->minutoAminuto();
@@ -382,7 +444,7 @@ class Site extends MY_Controller
 
     public function goleadores()
     {
-        $this->output->cache(30);
+        //$this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
         $this->load->module('videos');
@@ -417,10 +479,10 @@ class Site extends MY_Controller
 
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+             $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->videos->viewVideosHeader();
             $data['content'] .= $this->jugadores->viewRankingGoleadoresFull();
@@ -437,14 +499,14 @@ class Site extends MY_Controller
         $idEquipo = $this->uri->segment(3);
 
         if (!is_numeric ( $idEquipo )) {
-            $idEquipo = 193;
+            $idEquipo = 1;
         } else {
         if ($idEquipo) {
             if (is_null($idEquipo)) {
-                $idEquipo = 193; // por default asigna el primero alemania
+                $idEquipo = 1; // por default asigna el primero alemania
             }
         } else {
-            $idEquipo = 193;
+            $idEquipo = 1;
         }
         }
 
@@ -483,7 +545,7 @@ class Site extends MY_Controller
 
             $data['content'] .= $this->fichas->viewFichaEquipodesc($idEquipo);
             $data['content'] .= $this->contenido->view_noticias_equipo($idEquipo);
-//            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
+            $data['content'] .= $this->jugadores->viewJugadoresEquipo($idEquipo);
             $data['content'] .= $this->equipos_campeonato->viewEquiposBanderas();
             $data['footer'] = '';
 
@@ -496,10 +558,10 @@ class Site extends MY_Controller
 
             $data['sidebar'] = $this->contenido->view_twitter();
             $data['sidebar'] .= $this->contenido->banner_sidebar();
-            $data['sidebar'] .= $this->partidos->partidosFecha();
-            $data['sidebar'] .= $this->contenido->view_trivia();
-            //$data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
-            //$data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
 
             $data['content'] = $this->equipos_campeonato->viewEquiposBanderas();
             $data['content'] .= $this->fichas->viewFichaEquipo($idEquipo);
@@ -517,8 +579,69 @@ class Site extends MY_Controller
 
         $this->templates->_index($data);
     }
+    public function minutoAminuto(){
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('templates');
+        $this->load->module('contenido');
+        $data['pageTitle'] = "Minuto a minuto - Mundial Movistar";
+        $data['content'] = $this->partidos->getGruposCalendarioTab();
 
-    public function minutoAminuto()
+        $partidoMinutoAMinuto = $this->uri->segment(4);
+        if (isset ($partidoMinutoAMinuto)) {
+            $data['content'] = $this->partidos->minutoAMinuto($partidoMinutoAMinuto);
+        }
+
+        $data['sidebar'] = $this->contenido->view_twitter();
+        $data['sidebar'] .= $this->partidos->getMinutoAminutoMod();
+        //$data['sidebar'] .= $this->partidos->partidosFecha();
+        $this->templates->_index($data);
+    }
+
+    public function minutoAminutoPartido(){
+        if ($this->uri->segment(3)!="" )
+            $id = $this->uri->segment(3);
+        else
+            $id = "1";
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $this->load->module('templates');
+        $this->load->module('contenido');
+        $this->load->module('estadios');
+        $this->load->module('galerias');
+        $this->load->module('jugadores');
+        $this->load->module('ranking');
+        $this->load->module('videos');
+        $this->load->module('contenido');
+        $data['pageTitle'] = "Minuto a minuto - Mundial Movistar";
+
+        $this->load->library('user_agent');
+        $mobiles=array('Apple iPhone','Android');
+        if ($this->agent->is_mobile()){
+
+            $data['cabecera']  = $this->contenido->menum();
+            //$data['content'] = $this->partidos->minutoAminuto();
+            $data['content'] = $this->partidos->getPartido($id);
+            $data['footer'] = '';
+            $data['sidebar'] = '';
+        }else{
+            $data['cabecera'] = $this->contenido->cabecera();
+            $data['cabecera'] .= $this->contenido->menu();
+            $data['footer'] = $this->contenido->footer();
+            $data['sidebar'] = $this->contenido->view_twitter();
+            $data['sidebar'] .= $this->contenido->banner_sidebar();
+            //$data['sidebar'] .= $this->partidos->partidosFecha();
+            //$data['sidebar'] .= $this->contenido->view_trivia();
+            $data['sidebar'] .= $this->jugadores->viewRankingGoleadores();
+            $data['sidebar'] .= $this->galerias->viewGaleriaHome();;
+
+            $data['content'] = $this->videos->viewVideosHeader();
+            //$data['content'] .= $this->partidos->minutoAminuto();
+            $data['content'] .= $this->partidos->getPartido($id);
+        }
+        $this->templates->_index($data);
+    }
+    public function minutoAminuto2()
     {
         $this->load->module('grupos');
         $this->load->module('partidos');
@@ -534,14 +657,22 @@ class Site extends MY_Controller
 
         $data['sidebar'] = $this->contenido->view_twitter();
         $data['sidebar'] .= $this->partidos->getMinutoAminutoMod();
-        $data['sidebar'] .= $this->partidos->partidosFecha();
+        //$data['sidebar'] .= $this->partidos->partidosFecha();
         $this->templates->_index($data);
     }
 
 
-    public function equipos()
-    {
-        $this->output->cache(60);
+    public function ajxminutoaminuto($id){
+    	$this->load->module('partidos');
+    	echo $this->partidos->ajxgetPartido($id);
+    }
+
+    public function ajxcomentario($id){
+    	$this->load->module('comentarios');
+    	echo $this->comentarios->ajxComentarios($id);
+    }
+
+    public function equipos(){
         $this->load->module('equipos');
         $this->load->module('templates');
         $data['pageTitle'] = "Equipos";
@@ -551,7 +682,7 @@ class Site extends MY_Controller
 
     public function estadios()
     {
-        $this->output->cache(300);
+        //$this->output->cache(300);
         $this->load->module('estadios');
         $this->load->module('templates');
         $data['pageTitle'] = "Estadios";

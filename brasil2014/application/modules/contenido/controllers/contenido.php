@@ -19,9 +19,30 @@ class Contenido extends MY_Controller
     {
         return $this->load->view('menu', $data, TRUE);
     }
+   /* function verificaDispositivo(){
+        $this->load->library('user_agent');
+        $mobiles=array( 'Android','Windows CE','Symbian S60' );
+        $movil="0";
+        if ($this->agent->is_mobile()){
+            $movil="1";
+            $m=$this->agent->mobile();
+            if($m == "Android" and preg_match('/\bAndroid\b.*\bMobile/i',$this->agent->agent) == 0)
+                $m = "Android Tablet";
+            switch($m){
 
+                case 'Android Tablet':
+                    $movil="0";
+                    break;
+                case in_array($m,$mobiles):
+                    $movil="0";
+                    break;
+            }
+        }
+        return $movil;
+    }*/
     public function menum($data = FALSE)
     {
+       // $data['moviles'] = verificaDispositivo();
         return $this->load->view('menum', $data, TRUE);
     }
 
@@ -106,7 +127,8 @@ class Contenido extends MY_Controller
     }
 
 
-    public function view_estadios($data = FALSE){
+    public function view_estadios($data = FALSE)
+    {
 
         $this->load->module('estadios');
         $this->load->module('galerias');
@@ -156,7 +178,8 @@ class Contenido extends MY_Controller
     {
         $limite_noticias = 10;
         $this->load->module('imagenes');
-        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", 'activo'=>'0'), "order_by" => "creado desc", "limit" => $limite_noticias));
+        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", "activo"=>'0'), "order_by" => "creado desc", "limit" => $limite_noticias));
+
         $datos = array();
         foreach ($noticias_home as $noticia) {
             $noticia->imagenes = $this->imagenes->get(array('select' => '*', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
@@ -171,17 +194,18 @@ class Contenido extends MY_Controller
     public function view_noticia_open($idNotica)
     {
 
-        $limite_noticias = 25;
+        $limite_noticias =25;
         $this->load->module('imagenes');
 
         $datos = array();
         if ($idNotica != '') {
-            $noticia = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", "id" => $idNotica, "activo"=>"0")), true);
+            $noticia = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", "id" => $idNotica  )), true);
             $noticia->imagenes = $this->imagenes->get(array('select' => '*', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
 
             array_push($datos, $noticia);
         }
-        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia", "activo"=>"0"), "order_by" => "creado desc", "limit" => $limite_noticias));
+        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia","activo"=>'0'), "order_by" => "creado desc", "limit" => $limite_noticias));
+
 
         foreach ($noticias_home as $noticia) {
             $noticia->imagenes = $this->imagenes->get(array('select' => 'id,ftp_visu,ftp_thumbnail,galerias_id', 'where' => array('galerias_id' => $noticia->galerias_id), "limit" => 1), true);
@@ -229,8 +253,7 @@ class Contenido extends MY_Controller
         $datosEquipo = $this->equipos_campeonato->get(array("select" => "*",   "from"=>"equipos_campeonato", "where" => array("id" => $idequipo )), false);
         $data = array("nombre_equipo" => $datosEquipo->name);
         $this->load->module('imagenes');
-
-        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia" , 'ident_pais'=>$datosEquipo->short_name), "order_by" => "creado desc", "limit" => $limite_noticias));
+        $noticias_home = $this->get(array("select" => "id,titulo,cuerpo,galerias_id, creado", "where" => array("type" => "noticia" ,"activo"=>'0', 'ident_pais'=>$datosEquipo->short_name), "order_by" => "creado desc", "limit" => $limite_noticias));
         //$last = $this->db->last_query();
         $datos = array();
         foreach ($noticias_home as $noticia) {
@@ -269,13 +292,14 @@ class Contenido extends MY_Controller
     function sync_historias()
     {
         echo "<pre>";
-        $this->data_model('httpdocs/afp/WC/xml/es/histo/index');
+        $this->data_model('WC/xml/es/histo/index');
         echo "</pre>";
     }
 
-    private function data_model($xml){
+    private function data_model($xml)
+    {
         // Cargo los modulso que necesito
-       $this->load->module('galerias');
+        $this->load->module('galerias');
         $this->load->module('imagenes');
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
@@ -347,7 +371,7 @@ class Contenido extends MY_Controller
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
         $data = ($this->xmlimporter->load($xml)) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
-
+       
         $data = $data->NewsItem->NewsComponent; //Limito mi objeto a los datos necesarios
         foreach ($data->NewsComponent as $node) {
             $tituloNoticia = trim((string)$node->NewsLines->HeadLine);
@@ -393,12 +417,7 @@ class Contenido extends MY_Controller
                 foreach ($data->NewsComponent as $component) {
 
                     if (isset($component->ContentItem->DataContent)) {
-                        $text="";
-                        foreach ($component->ContentItem->DataContent->p as $texto){
-                           $text=$text.$texto." ";
-                        }
-                        
-                        $this->mdl_contenido->save(array('cuerpo' => $text), $contenidoData->id, FALSE);
+                        $this->mdl_contenido->save(array('cuerpo' => implode(" ", (array)$component->ContentItem->DataContent->p)), $contenidoData->id, FALSE);
                     } else {
                         $fotos++;
                         $this->imagenes->_syncFotos($component, array(
@@ -412,39 +431,19 @@ class Contenido extends MY_Controller
                 }
             }
         }
-
-        $this->filtrar_noticias();
-}
-
-
-function filtrar_noticias()
-    {
-        $this->load->module('imagenes');
-        $noticias = $this->get(array('select' => '*', "where" => array("type" => "noticia")));
-        foreach ($noticias  as $noti ) {
-            if ($noti->cuerpo==" "){
-               $this->mdl_contenido->save(array('activo' => '1'), $noti->id, FALSE);
-            }
-
-            $imagenes = $this->imagenes->get(array('select' => '*', "where" => array("galerias_id" => $noti->galerias_id)));
-             if (empty($imagenes)){
-               $this->mdl_contenido->save(array('activo' => '1'), $noti->id, FALSE);
-            }
-        }
     }
+
 
 
     function sync_anecdotas()
     {
         $historias = $this->get(array('select' => 'id, titulo', "where" => array("type" => "historia")));
-       
         foreach ($historias as $histo ) {
-           $evolu=str_replace("ó","o", (string)$histo->titulo);
-            if ($evolu!="La evolucion"){
+            if ($histo->id!=1){
                 $idenHisto=explode("-", $histo->titulo);
                 $trimmed = rtrim($idenHisto[0]);
                 $idenHisto=explode("-", $histo->titulo);
-                $this->data_model_anecdotas('httpdocs/afp/WC/xml/es/histo/wc2014-histo-'.$trimmed.'-reperes-es.xml', $histo->id,  $trimmed);
+                $this->data_model_anecdotas('WC/xml/es/histo/wc2014-histo-'.$trimmed.'-reperes-es.xml', $histo->id,  $trimmed);
             }
         }
       
@@ -455,18 +454,15 @@ function filtrar_noticias()
         $this->load->module('galerias');
         $this->load->module('imagenes');
 
-
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
         $data = ($this->xmlimporter->load($xml)) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
-
-
         $nodoAnecdotas=$data->NewsItem->NewsComponent->NewsComponent->ContentItem->DataContent;
         $info="";
         foreach ($nodoAnecdotas->dl as $anec) {
             $tituloAnecdota=(string)$anec->dt;
             $detalleAnecdotas=(string)$anec->dd->block->p;
-            $infoAnecdota= "<h2>$tituloAnecdota</h2><p class='noticia-abierta'>$detalleAnecdotas</p>"; 
+            $infoAnecdota= "<h1>$tituloAnecdota</h1><p>$detalleAnecdotas<p>"; 
             $info=$info.$infoAnecdota;
          }
          $this->_update ( array('anecdotas'=>$info,), $idHistoria);

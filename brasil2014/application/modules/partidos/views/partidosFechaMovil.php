@@ -33,16 +33,16 @@ setlocale(LC_ALL, "es_ES");
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 margen0">
                         <a href="<?php echo base_url(); ?>site/calendario/<?php echo $fechas[0]->id; ?>#<?php echo ucfirst(strftime('%m-%d', strtotime($row->fecha))) ?>"
                            alt="<?php echo $row->nombre_local ?>"
-                           title="<?php echo $row->nombre_local . " vs" . $row->nombre_visitante ?>">
+                           title="<?php echo $row->nombre_local . " - " . $row->nombre_visitante ?>">
                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 margen0 cuerpo">
                                 <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 margen2">
                                     <span
                                         class="iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_local)) ?>"></span><?php echo $row->nombre_local ?>
 
                                 </div>
-                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen0 text-center ">
-                                        <span class="right"><?php //echo $row->golesLocal ."-".  $row->golesVisitante;
-                                            echo "vs"; ?></span>
+                                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-1 margen0 text-center ">
+                                        <span class="right"><?php  echo $row->golesLocal ."-".  $row->golesVisitante;
+                                             ?></span>
                                 </div>
                                 <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5   text-right margen0 ">
 

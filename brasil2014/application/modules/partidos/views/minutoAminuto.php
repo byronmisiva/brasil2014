@@ -184,44 +184,49 @@ setlocale(LC_ALL, "es_ES");
         <?php $in = '' ?>
         <div class="panel panel-default">
             <div class="panel-heading movi-headline-regular panel-minute">
-                <a data-toggle="collapse" data-parent="#accordion"
-                   href="<?php echo '#partido' . $partido->id ?>"
-                   name="<?php echo 'partido' . $partido->id ?>">
+                <a href="<?php echo base_url().'site/minutoAminutoPartido/'.$partido->id?>"  >
                     <div class="row minuto-header margen2">
                         <div class="col-md-9 col-xs-12">
                             <div class="row">
                                 <div class="col-md-5  col-xs-5">
                                     <div class="row">
                                         <div class="col-md-2 col-xs-4 text-right margen0">
-                                                    <span
-                                                        class="sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_local)) ?>"></span>
+                                           <span
+                                                class="sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_local)) ?>"></span>
                                         </div>
                                         <div class="col-md-10 col-xs-8 text-center margen0">
-                                                        <span
-                                                            class="margen5l"><a href="<?php echo base_url("site/equipo/".$partido->local. "/".strtolower($this->partidos->_clearStringGion($partido->nombre_local)) ) ?>"> <? echo $partido->nombre_local ?></a></span>
+                                            <span
+                                              class="margen5l"><a href="<?php echo base_url("site/equipo/".$partido->local. "/".strtolower($this->partidos->_clearStringGion($partido->nombre_local)) ) ?>"> <? echo $partido->nombre_local ?></a></span>
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="col-md-2  col-xs-2 text-center margen0">
-                                    <? //echo $partido->golesLocal . " - " .$partido->golesVisitante ?>
-                                    <? echo " vs "; //todo aumentar cuando el marcador cambia    ?>
+                                    <?  echo $partido->golesLocal . " - " .$partido->golesVisitante ?>
+                                    <?   //todo aumentar cuando el marcador cambia    ?>
                                 </div>
                                 <div class="col-md-5  col-xs-5">
                                     <div class="row">
                                         <div class="col-md-10 col-xs-8 text-center margen0">
                                             <span
-                                                class="left"><a href="<?php echo base_url("site/equipo/".$partido->visitante. "/".strtolower($this->partidos->_clearStringGion($partido->nombre_visitante)) ) ?>"> <? echo $partido->nombre_visitante ?></a> </span>
+                                             class="left"><a href="<?php echo base_url("site/equipo/".$partido->visitante. "/".strtolower($this->partidos->_clearStringGion($partido->nombre_visitante)) ) ?>"> <? echo $partido->nombre_visitante ?></a> </span>
                                         </div>
-                                        <div class="col-md-2 col-xs-4 text-left margen0"><span
-                                                class="right sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_visitante)) ?>"></span>
+                                        <div class="col-md-2 col-xs-4 text-left margen0">
+                                            <span
+                                            class="right sprite-bandera-<?php echo strtolower($this->partidos->_clearStringGion($partido->nombre_visitante)) ?>"></span>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-12  col-xs-12 ">
                                     <div class="col-md-12 col-xs-12 text-center minuto-horario">
-                                        <?php echo '<b>' . $partido->hora . '</b> - ' . $partido->estadio_nombre ?>
+                                        <div class="col-md-12 col-xs-6  margen0 text-center">
+                                            <?php echo '<b>' . $partido->hora . '</b> - ' . $partido->estadio_nombre ?>
+                                        </div>
+                                        <div class="col-md-12 col-xs-6 text-right margen0 solomovil">
+                                            <a href="<?php echo base_url(); ?>site/minutoAminutoPartido/<?php echo $partido->id; ?>">Minuto
+                                                a minuto</a>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -230,15 +235,18 @@ setlocale(LC_ALL, "es_ES");
                             <div class="row">
 
                                 <div class="col-md-12 col-xs-12 text-right">
-                                    <span class="iconos sprite-icono_video text-right"></span> Ver Video
+                                    <span class="iconos sprite-icono_video text-right"></span>
+                                    <a href="<?php echo $partido->url; ?>" >Ver Video</a>
                                 </div>
                                 <div class="col-md-12 col-xs-12 text-right">
-                                    <span class="iconos sprite-icono_minutoaminuto text-right"></span> Minuto a minuto
+                                    <span class="iconos sprite-icono_minutoaminuto text-right"></span>
+					 <a href="<?php echo base_url(); ?>site/minutoAminutoPartido/<?php echo $partido->id; ?>" >Minuto a minuto</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </a>
+                    </a>
+
             </div>
 
             <?php if ($partidoOpen === FALSE) { ?>
@@ -270,8 +278,8 @@ setlocale(LC_ALL, "es_ES");
                             <td class="col-md-6">
                                 <table class="table table-striped">
                                     <?php $title = 0;
-                                    $test = ($partido['alineacion_local']);
-                                    if (is_null($partido['alineacion_local'])) {
+
+                                    if (array_key_exists('alineacion_local', $partido)) {
                                     foreach ($partido['alineacion_local'] as $row) { ?>
                                         <?php if ($title == 11) { ?>
                                             <tr>
@@ -320,8 +328,9 @@ setlocale(LC_ALL, "es_ES");
                             </td>
                             <td class="col-md-6">
                                 <table class="table table-striped">
-                                    <?php $title = 0; ?>
-                                    <? foreach ($partido['alineacion_visitante'] as $row) { ?>
+                                    <?php $title = 0;
+                                      if (array_key_exists('alineacion_visitante', $partido)){
+                                    foreach ($partido['alineacion_visitante'] as $row) { ?>
                                         <?php if ($title == 11) { ?>
                                             <tr>
                                                 <td colspan="3">
@@ -362,15 +371,16 @@ setlocale(LC_ALL, "es_ES");
                                             </td>
                                         </tr>
                                         <?php $title = $title + 1; ?>
-                                    <?php } ?>
+                                    <?php }
+                                    }
+                                    ?>
                                 </table>
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
-
-
         </div>
+
     <?php } ?>
 </div>

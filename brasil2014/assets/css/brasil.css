@@ -30,13 +30,99 @@ body {
     background-color: #359ab4;
     background-size: 100% auto;
 }
+.videos-gal-menu {
+    height: 90px;
+overflow: hidden;
+margin-top: 25px;
+}
 
+.bloquea-video {
+
+    background-color: rgba(0, 0, 0, 0);
+
+    float: left;
+    height: 60px;
+    right: 14px;
+    position: absolute;
+    bottom: 0;
+    width: 42px;
+}
 
 
 .container {
     max-width: 995px;
 
 }
+.clata {
+    font-size: 18px;
+}
+.clatb {
+    font-size: 30px;
+    line-height: 30px;
+    margin: 50px 0 10px;
+}
+.clatc {
+    font-size: 18px;
+}
+
+.solomovil {
+    display: none;
+}
+/**********/
+.comentarios{
+	height: auto;
+    overflow: auto;
+    max-height: 340px;
+    margin-top: 20px;
+    padding-bottom:20px;
+    border-bottom: 1px solid #5a5c5e;
+}
+
+.tarjeta-amarilla{
+	width:15px;
+	height:15px;
+	background-image: url("../images/amarilla.png");
+	float: none;
+}
+
+.tarjeta-roja{
+	width:15px;
+	height:15px;
+	background-image: url("../images/roja.png");
+	float: none;
+}
+
+.entra{
+	width:15px;
+	height:15px;
+	background-image: url('../images/entra.png');
+}
+
+.sale{
+	width:15px;
+	height:15px;
+	background-image: url('../images/sale.png');
+}
+/*************/
+
+#claqueta {
+ background: url(../../imagenes/claketa.jpg) no-repeat top left;
+    margin: 0 15px;
+
+    position: absolute;
+    left: 0;
+    top:0 ;
+    z-index: 10;
+    height: 390px;
+    width: 100%;
+
+}
+
+
+#claqueta  .text-center {
+    /*display: none;*/
+}
+
 
 .header {
     background: url("../images/backgroun-header.png") repeat-x scroll 0 0;
@@ -56,6 +142,12 @@ a:hover,.a:visited  {
 .logo {
     margin: 30px 30px 0 0 ;
 }
+
+.letrablanca {
+    color: #ffffff;
+   
+}
+
 
 .slogan {
      margin: 0;
@@ -130,6 +222,8 @@ h2, h3 {
 .botonpantalla:hover {
     cursor: pointer;
 }
+
+
 
 .noticia-rotativa li {
     font-size: 12px;
@@ -513,16 +607,124 @@ div.iconos {
     height: 50px;
 
 }
+.tab-videos > .menu:hover{
+    background-color: #109cbf;
+
+}
+
+#video {
+    overflow: hidden;
+    height: 390px;
+}
 
 .tab-videos > .menu:first-child{
 
 }
 
+.llavesfondo {
+    background: url(../images/llaves.png) no-repeat top left;
+    height: 490px;
+
+}
+
+.textofases {
+    font-size: 10px;
+}
+
+.pos1a, .pos1b,.pos2a, .pos2b,.pos3a, .pos3b,.pos4a, .pos4b,.pos5a, .pos5b,.pos6a, .pos6b,.pos7a, .pos7b,.pos8a, .pos8b,
+.pos9a, .pos9b,.pos10a, .pos10b,.pos11a, .pos11b,.pos12a, .pos12b,.pos13a, .pos13b,.pos14a, .pos14b,.pos15a, .pos15b,.pos16a, .pos16b,
+.pos17a, .pos17b,.pos18a, .pos18b,.pos19a, .pos19b,.pos20a, .pos20b,.pos21a, .pos21b,.pos22a, .pos22b,.pos23a, .pos23b,.pos24a, .pos24b,
+.pos25a, .pos25b,.pos26a, .pos26b,.pos27a, .pos27b,.pos28a, .pos28b,.pos29a, .pos29b,.pos30a, .pos30b,.pos31a, .pos31b,.pos32a, .pos32b{
+    position: absolute;
+}
+
+.pos1a {left: 21px; top: 33px;}
+.pos1b { left: 22px; top: 50px;}
+.pos2a { left: 78px; top: 34px;}
+.pos2b { left: 81px; top: 50px;}
+
+.pos3a {left: 537px; top: 32px;}
+.pos3b { left: 537px; top: 50px;}
+.pos4a { left: 593px; top: 32px;}
+.pos4b { left: 594px; top: 51px;}
+
+.pos5a {left: 21px; top: 153px;}
+.pos5b { left: 22px; top: 171px;}
+.pos6a { left: 78px; top: 153px;}
+.pos6b { left: 81px; top: 171px;}
+
+.pos7a {left: 537px; top: 152px;}
+.pos7b { left: 540px; top: 170px;}
+.pos8a { left: 594px; top: 152px;}
+.pos8b { left: 594px; top: 170px;}
+
+.pos9a {left: 21px; top: 273px;}
+.pos9b { left: 22px; top: 290px;}
+.pos10a { left: 78px; top: 273px;}
+.pos10b { left: 81px; top: 290px;}
+
+.pos11a {left: 537px; top: 272px;}
+.pos11b { left: 537px; top: 289px;}
+.pos12a { left: 593px; top: 272px;}
+.pos12b { left: 594px; top: 290px;}
+
+.pos13a {left: 21px; top: 393px;}
+.pos13b { left: 22px; top: 410px;}
+.pos14a { left: 78px; top: 394px;}
+.pos14b { left: 81px; top: 411px;}
+
+.pos15a {left: 537px; top: 392px;}
+.pos15b { left: 540px; top: 409px;}
+.pos16a { left: 594px; top: 392px;}
+.pos16b { left: 594px; top: 410px;}
+
+.pos17a {left: 114px; top: 94px;}
+.pos17b { left: 115px; top: 110px;}
+.pos18a { left: 171px; top: 94px;}
+.pos18b { left: 173px; top: 110px;}
+
+.pos19a {left: 114px; top: 333px;}
+.pos19b { left: 114px; top: 349px;}
+.pos20a { left: 173px; top: 333px;}
+.pos20b { left: 174px; top: 350px;}
+
+.pos21a {left: 445px; top: 93px;}
+.pos21b { left: 447px; top: 109px;}
+.pos22a { left: 500px; top: 93px;}
+.pos22b { left: 503px; top: 110px;}
+
+.pos23a {left: 445px; top: 332px;}
+.pos23b { left: 446px; top: 349px;}
+.pos24a { left: 501px; top: 332px;}
+.pos24b { left: 501px; top: 350px;}
+
+.pos25a {left: 155px; top: 213px;}
+.pos25b { left: 157px; top: 230px;}
+.pos26a { left: 211px; top: 213px;}
+.pos26b { left: 214px; top: 230px;}
+
+.pos27a {left: 405px; top: 212px;}
+.pos27b { left: 405px; top: 230px;}
+.pos28a { left: 463px; top: 212px;}
+.pos28b { left: 464px; top: 230px;}
+
+.pos29a {left: 280px; top: 345px;}
+.pos29b { left: 282px; top: 364px;}
+.pos30a { left: 337px; top: 345px;}
+.pos30b { left: 340px; top: 364px;}
+
+.pos31a {left: 280px; top: 210px;}
+.pos31b { left: 276px; top: 239px;}
+.pos32a { left: 338px; top: 210px;}
+.pos32b { left: 333px; top: 240px;}
+
+
+
 .tab-videos a,.tab-videos a:hover, .tab-videos li.active > a , .tab-videos li.active > a:hover {
     color: #ffffff;
     border-color: transparent;
     font-family: 'movistarHeadline-Regular' ;
-    font-size: 16px;
+    /*font-size: 16px;*/
 }
 
 .tab-videos li a:hover, .tab-videos li.active > a, .tab-videos li.active > a:hover, .tab-videos li.active > a:focus {
@@ -796,6 +998,8 @@ hr {
 .cabecera-partidos {
     background: url("../images/fondo-banner-lateral.png") repeat-x;
 }
+
+
 
 .cabecera-partidos h2{
     color: #FFFFFF !important;
@@ -1077,7 +1281,7 @@ a, a:hover, a:focus{
 }
 
 .activemenu, .opcion-menu:hover, .opcion-menu:active    {
-     color: #006d98;
+     /*color: #006d98;*/
 }
 
 
@@ -1695,12 +1899,14 @@ iframe .ic-twitter-badge
         display: none;
         visibility: none;
     }
+    .solomovil {
+        display: block;
+        z-index: 100;
+    }
     .margen-vert {
         margin-top: 1px;
 
     }
-
-
 
 
 }

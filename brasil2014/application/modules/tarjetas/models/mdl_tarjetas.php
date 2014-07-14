@@ -20,7 +20,7 @@ class Mdl_tarjetas extends MY_Model{
 	function getTarjetasByPartidoAndEquipo( $partido, $equipo ){	
 		$query = array(
 				'select' => '*',
-				'where' => array( 'partidos_id' => $partido, 'equipos_campeonato_id' => $equipo ),
+				'where' => array( 'partidos_id' => $partido, 'equipos_id' => $equipo ),
 				'order_by' => 'minuto asc' );	
 		return $this->get( $query );
 	}

@@ -10,8 +10,10 @@ class Jugadores extends MY_Controller{
 	public function viewRankingGoleadores( $isAjax = false ){
 	//	$this->output->cache( 1000 );
 		$data['ajax'] = $isAjax;
-		$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles' => 0 ), 'order_by'=>'apellido ASC, nombre ASC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
-	    if( $isAjax ){	    	
+		//$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles' => 0 ), 'order_by'=>'apellido ASC, nombre ASC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
+	    $data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles != ' => 0 ), 'order_by'=>'n_goles DESC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
+
+	    if( $isAjax ){
 	    	//$data['name'] = print_r($_POST['data']['name']);
 	    	$this->load->view( 'view_ranking_goleadores', $data );
 	    }
@@ -22,7 +24,10 @@ class Jugadores extends MY_Controller{
 	
 	public function viewRankingGoleadoresFull( $isAjax = false ){
 		$data['ajax'] = $isAjax;
-		$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles' => 0 ), 'order_by'=>' apellido ASC, nombre ASC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
+		//$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles' => 0 ), 'order_by'=>' apellido ASC, nombre ASC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )) ));
+
+		$data['goleadores'] = $this->get( array('select'=>'*', 'where'=> array( 'n_goles != ' => 0 ), 'order_by'=>'n_goles DESC', 'joins'	=> array( 'equipos_campeonato' => array( 'jugadores.equipos_campeonato_id = equipos_campeonato.id' )),"limit"=>10 ));
+
 		if( $isAjax ){
 			//$data['name'] = print_r($_POST['data']['name']);
 			$this->load->view( 'view_ranking_goleadores', $data );
@@ -103,7 +108,9 @@ class Jugadores extends MY_Controller{
 			}else{
 				$apellidoJugador=(string)$node->c_PersonLastName;
 			}
-			
+
+
+			$detalle=$this->syncDatosJugador((string)$node->n_PersonID);
 			
 			$jugadores = array(
 					'nombre' => $nombreJugador,
@@ -111,6 +118,9 @@ class Jugadores extends MY_Controller{
 					'apodo' => (string)$node->c_PersonSort,
 					'nacimiento' => (string)$node->d_BirthDate,
 					'posicion' => (string)$node->c_Function,
+					'mini_foto' => "http://afp.infostradasports.com/images/lib/basic/Person/PP_NationalTeam/medium/".(string)$node->n_PersonID.".jpg",
+					'foto'=>"http://afp.infostradasports.com/images/lib/basic/Person/PP_NationalTeam/large/".(string)$node->n_PersonID.".jpg",
+					'detalles'=>$detalle,
 					'lugar_nacimiento' => (string)$node->c_PersonNatio,
 					'altura' => (string)$node->n_Height,
 					'peso' => (string)$node->n_Weight,
@@ -120,6 +130,9 @@ class Jugadores extends MY_Controller{
 					'n_camiseta' => (string)$node->n_ShirtNumber,
 					'n_asistencias' => '0'
 			);
+            //echo "<pre>";
+			//print_r($jugadores);
+			//echo "</pre>";
 			
 			
 			//Verifica si existe en la base o no
@@ -134,7 +147,56 @@ class Jugadores extends MY_Controller{
 		
 		
 	}
-	
+
+
+
+	function syncDatosJugador($afpIdJugador){
+
+		//$afpIdJugador='738579';
+	    $xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs/afp");
+		$numXml=count($xmlRankingDir);
+		$cont=0;
+		for($i=0;$i<$numXml;$i++){
+		    $mystring = $xmlRankingDir[$i];
+			$findme   = 'FootballPersonPassport_Person'.$afpIdJugador;
+			$pos = strpos($mystring, $findme);
+			// Nótese el uso de ===. Puesto que == simple no funcionará como se espera
+			// porque la posición de 'a' está en el 1° (primer) caracter.
+			if ($pos === false) {
+			    //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
+			} else {
+				if($cont==0)
+                {
+				$xmlRanking[$i]=$xmlRankingDir[$i];
+				$xml='httpdocs/afp/'.$xmlRanking[$i];
+					 
+				$pathXml = implode( "/", explode( "/",$xml , -1 ) ); //Extraigo el path para cuando envien el archivo sin path
+				$xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
+				$data = ( $this->xmlimporter->load($xml) ) ? $this->xmlimporter->parse() : FALSE; //Realizo el parseo del xml
+
+				$nombreOficial=(string)$data->PersonPassport->Header->c_OfficialName;
+				$nacionalidad=(string)$data->PersonPassport->Header->c_Natio;
+				$fechaNac=substr(str_replace('T', '', (string)$data->PersonPassport->Header->d_BirthDate),0,10);
+				$ciudadNac=(string)$data->PersonPassport->Header->c_BirthCity;
+				$altura=(string)$data->PersonPassport->Header->n_Height;
+				$peso=(string)$data->PersonPassport->Header->n_Weight;
+				$club=(string)$data->PersonPassport->Header->c_ClubTeam;
+				$ciudClub=(string)$data->PersonPassport->Header->c_ClubTeamNatio;
+				$posicion=(string)$data->PersonPassport->Header->c_ClubTeamFunction;
+
+				  $detalle='<h3>'.$posicion.'</h3>';
+			      $detalle.='<p> Su nombre oficial '.$nombreOficial.' de nacionalidad '.$nacionalidad.',  nació en '.$ciudadNac.', '.$fechaNac.'.</p>';
+			      $detalle.='<p>Juega en el club '.$club.' de la ciudad de '.$ciudClub.'.</p>';
+
+				  return $detalle;	
+			      //echo  $detalle;
+			   }
+			   $cont++;
+			      
+			}	
+		}	
+		
+	}
 	
 	
 	function syncGoledores(){
@@ -151,7 +213,7 @@ class Jugadores extends MY_Controller{
 			    //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
 			} else {
 				$xmlRanking[$i]=$xmlRankingDir[$i];
-				$this->data_model('httpdocs/afp/'.$xmlRanking[$i]);
+				$this->data_model_goleadores('httpdocs/afp/'.$xmlRanking[$i]);
 			   // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
 			    //echo " y existe en la posición $pos";
 			}	
@@ -208,7 +270,11 @@ class Jugadores extends MY_Controller{
 				if(!$idJugador){
 				$goleadores['id'] = $this->_insert( $goleadores );
 				}else{
-			     $goleadores['id'] =$this->_update ( array('n_goles'=>$goleadores['n_goles'], 'n_asistencias'=>$goleadores['n_asistencias']), $idJugador);
+
+                    $idgoles=$this->get( array( 'select' => 'n_goles', 'where' => array( 'afp_id' => (string)$node->n_PersonID)),true)->n_goles;
+                    if ($idgoles < $goleadores['n_goles']){
+			            $goleadores['id'] =$this->_update ( array('n_goles'=>$goleadores['n_goles'], 'n_asistencias'=>$goleadores['n_asistencias']), $idJugador);
+                    }
 				}
 			}
 			

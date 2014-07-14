@@ -40,9 +40,9 @@ class MY_Controller extends MX_Controller{
 
     function _clearfecha ($string) {
         $string = str_replace(
-            array("jun", "jul", "Saturday",  "Sunday",
+            array("Jun","Julio","jun", "jul", "Saturday",  "Sunday",
                 "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ),
-            array("Junio", "Julio", "Sábado",  "Domingo",
+            array("Junio", "Julio","Junio", "Julio", "Sábado",  "Domingo",
                 "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" ),
             $string
         );

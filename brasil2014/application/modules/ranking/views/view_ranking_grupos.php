@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<div class="col-md-12 boton-more-fondo">
+<!--<div class="col-md-12 boton-more-fondo">
     <a href="<?php echo base_url("site/grupos");  ?>" class="boton-more">Ver detalles ></a>
-</div>
+</div>-->
 <div class="clearfix"></div>

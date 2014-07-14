@@ -1,16 +1,14 @@
 //carga de twiter
 
-    !function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + "://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, "script", "twitter-wjs");
-
-
+!function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + "://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, "script", "twitter-wjs");
 
 
 //declaracion variables video
@@ -18,13 +16,13 @@ var streamId = "2000";
 var useHLS = false;
 var embedPath = "http://origin.elcanaldelfutbol.com/embed";
 var turnOnDVR = true;
-if(useHLS == true) {
+if (useHLS == true) {
     turnOnDVR = false;
 }
 
 
 $(function () {
-    if ($('#foo2').length>0){
+    if ($('#foo2').length > 0) {
         $('#foo2').carouFredSel({
             auto: false,
             prev: '#prev2',
@@ -37,7 +35,7 @@ $(function () {
         });
     }
 
-    if ($('#foo4').length>0){
+    if ($('#foo4').length > 0) {
         $('#foo4').carouFredSel({
             auto: false,
             prev: '#prev4',
@@ -50,7 +48,7 @@ $(function () {
         });
     }
 
-    if ($('#foo5').length>0){
+    if ($('#foo5').length > 0) {
         $('#foo5').carouFredSel({
             auto: false,
             prev: '#prev5',
@@ -62,7 +60,7 @@ $(function () {
             }, items: 6
         });
     }
-    if ($('#foo6').length>0){
+    if ($('#foo6').length > 0) {
         $('#foo6').carouFredSel({
             auto: false,
             prev: '#prev6',
@@ -75,31 +73,32 @@ $(function () {
         });
     }
 
+
     //muestra el player en el caso que se tenga vieo
-    if ($("#player").length>0){
-        $.getScript(embedPath +"/embed.js");
+    if ($("#player").length > 0) {
+        $.getScript(embedPath + "/embed.js");
         $("video_wrapper").width('633');
         $("video_wrapper").height('390');
     }
-    if ($('#foo-noticai-rotativa').length>0){
-    $('#foo-noticai-rotativa').carouFredSel({
-        auto: false,
-        prev: '#prev3',
-        next: '#next3',
-        mousewheel: true,
-        swipe: {
-            onMouse: true,
-            onTouch: true
-        },
-        items: 1,
-        auto: {
-            pauseOnHover: 'resume'
-        },
-        scroll: {
-            fx: "fade",
-            event: "click"
-        }
-    });
+    if ($('#foo-noticai-rotativa').length > 0) {
+        $('#foo-noticai-rotativa').carouFredSel({
+            auto: false,
+            prev: '#prev3',
+            next: '#next3',
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            },
+            items: 1,
+            auto: {
+                pauseOnHover: 'resume'
+            },
+            scroll: {
+                fx: "fade",
+                event: "click"
+            }
+        });
     }
 
     $(".minigaleria").colorbox({rel: '.minigaleria' });
@@ -107,22 +106,39 @@ $(function () {
 
     $(".thvideo").colorbox({rel: '.thgaleria', iframe: true, innerWidth: 640, innerHeight: 390});
 
+
     $('#header-tabs a').click(function (e) {
         $('.list_carousel_header').hide();
         $($(this).attr("href") + '-carrousel').show();
     })
+    if ($("#claqueta").length > 0) {
+        $('#claqueta').click(function (e) {
+            $('#claqueta').hide();
+            ga('send', 'event', 'claqueta', 'click', 'nav-buttons');
 
+        })
+    }
+    if ($(".pantallacompleta").length > 0) {
+        $('.pantallacompleta').click(function (e) {
+            ga('send', 'event', 'pantallacompleta', 'click', 'nav-buttons');
+
+        })
+    }
+
+    if ($(".videomovil").length > 0) {
+        $('.videomovil').click(function (e) {
+            ga('send', 'event', 'videomovil', 'click', 'nav-buttons');
+
+        })
+    }
     //se inicializan el carrousel para solo mostrar el primero
     $('.list_carousel_header').hide();
     $('.list_carousel_header:first').show();
 
     //
-    $('.carousel').carousel({interval:false});
+    $('.carousel').carousel({interval: false});
 
     Brasil2014(baseUrl);
-
-
-
 
 
 })
@@ -178,45 +194,24 @@ var Brasil2014 = (function (baseUrl) {
 
 //quitar pajarito
 
-jQuery(function($) {
+jQuery(function ($) {
 //Colocamos el contenido de nuestro iframe en el div content
-    $('#iframe').load(function() {
+    $('#iframe').load(function () {
         $('#content').text($('#iframe').contents().find('html').html());
         $(this).contents().find('.ic-twitter-badge').css({'display': 'none'});
     });
 
 
-    $(".botonpantalla").click(function(){
-
-        //openWindow("Abrir", "http://www4.movistar.com.ec/FIFAWorldCup/fs/")
-
-
+    $(".menu-partidos").click(function () {
+        $("#partidos-carrousel").show();
+        $("#goles-carrousel").hide();
+        //  $(".especiales-carrousel").hide();
     })
+    $(".menu-goles").click(function () {
+        $("#partidos-carrousel").hide();
+        $("#goles-carrousel").show();
+
+//        $(".especiales-carrousel").hide();
+    })
+
 });
-
-
-function openWindow(name, url) {
-
-    var height = screen.availHeight-30;
-
-    var width = 1024;
-//    if (width > 1024)  {width = 1024}
-    var left =(screen.availWidth - width) /2;
-    var top = 0;
-
-    settings = 'fullscreen=no,resizable=no,location=no,toolbar=no,menubar=no';
-    settings = settings + ',status=no,directories=no,scrollbars=yes';
-    settings = settings + ',width=' + width +',height=' + height;
-    settings = settings + ',top=' + top +',left=' + left;
-    settings = settings + ',charset=iso-8859-1';
-    var win = window.open(url, '', settings);
-
-    win.outerHeight = height;
-    win.outerWidth = width;
-
-    win.resizeTo(outerWidth, outerHeight);
-
-    if (!win.focus)
-        win.focus();
-    return win;
-}

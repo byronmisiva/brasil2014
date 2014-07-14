@@ -3,8 +3,6 @@
         <div class="row">
             <!--Calendarios y Grupos-->
             <div class="col-md-12">
-
-
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs movi-headline-regular tab-calendario">
                     <li class="active"><a href="#calendario" data-toggle="tab">

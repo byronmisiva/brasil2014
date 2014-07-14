@@ -28,7 +28,7 @@
 <!--                    <li><a href="--><?php //echo base_url(); ?><!--site/galerias">Galería</a></li>-->
 <!--                    <li><a href="--><?php //echo base_url(); ?><!--site/estadios">Estadios</a></li>-->
                     <li><a href="<?php echo base_url(); ?>site/historias">Historia de los mundiales</a></li>
-<!--                    <li><a href="--><?php //echo base_url(); ?><!--site/videos">Vídeos</a></li>-->
+                    <li><a href="<?php echo base_url(); ?>site/videos">Vídeos</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

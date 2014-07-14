@@ -19,19 +19,18 @@ class Alineaciones extends MY_Controller{
 		else{
 			$this->mdl_alineaciones->save( $data, $aux->id );
 		}
+	}
+	
+	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){		
+		return $this->mdl_alineaciones->getAlineacionByPartidoAndEquipo( $partido, $equipo );	
 	}*/
 	
-	function getAlineacionByPartidoAndEquipo( $partido, $equipo ){
-        $result = $this->mdl_alineaciones->getAlineacionByPartidoAndEquipo( $partido, $equipo );
-        return $result;
-	}
-
 	function sync(){
 		//echo "<pre>";
 		//$this->importData('WP2010/FootballMatchDetailBasic_Comp8_MatchID1496762_ID56662461_es.xml');
 		//echo "</pre>";
 		
-		$xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."httpdocs/afp");
+		$xmlRankingDir=scandir(AFP_HARD_ROOT_FILE."WP2010");
 		$numXml=count($xmlRankingDir);
 		for($i=0;$i<$numXml;$i++){
 			$mystring = $xmlRankingDir[$i];
@@ -43,7 +42,7 @@ class Alineaciones extends MY_Controller{
 				//echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
 			} else {
 				$xmlRanking[$i]=$xmlRankingDir[$i];
-				$this->importData('httpdocs/afp/'.$xmlRanking[$i]);
+				$this->importData('WP2010/'.$xmlRanking[$i]);
 				// echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
 				//echo " y existe en la posición $pos";
 			}

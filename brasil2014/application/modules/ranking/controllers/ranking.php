@@ -104,7 +104,7 @@ class Ranking extends MY_Controller
                 'select' => 'ranking.id,n_puntos,n_puntos_contra,n_partidos,n_partidos_ganados,
 					n_partidos_empatados,n_partidos_perdidos,n_goles,n_goles_contra,name,short_name, equipos_campeonato_id',
                 'joins' => array('equipos_campeonato' => 'ranking.equipos_campeonato_id=equipos_campeonato.id'),
-                'where' => array('grupo_id' => $grupo->id)));
+                'where' => array('grupo_id' => $grupo->id),'order_by'=>"n_puntos desc"));
             array_push($tablas, $grupo);
         }
         $data['nombreFase'] = $fases->nombre;
@@ -112,10 +112,35 @@ class Ranking extends MY_Controller
         return $this->load->view('view_ranking_grupos', $data, true);
     }
 
+    public function viewRankingLlaves()
+    {
+        $this->load->module('fases');
+        $this->load->module('grupos');
+        $this->load->module('partidos');
+        $fases = $this->fases->get(array('select' => '*', 'where' => array('active' => '1')), TRUE);
+        $grupos = $this->grupos->get(array('select' => 'id,nombre', 'where' => array('fases_id' => $fases->id)));
+        $tablas = array();
+        foreach ($grupos as $grupo) {
+            $grupo->tabla = $this->get(array(
+                'select' => 'ranking.id,n_puntos,n_puntos_contra,n_partidos,n_partidos_ganados,
+					n_partidos_empatados,n_partidos_perdidos,n_goles,n_goles_contra,name,short_name, equipos_campeonato_id',
+                'joins' => array('equipos_campeonato' => 'ranking.equipos_campeonato_id=equipos_campeonato.id'),
+                'where' => array('grupo_id' => $grupo->id),'order_by'=>"ranking.afp_id"));
+            array_push($tablas, $grupo);
+        }
+         $data['ranking'] = $tablas;
+
+        $partidos = $this->mdl_partidos->getAllByTodaySegundaFase();
+
+        $data['partidos'] = $partidos;
+
+        return $this->load->view('view_ranking_llaves', $data, true);
+    }
+
 
     function sync()
     {
-        $xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "httpdocs/afp");
+        $xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "WP2010");
         $numXml = count($xmlRankingDir);
         for ($i = 0; $i < $numXml; $i++) {
             $mystring = $xmlRankingDir[$i];
@@ -127,7 +152,7 @@ class Ranking extends MY_Controller
                 //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
             } else {
                 $xmlRanking[$i] = $xmlRankingDir[$i];
-                $this->data_model('httpdocs/afp/' . $xmlRanking[$i]);
+                $this->data_model('WP2010/' . $xmlRanking[$i]);
                 // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
                 //echo " y existe en la posición $pos";
             }
@@ -138,7 +163,6 @@ class Ranking extends MY_Controller
     {
         $this->load->module('equipos_campeonato');
         $this->load->module('fases');
-         $this->load->module('grupos');
         // Cargo los modulso que necesito
         $pathXml = implode("/", explode("/", $xml, -1)); //Extraigo el path para cuando envien el archivo sin path
         $xml = AFP_XML . $xml; //Inicializo de que seccion y que xml voy a sacar los datos
@@ -184,7 +208,6 @@ class Ranking extends MY_Controller
                 'afp_id' => $node->c_Rank,
                 'grupo_id' => $this->grupos->get(array('select' => 'id', 'where' => array('afp_id' => (string)$id_grupo)), TRUE)->id
             );
-
             //Verifica si existe en la base o no
             if (!$this->mdl_ranking->get_by(array('fases_id' => $ranking['fases_id'], 'nombre_grupo' => $ranking['nombre_grupo'], 'equipos_campeonato_id' => $ranking['equipos_campeonato_id']))) {
                 $ranking['id'] = $this->mdl_ranking->save($ranking, NULL, FALSE);

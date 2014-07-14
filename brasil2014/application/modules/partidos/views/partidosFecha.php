@@ -24,24 +24,28 @@ setlocale(LC_ALL, "es_ES");
                         $fecha = $row->fecha;
                         if ($fecha != $fechaTemp) {
                             $numero++;
-                            echo '<div class="col-md-12 conten-partidos"><b>Día ' . $numero . ' - ' .  $row->fechatexto  . '</b></div>';
+                            echo '<div class="col-md-12 conten-partidos"><b>'  . $row->fechatexto . '</b></div>';
                             $fechaTemp = $fecha;
                         }
                         ?>
                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                            <a href="<?php echo base_url();?>site/calendario/<?php echo $fechas[0]->id; ?>#<?php echo ucfirst(strftime('%m-%d', strtotime($row->fecha))) ?>"
-                               alt="<?php echo $row->nombre_local ?>" title="<?php echo $row->nombre_local . " vs" . $row->nombre_visitante ?>">
-                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 cuerpo">
-
-
+                            <a href="<?php echo base_url(); ?>site/minutoAminutoPartido/<?php echo $row->id; ?>#<?php echo ucfirst(strftime('%m-%d', strtotime($row->fecha))) ?>"
+                               alt="<?php echo $row->nombre_local ?>"
+                               title="<?php echo $row->nombre_local . " vs" . $row->nombre_visitante ?>">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 cuerpo margen2">
                                     <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 margen2 text-center">
 
-                                <span  class="left iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_local)) ?>"></span><?php echo $row->nombre_local ?>
+                                        <span
+                                            class="pull-left left iconos sprite-<?php echo strtolower($this->partidos->_clearStringGion($row->nombre_local)) ?>"></span><?php echo $row->nombre_local ?>
 
-                                        </div>
-                                    <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 margen2 text-center ">
-                                        <span class="right"><?php //echo $row->golesLocal ."-".  $row->golesVisitante;
-                                            echo "vs"; ?></span>
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 margen0 text-center ">
+                                        <span class="right"><?php   if (strtotime($row->fechaComplete) > time()) {
+                                                echo "vs";
+                                            } else {
+                                                echo $row->resultado;
+                                            }
+                                            ?></span>
                                     </div>
                                     <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 margen2 text-center pull-right">
                                 <span
@@ -50,14 +54,13 @@ setlocale(LC_ALL, "es_ES");
                                     </div>
 
 
-
-                            </div>
+                                </div>
                             </a>
                         </div>
 
                         <div class="col-md-12 conten-partidos">
                             <?php echo '<b>' . $row->hora . '</b> - ' . $row->estadio_nombre ?>
-                             <hr>
+                            <hr>
                         </div>
                         <div class="clearfix"></div>
                     <?php
@@ -69,7 +72,7 @@ setlocale(LC_ALL, "es_ES");
         <!-- Fin partido del Día-->
     </div>
     <div class="col-md-12 boton-more-fondo">
-        <a href="<?php echo base_url();?>site/calendario" class="boton-more">Calendario completo ></a>
+        <a href="<?php echo base_url(); ?>site/calendario" class="boton-more">Calendario completo ></a>
     </div>
 </div>
 <!-- Listado de partidos del Día-->

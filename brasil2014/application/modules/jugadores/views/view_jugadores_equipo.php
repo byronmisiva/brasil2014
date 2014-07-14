@@ -1,7 +1,7 @@
 <div class="col-md-12 margen0">
     <h2>
         <div class="iconos sprite-icono_jugador"></div>
-        Plantilla Jugadores <?php echo $nombre_equipo; ?>
+        Plantilla Jugadores  
     </h2>
     <hr class= "cabecera">
 

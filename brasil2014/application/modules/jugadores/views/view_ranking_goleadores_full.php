@@ -3,7 +3,7 @@
     <div class="row main-goleadores">
         <!-- Goleador Principal  -->
         <div class="col-md-12">
-            <div class="col-md-2 col-xs-2 "><?php echo (string)$goleadores[0]->mini_foto ?></div>
+            <div class="col-md-2 col-xs-2 "><img src="<?php echo (string)$goleadores[0]->foto ?>"></div>
             <div  class="col-md-10 col-xs-10 ">
                 <div  class="col-md-12  ">
                     <div class="col-md-3 col-xs-6 center-block">
@@ -24,7 +24,7 @@
         <div class="separador  col-md-12"></div>
         <?php
         for ($i = 1; $i < count($goleadores); $i++) {
-            if((string)$goleadores[$i]->nombre!=""){            ?>
+            //if((string)$goleadores[$i]->nombre!=""){            ?>
             <div class="col-md-12 gol-cuerpo margen0">
 
                 <div
@@ -35,7 +35,7 @@
                 <div class="col-md-2 col-xs-2  margen0 text-center gris"><?php echo (string)$goleadores[$i]->n_goles; ?></div>
             </div>
         <?php
-           }
+           //}
         } ?>
     </div>
 

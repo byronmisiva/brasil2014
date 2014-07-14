@@ -39,6 +39,9 @@
                     <?php if (isset($equipo)) echo $equipo->n_partidos_ganados; ?>
                 </div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">
+                    <?php if (isset($equipo)) echo $equipo->n_partidos_empatados; ?>
+                </div>
+                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">
                     <?php if (isset($equipo)) echo $equipo->n_partidos_perdidos; ?>
                 </div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">
@@ -46,9 +49,6 @@
                 </div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">
                     <?php if (isset($equipo)) echo $equipo->n_goles_contra; ?>
-                </div>
-                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0">
-                    <?php if (isset($equipo)) echo $equipo->n_puntos_contra; ?>
                 </div>
                 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center margen0 ">
                     <?php if (isset($equipo)) echo $equipo->n_puntos; ?>

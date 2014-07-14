@@ -25,10 +25,24 @@ class Galerias extends MY_Controller{
         $this->load->module( 'galerias' );
         $this->load->module( 'imagenes' );
         
+
+
+
+
+        
         $galeria= $this->galerias->get( array('select'=>'*', 'where'=>array( 'nombre' => 'Galeria - '.$foldername )),TRUE);
         //$last = $this->db->last_query();
-        $imagenes= $this->imagenes->get( array('select'=>'*', 'where'=>array('galerias_id'=>$galeria->id), 'limit'=>"9"));
-        //$last2 = $this->db->last_query();
+        if (count ($galeria)> 0){
+            $imagenes= $this->imagenes->get( array('select'=>'*', 'where'=>array('galerias_id'=>$galeria->id), 'limit'=>"9"));
+        } else {
+
+
+
+            $galeria= $this->galerias->get( array('select'=>'*', 'where'=>array( 'nombre like ' => 'Galeri%' ), 'orderby'=>'nombre desc', 'limit'=>'1'),TRUE);
+            $last2 = $this->db->last_query();
+            $imagenes= $this->imagenes->get( array('select'=>'*', 'where'=>array('galerias_id'=>$galeria->id), 'limit'=>"9"));
+        }   
+        $last2 = $this->db->last_query();
 
         $data['galeria']=(array)$galeria;
         $data['imagenes']=(array)$imagenes;

@@ -16,8 +16,7 @@ class Imagenes extends MY_Controller{
 	
 	function _syncFotos( $node = "", $imageDetails = array( 'origen' => '', 'destino' => '', 'galerias_id' => '', 'titulo' => '', 'modulo' => '', 'equipo_id' => '' ) ){		
 		//Chequeo que la imagen no exista		
-		//Recorro todos los componentes de la imagen
-
+		//Recorro todos los componentes de la imagen	
 		if( !$this->_check_exist( array( 'nombre' => $imageDetails['titulo'] ) ) ){
 			$imagen = array( 'descripcion' => '', 'main' => '', 'ftp_main' => '', 'thumb250' => '', 'ftp_thumbnail' => '', 'visu' => '', 'ftp_visu' => '' );
 			foreach($node->NewsComponent as $aux){				
@@ -30,7 +29,7 @@ class Imagenes extends MY_Controller{
 						$imagen['descripcion'] = utf8_encode(utf8_decode((string) $aux->ContentItem->DataContent->p));			
 					break;							
 					case "Main":					
-						$this->_createFolder( $imageDetails['destino'] );				
+						$this->_createFolder( $imageDetails['destino'] );			
 						if( $this->_copyFileFromUrl( $imageDetails['origen'].$imageUrl, $imageDetails['destino'].$imagenName ) ){ //Extraigo la imagen del ftp y la copio en el server
 							$imagen['main'] = base_url($this->_clearString( str_replace( " ", "-",$imageDetails['destino'].$imagenName ) ));
 							$imagen['ftp_main'] = AFP_XML.$imageDetails['origen'].(string) $aux->ContentItem->attributes();
@@ -56,8 +55,6 @@ class Imagenes extends MY_Controller{
 					break;
 				}				
 			}
-
-
 			//Inserto los datos de las imagenes
 			$imagen['galerias_id'] = $imageDetails['galerias_id'];			
 			$imagen['nombre'] = ( $imageDetails['titulo'] != "" ) ? $imageDetails['titulo'] : $imagenName;
@@ -108,7 +105,6 @@ class Imagenes extends MY_Controller{
 	}
 	
 	function _resize_image( $imagenName, $path, $new_path, $width){	
-
 		$this->_createFolder( $new_path );
 		$this->image_lib->clear();
 		$config['image_library'] = 'gd2';
@@ -132,9 +128,8 @@ class Imagenes extends MY_Controller{
 	}
 	
 	
-	function _createFolder( $folderPath ){	
-
-		$folderPath = $this->_clearString( str_replace( " ", "-", $folderPath ) );	
+	function _createFolder( $folderPath ){		
+		$folderPath = $this->_clearString( str_replace( " ", "-", $folderPath ) );				
 		if( !file_exists( SITE_HARD_ROOT_FILE.$folderPath) ){
 			return mkdir( SITE_HARD_ROOT_FILE.$folderPath, 0777 );
 		}
@@ -192,12 +187,11 @@ class Imagenes extends MY_Controller{
 	}
 	
 	function _copyFileFromUrl( $sourcePath, $destPath ){
-
 		$sourcePath = str_replace( " ", "-", $this->_clearString( $sourcePath ) );
 		$destPath = str_replace( " ", "-", $this->_clearString(  $destPath ) );
 		$photo = @file_get_contents(AFP_XML.$sourcePath);
 		if( $photo != false ){			
-			return file_put_contents( $destPath, $photo);
+			return file_put_contents( $destPath, $photo );
 		}	
 	}
 	

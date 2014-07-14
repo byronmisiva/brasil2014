@@ -11,33 +11,37 @@ class Partidos extends MY_Controller
     }
 
     // Lista todos los Partidos por fecha
-    function partidosFecha()
-    {
+    function partidosFecha(){
         //$this->output->cache( 5 );
         $data['fechas'] = $this->mdl_partidos->getAllByFecha();
         return $this->load->view('partidosFecha', $data, TRUE);
     }
-    function partidosFechaMovil()
-    {
+    function partidosFechaMovil(){
         //$this->output->cache( 5 );
         $data['fechas'] = $this->mdl_partidos->getAllByFecha();
         return $this->load->view('partidosFechaMovil', $data, TRUE);
+    }
+    function partidosFinal(){
+        //$this->output->cache( 5 );
+        $data['fechas'] = $this->mdl_partidos->getAllByFecha();
+        return $this->load->view('partidosFinal', $data, TRUE);
     }
 
       function viewProximoPartido($isAjax = false)
     {
         $data['ajax'] = $isAjax;
-        $data['partidos'] = $this->mdl_partidos->getProximoPartido();
+        //$data['partidos'] = $this->mdl_partidos->getProximoPartido();
 
-        if( $isAjax ){         
+        if( $isAjax ){
             //$data['name'] = print_r($_POST['data']['name']);
              $this->load->view('proximoPartido', $data, FALSE);
         }
         else{
             return $this->load->view( 'proximoPartido', $data, TRUE );
+            return '';
         }
 
-       
+
     }
 
 
@@ -148,31 +152,30 @@ class Partidos extends MY_Controller
         $this->load->module('goles');
         $this->load->module('cambios');
         $this->load->module('tarjetas');
-        $this->load->module('equipos_campeonato');
+        $this->load->module('equipos');
         $this->load->module('cambios');
         $partidos = $this->mdl_partidos->getAllByToday();
-        $partidos = ($partidos) ? $partidos : $this->mdl_partidos->getLastGames(5);
+//        $partidos = ($partidos) ? $partidos : $this->mdl_partidos->getLastGames(5);
         $data = array();
-   
+        /*
         foreach ($partidos as $partido) {
-
-            $alineacion_local = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->local);
-            $alineacion_visitante = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->visitante);
+            $alineacion_local = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->local->id);
+            $alineacion_visitante = $this->alineaciones->getAlineacionByPartidoAndEquipo($partido->id, $partido->visitante->id);
             $eventos = array();
-            $cambios_local = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->local);
+            $cambios_local = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->local->id);
             foreach ($cambios_local as $row) { // Agrego los eventos (Cambios) a la alineacion al equipo Local
                 $ayuda = 1000 - $row->minuto;
                 $alineacion_local[$row->entra_id]->eventos[$ayuda . 'a'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_sale, 'tipo' => 1);
                 $alineacion_local[$row->sale_id]->eventos[$ayuda . 'a'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_entra, 'tipo' => 2);
             }
             $eventos = array_merge($eventos, $cambios_local);
-            $cambios_visitante = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->visitante);
+            $cambios_visitante = $this->cambios->getCambiosByPartidoAndEquipo($partido->id, $partido->visitante->id);
             foreach ($cambios_visitante as $row) { // Agrego los eventos (Cambios) a la alineacion al equipo Visitante
                 $alineacion_visitante[$row->entra_id]->eventos[$row->minuto . 'c'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_sale, 'tipo' => 1);
                 $alineacion_visitante[$row->sale_id]->eventos[$row->minuto . 'c'] = array('accion' => 1, 'minuto' => $row->minuto, 'corto' => $row->corto_entra, 'tipo' => 2);
             }
             $eventos = array_merge($eventos, $cambios_visitante);
-            $goles_local = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->local);
+            $goles_local = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->local->id);
             foreach ($goles_local as $row) {
                 if ($row->tipo == 0) {
                     $ayuda = 1000 - $row->minuto;
@@ -183,7 +186,7 @@ class Partidos extends MY_Controller
                 }
             }
             $eventos = array_merge($eventos, $goles_local);
-            $goles_visitante = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->visitante);
+            $goles_visitante = $this->goles->getGolesByPartidoAndEquipo($partido->id, $partido->visitante->id);
             foreach ($goles_visitante as $row) {
                 if ($row->tipo == 0) {
                     $alineacion_visitante[$row->jugadores_id]->eventos[$row->minuto . 'a'] = array('accion' => 2, 'minuto' => $row->minuto, 'tipo' => $row->tipo, 'fallado' => $row->fallado);
@@ -194,13 +197,13 @@ class Partidos extends MY_Controller
                 }
             }
             $eventos = array_merge($eventos, $goles_visitante);
-            $tarjetas_local = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->local);
+            $tarjetas_local = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->local->id);
             foreach ($tarjetas_local as $row) {
                 $ayuda = 1000 - $row->minuto;
                 $alineacion_local[$row->jugadores_id]->eventos[$ayuda . 'b'] = array('accion' => 3, 'minuto' => $row->minuto, 'tipo' => $row->tipo);
             }
             $eventos = array_merge($eventos, $tarjetas_local);
-            $tarjetas_visitante = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->visitante);
+            $tarjetas_visitante = $this->tarjetas->getTarjetasByPartidoAndEquipo($partido->id, $partido->visitante->id);
             foreach ($tarjetas_visitante as $row) {
                 $alineacion_visitante[$row->jugadores_id]->eventos[$row->minuto . 'b'] = array('accion' => 3, 'minuto' => $row->minuto, 'tipo' => $row->tipo);
             }
@@ -213,8 +216,22 @@ class Partidos extends MY_Controller
             $gameDetails = array('alineacion_local' => $alineacion_local, 'alineacion_visitante' => $alineacion_visitante, 'partidoResumen' => $partido, 'eventos' => $eventos);
             array_push($data, $gameDetails);
         }
+        */
         //return $this->load->view('minutoAminuto', array('partidos' => $data, 'partidoOpen' => ($id) ? $id : FALSE), TRUE);
-        $this->load->view('minutoAminuto', array('partidos' => $partidos, 'partidoOpen' => ($id) ? $id : FALSE), FALSE);
+        return $this->load->view('minutoAminuto', array('partidos' => $partidos, 'partidoOpen' => ($id) ? $id : FALSE), TRUE);
+    }
+   function segundafase($id = FALSE)
+    {
+        $this->load->module('partidos');
+        $this->load->module('alineaciones');
+        $this->load->module('goles');
+        $this->load->module('cambios');
+        $this->load->module('tarjetas');
+        $this->load->module('equipos');
+        $this->load->module('cambios');
+        $partidos = $this->mdl_partidos->getAllByTodaySegundaFase();
+
+        return $this->load->view('segundafase', array('partidos' => $partidos, 'partidoOpen' => ($id) ? $id : FALSE), TRUE);
     }
 
    /* function sync()
@@ -570,34 +587,66 @@ class Partidos extends MY_Controller
         return $mkfecha;
     }
     
+	function getPartido($id){    	
+    	$this->load->module('alineaciones');
+    	$this->load->module('goles');
+    	$this->load->module('tarjetas');
+    	$this->load->module('comentarios');
+    	$this->load->module('cambios');
+    	$data['registro']=$this->get(array("select"=>"*","where"=>array("id"=>$id)),TRUE);
+    	  	$data['alineacion_local']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local,"posicion !="=>"Reserva","posicion !="=>"Entrenador")));
+    	$data['reserva_local']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local,"posicion "=>"Reserva")));
+    	$data['entrenador_local']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local,"posicion "=>"Entrenador")));
+    	
+    	$data['alineacion_visitante']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante,"posicion !="=>"Reserva","posicion !="=>"Entrenador")));
+    	$data['reserva_visitante']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante,"posicion "=>"Reserva")));
+    	$data['entrenador_visitante']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante,"posicion "=>"Entrenador")));
+    	$data['goles_local']=$this->goles->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local)));
+    	$data['goles_visitante']=$this->goles->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante)));
+    	$data['cambios_local']=$this->cambios->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local)));
+    	$data['cambios_visitante']=$this->cambios->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante)));
+    	
+    	$data['tarjetas_local']=$this->tarjetas->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local)));
+    	$data['tarjetas_visitante']=$this->tarjetas->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante)));
+    	$data['comentarios']=$this->comentarios->get(array("select"=>"DISTINCT orden, tiempo, comentario","where"=>array("partidos_id"=>$id,),'order_by'=>'orden DESC'));    	
+    	return $this->load->view('resultados_partidos',$data, TRUE);    	
+    }
+    
+	function ajxgetPartido($id){
+    	$this->load->module('alineaciones');
+    	$this->load->module('goles');
+    	$this->load->module('tarjetas');
+    	$this->load->module('cambios');
+    	$data['registro']=$this->get(array("select"=>"*","where"=>array("id"=>$id)),TRUE);
+    	  	$data['alineacion_local']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local,"posicion !="=>"Reserva","posicion !="=>"Entrenador")));
+    	$data['reserva_local']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local,"posicion "=>"Reserva")));
+    	$data['entrenador_local']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local,"posicion "=>"Entrenador")));
+    	
+    	$data['alineacion_visitante']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante,"posicion !="=>"Reserva","posicion !="=>"Entrenador")));
+    	$data['reserva_visitante']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante,"posicion "=>"Reserva")));
+    	$data['entrenador_visitante']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante,"posicion "=>"Entrenador")));
+    	$data['entrenador_visitante']=$this->alineaciones->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante,"posicion ","Entrenador")));
+    	$data['goles_local']=$this->goles->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local)));
+    	$data['goles_visitante']=$this->goles->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante)));
+    	$data['cambios_local']=$this->cambios->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local)));
+    	$data['cambios_visitante']=$this->cambios->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante)));
+    	$data['tarjetas_local']=$this->tarjetas->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->local)));
+    	$data['tarjetas_visitante']=$this->tarjetas->get(array("select"=>"*","where"=>array("partidos_id"=>$id,"equipos_campeonato_id"=>$data['registro']->visitante)));
+    	
+    	return $this->load->view('ajxresultados_partidos',$data, TRUE);
+    }
+    
+    
+    
     function sync(){
-         $xmlRankingDir = scandir(AFP_HARD_ROOT_FILE . "httpdocs/afp");
-        $numXml = count($xmlRankingDir);
-        for ($i = 0; $i < $numXml; $i++) {
-            $mystring = $xmlRankingDir[$i];
-            $findme = 'FootballMatches_Comp8_ID';
-            $pos = strpos($mystring, $findme);
-            // Nótese el uso de ===. Puesto que == simple no funcionará como se espera
-            // porque la posición de 'a' está en el 1° (primer) caracter.
-            if ($pos === false) {
-                //echo "La cadena '$findme' no fue encontrada en la cadena '$mystring'";
-            } else {
-                $xmlRanking[$i] = $xmlRankingDir[$i];
-                $this->importData('httpdocs/afp/' . $xmlRanking[$i], 'matches');
-                // echo "La cadena '$findme' fue encontrada en la cadena '$mystring'";
-                //echo " y existe en la posición $pos";
-            }
-        }
-
     	echo "<pre>";
     	//$this->importData('WP2014/FootballFixtures_Comp8_ID56661031_es.xml'); //Football Fixtures 2014 hasta que se correspondan los equipos
-    	//$this->importData('WP2010/FootballMatches_Comp8_ID56666052_es.xml' , 'matches');
-    	//$this->importData('WP2014/FootballFixtures_Comp8_ID56661031_es.xml', 'fixture'); //Football Fixtures 2014 hasta que se correspondan los equipos
+    	$this->importData('WP2010/FootballMatches_Comp8_ID56666052_es.xml' , 'matches');
+    	$this->importData('WP2014/FootballFixtures_Comp8_ID56661031_es.xml', 'fixture'); //Football Fixtures 2014 hasta que se correspondan los equipos
     	echo "</pre>";
     }
     
     function importData( $xml, $type ){
-        date_default_timezone_set('UTC');
     	$this->load->module( 'equipos_campeonato' );
     	$this->load->module( 'grupos' );
     	$xml = AFP_XML . $xml; // formo los nombres de los archivos en base a los afp_id de los equipos
@@ -608,24 +657,8 @@ class Partidos extends MY_Controller
     		$local = $this->equipos_campeonato->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_HomeTeamID ) ), TRUE );
     		$visitante = $this->equipos_campeonato->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_AwayTeamID ) ), TRUE );
     		if ( $local && $visitante  ){
-
-              $fechaPartidoAfp = date(str_replace( 'T', ' ', (string)$partido->d_Date));
-              $fechaPartido= date("Y-m-d H:m:s", strtotime('-7 hours',  strtotime($fechaPartidoAfp)));
-              //$fecha=date("Y-m-d H:m:s",str_replace('06','00', $fechaPartido));
-
-
-
-
-                            //$fechaP= date("Y-m-d H:m:s", strtotime('+6 minutes',  strtotime($fechaPartido)));
-
-
-              //$result = date($format, strtotime("-6 hour -54 minutes", strtotime($fechaPartido)));
-
-
-    
-              
     			$partido_insert  = array(
-    					'fecha' => $fechaPartido,
+    					'fecha' => str_replace( 'T', ' ', (string)$partido->d_Date ),
     					'afp_id' => (string)$partido->n_MatchID,
     					'local' => $local->id,
     					'visitante' => $visitante->id,
@@ -633,7 +666,7 @@ class Partidos extends MY_Controller
     					'nombre_visitante' => (string) $partido->c_AwayTeam,
     					'afp_id_estadio' => (isset($partido->n_StadiumGeoID))?(string) $partido->n_StadiumGeoID: '',
     					'nombre_estadio' => (isset($partido->c_Stadium))?(string) $partido->c_Stadium: '',
-    					'grupos_id' => $this->grupos->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_PhaseID ) ), TRUE )->id,
+    					//'grupos_id' => $this->grupos->get( array( 'select' => 'id', 'where' => array( 'afp_id' => (string) $partido->n_PhaseID ) ), TRUE )->id,
     			);
     			if( !$this->_check_exist( array( 'afp_id' => $partido_insert['afp_id'] ) , TRUE ) ){
     				$this->_insert($partido_insert);
@@ -644,7 +677,7 @@ class Partidos extends MY_Controller
     					$this->_update($partido_insert, $dataPartido->id );
     				}
     				 
-    			}  			
+    			}    			
     		}    		
     	}
     }
@@ -688,5 +721,4 @@ class Partidos extends MY_Controller
 	    
 		}
 	}
-
 }

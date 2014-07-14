@@ -76,13 +76,13 @@ class Mdl_partidos extends MY_Model
         $this->load->module('equipos');
         $this->load->module('estadios');
         $partidos = $this->get(array(
-            'select' => "partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local,
+            'select' => "(select url from videos where partidos.id = videos.idpartido) as url,partidos.fecha AS fechaComplete, partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local,
             partidos.nombre_visitante, partidos.local, partidos.visitante,
              CONCAT(ELT(WEEKDAY(partidos.fecha) + 1, 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo') , ', ',DAY(partidos.fecha), ' de ', ELT(MONTH(partidos.fecha) ,    'enero', 'febrero','marzo', 'abril', 'mayo', 'junio',  'julio',  'agosto',  'septiembre',  'octubre', 'noviembre',  'diciembre'  )) AS fechatexto ",
             'order_by' => 'partidos.fecha ASC',
-            'where' => "(SELECT  DATE_FORMAT(b.fecha, '%Y-%c-%e') from partidos b   WHERE DATE_FORMAT(b.fecha, '%Y-%c-%e')  > SUBDATE( NOW(), 1) GROUP BY DATE_FORMAT(b.fecha, '%Y-%c-%e') LIMIT 1) =  DATE_FORMAT(partidos.fecha, '%Y-%c-%e')"
+            'where' => "(SELECT  DATE_FORMAT(b.fecha, '%Y-%c-%e') from partidos b   WHERE DATE_FORMAT(b.fecha, '%Y-%c-%e')  > SUBDATE( NOW(), 1) GROUP BY DATE_FORMAT(b.fecha, '%Y-%c-%e') ORDER BY fecha LIMIT 1) =  DATE_FORMAT(partidos.fecha, '%Y-%c-%e')"
             ));
-        $ultimo = $this->db->last_query();
+
         $datos = array();
         foreach ($partidos as $partido) {
             if (isset($partido->resultado)) {
@@ -134,8 +134,32 @@ class Mdl_partidos extends MY_Model
         $this->load->module('estadios');
 
         //query recupera el listado de todos los partidos ordenados por fecha
-        $partidos = $this->get(array('select' => "partidos.local, partidos.visitante, partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
+        $partidos = $this->get(array('select' => "(select url from videos where partidos.id = videos.idpartido) as url,partidos.local, partidos.visitante, partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
             'order_by' => 'partidos.fecha ASC'
+            ));
+
+        $datos = array();
+        foreach ($partidos as $partido) {
+            if (isset($partido->resultado)) {
+                $goles = explode('-', $partido->resultado);
+                $partido->golesLocal = $goles[0];
+                $partido->golesVisitante = $goles[1];
+            } else {
+                $partido->golesLocal = 0;
+                $partido->golesVisitante = 0;
+            }
+            array_push($datos, $partido);
+        }
+        return $datos;
+    }
+   function getAllByTodaySegundaFase()
+    {
+        $this->load->module('equipos');
+        $this->load->module('estadios');
+
+        //query recupera el listado de todos los partidos ordenados por fecha
+        $partidos = $this->get(array('select' => "(select url from videos where partidos.id = videos.idpartido) as url,partidos.local, partidos.visitante, partidos.id, DATE_FORMAT(partidos.fecha, '%Y-%c-%e') AS fecha, DATE_FORMAT(partidos.fecha, '%k:%i') AS hora, partidos.estado, nombre_estadio AS estadio_nombre, partidos.resultado, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos. LOCAL ) AS local_corto, ( SELECT equipos_campeonato.short_name FROM equipos_campeonato WHERE equipos_campeonato.id = partidos.visitante ) AS visitante_corto, partidos.nombre_local, partidos.nombre_visitante",
+            'order_by' => 'partidos.fecha ASC', 'where'=> array('grupos_id >' => 8)
             ));
 
         $datos = array();
@@ -159,9 +183,12 @@ function getProximoPartido()
     {
         date_default_timezone_set('America/Bogota');
         
-        
         //query recupera el listado de todos los partidos ordenados por fecha
-        $partidos = $this->get(array('select' => "*",'where' => "DATE_FORMAT(partidos.fecha, '%Y-%c-%e %k:%i')  > NOW()  LIMIT 1"));
+       // $partidos = $this->get(array('select' => "*",'where' => "DATE_FORMAT(partidos.fecha, '%Y-%c-%e %k:%i')  >=  NOW() LIMIT 1"));
+
+        $partidos = $this->get(array('select' => "*",'where' => "UNIX_TIMESTAMP(fecha)  > UNIX_TIMESTAMP(now()) ORDER BY fecha LIMIT 1"));
+
+
          //echo $this->db->last_query();
         $datos['idPartido']=$partidos[0]->id;
         $datos['fecha'] =$partidos[0]->fecha;
@@ -179,6 +206,8 @@ function getProximoPartido()
         $datos['nombre_visitante'] = $partidos[0]->nombre_visitante;
         $datos['tactica_local'] =$partidos[0]->tactica_local;
         $datos['tactica_visitante'] = $partidos[0]->tactica_visitante;
+        $datos['short_name_local'] =$partidos[0]->short_name_local;
+        $datos['short_name_visitante'] = $partidos[0]->short_name_visitante;
         return $datos;
     }
 

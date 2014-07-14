@@ -39,5 +39,22 @@
 <script type="text/javascript"
         src="<?php echo base_url('/assets/js/brasil2014.js') ?>"></script>
 <!-- fire plugin onDocumentReady -->
+<script type="text/javascript">
+    adroll_adv_id = "7IEKX4QU7NGODM7RAJE7NN";
+    adroll_pix_id = "3ZEKOXB4VRE57G7GJ2DCC5";
+    (function () {
+        var oldonload = window.onload;
+        window.onload = function(){
+            __adroll_loaded=true;
+            var scr = document.createElement("script");
+            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+            scr.setAttribute('async', 'true');
+            scr.type = "text/javascript";
+            scr.src = host + "/j/roundtrip.js";
+            ((document.getElementsByTagName('head') || [null])[0] ||
+                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+            if(oldonload){oldonload()}};
+    }());
+</script>
 </body>
 </html>
