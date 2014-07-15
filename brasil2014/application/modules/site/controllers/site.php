@@ -20,7 +20,7 @@ class Site extends MY_Controller
     {
 
         // para la final se comentan la llamada a las secciones.
-        
+
         //$this->output->cache(30);
         $this->load->module('grupos');
         $this->load->module('partidos');
